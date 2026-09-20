@@ -1,0 +1,274 @@
+[
+  {
+    "id": "gxds-2026",
+    "name": "中国国际大学生创新大赛（2026）",
+    "host": "教育部",
+    "category": "创新创业",
+    "level": "国家级",
+    "regStart": "2026-08-10",
+    "regEnd": "2026-09-25",
+    "contestStart": "2026-10-01",
+    "contestEnd": "2026-12-31",
+    "tags": [
+      "创新创业",
+      "团队项目",
+      "含金量高"
+    ],
+    "summary": "教育部主办的最具影响力大学生创新创业赛事（原「互联网+」），设高教主赛道、青年红色筑梦之旅赛道、产业命题等赛道，报名系统开放至 9 月 25 日 12 时。",
+    "registrationUrl": "https://cy.ncss.cn",
+    "officialUrl": "https://hudong.moe.gov.cn/srcsite/A08/s5672/202607/t20260731_1445670.html",
+    "note": "报名截止 2026-09-25 12:00，须通过全国大学生创业服务网报名",
+    "recurring": false
+  },
+  {
+    "id": "lanqiao-18",
+    "name": "蓝桥杯全国大学生软件和信息技术大赛",
+    "host": "工业和信息化部人才交流中心",
+    "category": "编程竞赛",
+    "level": "国家级",
+    "regStart": "2026-10-20",
+    "regEnd": "2027-03-15",
+    "contestStart": "2027-04-01",
+    "contestEnd": "2027-06-30",
+    "tags": [
+      "算法",
+      "软件赛",
+      "省赛+国赛"
+    ],
+    "summary": "面向全国高校的 TMT 行业赛事，覆盖软件赛（C/C++、Java、Python、Web）、电子赛、人工智能赛等方向。第 17 届软件赛报名期为 2025-10-20 至 2026-03-11，第 18 届预计 2026 年 10 月开启，以官方通知为准。",
+    "registrationUrl": "https://dasai.lanqiao.cn",
+    "officialUrl": "https://dasai.lanqiao.cn/notices/1829/",
+    "note": "报名时间以官方最新通知为准，一般由学校统一组织",
+    "recurring": false
+  },
+  {
+    "id": "mcm-2027",
+    "name": "高教社杯全国大学生数学建模竞赛（2027）",
+    "host": "中国工业与应用数学学会",
+    "category": "数学建模",
+    "level": "国家级",
+    "regStart": "2027-05-01",
+    "regEnd": "2027-09-07",
+    "contestStart": "2027-09-01",
+    "contestEnd": "2027-09-30",
+    "tags": [
+      "数学建模",
+      "3人团队",
+      "赛题公开"
+    ],
+    "summary": "每年 9 月中旬竞赛、5 月起报名注册。以 2026 届为例：5 月 1 日至 9 月 7 日报名，9 月 13 日前提交论文 MD5，面向全国高校本科生/专科生，3 人一队。",
+    "registrationUrl": "https://www.mcm.edu.cn",
+    "officialUrl": "https://www.mcm.edu.cn/upload_cn/node/779/D3txF20S95f4041e22b41b4a1f9e0e22ac8a1389.pdf",
+    "note": "2026 届已结束；2027 届时间按历届规律估算，以官方通知为准",
+    "recurring": false
+  },
+  {
+    "id": "codecraft-2027",
+    "name": "华为软件精英挑战赛 CodeCraft（2027）",
+    "host": "华为",
+    "category": "编程竞赛",
+    "level": "企业级",
+    "regStart": "2027-03-16",
+    "regEnd": "2027-04-09",
+    "contestStart": "2027-03-23",
+    "contestEnd": "2027-04-30",
+    "tags": [
+      "算法",
+      "云原生",
+      "高奖金"
+    ],
+    "summary": "华为年度算法与工程赛事，面向高校学生，设区域初赛与全国总决赛。2026 届：3/16–4/9 报名、3/23 发布赛题、4/10 起在线练习。",
+    "registrationUrl": "https://developer.huaweicloud.com/codecraft2026",
+    "officialUrl": "https://developer.huaweicloud.com/codecraft2026",
+    "note": "2026 届已结束；2027 届时间参照上届，以官方为准",
+    "recurring": false
+  },
+  {
+    "id": "imc-challenge",
+    "name": "国际大学生数学竞赛华为挑战赛（IMC Challenge）",
+    "host": "华为 × IMC",
+    "category": "数学建模",
+    "level": "国际",
+    "regStart": "2026-06-01",
+    "regEnd": "2026-07-18",
+    "contestStart": "2026-06-18",
+    "contestEnd": "2026-08-15",
+    "tags": [
+      "数学",
+      "算法",
+      "国际"
+    ],
+    "summary": "面向全球大学生的数学与编程挑战赛。赛道 B：6 月 1 日起报名、6 月 18 日开放赛题、7 月 18 日报名截止并关闭代码提交。",
+    "registrationUrl": "https://www.huawei.com/minisite/imc-challenge/cn/",
+    "officialUrl": "https://www.huawei.com/minisite/imc-challenge/cn/",
+    "note": "本届已结束，可关注下一届",
+    "recurring": false
+  },
+  {
+    "id": "tianchi-platform",
+    "name": "阿里云天池 · 大数据/AI 竞赛平台",
+    "host": "阿里云",
+    "category": "数据AI",
+    "level": "企业级",
+    "regStart": "2025-01-01",
+    "regEnd": "2027-12-31",
+    "contestStart": "2025-01-01",
+    "contestEnd": "2027-12-31",
+    "tags": [
+      "数据挖掘",
+      "大模型",
+      "免费报名"
+    ],
+    "summary": "阿里云天池常设 AI 大模型赛、数据算法赛、工程开发赛等赛道，大学生竞赛免费报名，平台持续上新赛题（如阿里云 Data+AI 工程师全球挑战赛等）。",
+    "registrationUrl": "https://tianchi.aliyun.com/competition/",
+    "officialUrl": "https://tianchi.aliyun.com/competition/",
+    "note": "平台常驻，持续上新；注册后可关注进行中的比赛",
+    "recurring": true
+  },
+  {
+    "id": "kaggle-arc2026",
+    "name": "Kaggle · ARC Prize 2026",
+    "host": "Kaggle / ARC Prize",
+    "category": "数据AI",
+    "level": "国际",
+    "regStart": "2026-06-01",
+    "regEnd": "2026-10-31",
+    "contestStart": "2026-06-01",
+    "contestEnd": "2026-11-15",
+    "tags": [
+      "通用人工智能",
+      "代码竞赛",
+      "免费"
+    ],
+    "summary": "面向全球开放、免费注册的 AI 代码竞赛（ARC-AGI-3 等，2026-09 仍在进行），无需报名费，适合练手并积累国际赛事经历。",
+    "registrationUrl": "https://www.kaggle.com/competitions",
+    "officialUrl": "https://www.kaggle.com/competitions?listOption=active",
+    "note": "竞赛持续上新，注册 Kaggle 账号即可参赛",
+    "recurring": true
+  },
+  {
+    "id": "bytedance-camp",
+    "name": "字节跳动青训营 × 豆包 MarsCode",
+    "host": "字节跳动 / 稀土掘金",
+    "category": "训练营",
+    "level": "企业级",
+    "regStart": "2026-09-01",
+    "regEnd": "2026-11-30",
+    "contestStart": "2026-09-15",
+    "contestEnd": "2026-12-31",
+    "tags": [
+      "前端",
+      "后端",
+      "AI",
+      "全程免费"
+    ],
+    "summary": "字节跳动技术团队发起的技术培训与人才选拔项目，面向高校在校生，全程免费，设前端、后端、AI 等方向，含课程、实战与结营证书。",
+    "registrationUrl": "https://jobs.bytedance.com/campus",
+    "officialUrl": "https://blog.csdn.net/qq_42180695/article/details/142926369",
+    "note": "2026 秋季报名进行中，关注官方发布入口",
+    "recurring": true
+  },
+  {
+    "id": "tiaozhanbei-2027",
+    "name": "挑战杯 · 全国大学生课外学术科技作品/创业计划竞赛",
+    "host": "共青团中央等",
+    "category": "创新创业",
+    "level": "国家级",
+    "regStart": "2027-03-01",
+    "regEnd": "2027-06-30",
+    "contestStart": "2027-04-01",
+    "contestEnd": "2027-08-31",
+    "tags": [
+      "创新创业",
+      "学术科技",
+      "团队"
+    ],
+    "summary": "两年一届的顶级大学生赛事（创业计划竞赛与课外学术作品竞赛交替），含揭榜挂帅专项赛。2026 届揭榜挂帅专项赛报名 5/30–6/30。",
+    "registrationUrl": "https://2026.tiaozhanbei.net",
+    "officialUrl": "https://tuanwei.scu.edu.cn/info/1004/28295.htm",
+    "note": "时间以每届官方通知为准",
+    "recurring": false
+  },
+  {
+    "id": "wuyi-mcm-2027",
+    "name": "五一数学建模竞赛（2027）",
+    "host": "中国矿业大学等",
+    "category": "数学建模",
+    "level": "全国",
+    "regStart": "2027-04-02",
+    "regEnd": "2027-04-30",
+    "contestStart": "2027-05-01",
+    "contestEnd": "2027-05-05",
+    "tags": [
+      "数学建模",
+      "入门友好"
+    ],
+    "summary": "每年五一假期举行的数学建模竞赛，2026 届报名 4/2–4/30，对新手友好，是国赛前的重要练兵。",
+    "registrationUrl": "https://www.mcm.edu.cn",
+    "officialUrl": "https://cxcyxy.njit.edu.cn/info/1017/2791.htm",
+    "note": "时间参照 2026 届安排",
+    "recurring": false
+  },
+  {
+    "id": "icpc-huawei",
+    "name": "ICPC × 华为 Global Challenge",
+    "host": "ICPC / 华为",
+    "category": "编程竞赛",
+    "level": "国际",
+    "regStart": "2026-07-27",
+    "regEnd": "2026-08-30",
+    "contestStart": "2026-08-01",
+    "contestEnd": "2026-09-30",
+    "tags": [
+      "算法",
+      "国际",
+      "在线"
+    ],
+    "summary": "ICPC 官方在线挑战赛（如华为赞助的 Global Challenge），面向全球选手开放注册与参赛。",
+    "registrationUrl": "https://icpc.global",
+    "officialUrl": "https://icpc.global/regionals/finder/HuaweiGlobalChallenge-2021",
+    "note": "以 ICPC 官网最新赛季为准",
+    "recurring": true
+  },
+  {
+    "id": "fathomnet-2027",
+    "name": "Kaggle · FathomNetCLEF（CV 方向）",
+    "host": "LifeCLEF / Kaggle",
+    "category": "数据AI",
+    "level": "国际",
+    "regStart": "2026-11-17",
+    "regEnd": "2027-04-23",
+    "contestStart": "2027-02-06",
+    "contestEnd": "2027-05-07",
+    "tags": [
+      "计算机视觉",
+      "分类",
+      "国际"
+    ],
+    "summary": "细粒度视觉分类竞赛，注册免费。2026 届 11 月开放注册、次年 5 月截止提交。",
+    "registrationUrl": "https://www.kaggle.com/competitions/fathomnet-2026/overview",
+    "officialUrl": "https://www.kaggle.com/competitions/fathomnet-2026/overview",
+    "note": "时间参照 2026 届安排",
+    "recurring": false
+  },
+  {
+    "id": "live-lc-weekly",
+    "name": "LeetCode 周赛 / 双周赛",
+    "host": "LeetCode",
+    "category": "编程竞赛",
+    "level": "国际",
+    "regStart": "2026-09-20",
+    "regEnd": "2099-12-31",
+    "contestStart": "2026-09-20",
+    "contestEnd": "2099-12-31",
+    "tags": [
+      "算法",
+      "周赛"
+    ],
+    "summary": "每周固定节奏的算法竞赛，适合日常保持手感。",
+    "registrationUrl": "https://leetcode.com/contest/",
+    "officialUrl": "https://leetcode.com/contest/",
+    "note": "常驻，每周自动开赛",
+    "recurring": true
+  }
+]
