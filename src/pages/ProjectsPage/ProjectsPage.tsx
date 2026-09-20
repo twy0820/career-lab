@@ -11,6 +11,7 @@ import { SIM_PROJECTS } from '@/data/projects';
 import type { IProject } from '@/data/types';
 import { requiredLevelForDifficulty, rankForLevel } from '@/data/ranks';
 import { gateProjectWithLevel, sortByTier, type GateResult } from '@/lib/recommend';
+import { useMocks } from '@/hooks/use-mocks';
 
 function categoryOf(p: IProject): string {
   if (p.category) return p.category;
@@ -33,15 +34,17 @@ const TIER_META: Record<GateResult['tier'], { label: string; cls: string; icon: 
 
 export default function ProjectsPage() {
   const { state, level } = useProgress();
+  const mocks = useMocks();
   const [cat, setCat] = useState('全部');
 
   const rows = useMemo(() => {
-    const filtered = SIM_PROJECTS.filter((p) =>
+    const all = [...mocks.projects, ...SIM_PROJECTS];
+    const filtered = all.filter((p) =>
       cat === '全部' ? true : categoryOf(p) === cat
     );
     const withGates = filtered.map((p) => ({ p, gate: gateProjectWithLevel(p, state, level) }));
     return sortByTier(withGates);
-  }, [cat, state, level]);
+  }, [cat, state, level, mocks.projects]);
 
   return (
     <div className="space-y-6">

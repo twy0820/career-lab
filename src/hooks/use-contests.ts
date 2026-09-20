@@ -1,6 +1,7 @@
 // EXPORTS: useContests, CONTEST_STATUS_META, contestStatus, CONTEST_CATEGORIES, BASE_PATH
 import { useEffect, useState } from 'react';
 import type { IContest, IContestStatus } from '@/data/types';
+import { useMocks } from './use-mocks';
 
 export const BASE_PATH =
   ((import.meta.env.MIAODA_CLIENT_BASE_PATH as string | undefined) || '').replace(/\/$/, '') +
@@ -36,6 +37,7 @@ export function useContests() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [refreshing, setRefreshing] = useState(false);
+  const mocks = useMocks();
 
   useEffect(() => {
     let cancelled = false;
@@ -54,6 +56,11 @@ export function useContests() {
     };
   }, []);
 
+  const merged = (() => {
+    const mockIds = new Set(mocks.contests.map((c) => c.id));
+    return [...mocks.contests, ...contests.filter((c) => !mockIds.has(c.id))];
+  })();
+
   const refresh = () => {
     setRefreshing(true);
     return loadContests(true)
@@ -62,7 +69,7 @@ export function useContests() {
       .finally(() => setRefreshing(false));
   };
 
-  return { contests, loading, error, refreshing, refresh, updatedAt: CONTEST_DATA_UPDATED_AT };
+  return { contests: merged, loading, error, refreshing, refresh, updatedAt: CONTEST_DATA_UPDATED_AT };
 }
 
 const dayDiff = (dateStr: string, now: Date): number => {
