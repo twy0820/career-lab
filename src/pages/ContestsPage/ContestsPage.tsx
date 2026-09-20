@@ -32,6 +32,7 @@ import {
   daysText,
 } from '@/hooks/use-contests';
 import type { IContestStatus } from '@/data/types';
+import { useMocks } from '@/hooks/use-mocks';
 
 const STATUS_TABS: { key: IContestStatus | 'all'; label: string }[] = [
   { key: 'all', label: '全部' },
@@ -44,6 +45,7 @@ const STATUS_TABS: { key: IContestStatus | 'all'; label: string }[] = [
 
 export default function ContestsPage() {
   const { contests, loading, error, refreshing, refresh, updatedAt } = useContests();
+  const mocks = useMocks();
   const { state, toggleFavorite } = useProgress();
   const [now, setNow] = useState(() => new Date());
   useEffect(() => {
@@ -186,7 +188,14 @@ export default function ContestsPage() {
               >
                 <div className="flex items-start justify-between gap-3">
                   <div className="min-w-0">
-                    <h3 className="font-semibold leading-snug">{c.name}</h3>
+                    <h3 className="font-semibold leading-snug flex items-center gap-2">
+                  {c.name}
+                  {mocks.mockContestIds.has(c.id) && (
+                    <span className="rounded bg-gradient-to-r from-fuchsia-500/20 to-violet-500/20 px-1.5 py-0.5 text-[10px] font-normal text-fuchsia-300 border border-fuchsia-500/40">
+                      ✨ AI 本周新增
+                    </span>
+                  )}
+                </h3>
                     <p className="mt-0.5 text-xs text-muted-foreground">{c.host}</p>
                   </div>
                   <Button

@@ -9,18 +9,13 @@ generate_mocks.py — 每周一次，根据本周前沿动态，用 LLM 自动�
   LLM_MODEL
 
 输出：
-  public/data/mock-library.json  = {
-    "generatedAt": "...",
-    "projects": [...],
-    "contests": [...]
-  }
-
-前端启动时 merge 这个文件到静态数据里。
+  public/data/mock-library.json
 """
 from __future__ import annotations
 
 import json
 import os
+import re
 import sys
 import urllib.request
 from datetime import datetime, timezone
@@ -29,7 +24,33 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "public" / "data" / "mock-library.json"
 
-PROMPT = """你是资深技术面试官 + 竞赛教练。现在是 2026 年。请根据本周最新的企业招聘需求、技术趋势和竞赛热点，生成：
+# 静态项目最多到 p50，静态竞赛最多到 a30；下周从这之后接着编
+BASE_PROJ = 50
+BASE_ARC = 30
+
+
+def read_existing_ids():
+    if not OUT.exists():
+        return BASE_PROJ, BASE_ARC
+    try:
+        data = json.loads(OUT.read_text(encoding="utf-8"))
+        mp = BASE_PROJ
+        ma = BASE_ARC
+        for p in data.get("projects", []):
+            m = re.match(r"p(\d+)", str(p.get("id", "")))
+            if m:
+                mp = max(mp, int(m.group(1)))
+        for c in data.get("contests", []):
+            m = re.match(r"a(\d+)", str(c.get("id", "")))
+            if m:
+                ma = max(ma, int(m.group(1)))
+        return mp, ma
+    except Exception:
+        return BASE_PROJ, BASE_ARC
+
+
+def build_prompt(proj_start: int, arc_start: int) -> str:
+    return f"""你是资深技术面试官 + 竞赛教练。现在是 2026 年。请根据本周最新的企业招聘需求、技术趋势和竞赛热点，生成：
 
 1. 3 个新的"企业实战模拟项目"草稿
 2. 2 个新的"模拟竞赛"草稿
@@ -37,23 +58,24 @@ PROMPT = """你是资深技术面试官 + 竞赛教练。现在是 2026 年。�
 要求：
 - 紧跟当下最热方向：RAG / Agent / 多模态 / 全栈 / 数据工程 / 前端工程化 / 云原生 / AI Infra 等
 - 难度覆盖入门~进阶（difficulty: 1-4）
-- 每个项目字段：id(唯一,以 gen-proj- 开头), title, company, role, stack[], summary, background, duration, difficulty, category, skills[](技能 id: python/java/cpp/go/algo/sql/redis/vector/linux/git/spring/fastapi/docker/dist/ds/ml/dl/llm/deploy/web/vue/react/review 中选), phases[](每个阶段 {name, goal, tasks: [{name, xp: 50}]})
-- 每个竞赛字段：id(唯一,以 gen-arc- 开头), name, host, category, level, regStart(今天), regEnd, contestStart, contestEnd, tags[], summary, registrationUrl, officialUrl, recurring=false
-- 难度 -> 所需等级：(difficulty-1)*3+1
-- 严格输出 JSON：{"projects": [...], "contests": [...]}，不要解释，不要 markdown 代码块。
+- 项目 id 必须是 p{proj_start}、p{proj_start+1}、p{proj_start+2} 这种递增格式
+- 竞赛 id 必须是 a{arc_start}、a{arc_start+1} 这种递增格式
+- 每个项目字段：id, title, company, role, stack[], summary, background, duration, difficulty, category, skills[](技能 id: python/java/cpp/go/algo/sql/redis/vector/linux/git/spring/fastapi/docker/dist/ds/ml/dl/llm/deploy/web/vue/react/review 中选), phases[](每个阶段 {{name, goal, tasks: [{{name, xp: 50}}]}})
+- 每个竞赛字段：id, name, host, category, level, regStart(今天), regEnd, contestStart, contestEnd, tags[], summary, registrationUrl, officialUrl, recurring=false
+- 严格输出 JSON：{{"projects": [...], "contests": [...]}}，不要解释，不要 markdown 代码块。
 """
 
 
-def call_llm() -> str:
+def call_llm(prompt: str) -> str:
     key = os.getenv("LLM_API_KEY")
     base = os.getenv("LLM_BASE_URL", "https://ark.cn-beijing.volces.com/api/v3")
     model = os.getenv("LLM_MODEL", "doubao-pro-32k")
     if not key:
-        print("[skip] 未配置 LLM_API_KEY，跳过", file=sys.stderr)
+        print("[skip] 未配置 LLM_API_KEY", file=sys.stderr)
         return ""
     body = json.dumps({
         "model": model,
-        "messages": [{"role": "user", "content": PROMPT}],
+        "messages": [{"role": "user", "content": prompt}],
         "temperature": 0.8,
     }).encode("utf-8")
     req = urllib.request.Request(
@@ -71,9 +93,11 @@ def call_llm() -> str:
 
 
 def main() -> int:
-    text = call_llm()
+    max_proj, max_arc = read_existing_ids()
+    prompt = build_prompt(max_proj + 1, max_arc + 1)
+    text = call_llm(prompt)
+
     if not text:
-        # 没配 Key 也写一个空文件，保证前端不会 404
         OUT.parent.mkdir(parents=True, exist_ok=True)
         OUT.write_text(
             json.dumps({"generatedAt": None, "projects": [], "contests": []}, ensure_ascii=False, indent=2) + "\n",
