@@ -7,12 +7,13 @@
       "company": "Notion AI 中国",
       "role": "AI应用开发实习生",
       "stack": ["Python", "OpenAI Embedding", "Chroma向量库", "FastAPI"],
-      "summary": "开发一个可本地运行的个人笔记问答RAG系统，支持Markdown/PDF文档增量导入、混合检索和自然语言问答，满足个人知识管理需求",
-      "background": "本地AI隐私计算和个人知识管理需求持续增长，轻量RAG是AI应用开发入门的核心实战场景，企业招聘中非常看重这类落地项目经验",
+      "summary": "开发一个可本地运行的个人笔记问答RAG系统，支持Markdown/PDF文档增量导入、混合检索和自然语言问答",
+      "background": "本地AI隐私计算和个人知识管理需求持续增长，轻量RAG是AI应用开发入门的核心实战场景",
       "duration": "2周",
       "difficulty": 1,
       "category": "RAG/AI应用",
-      "fresh": true,`n      "skills": ["python", "llm", "vector", "dl", "fastapi", "git"],
+      "skills": ["python", "llm", "vector", "dl", "fastapi", "git"],
+      "fresh": true,
       "phases": [
         {
           "name": "阶段一：环境与数据接入",
@@ -40,12 +41,13 @@
       "company": "淘宝天猫集团",
       "role": "AI Agent高级开发工程师",
       "stack": ["Python", "Qwen-VL", "LangGraph", "Redis", "Docker", "React"],
-      "summary": "开发一个能理解用户图文需求、调用商品搜索工具、解答售前售后问题的多模态导购Agent，支持多轮对话上下文管理和错误修正",
-      "background": "电商智能化转型中，多模态Agent可大幅提升导购效率和用户转化率，是互联网大厂核心落地方向",
+      "summary": "开发一个能理解用户图文需求、调用商品搜索工具、解答售前售后问题的多模态导购Agent",
+      "background": "电商智能化转型中，多模态Agent可大幅提升导购效率和用户转化率",
       "duration": "6周",
       "difficulty": 3,
       "category": "Agent/多模态",
-      "fresh": true,`n      "skills": ["python", "redis", "vector", "docker", "ds", "ml", "dl", "llm", "deploy", "react", "web"],
+      "skills": ["python", "redis", "vector", "docker", "ds", "ml", "dl", "llm", "deploy", "react", "web"],
+      "fresh": true,
       "phases": [
         {
           "name": "阶段一：Agent 骨架",
@@ -73,12 +75,13 @@
       "company": "阿里云智能",
       "role": "AI Infra开发工程师",
       "stack": ["Go", "Kubernetes", "Envoy", "Redis", "Docker"],
-      "summary": "开发支持多模型多租户管理、动态负载均衡、弹性扩缩容、流量控制和监控的大模型推理统一网关，兼容OpenAI协议",
-      "background": "企业大模型落地过程中，多模型推理流量管理和成本优化是核心痛点，云原生AI Infra是当前技术招聘最热门方向之一",
+      "summary": "开发支持多模型多租户管理、动态负载均衡、弹性扩缩容的大模型推理统一网关",
+      "background": "企业大模型落地过程中，多模型推理流量管理和成本优化是核心痛点",
       "duration": "8周",
       "difficulty": 4,
       "category": "AI Infra/云原生",
-      "fresh": true,`n      "skills": ["go", "redis", "docker", "linux", "git", "deploy"],
+      "skills": ["go", "redis", "docker", "linux", "git", "deploy"],
+      "fresh": true,
       "phases": [
         {
           "name": "阶段一：网关基础",
@@ -112,11 +115,12 @@
       "regEnd": "2026-10-20",
       "contestStart": "2026-10-25",
       "contestEnd": "2026-11-25",
-      "fresh": true,`n      "tags": ["多模态", "RAG", "LLM", "信息检索"],
-      "summary": "面向企业真实图文混排长文档场景，参赛队伍需构建高准确率的多模态RAG系统，按召回精度、回答准确率和推理速度综合排名，优胜者可获得直通大厂面试机会",
+      "tags": ["多模态", "RAG", "LLM", "信息检索"],
+      "summary": "面向企业真实图文混排长文档场景，构建高准确率的多模态RAG系统",
       "registrationUrl": "https://contest.zhipuai.cn/2026-multimodal-rag",
       "officialUrl": "https://contest.zhipuai.cn/2026-multimodal-rag",
-      "recurring": false
+      "recurring": false,
+      "fresh": true
     },
     {
       "id": "a32",
@@ -128,11 +132,12 @@
       "regEnd": "2026-10-10",
       "contestStart": "2026-10-15",
       "contestEnd": "2026-11-05",
-      "fresh": true,`n      "tags": ["Agent", "全栈", "多模态", "LLM", "前端工程化"],
-      "summary": "参赛队伍基于官方提供的大模型底座，自主选择垂直场景（办公/教育/本地生活）开发端到端AI Agent全栈应用，优胜者可获得校招/社招offer绿色通道",
+      "tags": ["Agent", "全栈", "多模态", "LLM", "前端工程化"],
+      "summary": "基于官方大模型底座，开发端到端AI Agent全栈应用",
       "registrationUrl": "https://competition.bytedance.com/2026-ai-agent",
       "officialUrl": "https://competition.bytedance.com/2026-ai-agent",
-      "recurring": false
+      "recurring": false,
+      "fresh": true
     }
   ]
 }
