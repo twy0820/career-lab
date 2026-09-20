@@ -43,8 +43,14 @@ export default function ProjectsPage() {
       cat === '全部' ? true : categoryOf(p) === cat
     );
     const withGates = filtered.map((p) => ({ p, gate: gateProjectWithLevel(p, state, level) }));
-    return sortByTier(withGates);
-  }, [cat, state, level, mocks.projects]);
+    const sorted = sortByTier(withGates);
+    sorted.sort((a, b) => {
+      const af = mocks.freshProjectIds.has(a.p.id) ? 0 : 1;
+      const bf = mocks.freshProjectIds.has(b.p.id) ? 0 : 1;
+      return af - bf;
+    });
+    return sorted;
+  }, [cat, state, level, mocks]);
 
   return (
     <div className="space-y-6">

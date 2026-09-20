@@ -73,7 +73,12 @@ export default function ContestsPage() {
         }
         return true;
       })
-      .sort((a, b) => a.c.regEnd.localeCompare(b.c.regEnd));
+      .sort((a, b) => {
+        const af = mocks.freshContestIds.has(a.c.id) ? 0 : 1;
+        const bf = mocks.freshContestIds.has(b.c.id) ? 0 : 1;
+        if (af !== bf) return af - bf;
+        return a.c.regEnd.localeCompare(b.c.regEnd);
+      });
   }, [contests, now, statusTab, category, keyword]);
 
   const handleFavorite = (id: string) => {
