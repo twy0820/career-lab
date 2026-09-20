@@ -61,8 +61,12 @@ def call_llm() -> str:
         data=body,
         headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"},
     )
-    with urllib.request.urlopen(req, timeout=90) as r:
-        data = json.loads(r.read().decode("utf-8"))
+    try:
+        with urllib.request.urlopen(req, timeout=180) as r:
+            data = json.loads(r.read().decode("utf-8"))
+    except Exception as e:
+        print(f"[warn] LLM 调用失败：{e}", file=sys.stderr)
+        return ""
     return data["choices"][0]["message"]["content"]
 
 
