@@ -54,7 +54,7 @@ export default function ProjectsPage() {
 
   return (
     <div className="space-y-6">
-      <TerminalPanel title="~/projects" status={`${SIM_PROJECTS.length} 个项目`}>
+      <TerminalPanel title="~/projects" status={`${SIM_PROJECTS.length + mocks.projects.length} 个项目`}>
         <div>
           <h2 className="text-lg font-bold">企业实战模拟</h2>
           <p className="mt-1 max-w-3xl text-sm text-muted-foreground">

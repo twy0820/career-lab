@@ -58,7 +58,8 @@ export default function ContestsPage() {
   const [keyword, setKeyword] = useState('');
 
   const filtered = useMemo(() => {
-    return contests
+    const all = [...mocks.contests, ...contests];
+    return all
       .map((c) => ({ c, st: contestStatus(c, now) }))
       .filter(({ c, st }) => {
         if (statusTab !== 'all' && st !== statusTab) return false;
@@ -79,7 +80,7 @@ export default function ContestsPage() {
         if (af !== bf) return af - bf;
         return a.c.regEnd.localeCompare(b.c.regEnd);
       });
-  }, [contests, now, statusTab, category, keyword]);
+  }, [contests, mocks.contests, mocks.freshContestIds, now, statusTab, category, keyword]);
 
   const handleFavorite = (id: string) => {
     toggleFavorite(id);
