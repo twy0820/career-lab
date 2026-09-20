@@ -58,8 +58,7 @@ export default function ContestsPage() {
   const [keyword, setKeyword] = useState('');
 
   const filtered = useMemo(() => {
-    const all = [...mocks.contests, ...contests];
-    return all
+    return contests
       .map((c) => ({ c, st: contestStatus(c, now) }))
       .filter(({ c, st }) => {
         if (statusTab !== 'all' && st !== statusTab) return false;
@@ -74,13 +73,8 @@ export default function ContestsPage() {
         }
         return true;
       })
-      .sort((a, b) => {
-        const af = mocks.freshContestIds.has(a.c.id) ? 0 : 1;
-        const bf = mocks.freshContestIds.has(b.c.id) ? 0 : 1;
-        if (af !== bf) return af - bf;
-        return a.c.regEnd.localeCompare(b.c.regEnd);
-      });
-  }, [contests, mocks.contests, mocks.freshContestIds, now, statusTab, category, keyword]);
+      .sort((a, b) => a.c.regEnd.localeCompare(b.c.regEnd));
+  }, [contests, now, statusTab, category, keyword]);
 
   const handleFavorite = (id: string) => {
     toggleFavorite(id);
@@ -194,13 +188,8 @@ export default function ContestsPage() {
               >
                 <div className="flex items-start justify-between gap-3">
                   <div className="min-w-0">
-                    <h3 className="font-semibold leading-snug flex items-center gap-2">
+                    <h3 className="font-semibold leading-snug">
                   {c.name}
-                  {mocks.freshContestIds.has(c.id) && (
-                    <span className="rounded bg-gradient-to-r from-fuchsia-500/20 to-violet-500/20 px-1.5 py-0.5 text-[10px] font-normal text-fuchsia-300 border border-fuchsia-500/40">
-                      ✨ AI 本周新增
-                    </span>
-                  )}
                 </h3>
                     <p className="mt-0.5 text-xs text-muted-foreground">{c.host}</p>
                   </div>

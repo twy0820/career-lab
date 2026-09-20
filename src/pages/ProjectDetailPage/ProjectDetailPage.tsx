@@ -25,6 +25,7 @@ import { SKILL_BY_ID } from '@/data/skills';
 import { LESSON_BY_ID } from '@/data/lessons';
 import type { IDeliverable, IPhase, ITicketKind } from '@/data/types';
 import { gateProjectWithLevel } from '@/lib/recommend';
+import { useMocks } from '@/hooks/use-mocks';
 
 const KIND_META: Record<ITicketKind, string> = {
   需求: 'bg-info/15 text-info border-info/30',
@@ -145,7 +146,7 @@ function PhaseSection({
             <Wrench className="h-3.5 w-3.5" /> 开工前准备
           </p>
           <ul className="mt-2 space-y-1.5">
-            {ph.prep.map((p, i) => (
+            {(ph.prep ?? []).map((p, i) => (
               <li key={i} className="flex items-start gap-2 text-xs text-muted-foreground">
                 <Circle className="mt-0.5 h-3 w-3 shrink-0 text-muted-foreground/40" />
                 {p}
@@ -155,13 +156,13 @@ function PhaseSection({
         </div>
 
         {/* 先修课程 */}
-        {ph.knowledge.length > 0 && (
+        {(ph.knowledge ?? []).length > 0 && (
           <div className="rounded-md border border-border bg-card p-3.5">
             <p className="flex items-center gap-2 text-xs font-semibold text-info">
               <BookOpenCheck className="h-3.5 w-3.5" /> 建议先学这些课（点标签去学）
             </p>
             <div className="mt-2 flex flex-wrap gap-1.5">
-              {ph.knowledge.map((kid) => {
+              {(ph.knowledge ?? []).map((kid) => {
                 const lesson = LESSON_BY_ID[kid];
                 const skillId = kid.split('-')[0];
                 const done = state.doneLessons.includes(kid);
@@ -186,7 +187,7 @@ function PhaseSection({
         )}
 
         {/* 产出物 */}
-        {ph.deliverables.map((d) => (
+        {(ph.deliverables ?? []).map((d) => (
           <DeliverableEditor
             key={d.id}
             d={d}
@@ -265,7 +266,8 @@ export default function ProjectDetailPage() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const { state, level, joinProject, leaveProject } = useProgress();
-  const project = id ? PROJECT_BY_ID[id] : undefined;
+  const mocks = useMocks();
+  const project = id ? (PROJECT_BY_ID[id] ?? mocks.projects.find((p) => p.id === id)) : undefined;
 
   if (!project) {
     return (

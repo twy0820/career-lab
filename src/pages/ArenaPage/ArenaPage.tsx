@@ -8,11 +8,13 @@ import TerminalPanel from '@/components/TerminalPanel';
 import { useProgress } from '@/state/progress-context';
 import { SIM_ARENA, ARENA_STYLE_META } from '@/data/arena';
 import { requiredLevelForDifficulty, rankForLevel } from '@/data/ranks';
+import { useMocks } from '@/hooks/use-mocks';
 
 const STYLES = ['全部', '算法', '数据', 'AI 应用', '系统设计'];
 
 export default function ArenaPage() {
   const { state, level } = useProgress();
+  const mocks = useMocks();
   const [style, setStyle] = useState('全部');
 
   const list = useMemo(
@@ -44,6 +46,26 @@ export default function ArenaPage() {
           </div>
         </div>
       </TerminalPanel>
+
+      {/* 本周 AI 模拟竞赛 */}
+      {mocks.contests.length > 0 && (
+        <div className="space-y-3">
+          <h3 className="text-sm font-semibold text-fuchsia-300">✨ 本周 AI 模拟竞赛（{mocks.contests.length}）</h3>
+          <div className="grid gap-4 md:grid-cols-2">
+            {mocks.contests.map((c) => (
+              <TerminalPanel key={c.id} title={`~/arena/${c.id}`} status="simulated"
+                action={<Badge className="bg-fuchsia-500/15 text-fuchsia-300 border-fuchsia-500/40">AI 本周新增</Badge>}>
+                <h3 className="font-semibold">{c.name}</h3>
+                <p className="mt-0.5 text-xs text-muted-foreground">{c.host} · {c.category} · {c.level}</p>
+                <p className="mt-2 text-sm text-muted-foreground line-clamp-3">{c.summary}</p>
+                <div className="mt-3 flex flex-wrap gap-1.5">
+                  {c.tags.map((t) => <Badge key={t} variant="outline" className="text-[10px]">{t}</Badge>)}
+                </div>
+              </TerminalPanel>
+            ))}
+          </div>
+        </div>
+      )}
 
       <div className="grid gap-4 md:grid-cols-2">
         {list.map((a) => {

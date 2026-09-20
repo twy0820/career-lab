@@ -18,7 +18,29 @@ async function load(): Promise<MockLibrary> {
   try {
     const r = await fetch(`${BASE_PATH}data/mock-library.json?t=${Date.now()}`, { cache: 'no-store' });
     if (!r.ok) throw new Error(String(r.status));
-    cache = await r.json();
+    const raw = await r.json();
+    // 规范化：把 LLM 生成的简略字段补成 IProject 形状
+    const projects = (raw.projects ?? []).map((p: any) => ({
+      ...p,
+      phases: (p.phases ?? []).map((ph: any, pi: number) => ({
+        id: ph.id ?? `${p.id}-ph${pi + 1}`,
+        name: ph.name ?? `阶段${pi + 1}`,
+        goal: ph.goal ?? '',
+        prep: ph.prep ?? [],
+        knowledge: ph.knowledge ?? [],
+        deliverables: ph.deliverables ?? [],
+        tickets: (ph.tickets ?? []).map((t: any, ti: number) => ({
+          id: t.id ?? `${p.id}-t${ti + 1}`,
+          title: t.title ?? t.name ?? `任务${ti + 1}`,
+          kind: t.kind ?? '开发',
+          priority: t.priority ?? 'P0',
+          context: t.context ?? '',
+          acceptance: t.acceptance ?? ['完成即可'],
+          xp: t.xp ?? 30,
+        })),
+      })),
+    }));
+    cache = { generatedAt: raw.generatedAt ?? null, projects, contests: raw.contests ?? [] };
   } catch {
     cache = { generatedAt: null, projects: [], contests: [] };
   }
