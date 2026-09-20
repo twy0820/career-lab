@@ -34,5 +34,7 @@ export function useMocks() {
   }, []);
   const mockProjectIds = new Set(data.projects.map((p) => p.id));
   const mockContestIds = new Set(data.contests.map((c) => c.id));
-  return { ...data, mockProjectIds, mockContestIds };
+  const freshProjectIds = new Set(data.projects.filter((p) => (p as { fresh?: boolean }).fresh).map((p) => p.id));
+  const freshContestIds = new Set(data.contests.filter((c) => (c as { fresh?: boolean }).fresh).map((c) => c.id));
+  return { ...data, mockProjectIds, mockContestIds, freshProjectIds, freshContestIds };
 }

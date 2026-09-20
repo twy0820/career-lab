@@ -97,10 +97,29 @@ def main() -> int:
     prompt = build_prompt(max_proj + 1, max_arc + 1)
     text = call_llm(prompt)
 
+    # 读旧数据，保留所有历史项目/竞赛，但把旧的 fresh 标记去掉
+    old_projects, old_contests = [], []
+    if OUT.exists():
+        try:
+            old = json.loads(OUT.read_text(encoding="utf-8"))
+            old_projects = old.get("projects", [])
+            old_contests = old.get("contests", [])
+        except Exception:
+            pass
+    # 旧的全部去掉 fresh 标记
+    for p in old_projects:
+        p.pop("fresh", None)
+    for c in old_contests:
+        c.pop("fresh", None)
+
     if not text:
         OUT.parent.mkdir(parents=True, exist_ok=True)
         OUT.write_text(
-            json.dumps({"generatedAt": None, "projects": [], "contests": []}, ensure_ascii=False, indent=2) + "\n",
+            json.dumps({
+                "generatedAt": None,
+                "projects": old_projects,
+                "contests": old_contests,
+            }, ensure_ascii=False, indent=2) + "\n",
             encoding="utf-8",
         )
         return 0
@@ -113,16 +132,24 @@ def main() -> int:
         print(f"[warn] LLM 返回不是 JSON：{e}", file=sys.stderr)
         return 0
 
+    new_projects = data.get("projects", [])
+    new_contests = data.get("contests", [])
+    # 新的标 fresh
+    for p in new_projects:
+        p["fresh"] = True
+    for c in new_contests:
+        c["fresh"] = True
+
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(
         json.dumps({
             "generatedAt": datetime.now(timezone.utc).isoformat(),
-            "projects": data.get("projects", []),
-            "contests": data.get("contests", []),
+            "projects": new_projects + old_projects,
+            "contests": new_contests + old_contests,
         }, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
-    print(f"[ok] 生成 {len(data.get('projects', []))} 项目 + {len(data.get('contests', []))} 竞赛")
+    print(f"[ok] 新增 {len(new_projects)} 项目 + {len(new_contests)} 竞赛，累计 {len(new_projects)+len(old_projects)} 项目")
     return 0
 
 

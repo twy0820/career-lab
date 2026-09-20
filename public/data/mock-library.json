@@ -2,129 +2,134 @@
   "generatedAt": "2026-09-20T07:46:41.824735+00:00",
   "projects": [
     {
-      "id": "gen-proj-001",
+      "id": "p51",
       "title": "轻量本地个人知识库RAG系统开发",
       "company": "Notion AI 中国",
       "role": "AI应用开发实习生",
-      "stack": [
-        "Python",
-        "OpenAI Embedding",
-        "Chroma向量库",
-        "FastAPI"
-      ],
+      "stack": ["Python", "OpenAI Embedding", "Chroma向量库", "FastAPI"],
       "summary": "开发一个可本地运行的个人笔记问答RAG系统，支持Markdown/PDF文档增量导入、混合检索和自然语言问答，满足个人知识管理需求",
       "background": "本地AI隐私计算和个人知识管理需求持续增长，轻量RAG是AI应用开发入门的核心实战场景，企业招聘中非常看重这类落地项目经验",
       "duration": "2周",
       "difficulty": 1,
       "category": "RAG/AI应用",
-      "skills": [
-        "python",
-        "llm",
-        "vector",
-        "dl",
-        "fastapi",
-        "git"
+      "fresh": true,`n      "skills": ["python", "llm", "vector", "dl", "fastapi", "git"],
+      "phases": [
+        {
+          "name": "阶段一：环境与数据接入",
+          "goal": "跑通文档加载与向量化",
+          "tickets": [
+            { "id": "p51-t1", "name": "搭建 Python + FastAPI 骨架", "xp": 50 },
+            { "id": "p51-t2", "name": "接入 Markdown/PDF 解析器", "xp": 80 },
+            { "id": "p51-t3", "name": "用 Embedding 模型建向量索引", "xp": 100 }
+          ]
+        },
+        {
+          "name": "阶段二：检索与问答",
+          "goal": "实现混合检索与自然语言问答",
+          "tickets": [
+            { "id": "p51-t4", "name": "实现 BM25 + 向量混合检索", "xp": 120 },
+            { "id": "p51-t5", "name": "接入 LLM 做 RAG 问答", "xp": 150 },
+            { "id": "p51-t6", "name": "写 README 并录演示", "xp": 50 }
+          ]
+        }
       ]
     },
     {
-      "id": "gen-proj-002",
+      "id": "p52",
       "title": "电商多模态导购AI Agent开发",
       "company": "淘宝天猫集团",
       "role": "AI Agent高级开发工程师",
-      "stack": [
-        "Python",
-        "Qwen-VL",
-        "LangGraph",
-        "Redis",
-        "Docker",
-        "React"
-      ],
+      "stack": ["Python", "Qwen-VL", "LangGraph", "Redis", "Docker", "React"],
       "summary": "开发一个能理解用户图文需求、调用商品搜索工具、解答售前售后问题的多模态导购Agent，支持多轮对话上下文管理和错误修正",
-      "background": "电商智能化转型中，多模态Agent可大幅提升导购效率和用户转化率，是互联网大厂核心落地方向，需要掌握Agent编排和多模态处理能力",
+      "background": "电商智能化转型中，多模态Agent可大幅提升导购效率和用户转化率，是互联网大厂核心落地方向",
       "duration": "6周",
       "difficulty": 3,
       "category": "Agent/多模态",
-      "skills": [
-        "python",
-        "redis",
-        "vector",
-        "docker",
-        "ds",
-        "ml",
-        "dl",
-        "llm",
-        "deploy",
-        "react",
-        "web"
+      "fresh": true,`n      "skills": ["python", "redis", "vector", "docker", "ds", "ml", "dl", "llm", "deploy", "react", "web"],
+      "phases": [
+        {
+          "name": "阶段一：Agent 骨架",
+          "goal": "用 LangGraph 跑通多轮对话",
+          "tickets": [
+            { "id": "p52-t1", "name": "搭建 LangGraph 状态机", "xp": 80 },
+            { "id": "p52-t2", "name": "接入商品搜索工具", "xp": 100 },
+            { "id": "p52-t3", "name": "实现多轮上下文记忆", "xp": 100 }
+          ]
+        },
+        {
+          "name": "阶段二：多模态与部署",
+          "goal": "支持图片理解并上线",
+          "tickets": [
+            { "id": "p52-t4", "name": "接 Qwen-VL 做图片理解", "xp": 150 },
+            { "id": "p52-t5", "name": "Docker 打包并写部署文档", "xp": 120 },
+            { "id": "p52-t6", "name": "做一个 React 调试面板", "xp": 150 }
+          ]
+        }
       ]
     },
     {
-      "id": "gen-proj-003",
+      "id": "p53",
       "title": "云原生大模型推理统一网关开发",
       "company": "阿里云智能",
       "role": "AI Infra开发工程师",
-      "stack": [
-        "Go",
-        "Kubernetes",
-        "Envoy",
-        "Redis",
-        "Docker"
-      ],
-      "summary": "开发支持多模型多租户管理、动态负载均衡、弹性扩缩容、流量控制和监控的大模型推理统一网关，兼容OpenAI协议和不同厂商大模型API",
+      "stack": ["Go", "Kubernetes", "Envoy", "Redis", "Docker"],
+      "summary": "开发支持多模型多租户管理、动态负载均衡、弹性扩缩容、流量控制和监控的大模型推理统一网关，兼容OpenAI协议",
       "background": "企业大模型落地过程中，多模型推理流量管理和成本优化是核心痛点，云原生AI Infra是当前技术招聘最热门方向之一",
       "duration": "8周",
       "difficulty": 4,
       "category": "AI Infra/云原生",
-      "skills": [
-        "go",
-        "redis",
-        "docker",
-        "linux",
-        "git",
-        "deploy"
+      "fresh": true,`n      "skills": ["go", "redis", "docker", "linux", "git", "deploy"],
+      "phases": [
+        {
+          "name": "阶段一：网关基础",
+          "goal": "用 Go 写一个反向代理",
+          "tickets": [
+            { "id": "p53-t1", "name": "Go + Gin 搭 HTTP 服务", "xp": 100 },
+            { "id": "p53-t2", "name": "实现 OpenAI 协议透传", "xp": 120 },
+            { "id": "p53-t3", "name": "用 Redis 做多租户限流", "xp": 120 }
+          ]
+        },
+        {
+          "name": "阶段二：云原生",
+          "goal": "K8s 部署与可观测",
+          "tickets": [
+            { "id": "p53-t4", "name": "写 Dockerfile 与 K8s manifest", "xp": 150 },
+            { "id": "p53-t5", "name": "加 Prometheus 指标", "xp": 120 },
+            { "id": "p53-t6", "name": "做压测并写技术博客", "xp": 100 }
+          ]
+        }
       ]
     }
   ],
   "contests": [
     {
-      "id": "gen-arc-001",
+      "id": "a31",
       "name": "2026多模态RAG检索挑战赛",
       "host": "智谱AI × CSDN",
       "category": "AI竞赛",
       "level": "中级",
-      "regStart": "2026-06-15",
-      "regEnd": "2026-07-05",
-      "contestStart": "2026-07-08",
-      "contestEnd": "2026-08-08",
-      "tags": [
-        "多模态",
-        "RAG",
-        "LLM",
-        "信息检索"
-      ],
+      "regStart": "2026-09-20",
+      "regEnd": "2026-10-20",
+      "contestStart": "2026-10-25",
+      "contestEnd": "2026-11-25",
+      "fresh": true,`n      "tags": ["多模态", "RAG", "LLM", "信息检索"],
       "summary": "面向企业真实图文混排长文档场景，参赛队伍需构建高准确率的多模态RAG系统，按召回精度、回答准确率和推理速度综合排名，优胜者可获得直通大厂面试机会",
       "registrationUrl": "https://contest.zhipuai.cn/2026-multimodal-rag",
       "officialUrl": "https://contest.zhipuai.cn/2026-multimodal-rag",
       "recurring": false
     },
     {
-      "id": "gen-arc-002",
+      "id": "a32",
       "name": "2026 AI Agent全栈应用开发竞赛",
       "host": "字节跳动",
       "category": "全栈AI竞赛",
       "level": "高级",
-      "regStart": "2026-06-15",
-      "regEnd": "2026-06-29",
-      "contestStart": "2026-07-01",
-      "contestEnd": "2026-07-21",
-      "tags": [
-        "Agent",
-        "全栈",
-        "多模态",
-        "LLM",
-        "前端工程化"
-      ],
-      "summary": "参赛队伍基于官方提供的大模型底座，自主选择垂直场景（办公/教育/本地生活）开发端到端AI Agent全栈应用，评委从创新性、实用性、性能多维度评选，优胜者可获得校招/社招offer绿色通道",
+      "regStart": "2026-09-20",
+      "regEnd": "2026-10-10",
+      "contestStart": "2026-10-15",
+      "contestEnd": "2026-11-05",
+      "fresh": true,`n      "tags": ["Agent", "全栈", "多模态", "LLM", "前端工程化"],
+      "summary": "参赛队伍基于官方提供的大模型底座，自主选择垂直场景（办公/教育/本地生活）开发端到端AI Agent全栈应用，优胜者可获得校招/社招offer绿色通道",
       "registrationUrl": "https://competition.bytedance.com/2026-ai-agent",
       "officialUrl": "https://competition.bytedance.com/2026-ai-agent",
       "recurring": false

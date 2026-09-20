@@ -190,7 +190,7 @@ export default function ContestsPage() {
                   <div className="min-w-0">
                     <h3 className="font-semibold leading-snug flex items-center gap-2">
                   {c.name}
-                  {mocks.mockContestIds.has(c.id) && (
+                  {mocks.freshContestIds.has(c.id) && (
                     <span className="rounded bg-gradient-to-r from-fuchsia-500/20 to-violet-500/20 px-1.5 py-0.5 text-[10px] font-normal text-fuchsia-300 border border-fuchsia-500/40">
                       ✨ AI 本周新增
                     </span>
