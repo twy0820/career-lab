@@ -60,8 +60,8 @@ def build_prompt(proj_start: int, arc_start: int) -> str:
 - 难度覆盖入门~进阶（difficulty: 1-4）
 - 项目 id 必须是 p{proj_start}、p{proj_start+1}、p{proj_start+2} 这种递增格式
 - 竞赛 id 必须是 a{arc_start}、a{arc_start+1} 这种递增格式
-- 每个项目字段：id, title, company, role, stack[], summary, background, duration, difficulty, category, skills[](技能 id: python/java/cpp/go/algo/sql/redis/vector/linux/git/spring/fastapi/docker/dist/ds/ml/dl/llm/deploy/web/vue/react/review 中选), phases[](每个阶段 {{name, goal, tasks: [{{name, xp: 50}}]}})
-- 每个竞赛字段：id, name, host, category, level, regStart(今天), regEnd, contestStart, contestEnd, tags[], summary, registrationUrl, officialUrl, recurring=false
+- 每个项目字段：id, title, company, role, stack[], summary, background, duration, difficulty(1-5), category, skills[](技能 id: python/java/cpp/go/algo/sql/redis/vector/linux/git/spring/fastapi/docker/dist/ds/ml/dl/llm/deploy/web/vue/react/review 中选), phases[](每个阶段 {{id, name, goal, prep: [], knowledge: [], deliverables: [], tickets: [{{id, title, kind: "开发", priority: "P0", context, acceptance: ["完成"], xp: 50}}]}})
+- 每个竞赛字段：id, name, host, category, level, difficulty(1-5), skills[](同上技能 id 中选), regStart(今天), regEnd, contestStart, contestEnd, tags[], summary, registrationUrl, officialUrl, recurring=false
 - 严格输出 JSON：{{"projects": [...], "contests": [...]}}，不要解释，不要 markdown 代码块。
 """
 

@@ -24,7 +24,7 @@ export default function ArenaPage() {
 
   return (
     <div className="space-y-6">
-      <TerminalPanel title="~/arena" status={`${SIM_ARENA.length} 道赛题`}>
+      <TerminalPanel title="~/arena" status={`${SIM_ARENA.length + mocks.contests.length} 道赛题`}>
         <div>
           <h2 className="text-lg font-bold">竞赛练兵</h2>
           <p className="mt-1 max-w-3xl text-sm text-muted-foreground">
@@ -52,17 +52,40 @@ export default function ArenaPage() {
         <div className="space-y-3">
           <h3 className="text-sm font-semibold text-fuchsia-300">✨ 本周 AI 模拟竞赛（{mocks.contests.length}）</h3>
           <div className="grid gap-4 md:grid-cols-2">
-            {mocks.contests.map((c) => (
-              <TerminalPanel key={c.id} title={`~/arena/${c.id}`} status="simulated"
-                action={<Badge className="bg-fuchsia-500/15 text-fuchsia-300 border-fuchsia-500/40">AI 本周新增</Badge>}>
-                <h3 className="font-semibold">{c.name}</h3>
-                <p className="mt-0.5 text-xs text-muted-foreground">{c.host} · {c.category} · {c.level}</p>
-                <p className="mt-2 text-sm text-muted-foreground line-clamp-3">{c.summary}</p>
-                <div className="mt-3 flex flex-wrap gap-1.5">
-                  {c.tags.map((t) => <Badge key={t} variant="outline" className="text-[10px]">{t}</Badge>)}
-                </div>
-              </TerminalPanel>
-            ))}
+            {mocks.contests.map((c) => {
+              const diff = (c as any).difficulty ?? 2;
+              const skills = (c as any).skills ?? [];
+              const reqLv = requiredLevelForDifficulty(diff);
+              const locked = level < reqLv;
+              const reqRank = rankForLevel(reqLv);
+              return (
+                <TerminalPanel key={c.id} title={`~/arena/${c.id}`} status={locked ? 'locked' : 'open'}
+                  action={<Badge className="bg-fuchsia-500/15 text-fuchsia-300 border-fuchsia-500/40">AI 本周新增</Badge>}>
+                  <h3 className="font-semibold">{c.name}</h3>
+                  <p className="mt-0.5 text-xs text-muted-foreground">{c.host} · {c.category} · {c.level}</p>
+                  <div className="mt-2 flex items-center gap-2 text-xs text-muted-foreground">
+                    难度 <span className="text-primary">{'◆'.repeat(diff)}{'◇'.repeat(5 - diff)}</span>
+                    <span className="text-muted-foreground/40">|</span>
+                    <span>需 Lv.{reqLv}「{reqRank.name}」</span>
+                  </div>
+                  <p className="mt-2 text-sm text-muted-foreground line-clamp-3">{c.summary}</p>
+                  <div className="mt-3 flex flex-wrap gap-1.5">
+                    {skills.map((s: string) => <Badge key={s} variant="outline" className="text-[10px]">{s}</Badge>)}
+                  </div>
+                  <div className="mt-4">
+                    {locked ? (
+                      <div className="flex w-full items-center justify-center gap-2 rounded-md border border-dashed border-border bg-muted/30 py-2 text-xs text-muted-foreground">
+                        <Lock className="h-3.5 w-3.5" /> 达到「{reqRank.name}」(Lv.{reqLv}) 解锁
+                      </div>
+                    ) : (
+                      <Button variant="default" className="w-full" onClick={() => alert('模拟竞赛详情即将上线，先按赛题要求准备方案')}>
+                        进入模拟竞赛 <ArrowRight className="h-4 w-4" />
+                      </Button>
+                    )}
+                  </div>
+                </TerminalPanel>
+              );
+            })}
           </div>
         </div>
       )}
