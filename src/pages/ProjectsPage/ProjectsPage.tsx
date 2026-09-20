@@ -77,7 +77,7 @@ export default function ProjectsPage() {
           const reqLv = requiredLevelForDifficulty(diff);
           const locked = !gate.levelOk;
           const joined = state.joinedProjects.includes(p.id);
-          const allT = p.phases.flatMap((ph) => ph.tickets);
+          const allT = (p.phases ?? []).flatMap((ph) => ph.tickets);
           const doneCount = allT.filter((t) => state.doneTasks.includes(t.id)).length;
           const allDone = joined && doneCount === allT.length;
           const reqRank = rankForLevel(reqLv);
@@ -100,7 +100,14 @@ export default function ProjectsPage() {
             >
               <div className="flex items-start justify-between gap-3">
                 <div className="min-w-0">
-                  <h3 className="font-semibold">{p.title}</h3>
+                  <h3 className="font-semibold flex items-center gap-2">
+                    {p.title}
+                    {mocks.mockProjectIds.has(p.id) && (
+                      <span className="rounded bg-gradient-to-r from-fuchsia-500/20 to-violet-500/20 px-1.5 py-0.5 text-[10px] font-normal text-fuchsia-300 border border-fuchsia-500/40">
+                        ✨ AI 本周新增
+                      </span>
+                    )}
+                  </h3>
                   <p className="mt-0.5 flex items-center gap-1.5 text-xs text-muted-foreground">
                     <Building2 className="h-3.5 w-3.5" />
                     {p.company} · {p.role}
@@ -131,7 +138,7 @@ export default function ProjectsPage() {
               <div className="mt-4">
                 <div className="flex items-center justify-between text-xs text-muted-foreground">
                   <span>
-                    阶段进度：{joined ? `${doneCount}/${allT.length}` : `${p.phases.length} 阶段 ${allT.length} 任务`}
+                    阶段进度：{joined ? `${doneCount}/${allT.length}` : `${(p.phases ?? []).length} 阶段 ${allT.length} 任务`}
                   </span>
                   <span className="font-mono text-primary">+{allT.reduce((s, t) => s + t.xp, 0)} XP</span>
                 </div>

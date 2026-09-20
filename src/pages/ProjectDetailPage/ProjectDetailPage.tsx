@@ -279,7 +279,7 @@ export default function ProjectDetailPage() {
   }
 
   const joined = state.joinedProjects.includes(project.id);
-  const allTickets = project.phases.flatMap((ph) => ph.tickets);
+  const allTickets = (project.phases ?? []).flatMap((ph) => ph.tickets);
   const doneCount = allTickets.filter((t) => state.doneTasks.includes(t.id)).length;
   const allDone = joined && doneCount === allTickets.length;
   const gate = gateProjectWithLevel(project, state, level);
@@ -349,7 +349,7 @@ export default function ProjectDetailPage() {
             <Progress value={(doneCount / allTickets.length) * 100} className="mt-1.5 h-2" />
             <p className="mt-1 flex items-center gap-1 font-mono text-[10px] text-muted-foreground">
               <Package className="h-3 w-3" />
-              共 {project.phases.length} 个阶段 · 预计 +
+              共 {(project.phases ?? []).length} 个阶段 · 预计 +
               {allTickets.reduce((s, t) => s + t.xp, 0)} XP
             </p>
           </div>
@@ -365,7 +365,7 @@ export default function ProjectDetailPage() {
 
       <TerminalPanel
         title={`~/projects/${project.id}/phases`}
-        status={joined ? `${project.phases.length} 阶段` : '加入后开始'}
+        status={joined ? `${(project.phases ?? []).length} 阶段` : '加入后开始'}
       >
         <div className="flex items-center justify-between">
           <h3 className="text-sm font-semibold">分阶段实战路线</h3>
@@ -377,12 +377,12 @@ export default function ProjectDetailPage() {
           按企业真实节奏推进：每个阶段先做准备 → 写产出物（文档/PPT 大纲）→ 完成任务。完成的产出物和任务都会记到你的履历里。
         </p>
         <div className="mt-4">
-          {project.phases.map((ph, i) => (
+          {(project.phases ?? []).map((ph, i) => (
             <PhaseSection
               key={ph.id}
               ph={ph}
               index={i}
-              total={project.phases.length}
+              total={(project.phases ?? []).length}
               joined={joined}
             />
           ))}

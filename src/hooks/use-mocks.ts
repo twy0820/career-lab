@@ -32,5 +32,7 @@ export function useMocks() {
     load().then((d) => { if (!cancelled) setData(d); });
     return () => { cancelled = true; };
   }, []);
-  return data;
+  const mockProjectIds = new Set(data.projects.map((p) => p.id));
+  const mockContestIds = new Set(data.contests.map((c) => c.id));
+  return { ...data, mockProjectIds, mockContestIds };
 }

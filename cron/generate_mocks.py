@@ -37,7 +37,7 @@ PROMPT = """你是资深技术面试官 + 竞赛教练。现在是 2026 年。�
 要求：
 - 紧跟当下最热方向：RAG / Agent / 多模态 / 全栈 / 数据工程 / 前端工程化 / 云原生 / AI Infra 等
 - 难度覆盖入门~进阶（difficulty: 1-4）
-- 每个项目字段：id(唯一,以 gen-proj- 开头), title, company, role, stack[], summary, background, duration, difficulty, category, skills[](技能 id: python/java/cpp/go/algo/sql/redis/vector/linux/git/spring/fastapi/docker/dist/ds/ml/dl/llm/deploy/web/vue/react/review 中选)
+- 每个项目字段：id(唯一,以 gen-proj- 开头), title, company, role, stack[], summary, background, duration, difficulty, category, skills[](技能 id: python/java/cpp/go/algo/sql/redis/vector/linux/git/spring/fastapi/docker/dist/ds/ml/dl/llm/deploy/web/vue/react/review 中选), phases[](每个阶段 {name, goal, tasks: [{name, xp: 50}]})
 - 每个竞赛字段：id(唯一,以 gen-arc- 开头), name, host, category, level, regStart(今天), regEnd, contestStart, contestEnd, tags[], summary, registrationUrl, officialUrl, recurring=false
 - 难度 -> 所需等级：(difficulty-1)*3+1
 - 严格输出 JSON：{"projects": [...], "contests": [...]}，不要解释，不要 markdown 代码块。
