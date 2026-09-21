@@ -1,0 +1,59 @@
+{
+  "generatedAt": "2026-09-21T05:58:34.818642+00:00",
+  "projects": [
+    {
+      "id": "proj-001",
+      "title": "企业内部知识库智能问答Agent",
+      "company": "字节跳动 飞书协作事业部",
+      "role": "AI应用开发实习生",
+      "stack": [
+        "Python",
+        "LangChain",
+        "OpenAI Embedding",
+        "ChromaDB",
+        "FastAPI",
+        "飞书开放API"
+      ],
+      "summary": "开发面向企业内部员工的知识库问答Agent，支持上传内部文档（PDF/Word/飞书文档），基于检索增强生成技术实现准确的内容问答，支持多轮上下文对话和回答来源溯源",
+      "background": "随着企业数字化转型，内部沉淀了大量非结构化文档知识，员工手动查找信息效率极低，2026年多数中大型企业都需要私有化部署的内部AI问答工具，本项目还原了企业真实RAG落地场景需求",
+      "duration": "4周",
+      "difficulty": 2,
+      "category": "RAG/Agent",
+      "skills": [
+        "skill-rag-retrieval-optimization",
+        "skill-agent-orchestration",
+        "skill-rest-api-development",
+        "skill-vector-database-usage"
+      ]
+    },
+    {
+      "id": "proj-002",
+      "title": "校园校招信息聚合全栈平台",
+      "company": "BOSS直聘 校园招聘事业部",
+      "role": "全栈开发实习生",
+      "stack": [
+        "React 18",
+        "Vite",
+        "TailwindCSS",
+        "Node.js",
+        "Prisma",
+        "PostgreSQL",
+        "Docker",
+        "GitHub Actions",
+        "Pandas"
+      ],
+      "summary": "开发面向大学生的校招信息聚合平台，完成多源校招信息爬清洗，实现招聘信息搜索、筛选、收藏、订阅提醒功能，同时搭建规范化的前端工程化流程，支持自动化构建部署",
+      "background": "校招信息分散在高校就业网、企业官网、多个第三方招聘平台，大学生难以集中获取精准匹配的最新校招信息，本项目还原了企业ToC小产品从需求到上线的全流程开发，贴合当下全栈工程师能力要求",
+      "duration": "6周",
+      "difficulty": 3,
+      "category": "全栈/前端工程化/数据",
+      "skills": [
+        "skill-fullstack-development",
+        "skill-frontend-engineering-spec",
+        "skill-basic-data-processing",
+        "skill-cicd-pipeline",
+        "skill-database-design"
+      ]
+    }
+  ]
+}
