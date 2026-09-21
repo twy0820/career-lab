@@ -1,36 +1,360 @@
 {
-  "generatedAt": "2026-09-20T07:46:41.824735+00:00",
+  "generatedAt": "2026-09-21T05:41:08.664182+00:00",
   "projects": [
+    {
+      "id": "p54",
+      "title": "个人本地知识库RAG问答Agent",
+      "company": "字节跳动",
+      "role": "AI开发实习生",
+      "stack": [
+        "Python",
+        "FastAPI",
+        "Chroma",
+        "OpenAI API",
+        "Docker"
+      ],
+      "summary": "搭建支持本地文档导入的个人知识库问答Agent，支持上下文对话、回答溯源，可完全本地部署运行",
+      "background": "个人知识管理需求快速增长，通用大模型存在幻觉问题，RAG架构可结合私有文档提供准确回答，是入门大模型应用开发的核心实战场景",
+      "duration": "2周",
+      "difficulty": 1,
+      "category": "RAG 大模型应用开发",
+      "skills": [
+        "python",
+        "llm",
+        "vector",
+        "fastapi",
+        "docker",
+        "deploy",
+        "git"
+      ],
+      "phases": [
+        {
+          "name": "需求分析与环境搭建",
+          "goal": "完成依赖安装和环境配置，梳理项目需求范围",
+          "tasks": [
+            {
+              "name": "选型部署本地向量数据库",
+              "xp": 50
+            },
+            {
+              "name": "梳理功能模块，输出需求文档",
+              "xp": 50
+            }
+          ]
+        },
+        {
+          "name": "核心RAG模块开发",
+          "goal": "实现文档处理和检索核心逻辑",
+          "tasks": [
+            {
+              "name": "实现文档导入、分块和索引构建",
+              "xp": 50
+            },
+            {
+              "name": "实现检索拼接和大模型推理流程",
+              "xp": 50
+            }
+          ]
+        },
+        {
+          "name": "Agent交互层开发",
+          "goal": "实现多轮对话和溯源功能",
+          "tasks": [
+            {
+              "name": "实现多轮对话上下文管理",
+              "xp": 50
+            },
+            {
+              "name": "实现回答溯源引用展示功能",
+              "xp": 50
+            }
+          ]
+        },
+        {
+          "name": "部署测试",
+          "goal": "完成项目部署和端到端测试",
+          "tasks": [
+            {
+              "name": "封装Docker镜像，启动Web服务",
+              "xp": 50
+            },
+            {
+              "name": "功能测试，修复已知bug",
+              "xp": 50
+            }
+          ]
+        }
+      ],
+      "fresh": true
+    },
+    {
+      "id": "p55",
+      "title": "企业内部多模态智能客服系统",
+      "company": "阿里钉钉",
+      "role": "全栈AI开发工程师",
+      "stack": [
+        "React",
+        "FastAPI",
+        "Qwen-VL",
+        "Pinecone",
+        "Docker",
+        "Redis"
+      ],
+      "summary": "开发支持文本、图片、截图输入的企业内部智能客服，自动解答办公流程、设备故障、制度咨询等常见问题",
+      "background": "传统企业客服仅支持文本输入，员工咨询设备故障、流程截图等场景无法处理，多模态RAG Agent可有效降低人工客服成本，提升响应效率",
+      "duration": "4周",
+      "difficulty": 2,
+      "category": "多模态Agent 全栈开发",
+      "skills": [
+        "python",
+        "react",
+        "web",
+        "llm",
+        "vector",
+        "redis",
+        "docker",
+        "fastapi",
+        "deploy",
+        "git",
+        "review"
+      ],
+      "phases": [
+        {
+          "name": "需求梳理与原型开发",
+          "goal": "完成场景梳理和前后端原型输出",
+          "tasks": [
+            {
+              "name": "梳理企业客服常见场景和核心需求",
+              "xp": 50
+            },
+            {
+              "name": "开发前端对话页面原型",
+              "xp": 50
+            }
+          ]
+        },
+        {
+          "name": "多模态数据处理与索引构建",
+          "goal": "完成企业已有知识的多模态索引构建",
+          "tasks": [
+            {
+              "name": "实现图文混排文档的解析分块",
+              "xp": 50
+            },
+            {
+              "name": "构建多模态向量索引库",
+              "xp": 50
+            }
+          ]
+        },
+        {
+          "name": "多模态对话Agent开发",
+          "goal": "完成核心对话逻辑开发",
+          "tasks": [
+            {
+              "name": "实现多模态输入理解和意图识别",
+              "xp": 50
+            },
+            {
+              "name": "实现检索增强生成和工具调用逻辑",
+              "xp": 50
+            }
+          ]
+        },
+        {
+          "name": "联调部署与测试",
+          "goal": "完成全流程联调和上线测试",
+          "tasks": [
+            {
+              "name": "前后端联调，对接接口",
+              "xp": 50
+            },
+            {
+              "name": "压力测试和性能优化",
+              "xp": 50
+            }
+          ]
+        },
+        {
+          "name": "代码评审",
+          "goal": "通过项目代码评审",
+          "tasks": [
+            {
+              "name": "整理项目文档，配合代码评审",
+              "xp": 50
+            }
+          ]
+        }
+      ],
+      "fresh": true
+    },
+    {
+      "id": "p56",
+      "title": "千万级向量规模RAG检索引擎优化",
+      "company": "阿里云智能",
+      "role": "AI Infra开发工程师",
+      "stack": [
+        "Go",
+        "C++",
+        "FAISS",
+        "Docker",
+        "Linux"
+      ],
+      "summary": "针对千万级向量规模的生产级RAG系统，优化向量检索的延迟和召回精度，打造低延迟高召回的生产级检索引擎",
+      "background": "当前企业级RAG系统的知识库规模普遍达到千万级甚至亿级向量，开源通用检索方案存在延迟高、内存占用大、精度不足的问题，需要针对RAG场景做定制化深度优化",
+      "duration": "8周",
+      "difficulty": 4,
+      "category": "AI Infra 数据工程",
+      "skills": [
+        "cpp",
+        "go",
+        "algo",
+        "linux",
+        "vector",
+        "docker",
+        "dl",
+        "deploy",
+        "git"
+      ],
+      "phases": [
+        {
+          "name": "Benchmark框架搭建",
+          "goal": "搭建可复现的性能和精度评估基准",
+          "tasks": [
+            {
+              "name": "采集公开真实RAG知识库向量数据集",
+              "xp": 50
+            },
+            {
+              "name": "搭建延迟、召回精度评估框架",
+              "xp": 50
+            }
+          ]
+        },
+        {
+          "name": "向量量化压缩优化",
+          "goal": "实现适合RAG场景的向量压缩算法，降低内存占用",
+          "tasks": [
+            {
+              "name": "实现适配RAG的乘积量化优化算法",
+              "xp": 100
+            },
+            {
+              "name": "验证压缩后的精度损失，调优参数",
+              "xp": 100
+            }
+          ]
+        },
+        {
+          "name": "分层检索路由优化",
+          "goal": "优化检索流程，降低检索延迟",
+          "tasks": [
+            {
+              "name": "实现基于语义聚类的分层检索路由策略",
+              "xp": 100
+            },
+            {
+              "name": "对比不同检索策略的性能和精度",
+              "xp": 100
+            }
+          ]
+        },
+        {
+          "name": "集成调优与测试",
+          "goal": "完成引擎集成和生产级压测",
+          "tasks": [
+            {
+              "name": "集成优化后的检索引擎到主流RAG框架",
+              "xp": 100
+            },
+            {
+              "name": "生产场景压测，性能调优",
+              "xp": 100
+            }
+          ]
+        },
+        {
+          "name": "项目文档与评审",
+          "goal": "完成项目交付和评审",
+          "tasks": [
+            {
+              "name": "输出优化报告和项目文档",
+              "xp": 50
+            },
+            {
+              "name": "项目评审",
+              "xp": 50
+            }
+          ]
+        }
+      ],
+      "fresh": true
+    },
     {
       "id": "p51",
       "title": "轻量本地个人知识库RAG系统开发",
       "company": "Notion AI 中国",
       "role": "AI应用开发实习生",
-      "stack": ["Python", "OpenAI Embedding", "Chroma向量库", "FastAPI"],
+      "stack": [
+        "Python",
+        "OpenAI Embedding",
+        "Chroma向量库",
+        "FastAPI"
+      ],
       "summary": "开发一个可本地运行的个人笔记问答RAG系统，支持Markdown/PDF文档增量导入、混合检索和自然语言问答",
       "background": "本地AI隐私计算和个人知识管理需求持续增长，轻量RAG是AI应用开发入门的核心实战场景",
       "duration": "2周",
       "difficulty": 1,
       "category": "RAG/AI应用",
-      "skills": ["python", "llm", "vector", "dl", "fastapi", "git"],
-      "fresh": true,
+      "skills": [
+        "python",
+        "llm",
+        "vector",
+        "dl",
+        "fastapi",
+        "git"
+      ],
       "phases": [
         {
           "name": "阶段一：环境与数据接入",
           "goal": "跑通文档加载与向量化",
           "tickets": [
-            { "id": "p51-t1", "name": "搭建 Python + FastAPI 骨架", "xp": 50 },
-            { "id": "p51-t2", "name": "接入 Markdown/PDF 解析器", "xp": 80 },
-            { "id": "p51-t3", "name": "用 Embedding 模型建向量索引", "xp": 100 }
+            {
+              "id": "p51-t1",
+              "name": "搭建 Python + FastAPI 骨架",
+              "xp": 50
+            },
+            {
+              "id": "p51-t2",
+              "name": "接入 Markdown/PDF 解析器",
+              "xp": 80
+            },
+            {
+              "id": "p51-t3",
+              "name": "用 Embedding 模型建向量索引",
+              "xp": 100
+            }
           ]
         },
         {
           "name": "阶段二：检索与问答",
           "goal": "实现混合检索与自然语言问答",
           "tickets": [
-            { "id": "p51-t4", "name": "实现 BM25 + 向量混合检索", "xp": 120 },
-            { "id": "p51-t5", "name": "接入 LLM 做 RAG 问答", "xp": 150 },
-            { "id": "p51-t6", "name": "写 README 并录演示", "xp": 50 }
+            {
+              "id": "p51-t4",
+              "name": "实现 BM25 + 向量混合检索",
+              "xp": 120
+            },
+            {
+              "id": "p51-t5",
+              "name": "接入 LLM 做 RAG 问答",
+              "xp": 150
+            },
+            {
+              "id": "p51-t6",
+              "name": "写 README 并录演示",
+              "xp": 50
+            }
           ]
         }
       ]
@@ -40,31 +364,73 @@
       "title": "电商多模态导购AI Agent开发",
       "company": "淘宝天猫集团",
       "role": "AI Agent高级开发工程师",
-      "stack": ["Python", "Qwen-VL", "LangGraph", "Redis", "Docker", "React"],
+      "stack": [
+        "Python",
+        "Qwen-VL",
+        "LangGraph",
+        "Redis",
+        "Docker",
+        "React"
+      ],
       "summary": "开发一个能理解用户图文需求、调用商品搜索工具、解答售前售后问题的多模态导购Agent",
       "background": "电商智能化转型中，多模态Agent可大幅提升导购效率和用户转化率",
       "duration": "6周",
       "difficulty": 3,
       "category": "Agent/多模态",
-      "skills": ["python", "redis", "vector", "docker", "ds", "ml", "dl", "llm", "deploy", "react", "web"],
-      "fresh": true,
+      "skills": [
+        "python",
+        "redis",
+        "vector",
+        "docker",
+        "ds",
+        "ml",
+        "dl",
+        "llm",
+        "deploy",
+        "react",
+        "web"
+      ],
       "phases": [
         {
           "name": "阶段一：Agent 骨架",
           "goal": "用 LangGraph 跑通多轮对话",
           "tickets": [
-            { "id": "p52-t1", "name": "搭建 LangGraph 状态机", "xp": 80 },
-            { "id": "p52-t2", "name": "接入商品搜索工具", "xp": 100 },
-            { "id": "p52-t3", "name": "实现多轮上下文记忆", "xp": 100 }
+            {
+              "id": "p52-t1",
+              "name": "搭建 LangGraph 状态机",
+              "xp": 80
+            },
+            {
+              "id": "p52-t2",
+              "name": "接入商品搜索工具",
+              "xp": 100
+            },
+            {
+              "id": "p52-t3",
+              "name": "实现多轮上下文记忆",
+              "xp": 100
+            }
           ]
         },
         {
           "name": "阶段二：多模态与部署",
           "goal": "支持图片理解并上线",
           "tickets": [
-            { "id": "p52-t4", "name": "接 Qwen-VL 做图片理解", "xp": 150 },
-            { "id": "p52-t5", "name": "Docker 打包并写部署文档", "xp": 120 },
-            { "id": "p52-t6", "name": "做一个 React 调试面板", "xp": 150 }
+            {
+              "id": "p52-t4",
+              "name": "接 Qwen-VL 做图片理解",
+              "xp": 150
+            },
+            {
+              "id": "p52-t5",
+              "name": "Docker 打包并写部署文档",
+              "xp": 120
+            },
+            {
+              "id": "p52-t6",
+              "name": "做一个 React 调试面板",
+              "xp": 150
+            }
           ]
         }
       ]
@@ -74,37 +440,117 @@
       "title": "云原生大模型推理统一网关开发",
       "company": "阿里云智能",
       "role": "AI Infra开发工程师",
-      "stack": ["Go", "Kubernetes", "Envoy", "Redis", "Docker"],
+      "stack": [
+        "Go",
+        "Kubernetes",
+        "Envoy",
+        "Redis",
+        "Docker"
+      ],
       "summary": "开发支持多模型多租户管理、动态负载均衡、弹性扩缩容的大模型推理统一网关",
       "background": "企业大模型落地过程中，多模型推理流量管理和成本优化是核心痛点",
       "duration": "8周",
       "difficulty": 4,
       "category": "AI Infra/云原生",
-      "skills": ["go", "redis", "docker", "linux", "git", "deploy"],
-      "fresh": true,
+      "skills": [
+        "go",
+        "redis",
+        "docker",
+        "linux",
+        "git",
+        "deploy"
+      ],
       "phases": [
         {
           "name": "阶段一：网关基础",
           "goal": "用 Go 写一个反向代理",
           "tickets": [
-            { "id": "p53-t1", "name": "Go + Gin 搭 HTTP 服务", "xp": 100 },
-            { "id": "p53-t2", "name": "实现 OpenAI 协议透传", "xp": 120 },
-            { "id": "p53-t3", "name": "用 Redis 做多租户限流", "xp": 120 }
+            {
+              "id": "p53-t1",
+              "name": "Go + Gin 搭 HTTP 服务",
+              "xp": 100
+            },
+            {
+              "id": "p53-t2",
+              "name": "实现 OpenAI 协议透传",
+              "xp": 120
+            },
+            {
+              "id": "p53-t3",
+              "name": "用 Redis 做多租户限流",
+              "xp": 120
+            }
           ]
         },
         {
           "name": "阶段二：云原生",
           "goal": "K8s 部署与可观测",
           "tickets": [
-            { "id": "p53-t4", "name": "写 Dockerfile 与 K8s manifest", "xp": 150 },
-            { "id": "p53-t5", "name": "加 Prometheus 指标", "xp": 120 },
-            { "id": "p53-t6", "name": "做压测并写技术博客", "xp": 100 }
+            {
+              "id": "p53-t4",
+              "name": "写 Dockerfile 与 K8s manifest",
+              "xp": 150
+            },
+            {
+              "id": "p53-t5",
+              "name": "加 Prometheus 指标",
+              "xp": 120
+            },
+            {
+              "id": "p53-t6",
+              "name": "做压测并写技术博客",
+              "xp": 100
+            }
           ]
         }
       ]
     }
   ],
   "contests": [
+    {
+      "id": "a33",
+      "name": "2026多模态RAG检索挑战赛",
+      "host": "字节跳动AI Lab",
+      "category": "大模型AI竞赛",
+      "level": "中级",
+      "regStart": "2026-06-09",
+      "regEnd": "2026-06-23",
+      "contestStart": "2026-06-24",
+      "contestEnd": "2026-07-07",
+      "tags": [
+        "多模态",
+        "RAG",
+        "大模型",
+        "Agent"
+      ],
+      "summary": "面向真实企业多模态知识库场景，参赛队伍需要构建端到端多模态RAG系统，比拼检索精度、回答准确率和推理速度，设置百万奖金池",
+      "registrationUrl": "https://contest.bytedance.com/2026-multimodal-rag",
+      "officialUrl": "https://contest.bytedance.com/2026-multimodal-rag",
+      "recurring": false,
+      "fresh": true
+    },
+    {
+      "id": "a34",
+      "name": "云原生AI Agent并发性能挑战赛",
+      "host": "阿里云云栖研究院",
+      "category": "云原生AI Infra竞赛",
+      "level": "高级",
+      "regStart": "2026-06-09",
+      "regEnd": "2026-06-30",
+      "contestStart": "2026-07-01",
+      "contestEnd": "2026-07-15",
+      "tags": [
+        "Agent",
+        "云原生",
+        "AI Infra",
+        "部署优化"
+      ],
+      "summary": "参赛队伍需要在给定的云资源配额内部署AI Agent服务，比拼高并发场景下的请求成功率、平均延迟和资源利用率，考察工程优化和云原生技术能力",
+      "registrationUrl": "https://tianchi.aliyun.com/2026-agent-challenge",
+      "officialUrl": "https://tianchi.aliyun.com/2026-agent-challenge",
+      "recurring": false,
+      "fresh": true
+    },
     {
       "id": "a31",
       "name": "2026多模态RAG检索挑战赛",
@@ -115,12 +561,16 @@
       "regEnd": "2026-10-20",
       "contestStart": "2026-10-25",
       "contestEnd": "2026-11-25",
-      "tags": ["多模态", "RAG", "LLM", "信息检索"],
+      "tags": [
+        "多模态",
+        "RAG",
+        "LLM",
+        "信息检索"
+      ],
       "summary": "面向企业真实图文混排长文档场景，构建高准确率的多模态RAG系统",
       "registrationUrl": "https://contest.zhipuai.cn/2026-multimodal-rag",
       "officialUrl": "https://contest.zhipuai.cn/2026-multimodal-rag",
-      "recurring": false,
-      "fresh": true
+      "recurring": false
     },
     {
       "id": "a32",
@@ -132,12 +582,17 @@
       "regEnd": "2026-10-10",
       "contestStart": "2026-10-15",
       "contestEnd": "2026-11-05",
-      "tags": ["Agent", "全栈", "多模态", "LLM", "前端工程化"],
+      "tags": [
+        "Agent",
+        "全栈",
+        "多模态",
+        "LLM",
+        "前端工程化"
+      ],
       "summary": "基于官方大模型底座，开发端到端AI Agent全栈应用",
       "registrationUrl": "https://competition.bytedance.com/2026-ai-agent",
       "officialUrl": "https://competition.bytedance.com/2026-ai-agent",
-      "recurring": false,
-      "fresh": true
+      "recurring": false
     }
   ]
 }
