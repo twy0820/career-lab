@@ -12,6 +12,7 @@ import ResumePage from '@/pages/ResumePage/ResumePage';
 import DictionaryPage from '@/pages/DictionaryPage/DictionaryPage';
 import FriendsPage from '@/pages/FriendsPage/FriendsPage';
 import CommunityPage from '@/pages/CommunityPage/CommunityPage';
+import UserProjectsPage from '@/pages/UserProjectsPage/UserProjectsPage';
 import NotFoundPage from '@/pages/NotFoundPage/NotFoundPage';
 
 export default function App() {
@@ -30,6 +31,7 @@ export default function App() {
         <Route path="dict" element={<DictionaryPage />} />
         <Route path="friends" element={<FriendsPage />} />
         <Route path="community" element={<CommunityPage />} />
+        <Route path="user-projects" element={<UserProjectsPage />} />
       </Route>
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
