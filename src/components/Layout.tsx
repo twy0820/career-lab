@@ -129,6 +129,10 @@ function Shell() {
               </div>
             </div>
           </div>
+          <div className="flex items-center justify-between rounded-md border border-amber-300/30 bg-amber-500/10 px-3 py-2">
+            <span className="text-xs">⭐ {state.stars ?? 0} 星</span>
+            <span className="text-xs text-amber-300">🐟 {state.coins ?? 0} 币</span>
+          </div>
           <div className="flex items-center gap-2 rounded-md border border-primary/30 bg-primary/10 px-3 py-2">
             <span className="text-base">{shownRank.emoji}</span>
             <div className="min-w-0 flex-1 leading-tight">

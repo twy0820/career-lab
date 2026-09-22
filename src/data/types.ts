@@ -173,6 +173,11 @@ export interface IProgressState {
   selectedRankId?: string;
   selectedTitleId?: string;
   nickname?: string;
+  stars?: number;
+  coins?: number;
+  seasonStart?: string;
+  claimedRewards?: string[];
+  historicalRanks?: string[];
 }
 
 export type IContestStatus = 'open' | 'upcoming' | 'running' | 'closed' | 'recurring';

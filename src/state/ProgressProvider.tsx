@@ -39,6 +39,11 @@ const DEFAULT_STATE: IProgressState = {
   coachMode: true,
   nickname: '猫同学',
   onboardingDone: false,
+  stars: 0,
+  coins: 0,
+  seasonStart: new Date().toISOString(),
+  claimedRewards: [],
+  historicalRanks: [],
 };
 
 const TICKET_XP: Record<string, number> = {};
@@ -186,11 +191,21 @@ export default function ProgressProvider({ children }: { children: ReactNode }) 
   };
 
   const submitArena = (submission: IArenaSubmission) => {
+    const isFirst = !state.submissions.some((s) => s.arenaId === submission.arenaId);
+    const arena = ARENA_BY_ID[submission.arenaId];
+    const diff = arena?.difficulty ?? 1;
+    const rewardStars = isFirst ? diff : 0;
+    const rewardCoins = isFirst ? diff * 20 : Math.max(5, diff * 5);
     const submissions = [
       ...state.submissions.filter((s) => s.arenaId !== submission.arenaId),
       submission,
     ];
-    persist({ ...state, submissions });
+    persist({
+      ...state,
+      submissions,
+      stars: Math.min(100, (state.stars ?? 0) + rewardStars),
+      coins: (state.coins ?? 0) + rewardCoins,
+    });
   };
 
   const toggleFavorite = (contestId: string) => {
