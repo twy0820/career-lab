@@ -14,6 +14,8 @@ import {
   Zap,
   Users,
   Building2,
+  FolderPlus,
+  MessagesSquare,
 } from 'lucide-react';
 import {
   Sidebar,
@@ -48,6 +50,8 @@ const NAV_ITEMS = [
   { path: '/resume', label: '简历生成器', icon: FileText },
   { path: '/dict', label: '喵喵字典', icon: BookMarked },
   { path: '/friends', label: '好友排名', icon: Users },
+  { path: '/user-projects', label: '用户项目', icon: FolderPlus },
+  { path: '/community-plus', label: '社区互动', icon: MessagesSquare },
   { path: '/community', label: '社区公会', icon: Building2 },
 ];
 
