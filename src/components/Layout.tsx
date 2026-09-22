@@ -15,7 +15,6 @@ import {
   Users,
   Building2,
   FolderPlus,
-  MessagesSquare,
 } from 'lucide-react';
 import {
   Sidebar,
@@ -41,18 +40,17 @@ import { useEffect, useState } from 'react';
 import type { User } from '@supabase/supabase-js';
 
 const NAV_ITEMS = [
-  { path: '/', label: '工作台', icon: LayoutDashboard },
+  { path: '/', label: '主页', icon: LayoutDashboard },
   { path: '/skills', label: '技能图谱', icon: BookOpen },
   { path: '/projects', label: '项目实战', icon: Briefcase },
   { path: '/arena', label: '竞赛练兵', icon: Swords },
   { path: '/contests', label: '竞赛雷达', icon: Radar },
-  { path: '/portfolio', label: '成就履历', icon: Trophy },
+  { path: '/friends', label: '好友', icon: Users },
+  { path: '/ranking', label: '排名', icon: Trophy },
+  { path: '/guild', label: '公会', icon: Building2 },
+  { path: '/portfolio', label: '成就履历', icon: FolderPlus },
   { path: '/resume', label: '简历生成器', icon: FileText },
   { path: '/dict', label: '喵喵字典', icon: BookMarked },
-  { path: '/friends', label: '好友排名', icon: Users },
-  { path: '/user-projects', label: '用户项目', icon: FolderPlus },
-  { path: '/community-plus', label: '社区互动', icon: MessagesSquare },
-  { path: '/community', label: '社区公会', icon: Building2 },
 ];
 
 export const Layout = () => {
@@ -120,37 +118,33 @@ function Shell() {
           </SidebarMenu>
         </SidebarContent>
         <SidebarFooter>
-          <div className="flex items-center gap-2 rounded-md border border-border bg-card px-3 py-2">
-            <Zap className="h-4 w-4 shrink-0 text-primary" />
-            <div className="min-w-0 flex-1">
-              <div className="flex items-baseline justify-between gap-2">
-                <span className="text-xs font-semibold">Lv.{level}</span>
-                <span className="font-mono text-[10px] text-muted-foreground">
-                  {xp} / {nextLevelXp} XP
-                </span>
-              </div>
-              <div className="mt-1 h-1.5 overflow-hidden rounded-full bg-muted">
-                <div
-                  className="h-full rounded-full bg-primary transition-all"
-                  style={{ width: `${Math.round(levelProgress * 100)}%` }}
-                />
-              </div>
-            </div>
-          </div>
-          <div className="flex items-center justify-between rounded-md border border-amber-300/30 bg-amber-500/10 px-3 py-2">
-            <span className="text-xs">⭐ {state.stars ?? 0} 星</span>
-            <span className="text-xs text-amber-300">🐟 {state.coins ?? 0} 币</span>
-          </div>
-          <div className="flex items-center gap-2 rounded-md border border-primary/30 bg-primary/10 px-3 py-2">
-            <span className="text-base">{shownRank.emoji}</span>
+          {/* 精简用户卡片 */}
+          <button
+            onClick={() => window.location.hash = '#me'}
+            className="flex w-full items-center gap-2 rounded-md border border-primary/30 bg-primary/10 px-3 py-2 text-left hover:bg-primary/20"
+            title="点击查看我的主页"
+          >
+            <span className="text-xl">{shownRank.emoji}</span>
             <div className="min-w-0 flex-1 leading-tight">
               <div className="flex items-center gap-1.5">
                 <p className="truncate text-xs font-semibold">{state.nickname || '猫同学'}</p>
-                <button onClick={editNickname} title="修改昵称" className="text-[10px] text-muted-foreground transition hover:text-primary">✎</button>
+                <span onClick={(e)=>{e.stopPropagation();editNickname();}} className="text-[10px] text-muted-foreground hover:text-primary">✎</span>
               </div>
               <p className="text-[10px] opacity-80">{shownRank.name} · Lv.{level}</p>
-              {shownTitle && <p className="truncate text-[10px] opacity-80">{shownTitle.icon} {shownTitle.name}</p>}
             </div>
+            <div className="text-right text-[10px]">
+              <p>⭐{state.stars ?? 0}</p>
+              <p className="text-amber-400">🐟{state.coins ?? 0}</p>
+            </div>
+          </button>
+          <div className="flex items-center gap-2 rounded-md border border-border bg-card px-3 py-2">
+            <Zap className="h-3.5 w-3.5 text-primary" />
+            <div className="min-w-0 flex-1">
+              <div className="h-1.5 overflow-hidden rounded-full bg-muted">
+                <div className="h-full rounded-full bg-primary" style={{ width: `${Math.round(levelProgress * 100)}%` }} />
+              </div>
+            </div>
+            <span className="font-mono text-[10px] text-muted-foreground">Lv.{level}</span>
           </div>
           <div className="flex items-center justify-between rounded-md border border-primary/30 bg-primary/10 px-3 py-2">
             <span className="flex items-center gap-1.5 text-xs font-medium text-primary">
@@ -167,7 +161,7 @@ function Shell() {
             </div>
           ) : (
             <button onClick={login} className="flex items-center justify-center gap-1.5 rounded-md bg-primary px-3 py-2 text-xs font-medium text-primary-foreground hover:opacity-90">
-              <LogIn className="h-3.5 w-3.5" /> GitHub 登录（云端同步）
+              <LogIn className="h-3.5 w-3.5" /> GitHub 登录
             </button>
           )}
         </SidebarFooter>

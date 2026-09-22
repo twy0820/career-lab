@@ -11,9 +11,8 @@ import PortfolioPage from '@/pages/PortfolioPage/PortfolioPage';
 import ResumePage from '@/pages/ResumePage/ResumePage';
 import DictionaryPage from '@/pages/DictionaryPage/DictionaryPage';
 import FriendsPage from '@/pages/FriendsPage/FriendsPage';
-import CommunityPage from '@/pages/CommunityPage/CommunityPage';
-import UserProjectsPage from '@/pages/UserProjectsPage/UserProjectsPage';
-import CommunityPlusPage from '@/pages/CommunityPlusPage/CommunityPlusPage';
+import RankingPage from '@/pages/RankingPage/RankingPage';
+import GuildPage from '@/pages/GuildPage/GuildPage';
 import NotFoundPage from '@/pages/NotFoundPage/NotFoundPage';
 
 export default function App() {
@@ -27,13 +26,12 @@ export default function App() {
         <Route path="arena" element={<ArenaPage />} />
         <Route path="arena/:id" element={<ArenaDetailPage />} />
         <Route path="contests" element={<ContestsPage />} />
+        <Route path="friends" element={<FriendsPage />} />
+        <Route path="ranking" element={<RankingPage />} />
+        <Route path="guild" element={<GuildPage />} />
         <Route path="portfolio" element={<PortfolioPage />} />
         <Route path="resume" element={<ResumePage />} />
         <Route path="dict" element={<DictionaryPage />} />
-        <Route path="friends" element={<FriendsPage />} />
-        <Route path="community" element={<CommunityPage />} />
-        <Route path="user-projects" element={<UserProjectsPage />} />
-        <Route path="community-plus" element={<CommunityPlusPage />} />
       </Route>
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
