@@ -75,6 +75,11 @@ export default function ProjectsPage() {
         </div>
       </TerminalPanel>
 
+      <div className="rounded-lg border border-primary/30 bg-primary/5 p-3 flex items-center justify-between">
+        <p className="text-sm">想发布自己的项目？查看 <Link to="/user-projects" className="text-primary underline">用户项目市场</Link></p>
+      </div>
+
+
       <div className="grid gap-4 md:grid-cols-2">
         {rows.map(({ p: p, gate }) => {
           const diff = p.difficulty ?? 2;
