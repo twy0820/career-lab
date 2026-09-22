@@ -1,4 +1,4 @@
-// EXPORTS: Layout
+﻿// EXPORTS: Layout
 import { Outlet, useLocation, NavLink } from 'react-router-dom';
 import { Toaster } from 'sonner';
 import {
@@ -40,17 +40,17 @@ import { useEffect, useState } from 'react';
 import type { User } from '@supabase/supabase-js';
 
 const NAV_ITEMS = [
-  { path: '/', label: '主页', icon: LayoutDashboard },
-  { path: '/skills', label: '技能图谱', icon: BookOpen },
-  { path: '/projects', label: '项目实战', icon: Briefcase },
-  { path: '/arena', label: '竞赛练兵', icon: Swords },
-  { path: '/contests', label: '竞赛雷达', icon: Radar },
-  { path: '/friends', label: '好友', icon: Users },
-  { path: '/ranking', label: '排名', icon: Trophy },
-  { path: '/guild', label: '公会', icon: Building2 },
-  { path: '/portfolio', label: '成就履历', icon: FolderPlus },
-  { path: '/resume', label: '简历生成器', icon: FileText },
-  { path: '/dict', label: '喵喵字典', icon: BookMarked },
+  { path: '/', label: '涓婚〉', icon: LayoutDashboard },
+  { path: '/skills', label: '鎶€鑳藉浘璋?, icon: BookOpen },
+  { path: '/projects', label: '椤圭洰瀹炴垬', icon: Briefcase },
+  { path: '/arena', label: '绔炶禌缁冨叺', icon: Swords },
+  { path: '/contests', label: '绔炶禌闆疯揪', icon: Radar },
+  { path: '/friends', label: '濂藉弸', icon: Users },
+  { path: '/ranking', label: '鎺掑悕', icon: Trophy },
+  { path: '/guild', label: '鍏細', icon: Building2 },
+  { path: '/portfolio', label: '鎴愬氨灞ュ巻', icon: FolderPlus },
+  { path: '/resume', label: '绠€鍘嗙敓鎴愬櫒', icon: FileText },
+  { path: '/dict', label: '鍠靛柕瀛楀吀', icon: BookMarked },
 ];
 
 export const Layout = () => {
@@ -79,7 +79,7 @@ function Shell() {
   });
   const logout = () => supabase.auth.signOut();
   const editNickname = () => {
-    const n = window.prompt('给你的喵侠起个名字', state.nickname || '');
+    const n = window.prompt('缁欎綘鐨勫柕渚犺捣涓悕瀛?, state.nickname || '');
     if (n && n.trim()) setNickname(n.trim().slice(0, 12));
   };
   const current = NAV_ITEMS.find((item) =>
@@ -95,7 +95,7 @@ function Shell() {
               <Terminal className="h-4 w-4" />
             </span>
             <div className="leading-tight">
-              <p className="text-sm font-semibold">实战工场</p>
+              <p className="text-sm font-semibold">瀹炴垬宸ュ満</p>
               <p className="font-mono text-[10px] text-muted-foreground">TechForge Lab</p>
             </div>
           </div>
@@ -118,23 +118,23 @@ function Shell() {
           </SidebarMenu>
         </SidebarContent>
         <SidebarFooter>
-          {/* 精简用户卡片 */}
+          {/* 绮剧畝鐢ㄦ埛鍗＄墖 */}
           <button
-            onClick={() => window.location.hash = '#me'}
+            onClick={() => window.location.href = '/career-lab/me'}
             className="flex w-full items-center gap-2 rounded-md border border-primary/30 bg-primary/10 px-3 py-2 text-left hover:bg-primary/20"
-            title="点击查看我的主页"
+            title="鐐瑰嚮鏌ョ湅鎴戠殑涓婚〉"
           >
             <span className="text-xl">{shownRank.emoji}</span>
             <div className="min-w-0 flex-1 leading-tight">
               <div className="flex items-center gap-1.5">
-                <p className="truncate text-xs font-semibold">{state.nickname || '猫同学'}</p>
-                <span onClick={(e)=>{e.stopPropagation();editNickname();}} className="text-[10px] text-muted-foreground hover:text-primary">✎</span>
+                <p className="truncate text-xs font-semibold">{state.nickname || '鐚悓瀛?}</p>
+                <span onClick={(e)=>{e.stopPropagation();editNickname();}} className="text-[10px] text-muted-foreground hover:text-primary">鉁?/span>
               </div>
-              <p className="text-[10px] opacity-80">{shownRank.name} · Lv.{level}</p>
+              <p className="text-[10px] opacity-80">{shownRank.name} 路 Lv.{level}</p>
             </div>
             <div className="text-right text-[10px]">
-              <p>⭐{state.stars ?? 0}</p>
-              <p className="text-amber-400">🐟{state.coins ?? 0}</p>
+              <p>猸恵state.stars ?? 0}</p>
+              <p className="text-amber-400">馃悷{state.coins ?? 0}</p>
             </div>
           </button>
           <div className="flex items-center gap-2 rounded-md border border-border bg-card px-3 py-2">
@@ -148,20 +148,20 @@ function Shell() {
           </div>
           <div className="flex items-center justify-between rounded-md border border-primary/30 bg-primary/10 px-3 py-2">
             <span className="flex items-center gap-1.5 text-xs font-medium text-primary">
-              <Bot className="h-3.5 w-3.5" /> 喵喵向导
+              <Bot className="h-3.5 w-3.5" /> 鍠靛柕鍚戝
             </span>
             <Switch checked={state.coachMode} onCheckedChange={setCoachMode} />
           </div>
           {user ? (
             <div className="flex items-center justify-between rounded-md border border-border bg-card px-3 py-2">
               <span className="truncate text-xs">{user.user_metadata?.user_name || user.email}</span>
-              <button onClick={logout} title="退出登录" className="text-muted-foreground hover:text-destructive">
+              <button onClick={logout} title="閫€鍑虹櫥褰? className="text-muted-foreground hover:text-destructive">
                 <LogOut className="h-3.5 w-3.5" />
               </button>
             </div>
           ) : (
             <button onClick={login} className="flex items-center justify-center gap-1.5 rounded-md bg-primary px-3 py-2 text-xs font-medium text-primary-foreground hover:opacity-90">
-              <LogIn className="h-3.5 w-3.5" /> GitHub 登录
+              <LogIn className="h-3.5 w-3.5" /> GitHub 鐧诲綍
             </button>
           )}
         </SidebarFooter>
@@ -169,9 +169,9 @@ function Shell() {
       <SidebarInset>
         <header className="flex h-12 items-center gap-3 border-b border-border bg-background/80 px-4 backdrop-blur">
           <SidebarTrigger />
-          <h1 className="text-sm font-semibold">{current ? current.label : '实战工场'}</h1>
+          <h1 className="text-sm font-semibold">{current ? current.label : '瀹炴垬宸ュ満'}</h1>
           <span className="ml-auto hidden font-mono text-xs text-muted-foreground sm:block">
-            企业实战模拟 · 竞赛雷达 · 履历包装
+            浼佷笟瀹炴垬妯℃嫙 路 绔炶禌闆疯揪 路 灞ュ巻鍖呰
           </span>
         </header>
         <main className="p-4 md:p-6">
@@ -184,3 +184,4 @@ function Shell() {
     </SidebarProvider>
   );
 }
+

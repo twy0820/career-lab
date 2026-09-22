@@ -13,6 +13,7 @@ import DictionaryPage from '@/pages/DictionaryPage/DictionaryPage';
 import FriendsPage from '@/pages/FriendsPage/FriendsPage';
 import RankingPage from '@/pages/RankingPage/RankingPage';
 import GuildPage from '@/pages/GuildPage/GuildPage';
+import ProfilePage from '@/pages/ProfilePage/ProfilePage';
 import NotFoundPage from '@/pages/NotFoundPage/NotFoundPage';
 
 export default function App() {
@@ -32,6 +33,7 @@ export default function App() {
         <Route path="portfolio" element={<PortfolioPage />} />
         <Route path="resume" element={<ResumePage />} />
         <Route path="dict" element={<DictionaryPage />} />
+        <Route path="me" element={<ProfilePage />} />
       </Route>
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
