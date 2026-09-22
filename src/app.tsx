@@ -13,6 +13,7 @@ import DictionaryPage from '@/pages/DictionaryPage/DictionaryPage';
 import FriendsPage from '@/pages/FriendsPage/FriendsPage';
 import CommunityPage from '@/pages/CommunityPage/CommunityPage';
 import UserProjectsPage from '@/pages/UserProjectsPage/UserProjectsPage';
+import CommunityPlusPage from '@/pages/CommunityPlusPage/CommunityPlusPage';
 import NotFoundPage from '@/pages/NotFoundPage/NotFoundPage';
 
 export default function App() {
@@ -32,6 +33,7 @@ export default function App() {
         <Route path="friends" element={<FriendsPage />} />
         <Route path="community" element={<CommunityPage />} />
         <Route path="user-projects" element={<UserProjectsPage />} />
+        <Route path="community-plus" element={<CommunityPlusPage />} />
       </Route>
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
