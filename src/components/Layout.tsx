@@ -31,7 +31,10 @@ import CoachWidget from './CoachWidget';
 import OnboardingWelcome from './OnboardingWelcome';
 import { Switch } from '@/components/ui/switch';
 import { RANKS, rankForLevel } from '@/data/ranks';
-import { Bot } from 'lucide-react';
+import { Bot, LogIn, LogOut } from 'lucide-react';
+import { supabase } from '@/lib/supabase';
+import { useEffect, useState } from 'react';
+import type { User } from '@supabase/supabase-js';
 
 const NAV_ITEMS = [
   { path: '/', label: '工作台', icon: LayoutDashboard },
@@ -58,6 +61,14 @@ function Shell() {
   const rank = rankForLevel(level);
   const shownRank = RANKS.find((r) => r.id === state.selectedRankId) ?? rank;
   const shownTitle = titles.find((tt) => tt.id === state.selectedTitleId);
+  const [user, setUser] = useState<User | null>(null);
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data }) => setUser(data.session?.user ?? null));
+    const { data: sub } = supabase.auth.onAuthStateChange((_e, session) => setUser(session?.user ?? null));
+    return () => sub.subscription.unsubscribe();
+  }, []);
+  const login = () => supabase.auth.signInWithOAuth({ provider: 'github' });
+  const logout = () => supabase.auth.signOut();
   const editNickname = () => {
     const n = window.prompt('给你的喵侠起个名字', state.nickname || '');
     if (n && n.trim()) setNickname(n.trim().slice(0, 12));
@@ -132,6 +143,18 @@ function Shell() {
             </span>
             <Switch checked={state.coachMode} onCheckedChange={setCoachMode} />
           </div>
+          {user ? (
+            <div className="flex items-center justify-between rounded-md border border-border bg-card px-3 py-2">
+              <span className="truncate text-xs">{user.user_metadata?.user_name || user.email}</span>
+              <button onClick={logout} title="退出登录" className="text-muted-foreground hover:text-destructive">
+                <LogOut className="h-3.5 w-3.5" />
+              </button>
+            </div>
+          ) : (
+            <button onClick={login} className="flex items-center justify-center gap-1.5 rounded-md bg-primary px-3 py-2 text-xs font-medium text-primary-foreground hover:opacity-90">
+              <LogIn className="h-3.5 w-3.5" /> GitHub 登录（云端同步）
+            </button>
+          )}
         </SidebarFooter>
       </Sidebar>
       <SidebarInset>
