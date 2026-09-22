@@ -67,7 +67,10 @@ function Shell() {
     const { data: sub } = supabase.auth.onAuthStateChange((_e, session) => setUser(session?.user ?? null));
     return () => sub.subscription.unsubscribe();
   }, []);
-  const login = () => supabase.auth.signInWithOAuth({ provider: 'github' });
+  const login = () => supabase.auth.signInWithOAuth({
+    provider: 'github',
+    options: { redirectTo: window.location.origin + '/career-lab/' },
+  });
   const logout = () => supabase.auth.signOut();
   const editNickname = () => {
     const n = window.prompt('给你的喵侠起个名字', state.nickname || '');
