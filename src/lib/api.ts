@@ -1,49 +1,31 @@
-// 后端 API 客户端（V2）。所有调用 best-effort：后端没起就静默失败，不影响纯前端模式。
-// 进度同步是可选增强——断网 / 后端未启动时仍以 localStorage 为准。
-
-const TOKEN_KEY = 'career-lab:token';
+// Supabase 后端客户端
+import { supabase } from './supabase'
 
 export function getToken(): string | null {
-  return localStorage.getItem(TOKEN_KEY);
+  return null // 现在由 Supabase 管理会话
 }
-export function setToken(t: string) {
-  localStorage.setItem(TOKEN_KEY, t);
-}
-
-async function req<T>(path: string, init?: RequestInit): Promise<T | null> {
-  try {
-    const res = await fetch(path, {
-      ...init,
-      headers: {
-        'Content-Type': 'application/json',
-        ...(getToken() ? { Authorization: `Bearer ${getToken()}` } : {}),
-        ...(init?.headers ?? {}),
-      },
-    });
-    if (!res.ok) return null;
-    return (await res.json()) as T;
-  } catch {
-    return null;
-  }
+export function setToken(_t: string) {
+  // no-op
 }
 
 export const api = {
-  health: () => req<{ ok: boolean }>('/api/health'),
-  login: (nickname: string) =>
-    req<{ token: string; nickname: string }>('/api/auth/login', {
-      method: 'POST',
-      body: JSON.stringify({ nickname }),
-    }),
-  getProgress: () =>
-    req<{ data: Record<string, unknown> | null; updated_at: number }>('/api/progress'),
-  putProgress: (data: Record<string, unknown>) =>
-    req<{ ok: boolean; updated_at: number }>('/api/progress', {
-      method: 'PUT',
-      body: JSON.stringify(data),
-    }),
-  aiExplain: (topic: string, question: string) =>
-    req<{ mode: string; answer: string }>('/api/ai/explain', {
-      method: 'POST',
-      body: JSON.stringify({ topic, question }),
-    }),
-};
+  async getProgress() {
+    const { data: { user } } = await supabase.auth.getUser()
+    if (!user) return null
+    const { data } = await supabase.from('profiles').select('data, updated_at').eq('id', user.id).single()
+    if (!data) return null
+    return { data: data.data as Record<string, unknown>, updated_at: data.updated_at }
+  },
+  async putProgress(data: Record<string, unknown>) {
+    const { data: { user } } = await supabase.auth.getUser()
+    if (!user) return { ok: false, updated_at: 0 }
+    const { error } = await supabase
+      .from('profiles')
+      .upsert({ id: user.id, data, updated_at: new Date().toISOString() })
+    if (error) return { ok: false, updated_at: 0 }
+    return { ok: true, updated_at: Date.now() }
+  },
+  aiExplain: async (_topic: string, _question: string) => {
+    return { mode: 'offline', answer: '离线模式' }
+  },
+}

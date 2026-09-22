@@ -14,6 +14,7 @@ import { ARENA_BY_ID } from '@/data/arena';
 import { TITLES } from '@/data/ranks';
 import { store } from '@/lib/store';
 import { api, getToken, setToken } from '@/lib/api';
+import { supabase } from '@/lib/supabase';
 
 const XP_PER_LEVEL = 200;
 const XP_MASTERED = 60;
@@ -57,15 +58,13 @@ export default function ProgressProvider({ children }: { children: ReactNode }) 
   const hydrated = useRef(false);
   const syncTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // 启动：登录（或复用 token）→ 拉服务端进度；服务端有数据则以服务端为准，否则把本地进度种子到服务端。
+  // 启动：登录后拉服务端进度；服务端有数据则以服务端为准，否则把本地进度种子到服务端。
   useEffect(() => {
     let cancelled = false;
     (async () => {
       try {
-        if (!getToken()) {
-          const res = await api.login(state.nickname || '猫同学');
-          if (res?.token) setToken(res.token);
-        }
+        const { data: { user } } = await supabase.auth.getUser();
+        if (!user) { hydrated.current = true; return; }
         const remote = await api.getProgress();
         if (cancelled) return;
         if (remote?.data && typeof remote.data === 'object') {
@@ -73,19 +72,14 @@ export default function ProgressProvider({ children }: { children: ReactNode }) 
           setState(merged);
           store.set('progress:v1', merged);
         } else {
-          // 服务端还没数据，把本地进度推上去做种子
           await api.putProgress(state as unknown as Record<string, unknown>);
         }
         hydrated.current = true;
       } catch {
-        // 后端没起也不影响使用
         hydrated.current = true;
       }
     })();
-    return () => {
-      cancelled = true;
-    };
-    // 只在首次挂载执行一次
+    return () => { cancelled = true; };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
