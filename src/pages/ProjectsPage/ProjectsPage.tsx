@@ -1,4 +1,4 @@
-﻿// 椤圭洰瀹炴垬锛氬垎绫荤瓫閫?+ 闅惧害绛夌骇瑙ｉ攣 + 鐭ヨ瘑鍓嶇疆 + 鏅鸿兘鎺ㄨ崘
+// 项目实战：分类筛选 + 难度等级解锁 + 知识前置 + 智能推荐
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Building2, Lock, Sparkles, Footprints, AlertTriangle } from 'lucide-react';
@@ -16,31 +16,31 @@ import { useMocks } from '@/hooks/use-mocks';
 function categoryOf(p: IProject): string {
   if (p.category) return p.category;
   const s = p.stack.join(' ');
-  if (/React|Vue|鍓嶇/i.test(s)) return '鍓嶇';
-  if (/Python|Pandas|PyTorch|鏁版嵁/i.test(p.title + s)) return '鏁版嵁';
+  if (/React|Vue|前端/i.test(s)) return '前端';
+  if (/Python|Pandas|PyTorch|数据/i.test(p.title + s)) return '数据';
   if (/Java|Spring|Go|MySQL|Redis|微服务/i.test(s)) return '后端';
-  return '缁煎悎';
+  return '综合';
 }
 
-const CATS = ['鍏ㄩ儴', '鍚庣', '鍓嶇', '鏁版嵁', 'AI', '鍏ㄦ爤', '宸ョ▼鏁堣兘', '缁煎悎'];
+const CATS = ['全部', '后端', '前端', '数据', 'AI', '全栈', '工程效能', '综合'];
 const DIFF_LABEL = ['', '入门', '简单', '进阶', '困难', '挑战'];
 
 const TIER_META: Record<GateResult['tier'], { label: string; cls: string; icon: typeof Sparkles }> = {
-  recommended: { label: '鏋佸姏鎺ㄨ崘', cls: 'bg-amber-400/20 text-amber-300 border-amber-400/50', icon: Sparkles },
+  recommended: { label: '极力推荐', cls: 'bg-amber-400/20 text-amber-300 border-amber-400/50', icon: Sparkles },
   starter: { label: '适合刚入门', cls: 'bg-emerald-400/15 text-emerald-300 border-emerald-400/40', icon: Footprints },
-  gap: { label: '还差知识', cls: 'bg-orange-400/15 text-orange-300 border-orange-400/40', icon: AlertTriangle },
+  gap: { label: '还差点知识', cls: 'bg-orange-400/15 text-orange-300 border-orange-400/40', icon: AlertTriangle },
   locked: { label: '段位未到', cls: 'bg-muted/30 text-muted-foreground border-border', icon: Lock },
 };
 
 export default function ProjectsPage() {
   const { state, level } = useProgress();
   const mocks = useMocks();
-  const [cat, setCat] = useState('鍏ㄩ儴');
+  const [cat, setCat] = useState('全部');
 
   const rows = useMemo(() => {
     const all = [...mocks.projects, ...SIM_PROJECTS];
     const filtered = all.filter((p) =>
-      cat === '鍏ㄩ儴' ? true : categoryOf(p) === cat
+      cat === '全部' ? true : categoryOf(p) === cat
     );
     const withGates = filtered.map((p) => ({ p, gate: gateProjectWithLevel(p, state, level) }));
     const sorted = sortByTier(withGates);
@@ -54,11 +54,13 @@ export default function ProjectsPage() {
 
   return (
     <div className="space-y-6">
-      <TerminalPanel title="~/projects" status={`${SIM_PROJECTS.length + mocks.projects.length} 涓」鐩甡}>
+      <TerminalPanel title="~/projects" status={`${SIM_PROJECTS.length + mocks.projects.length} 个项目`}>
         <div>
-          <h2 className="text-lg font-bold">浼佷笟瀹炴垬妯℃嫙</h2>
+          <h2 className="text-lg font-bold">企业实战模拟</h2>
           <p className="mt-1 max-w-3xl text-sm text-muted-foreground">
-            鍙屽眰闂ㄦ锛?b>娈典綅锛堢瓑绾э級</b>鍐冲畾浣犺兘涓嶈兘鎶ュ悕锛?b>鐭ヨ瘑鍓嶇疆</b>鍐冲畾浣犲仛寰楀姩涓嶅姩銆?            鎸変綘宸插/鍦ㄥ鐨勬妧鑳斤紝鑷姩缁欎綘鎵撱€屾瀬鍔涙帹鑽?/ 閫傚悎鍒氬叆闂?/ 杩樺樊鐐圭煡璇嗐€嶆爣绛俱€?          </p>
+            双层门槛：<b>段位（等级）</b>决定你能不能报名；<b>知识前置</b>决定你做得动不动。
+            按你已学/在学的技能，自动给你打「极力推荐 / 适合刚入门 / 还差点知识」标签。
+          </p>
           <div className="mt-4 flex flex-wrap gap-1.5">
             {CATS.map((c) => (
               <Button
@@ -75,10 +77,7 @@ export default function ProjectsPage() {
         </div>
       </TerminalPanel>
 
-      <div className="rounded-lg border border-primary/30 bg-primary/5 p-3 flex items-center justify-between">
-        <p className="text-sm">想发布自己的项目？查看 <Link to="/user-projects" className="text-primary underline">用户项目市场</Link></p>
-      </div>
-
+      <div className="rounded-lg border border-primary/30 bg-primary/5 p-3 flex items-center justify-between"><p className="text-sm">想发布自己的项目？前往 <Link to="/user-projects" className="text-primary underline">用户项目市场</Link></p></div>
 
       <div className="grid gap-4 md:grid-cols-2">
         {rows.map(({ p: p, gate }) => {
@@ -113,13 +112,13 @@ export default function ProjectsPage() {
                     {p.title}
                     {mocks.freshProjectIds.has(p.id) && (
                       <span className="rounded bg-gradient-to-r from-fuchsia-500/20 to-violet-500/20 px-1.5 py-0.5 text-[10px] font-normal text-fuchsia-300 border border-fuchsia-500/40">
-                        鉁?AI 鏈懆鏂板
+                        ✨ AI 本周新增
                       </span>
                     )}
                   </h3>
                   <p className="mt-0.5 flex items-center gap-1.5 text-xs text-muted-foreground">
                     <Building2 className="h-3.5 w-3.5" />
-                    {p.company} 路 {p.role}
+                    {p.company} · {p.role}
                   </p>
                 </div>
                 <div className="shrink-0 text-right">
@@ -127,7 +126,7 @@ export default function ProjectsPage() {
                     {p.duration}
                   </span>
                   <p className="mt-1 font-mono text-[10px] text-primary">
-                    {DIFF_LABEL[diff]} 路 闇€ Lv.{reqLv}
+                    {DIFF_LABEL[diff]} · 需 Lv.{reqLv}
                   </p>
                 </div>
               </div>
@@ -147,7 +146,7 @@ export default function ProjectsPage() {
               <div className="mt-4">
                 <div className="flex items-center justify-between text-xs text-muted-foreground">
                   <span>
-                    闃舵杩涘害锛歿joined ? `${doneCount}/${allT.length}` : `${(p.phases ?? []).length} 闃舵 ${allT.length} 浠诲姟`}
+                    阶段进度：{joined ? `${doneCount}/${allT.length}` : `${(p.phases ?? []).length} 阶段 ${allT.length} 任务`}
                   </span>
                   <span className="font-mono text-primary">+{allT.reduce((s, t) => s + t.xp, 0)} XP</span>
                 </div>
@@ -158,12 +157,12 @@ export default function ProjectsPage() {
                 {locked ? (
                   <div className="flex w-full items-center justify-center gap-2 rounded-md border border-dashed border-border bg-muted/30 py-2 text-xs text-muted-foreground">
                     <Lock className="h-3.5 w-3.5" />
-                    杈惧埌銆寋reqRank.name}銆?Lv.{reqLv}) 瑙ｉ攣 路 鍏堝幓缁冨熀纭€
+                    达到「{reqRank.name}」(Lv.{reqLv}) 解锁 · 先去练基础
                   </div>
                 ) : (
                   <Button asChild variant={allDone ? 'outline' : 'default'} className="w-full">
                     <Link to={`/projects/${p.id}`}>
-                      {allDone ? '鏌ョ湅澶嶇洏涓庡饱鍘? : joined ? '缁х画鎺ㄨ繘浠诲姟' : '鏌ョ湅骞跺姞鍏ラ」鐩?}
+                      {allDone ? '查看复盘与履历' : joined ? '继续推进任务' : '查看并加入项目'}
                       <ArrowRight className="h-4 w-4" />
                     </Link>
                   </Button>
@@ -176,4 +175,3 @@ export default function ProjectsPage() {
     </div>
   );
 }
-

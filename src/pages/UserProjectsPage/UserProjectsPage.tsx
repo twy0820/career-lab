@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabase';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -66,37 +66,37 @@ export default function UserProjectsPage() {
   return (
     <div className="grid gap-4 md:grid-cols-3">
       <Card className="md:col-span-1">
-        <CardHeader><CardTitle>鍙戝竷椤圭洰</CardTitle></CardHeader>
+        <CardHeader><CardTitle>发布项目</CardTitle></CardHeader>
         <CardContent className="space-y-2">
-          <Input placeholder="鏍囬" value={form.title} onChange={e=>setForm({...form,title:e.target.value})} />
-          <Textarea placeholder="鎻忚堪" value={form.description} onChange={e=>setForm({...form,description:e.target.value})} />
-          <Input type="number" placeholder="闅惧害1-5" value={form.difficulty} onChange={e=>setForm({...form,difficulty:+e.target.value})} />
-          <div className="flex items-center gap-2"><Switch checked={form.enableReward} onCheckedChange={v=>setForm({...form,enableReward:v})} /><span className="text-xs">寮€鍚鎯?/span></div>
+          <Input placeholder="标题" value={form.title} onChange={e=>setForm({...form,title:e.target.value})} />
+          <Textarea placeholder="描述" value={form.description} onChange={e=>setForm({...form,description:e.target.value})} />
+          <Input type="number" placeholder="难度1-5" value={form.difficulty} onChange={e=>setForm({...form,difficulty:+e.target.value})} />
+          <div className="flex items-center gap-2"><Switch checked={form.enableReward} onCheckedChange={v=>setForm({...form,enableReward:v})} /><span className="text-xs">开启奖惩</span></div>
           {form.enableReward && (
             <>
-              <Input type="number" placeholder="鍙備笌鑺辫垂甯? value={form.entryCost} onChange={e=>setForm({...form,entryCost:+e.target.value})} />
-              <Input type="number" placeholder="濂栧姳甯? value={form.rewardCoins} onChange={e=>setForm({...form,rewardCoins:+e.target.value})} />
+              <Input type="number" placeholder="参与花费币" value={form.entryCost} onChange={e=>setForm({...form,entryCost:+e.target.value})} />
+              <Input type="number" placeholder="奖励币" value={form.rewardCoins} onChange={e=>setForm({...form,rewardCoins:+e.target.value})} />
             </>
           )}
-          <div className="flex items-center gap-2"><Switch checked={form.enableCondition} onCheckedChange={v=>setForm({...form,enableCondition:v})} /><span className="text-xs">寮€鍚姤鍚嶆潯浠?/span></div>
+          <div className="flex items-center gap-2"><Switch checked={form.enableCondition} onCheckedChange={v=>setForm({...form,enableCondition:v})} /><span className="text-xs">开启报名条件</span></div>
           {form.enableCondition && (
             <>
-              <Input type="number" placeholder="鏈€浣庣瓑绾? value={form.minLevel} onChange={e=>setForm({...form,minLevel:+e.target.value})} />
+              <Input type="number" placeholder="最低等级" value={form.minLevel} onChange={e=>setForm({...form,minLevel:+e.target.value})} />
               <select className="w-full border rounded p-2" value={form.minRank} onChange={e=>setForm({...form,minRank:e.target.value})}>
-                <option value="">涓嶉檺娈典綅</option>
+                <option value="">不限段位</option>
                 {RANKS.map(r=><option key={r.id} value={r.id}>{r.name}</option>)}
               </select>
-              <Input type="number" placeholder="鏈€浣庢槦鏄? value={form.minStars} onChange={e=>setForm({...form,minStars:+e.target.value})} />
+              <Input type="number" placeholder="最低星星" value={form.minStars} onChange={e=>setForm({...form,minStars:+e.target.value})} />
             </>
           )}
-          <Input type="number" placeholder="闇€瑕佷汉鏁? value={form.needed} onChange={e=>setForm({...form,needed:+e.target.value})} />
-          <Input type="number" placeholder="闄愭椂澶╂暟" value={form.days} onChange={e=>setForm({...form,days:+e.target.value})} />
-          <Button onClick={create} className="w-full"><Plus className="h-4 w-4" />鍙戝竷</Button>
+          <Input type="number" placeholder="需要人数" value={form.needed} onChange={e=>setForm({...form,needed:+e.target.value})} />
+          <Input type="number" placeholder="限时天数" value={form.days} onChange={e=>setForm({...form,days:+e.target.value})} />
+          <Button onClick={create} className="w-full"><Plus className="h-4 w-4" />发布</Button>
         </CardContent>
       </Card>
 
       <Card className="md:col-span-2">
-        <CardHeader><CardTitle>鐢ㄦ埛鍙戝竷鐨勯」鐩?({list.length})</CardTitle></CardHeader>
+        <CardHeader><CardTitle>用户发布的项目 ({list.length})</CardTitle></CardHeader>
         <CardContent>
           <ScrollArea className="h-[600px]">
             {list.map(p => (
@@ -104,14 +104,14 @@ export default function UserProjectsPage() {
                 <p className="font-semibold">{p.title}</p>
                 <p className="text-xs text-muted-foreground">{p.description}</p>
                 <div className="mt-2 flex flex-wrap gap-3 text-xs">
-                  <span className="flex items-center gap-1"><Clock className="h-3 w-3" />{p.deadline_days}澶?/span>
-                  <span className="flex items-center gap-1"><Users className="h-3 w-3" />{p.needed}浜?/span>
-                  {p.reward_coins>0 && <span className="flex items-center gap-1"><Coins className="h-3 w-3" />{p.entry_cost}鈫抺p.reward_coins}</span>}
+                  <span className="flex items-center gap-1"><Clock className="h-3 w-3" />{p.deadline_days}天</span>
+                  <span className="flex items-center gap-1"><Users className="h-3 w-3" />{p.needed}人</span>
+                  {p.reward_coins>0 && <span className="flex items-center gap-1"><Coins className="h-3 w-3" />{p.entry_cost}→{p.reward_coins}</span>}
                   {p.min_level>0 && <span className="text-muted-foreground">Lv.{p.min_level}+</span>}
                 </div>
                 <div className="mt-2 flex gap-2">
-                  <Button size="sm" variant={myLikes.has(p.id)?'default':'outline'} onClick={()=>toggle('likes',p.id)}><Heart className="h-3 w-3" />{myLikes.has(p.id)?'宸茶禐':'璧?}</Button>
-                  <Button size="sm" variant={myFavs.has(p.id)?'default':'outline'} onClick={()=>toggle('favorites',p.id)}><Star className="h-3 w-3" />{myFavs.has(p.id)?'宸茶棌':'鏀惰棌'}</Button>
+                  <Button size="sm" variant={myLikes.has(p.id)?'default':'outline'} onClick={()=>toggle('likes',p.id)}><Heart className="h-3 w-3" />{myLikes.has(p.id)?'已赞':'赞'}</Button>
+                  <Button size="sm" variant={myFavs.has(p.id)?'default':'outline'} onClick={()=>toggle('favorites',p.id)}><Star className="h-3 w-3" />{myFavs.has(p.id)?'已藏':'收藏'}</Button>
                 </div>
               </div>
             ))}
@@ -121,4 +121,3 @@ export default function UserProjectsPage() {
     </div>
   );
 }
-
