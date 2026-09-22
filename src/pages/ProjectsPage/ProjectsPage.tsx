@@ -18,12 +18,12 @@ function categoryOf(p: IProject): string {
   const s = p.stack.join(' ');
   if (/React|Vue|鍓嶇/i.test(s)) return '鍓嶇';
   if (/Python|Pandas|PyTorch|鏁版嵁/i.test(p.title + s)) return '鏁版嵁';
-  if (/Java|Spring|Go|MySQL|Redis|寰湇鍔?i.test(s)) return '鍚庣';
+  if (/Java|Spring|Go|MySQL|Redis|微服务/i.test(s)) return '后端';
   return '缁煎悎';
 }
 
 const CATS = ['鍏ㄩ儴', '鍚庣', '鍓嶇', '鏁版嵁', 'AI', '鍏ㄦ爤', '宸ョ▼鏁堣兘', '缁煎悎'];
-const DIFF_LABEL = ['', '鍏ラ棬', '绠€鍗?, '杩涢樁', '鍥伴毦', '鎸戞垬'];
+const DIFF_LABEL = ['', '入门', '简单', '进阶', '困难', '挑战'];
 
 const TIER_META: Record<GateResult['tier'], { label: string; cls: string; icon: typeof Sparkles }> = {
   recommended: { label: '鏋佸姏鎺ㄨ崘', cls: 'bg-amber-400/20 text-amber-300 border-amber-400/50', icon: Sparkles },
