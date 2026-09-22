@@ -10,6 +10,7 @@ import ContestsPage from '@/pages/ContestsPage/ContestsPage';
 import PortfolioPage from '@/pages/PortfolioPage/PortfolioPage';
 import ResumePage from '@/pages/ResumePage/ResumePage';
 import DictionaryPage from '@/pages/DictionaryPage/DictionaryPage';
+import FriendsPage from '@/pages/FriendsPage/FriendsPage';
 import NotFoundPage from '@/pages/NotFoundPage/NotFoundPage';
 
 export default function App() {
@@ -26,6 +27,7 @@ export default function App() {
         <Route path="portfolio" element={<PortfolioPage />} />
         <Route path="resume" element={<ResumePage />} />
         <Route path="dict" element={<DictionaryPage />} />
+        <Route path="friends" element={<FriendsPage />} />
       </Route>
       <Route path="*" element={<NotFoundPage />} />
     </Routes>

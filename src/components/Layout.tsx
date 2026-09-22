@@ -12,6 +12,7 @@ import {
   BookMarked,
   Terminal,
   Zap,
+  Users,
 } from 'lucide-react';
 import {
   Sidebar,
@@ -45,6 +46,7 @@ const NAV_ITEMS = [
   { path: '/portfolio', label: '成就履历', icon: Trophy },
   { path: '/resume', label: '简历生成器', icon: FileText },
   { path: '/dict', label: '喵喵字典', icon: BookMarked },
+  { path: '/friends', label: '好友排名', icon: Users },
 ];
 
 export const Layout = () => {

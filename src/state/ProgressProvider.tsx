@@ -93,8 +93,18 @@ export default function ProgressProvider({ children }: { children: ReactNode }) 
     store.set('progress:v1', next);
     if (!hydrated.current) return;
     if (syncTimer.current) clearTimeout(syncTimer.current);
-    syncTimer.current = setTimeout(() => {
-      void api.putProgress(next as unknown as Record<string, unknown>);
+    syncTimer.current = setTimeout(async () => {
+      await api.putProgress(next as unknown as Record<string, unknown>);
+      const { data: { user } } = await supabase.auth.getUser();
+      if (user) {
+        await supabase.from('user_meta').upsert({
+          id: user.id,
+          nickname: next.nickname || '猫同学',
+          level: Math.floor((Object.values(next.skillStatus).length * 10 + next.doneLessons.length * 5 + next.submissions.length * 30) / 200) + 1,
+          stars: next.stars ?? 0,
+          coins: next.coins ?? 0,
+        });
+      }
     }, 800);
   };
 
