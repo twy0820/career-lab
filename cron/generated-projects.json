@@ -1,58 +1,57 @@
 {
-  "generatedAt": "2026-09-21T05:58:34.818642+00:00",
+  "generatedAt": "2026-09-22T05:55:04.133679+00:00",
   "projects": [
     {
-      "id": "proj-001",
-      "title": "企业内部知识库智能问答Agent",
-      "company": "字节跳动 飞书协作事业部",
-      "role": "AI应用开发实习生",
+      "id": "proj001",
+      "title": "企业内部合规文档RAG问答助手",
+      "company": "字节跳动",
+      "role": "全栈开发实习生",
       "stack": [
         "Python",
         "LangChain",
-        "OpenAI Embedding",
         "ChromaDB",
+        "React",
         "FastAPI",
-        "飞书开放API"
+        "Docker"
       ],
-      "summary": "开发面向企业内部员工的知识库问答Agent，支持上传内部文档（PDF/Word/飞书文档），基于检索增强生成技术实现准确的内容问答，支持多轮上下文对话和回答来源溯源",
-      "background": "随着企业数字化转型，内部沉淀了大量非结构化文档知识，员工手动查找信息效率极低，2026年多数中大型企业都需要私有化部署的内部AI问答工具，本项目还原了企业真实RAG落地场景需求",
+      "summary": "搭建面向企业内部员工的合规文档问答系统，支持员工自然语言提问，基于RAG技术从内部合规制度、项目文档库中检索相关内容，结合大模型生成准确可溯源的回答，同时支持文档上传与知识库增量更新",
+      "background": "企业内部沉淀了大量合规要求、流程规范、历史项目文档，新老员工查找信息依赖传统关键词搜索，经常找不到匹配的准确内容，新人入职合规培训信息获取效率低，需要一套基于大模型的精准问答工具解决该痛点",
       "duration": "4周",
       "difficulty": 2,
-      "category": "RAG/Agent",
+      "category": "RAG/全栈开发",
       "skills": [
-        "skill-rag-retrieval-optimization",
-        "skill-agent-orchestration",
-        "skill-rest-api-development",
-        "skill-vector-database-usage"
+        "skill_rag_base",
+        "skill_frontend_dev",
+        "skill_backend_api",
+        "skill_prompt_eng",
+        "skill_container_deploy"
       ]
     },
     {
-      "id": "proj-002",
-      "title": "校园校招信息聚合全栈平台",
-      "company": "BOSS直聘 校园招聘事业部",
-      "role": "全栈开发实习生",
+      "id": "proj002",
+      "title": "电商运营智能数据分析Agent",
+      "company": "拼多多",
+      "role": "数据开发实习生",
       "stack": [
-        "React 18",
-        "Vite",
-        "TailwindCSS",
-        "Node.js",
-        "Prisma",
-        "PostgreSQL",
-        "Docker",
-        "GitHub Actions",
-        "Pandas"
+        "Python",
+        "LangGraph",
+        "Pandas",
+        "Plotly",
+        "SQL",
+        "FastAPI",
+        "GPT-4o Mini"
       ],
-      "summary": "开发面向大学生的校招信息聚合平台，完成多源校招信息爬清洗，实现招聘信息搜索、筛选、收藏、订阅提醒功能，同时搭建规范化的前端工程化流程，支持自动化构建部署",
-      "background": "校招信息分散在高校就业网、企业官网、多个第三方招聘平台，大学生难以集中获取精准匹配的最新校招信息，本项目还原了企业ToC小产品从需求到上线的全流程开发，贴合当下全栈工程师能力要求",
-      "duration": "6周",
+      "summary": "开发面向电商运营的智能数据分析Agent，支持运营用自然语言提出各类业务分析需求，Agent自动完成需求拆解、SQL查询生成、异常数据校验、清洗分析、可视化图表生成，最终输出结构化分析结论与建议",
+      "background": "电商运营日常需要频繁查询流量、转化、GMV、用户分层等各类业务数据，传统流程需要运营提需求给数据部门排期，响应慢周期长，无法支撑快速运营决策，需要智能Agent实现自助式数据分析，降低普通运营的数据分析门槛",
+      "duration": "5周",
       "difficulty": 3,
-      "category": "全栈/前端工程化/数据",
+      "category": "Agent/数据开发",
       "skills": [
-        "skill-fullstack-development",
-        "skill-frontend-engineering-spec",
-        "skill-basic-data-processing",
-        "skill-cicd-pipeline",
-        "skill-database-design"
+        "skill_agent_orchestration",
+        "skill_sql_generation",
+        "skill_data_process",
+        "skill_result_visualization",
+        "skill_error_handling"
       ]
     }
   ]
