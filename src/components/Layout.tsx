@@ -13,6 +13,7 @@ import {
   Terminal,
   Zap,
   Users,
+  Building2,
 } from 'lucide-react';
 import {
   Sidebar,
@@ -47,6 +48,7 @@ const NAV_ITEMS = [
   { path: '/resume', label: '简历生成器', icon: FileText },
   { path: '/dict', label: '喵喵字典', icon: BookMarked },
   { path: '/friends', label: '好友排名', icon: Users },
+  { path: '/community', label: '社区公会', icon: Building2 },
 ];
 
 export const Layout = () => {
