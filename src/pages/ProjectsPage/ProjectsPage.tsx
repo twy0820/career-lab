@@ -27,9 +27,9 @@ const DIFF_LABEL = ['', '入门', '简单', '进阶', '困难', '挑战'];
 
 const TIER_META: Record<GateResult['tier'], { label: string; cls: string; icon: typeof Sparkles }> = {
   recommended: { label: '鏋佸姏鎺ㄨ崘', cls: 'bg-amber-400/20 text-amber-300 border-amber-400/50', icon: Sparkles },
-  starter: { label: '閫傚悎鍒氬叆闂?, cls: 'bg-emerald-400/15 text-emerald-300 border-emerald-400/40', icon: Footprints },
-  gap: { label: '杩樺樊鐐圭煡璇?, cls: 'bg-orange-400/15 text-orange-300 border-orange-400/40', icon: AlertTriangle },
-  locked: { label: '娈典綅鏈埌', cls: 'bg-muted/30 text-muted-foreground border-border', icon: Lock },
+  starter: { label: '适合刚入门', cls: 'bg-emerald-400/15 text-emerald-300 border-emerald-400/40', icon: Footprints },
+  gap: { label: '还差知识', cls: 'bg-orange-400/15 text-orange-300 border-orange-400/40', icon: AlertTriangle },
+  locked: { label: '段位未到', cls: 'bg-muted/30 text-muted-foreground border-border', icon: Lock },
 };
 
 export default function ProjectsPage() {
