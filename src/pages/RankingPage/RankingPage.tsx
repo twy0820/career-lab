@@ -85,16 +85,18 @@ export default function RankingPage() {
           <CardContent>
             <ScrollArea className="h-[600px]">
               {friends.map((f,i)=>(
-                <div key={f.id} className="flex p-2 text-sm border-b">
+                <div key={f.id} className={'flex p-2 text-sm border-b ' + (f.id===me?'bg-amber-500/20 font-bold':'')}>
                   <span className="w-8 text-muted-foreground">{i+1}</span>
-                  <span className="flex-1">好友</span>
+                  <Link to={'/user/' + f.id} className="flex-1 hover:underline">{f.nickname || '未命名'}{f.id===me?' (我)':''}</Link>
+                  <span>⭐{f.stars || 0}</span>
                 </div>
               ))}
+              {friends.length === 0 && <p className="p-2 text-sm text-muted-foreground">还没有好友，去「好友」页添加吧</p>}
             </ScrollArea>
           </CardContent>
         </Card>
       </TabsContent>
-      <TabsContent value="guild"><Card><CardHeader><CardTitle>公会排名</CardTitle></CardHeader><CardContent><ScrollArea className="h-[600px]">{guild.map((g,i)=><div key={g.id} className="flex p-2 text-sm border-b"><span className="w-8 text-muted-foreground">{i+1}</span><span className="flex-1">{g.name}</span><span>{g.member_count}人</span></div>)}</ScrollArea></CardContent></Card></TabsContent>
+      <TabsContent value="guild"><Card><CardHeader><CardTitle>公会排名</CardTitle></CardHeader><CardContent><ScrollArea className="h-[600px]">{guild.map((g,i)=><div key={g.id} className="flex p-2 text-sm border-b"><span className="w-8 text-muted-foreground">{i+1}</span><span className="flex-1">{g.name} <span className="text-xs text-muted-foreground">Lv.{g.level || 1}</span></span><span>{g.member_count}人</span></div>)}</ScrollArea></CardContent></Card></TabsContent>
       <TabsContent value="projects"><Card><CardHeader><CardTitle>项目发布排名</CardTitle></CardHeader><CardContent><ScrollArea className="h-[600px]">{projects.map((p,i)=><div key={p.id} className="flex p-2 text-sm border-b"><span className="w-8 text-muted-foreground">{i+1}</span><span className="flex-1">{p.title}</span><span className="text-xs text-muted-foreground">综合分 {p._score?.toFixed(1)}</span></div>)}</ScrollArea></CardContent></Card></TabsContent>
       <TabsContent value="contests"><Card><CardHeader><CardTitle>竞赛发布排名</CardTitle></CardHeader><CardContent><ScrollArea className="h-[600px]">{contests.map((c,i)=><div key={c.id} className="flex p-2 text-sm border-b"><span className="w-8 text-muted-foreground">{i+1}</span><span className="flex-1">{c.title}</span><span className="text-xs text-muted-foreground">综合分 {c._score?.toFixed(1)}</span></div>)}</ScrollArea></CardContent></Card></TabsContent>
     </Tabs>
