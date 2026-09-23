@@ -25,6 +25,16 @@ jobs:
           LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
           LLM_MODEL: ${{ secrets.LLM_MODEL }}
         run: python cron/generate_projects.py
+      - name: Apply overdue penalties
+        env:
+          SUPABASE_URL: https://qgqmxxcdzjvljckewvhd.supabase.co
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: |
+          curl -s -X POST "$SUPABASE_URL/rest/v1/rpc/apply_penalties" \
+            -H "Authorization: Bearer $SUPABASE_SERVICE_KEY" \
+            -H "Content-Type: application/json"
+          echo "Penalties applied"
+
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
