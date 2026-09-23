@@ -13,6 +13,8 @@ export default function GuildPage() {
   const [guilds, setGuilds] = useState<any[]>([]);
   const [teams, setTeams] = useState<any[]>([]);
   const [redPackets, setRedPackets] = useState<any[]>([]);
+  const [members, setMembers] = useState<any[]>([]);
+  const [showMembers, setShowMembers] = useState<string | null>(null);
   const [name, setName] = useState('');
   const [amt, setAmt] = useState(100);
 
@@ -44,6 +46,12 @@ export default function GuildPage() {
     refresh();
   };
 
+  const loadMembers = async (gid: string) => {
+    const { data } = await supabase.from('guild_members').select('*').eq('guild_id', gid);
+    setMembers(data ?? []);
+    setShowMembers(gid);
+  };
+
   const sendRed = async (gid: string) => {
     if (!me) return;
     await supabase.from('red_packets').insert({ guild_id: gid, sender: me, amount: amt });
@@ -66,6 +74,7 @@ export default function GuildPage() {
                 <p className="text-xs text-muted-foreground">{g.member_count} 人</p>
                 <div className="mt-2 flex gap-2">
                   <Button size="sm" variant="outline" onClick={()=>join(g)}>加入</Button>
+                  <Button size="sm" variant="outline" onClick={()=>loadMembers(g.id)}>成员</Button>
                   <div className="flex gap-1">
                     <Input type="number" value={amt} onChange={e=>setAmt(+e.target.value)} className="h-7 w-20" />
                     <Button size="sm" variant="outline" onClick={()=>sendRed(g.id)}><Gift className="h-3 w-3" />发红包</Button>
