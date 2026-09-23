@@ -15,6 +15,7 @@ import RankingPage from '@/pages/RankingPage/RankingPage';
 import GuildPage from '@/pages/GuildPage/GuildPage';
 import ProfilePage from '@/pages/ProfilePage/ProfilePage';
 import UserProjectsPage from '@/pages/UserProjectsPage/UserProjectsPage';
+import UserContestsPage from '@/pages/UserContestsPage/UserContestsPage';
 import NotFoundPage from '@/pages/NotFoundPage/NotFoundPage';
 
 export default function App() {
@@ -36,6 +37,7 @@ export default function App() {
         <Route path="dict" element={<DictionaryPage />} />
         <Route path="me" element={<ProfilePage />} />
         <Route path="user-projects" element={<UserProjectsPage />} />
+        <Route path="user-contests" element={<UserContestsPage />} />
       </Route>
       <Route path="*" element={<NotFoundPage />} />
     </Routes>

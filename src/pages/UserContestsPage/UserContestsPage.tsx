@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { supabase } from '@/lib/supabase';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -7,22 +7,20 @@ import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Switch } from '@/components/ui/switch';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { Plus, Heart, Star, Users, Clock, Coins, ArrowLeft, ChevronDown } from 'lucide-react';
+import { Plus, Heart, Star, Users, Clock, Coins, ArrowLeft, ChevronDown, Trophy } from 'lucide-react';
 import { RANKS } from '@/data/ranks';
 
-export default function UserProjectsPage() {
+export default function UserContestsPage() {
   const nav = useNavigate();
   const [me, setMe] = useState<string | null>(null);
   const [list, setList] = useState<any[]>([]);
   const [showForm, setShowForm] = useState(false);
   const [form, setForm] = useState({
     title: '', description: '', difficulty: 2,
-    enableReward: false, rewardCoins: 100, entryCost: 10,
+    enableReward: false, rewardCoins: 200, entryCost: 20,
     enableCondition: false, minLevel: 1, minRank: '', minStars: 0,
     needed: 3, days: 7,
   });
-  const [myLikes, setMyLikes] = useState<Set<string>>(new Set());
-  const [myFavs, setMyFavs] = useState<Set<string>>(new Set());
 
   useEffect(() => {
     supabase.auth.getUser().then(({ data }) => data.user && setMe(data.user.id));
@@ -30,19 +28,13 @@ export default function UserProjectsPage() {
   }, [me]);
 
   const refresh = async () => {
-    const { data } = await supabase.from('custom_projects').select('*').order('created_at', { ascending: false });
+    const { data } = await supabase.from('custom_contests').select('*').order('created_at', { ascending: false });
     setList(data ?? []);
-    if (me) {
-      const { data: l } = await supabase.from('likes').select('target_id').eq('user_id', me).eq('target_type','project');
-      setMyLikes(new Set((l ?? []).map((x:any) => x.target_id)));
-      const { data: f } = await supabase.from('favorites').select('target_id').eq('user_id', me).eq('target_type','project');
-      setMyFavs(new Set((f ?? []).map((x:any) => x.target_id)));
-    }
   };
 
   const create = async () => {
     if (!me || !form.title.trim()) return;
-    await supabase.from('custom_projects').insert({
+    await supabase.from('custom_contests').insert({
       author: me, title: form.title, description: form.description,
       difficulty: form.difficulty, entry_cost: form.enableReward ? form.entryCost : 0,
       reward_coins: form.enableReward ? form.rewardCoins : 0,
@@ -55,50 +47,29 @@ export default function UserProjectsPage() {
     refresh();
   };
 
-  const toggle = async (table: string, id: string) => {
-    if (!me) return;
-    if (table === 'likes') {
-      if (myLikes.has(id)) { await supabase.from('likes').delete().eq('user_id',me).eq('target_id',id); }
-      else { await supabase.from('likes').insert({user_id:me,target_type:'project',target_id:id}); }
-    } else {
-      if (myFavs.has(id)) { await supabase.from('favorites').delete().eq('user_id',me).eq('target_id',id); }
-      else { await supabase.from('favorites').insert({user_id:me,target_type:'project',target_id:id}); }
-    }
-    refresh();
-  };
-
   return (
     <div className="space-y-4">
       <div className="flex items-center gap-3">
-        <Button variant="outline" size="sm" onClick={() => nav('/projects')}><ArrowLeft className="h-4 w-4" /> 返回项目实战</Button>
-        <h1 className="text-xl font-bold">用户项目市场</h1>
+        <Button variant="outline" size="sm" onClick={() => nav('/arena')}><ArrowLeft className="h-4 w-4" /> 返回竞赛练兵</Button>
+        <h1 className="text-xl font-bold">用户竞赛市场</h1>
       </div>
 
       <Button onClick={() => setShowForm(!showForm)} className="w-full">
-        <Plus className="h-4 w-4" /> {showForm ? '收起发布表单' : '发布新项目'} <ChevronDown className={showForm ? 'rotate-180 transition' : 'transition'} />
+        <Trophy className="h-4 w-4" /> {showForm ? '收起发布表单' : '发布新竞赛'} <ChevronDown className={showForm ? 'rotate-180 transition' : 'transition'} />
       </Button>
 
       {showForm && (
         <Card>
-          <CardHeader><CardTitle>填写项目详情</CardTitle></CardHeader>
+          <CardHeader><CardTitle>填写竞赛详情</CardTitle></CardHeader>
           <CardContent className="space-y-3">
-            <div>
-              <label className="text-xs text-muted-foreground">项目标题（必填）</label>
-              <Input placeholder="例如：电商网站前端" value={form.title} onChange={e=>setForm({...form,title:e.target.value})} />
-            </div>
-            <div>
-              <label className="text-xs text-muted-foreground">项目描述</label>
-              <Textarea placeholder="详细描述目标、技术栈、交付要求" value={form.description} onChange={e=>setForm({...form,description:e.target.value})} />
-            </div>
-            <div>
-              <label className="text-xs text-muted-foreground">难度（1=入门 5=挑战）</label>
-              <Input type="number" min={1} max={5} value={form.difficulty} onChange={e=>setForm({...form,difficulty:+e.target.value})} />
-            </div>
+            <div><label className="text-xs text-muted-foreground">竞赛标题（必填）</label><Input placeholder="例如：前端攻防赛" value={form.title} onChange={e=>setForm({...form,title:e.target.value})} /></div>
+            <div><label className="text-xs text-muted-foreground">竞赛描述</label><Textarea placeholder="赛题、规则、评分标准" value={form.description} onChange={e=>setForm({...form,description:e.target.value})} /></div>
+            <div><label className="text-xs text-muted-foreground">难度（1=入门 5=挑战）</label><Input type="number" min={1} max={5} value={form.difficulty} onChange={e=>setForm({...form,difficulty:+e.target.value})} /></div>
             <div className="flex items-center gap-2"><Switch checked={form.enableReward} onCheckedChange={v=>setForm({...form,enableReward:v})} /><span className="text-xs font-medium">开启奖惩机制</span></div>
             {form.enableReward && (
               <div className="grid grid-cols-2 gap-2">
-                <div><label className="text-xs text-muted-foreground">参加者支付猫猫币</label><Input type="number" value={form.entryCost} onChange={e=>setForm({...form,entryCost:+e.target.value})} /></div>
-                <div><label className="text-xs text-muted-foreground">完成奖励猫猫币</label><Input type="number" value={form.rewardCoins} onChange={e=>setForm({...form,rewardCoins:+e.target.value})} /></div>
+                <div><label className="text-xs text-muted-foreground">参赛者支付猫猫币</label><Input type="number" value={form.entryCost} onChange={e=>setForm({...form,entryCost:+e.target.value})} /></div>
+                <div><label className="text-xs text-muted-foreground">获奖奖励猫猫币</label><Input type="number" value={form.rewardCoins} onChange={e=>setForm({...form,rewardCoins:+e.target.value})} /></div>
               </div>
             )}
             <div className="flex items-center gap-2"><Switch checked={form.enableCondition} onCheckedChange={v=>setForm({...form,enableCondition:v})} /><span className="text-xs font-medium">开启报名条件</span></div>
@@ -119,7 +90,7 @@ export default function UserProjectsPage() {
       )}
 
       <Card>
-        <CardHeader><CardTitle>已发布项目 ({list.length})</CardTitle></CardHeader>
+        <CardHeader><CardTitle>已发布竞赛 ({list.length})</CardTitle></CardHeader>
         <CardContent>
           <ScrollArea className="h-[500px]">
             {list.map(p => (
@@ -130,11 +101,6 @@ export default function UserProjectsPage() {
                   <span className="flex items-center gap-1"><Clock className="h-3 w-3" />{p.deadline_days}天</span>
                   <span className="flex items-center gap-1"><Users className="h-3 w-3" />{p.needed}人</span>
                   {p.reward_coins>0 && <span className="flex items-center gap-1"><Coins className="h-3 w-3" />{p.entry_cost}→{p.reward_coins}</span>}
-                  {p.min_level>0 && <span className="text-muted-foreground">Lv.{p.min_level}+</span>}
-                </div>
-                <div className="mt-2 flex gap-2">
-                  <Button size="sm" variant={myLikes.has(p.id)?'default':'outline'} onClick={()=>toggle('likes',p.id)}><Heart className="h-3 w-3" />{myLikes.has(p.id)?'已赞':'赞'}</Button>
-                  <Button size="sm" variant={myFavs.has(p.id)?'default':'outline'} onClick={()=>toggle('favorites',p.id)}><Star className="h-3 w-3" />{myFavs.has(p.id)?'已藏':'收藏'}</Button>
                 </div>
               </div>
             ))}
