@@ -22,6 +22,8 @@ export default function GuildPage() {
   const [noticeGuild, setNoticeGuild] = useState<string | null>(null);
   const [notices, setNotices] = useState<any[]>([]);
   const [noticeInput, setNoticeInput] = useState('');
+  const [inviteTo, setInviteTo] = useState<Record<string,string>>({});
+  const [myInvites, setMyInvites] = useState<any[]>([]);
 
   useEffect(() => {
     supabase.auth.getUser().then(({ data }) => data.user && setMe(data.user.id));
@@ -35,6 +37,11 @@ export default function GuildPage() {
     setTeams(t ?? []);
     const { data: r } = await supabase.from('red_packets').select('*').order('created_at',{ascending:false}).limit(20);
     setRedPackets(r ?? []);
+    const { data: userData } = await supabase.auth.getUser();
+    if (userData.user) {
+      const { data: inv } = await supabase.from('team_invites').select('*,teams(*,custom_projects(title))').eq('invitee', userData.user.id).eq('status','pending');
+      setMyInvites(inv ?? []);
+    }
   };
 
   const create = async () => {
@@ -76,6 +83,25 @@ export default function GuildPage() {
     if (!u || u.coins < amt) { alert('猫猫币不足，无法发红包'); return; }
     await supabase.from('user_meta').update({ coins: u.coins - amt }).eq('id', me);
     await supabase.from('red_packets').insert({ guild_id: gid, sender: me, amount: amt, receiver: redTo || null });
+    refresh();
+  };
+
+  const invite = async (tid: string) => {
+    const uid = inviteTo[tid];
+    if (!me || !uid) return;
+    await supabase.from('team_invites').insert({ team_id: tid, inviter: me, invitee: uid.trim() });
+    alert('邀请已发送');
+  };
+
+  const respondInvite = async (inv: any, accept: boolean) => {
+    if (!me) return;
+    await supabase.from('team_invites').update({ status: accept ? 'accepted' : 'rejected' }).eq('id', inv.id);
+    if (accept) await supabase.from('team_members').insert({ team_id: inv.team_id, user_id: me });
+    refresh();
+  };
+
+  const startTeam = async (t: any) => {
+    await supabase.from('teams').update({ status: 'started' }).eq('id', t.id);
     refresh();
   };
 
@@ -146,6 +172,11 @@ export default function GuildPage() {
                 <p className="text-xs text-muted-foreground">需 {t.needed} 人</p>
                 <Button size="sm" className="mt-1" onClick={async()=>{if(me){await supabase.from('team_members').insert({team_id:t.id,user_id:me});refresh();}}}>加入队伍</Button>
                 <Button size="sm" variant="outline" className="mt-1 ml-1" onClick={async()=>{if(me){await supabase.from('teams').update({status:'matching'}).eq('id',t.id);refresh();}}}>系统匹配</Button>
+                <div className="mt-1 flex gap-1">
+                  <Input placeholder="邀请用户ID" value={inviteTo[t.id]||''} onChange={e=>setInviteTo({...inviteTo,[t.id]:e.target.value})} className="h-7" />
+                  <Button size="sm" variant="outline" onClick={()=>invite(t.id)}>邀请</Button>
+                  <Button size="sm" onClick={()=>startTeam(t)}>开始</Button>
+                </div>
               </div>
             ))}
           </ScrollArea>
@@ -180,6 +211,20 @@ export default function GuildPage() {
               <Input value={chatInput} onChange={e=>setChatInput(e.target.value)} onKeyDown={e=>e.key==='Enter'&&sendChat()} />
               <Button size="sm" onClick={sendChat}>发送</Button>
             </div>
+          </CardContent>
+        </Card>
+      )}
+      {myInvites.length > 0 && (
+        <Card className="md:col-span-2">
+          <CardHeader><CardTitle>组队邀请 ({myInvites.length})</CardTitle></CardHeader>
+          <CardContent>
+            {myInvites.map((inv:any)=>(
+              <div key={inv.id} className="mb-2 flex items-center gap-2 rounded border p-2 text-sm">
+                <span className="flex-1">邀请加入：{inv.teams?.custom_projects?.title || '队伍'}</span>
+                <Button size="sm" onClick={()=>respondInvite(inv,true)}>同意</Button>
+                <Button size="sm" variant="outline" onClick={()=>respondInvite(inv,false)}>拒绝</Button>
+              </div>
+            ))}
           </CardContent>
         </Card>
       )}
