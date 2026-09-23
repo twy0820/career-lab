@@ -61,6 +61,12 @@ export default function UserContestsPage() {
   const delComment = async (cid: string, pid: string) => { await supabase.from('comments').delete().eq('id',cid); loadComments(pid); };
   const pinComment = async (cid: string, pid: string, v: boolean) => { await supabase.from('comments').update({is_pinned:v}).eq('id',cid); loadComments(pid); };
 
+  const likeComment = async (cid: string, pid: string) => {
+    const { data } = await supabase.from('comments').select('likes').eq('id', cid).single();
+    await supabase.from('comments').update({likes: (data?.likes || 0) + 1}).eq('id', cid);
+    loadComments(pid);
+  };
+
   const openCreate = () => { setEditing(null); setForm({ ...emptyForm }); setShowForm(true); };
   const openEdit = (p: any) => {
     setEditing(p);
@@ -146,6 +152,7 @@ export default function UserContestsPage() {
                   <div className="flex-1">
                     <p className="font-semibold">{p.title} {p.is_public === false && <span className="ml-1 rounded bg-gray-500/30 px-1 text-[10px]">私密</span>}</p>
                     <p className="text-xs text-muted-foreground">{p.description}</p>
+                    <p className="text-[10px] text-muted-foreground">参与人数: {p.usage_count || 0}</p>
                   </div>
                   <div className="flex gap-1">
                     <Button size="sm" variant="outline" onClick={() => openEdit(p)}><Pencil className="h-3 w-3" /></Button>
@@ -172,6 +179,7 @@ export default function UserContestsPage() {
                 <p>{cm.content}</p>
                 <div className="mt-1 flex gap-2">
                   {cm.user_id === me && <Button size="sm" variant="ghost" onClick={() => delComment(cm.id, openComments)}><Trash2 className="h-3 w-3" /></Button>}
+                  <Button size="sm" variant="ghost" onClick={() => likeComment(cm.id, openComments)}><ThumbsUp className="h-3 w-3" /> 赞</Button>
                   {list.find(x=>x.id===openComments)?.author === me && <Button size="sm" variant="ghost" onClick={() => pinComment(cm.id, openComments, !cm.is_pinned)}>{cm.is_pinned ? '取消置顶' : '置顶'}</Button>}
                 </div>
               </div>
@@ -196,6 +204,7 @@ export default function UserContestsPage() {
               <div key={p.id} className="mb-3 rounded border p-3">
                 <p className="font-semibold">{p.title}</p>
                 <p className="text-xs text-muted-foreground">{p.description}</p>
+                    <p className="text-[10px] text-muted-foreground">参与人数: {p.usage_count || 0}</p>
                 <div className="mt-2 flex gap-2">
                   <Button size="sm" variant="outline"><Heart className="h-3 w-3" /> 赞</Button>
                   <Button size="sm" variant="outline"><Star className="h-3 w-3" /> 收藏</Button>
