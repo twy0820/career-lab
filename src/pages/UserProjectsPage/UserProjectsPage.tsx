@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Switch } from '@/components/ui/switch';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { Plus, Heart, Star, Users, Clock, Coins, ArrowLeft, ChevronDown, Trash2, Pencil, Eye, EyeOff, Send } from 'lucide-react';
+import { Plus, Heart, Star, Users, Clock, Coins, ArrowLeft, ChevronDown, Trash2, Pencil, Eye, EyeOff, Send, MessageSquare, ThumbsUp } from 'lucide-react';
 import { RANKS } from '@/data/ranks';
 
 const emptyForm = {
@@ -26,6 +26,9 @@ export default function UserProjectsPage() {
   const [showForm, setShowForm] = useState(false);
   const [editing, setEditing] = useState<any | null>(null);
   const [form, setForm] = useState({ ...emptyForm });
+  const [comments, setComments] = useState<Record<string, any[]>>({});
+  const [commentText, setCommentText] = useState('');
+  const [openComments, setOpenComments] = useState<string | null>(null);
 
   useEffect(() => {
     supabase.auth.getUser().then(({ data }) => { if (data.user) { setMe(data.user.id); setMyId(data.user.id); } });
@@ -35,6 +38,18 @@ export default function UserProjectsPage() {
   const refresh = async () => {
     const { data } = await supabase.from('custom_projects').select('*').order('created_at', { ascending: false });
     setList(data ?? []);
+  };
+
+  const loadComments = async (pid: string) => {
+    const { data } = await supabase.from('comments').select('*').eq('target_type','project').eq('target_id',pid).order('is_pinned',{ascending:false}).order('likes',{ascending:false});
+    setComments(prev => ({...prev, [pid]: data ?? []}));
+  };
+
+  const addComment = async (pid: string) => {
+    if (!me || !commentText.trim()) return;
+    await supabase.from('comments').insert({user_id:me,target_type:'project',target_id:pid,content:commentText.trim()});
+    setCommentText('');
+    loadComments(pid);
   };
 
   const openCreate = () => { setEditing(null); setForm({ ...emptyForm }); setShowForm(true); };
@@ -149,6 +164,7 @@ export default function UserProjectsPage() {
                   <div className="flex gap-1">
                     <Button size="sm" variant="outline" onClick={() => openEdit(p)}><Pencil className="h-3 w-3" /></Button>
                     <Button size="sm" variant="outline" onClick={() => del(p.id)}><Trash2 className="h-3 w-3" /></Button>
+                    <Button size="sm" variant="outline" onClick={() => { setOpenComments(openComments===p.id?null:p.id); loadComments(p.id); }}><MessageSquare className="h-3 w-3" /></Button>
                   </div>
                 </div>
               </div>
@@ -156,6 +172,27 @@ export default function UserProjectsPage() {
           </ScrollArea>
         </CardContent>
       </Card>
+
+      {openComments && comments[openComments] && (
+        <Card>
+          <CardHeader><CardTitle>评论区</CardTitle></CardHeader>
+          <CardContent className="space-y-2">
+            {comments[openComments].map((cm:any) => (
+              <div key={cm.id} className="rounded border p-2 text-sm">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs text-muted-foreground">{cm.user_id === me ? '我' : '用户'}</span>
+                  <span className="flex items-center gap-1 text-xs"><ThumbsUp className="h-3 w-3" />{cm.likes || 0}</span>
+                </div>
+                <p>{cm.content}</p>
+              </div>
+            ))}
+            <div className="flex gap-2">
+              <Input placeholder="写评论..." value={commentText} onChange={e=>setCommentText(e.target.value)} />
+              <Button size="sm" onClick={() => addComment(openComments)}>发送</Button>
+            </div>
+          </CardContent>
+        </Card>
+      )}
 
       <Card>
         <CardHeader><CardTitle>别人发布的项目 ({otherProjects.length})</CardTitle></CardHeader>
