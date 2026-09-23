@@ -34,9 +34,11 @@ export default function RankingPage() {
         const avg = rt.length ? rt.reduce((s:number,r:any)=>s+(r.score||0),0)/rt.length : 0;
         return lk*1 + fv*2 + avg*3;
       };
-      setProjects((p ?? []).map((x:any)=>({...x, _score: scoreOf('project', x.id)})).sort((a:any,b:any)=>b._score-a._score).slice(0,50));
+      const { data: allMeta } = await supabase.from('user_meta').select('id,nickname');
+      const nickOf = (uid: string) => (allMeta ?? []).find((m:any)=>m.id===uid)?.nickname || '未知用户';
+      setProjects((p ?? []).map((x:any)=>({...x, _score: scoreOf('project', x.id), _nick: nickOf(x.author)})).sort((a:any,b:any)=>b._score-a._score).slice(0,50));
       const { data: cc } = await supabase.from('custom_contests').select('*').limit(200);
-      setContests((cc ?? []).map((x:any)=>({...x, _score: scoreOf('contest', x.id)})).sort((a:any,b:any)=>b._score-a._score).slice(0,50));
+      setContests((cc ?? []).map((x:any)=>({...x, _score: scoreOf('contest', x.id), _nick: nickOf(x.author)})).sort((a:any,b:any)=>b._score-a._score).slice(0,50));
       if (userData.user) {
         const { data: f } = await supabase.from('friends').select('*').or(`user_id.eq.${userData.user.id},friend_id.eq.${userData.user.id}`);
         setFriends(f ?? []);
@@ -97,8 +99,8 @@ export default function RankingPage() {
         </Card>
       </TabsContent>
       <TabsContent value="guild"><Card><CardHeader><CardTitle>公会排名</CardTitle></CardHeader><CardContent><ScrollArea className="h-[600px]">{guild.map((g,i)=><div key={g.id} className="flex p-2 text-sm border-b"><span className="w-8 text-muted-foreground">{i+1}</span><span className="flex-1">{g.name} <span className="text-xs text-muted-foreground">Lv.{g.level || 1}</span></span><span>{g.member_count}人</span></div>)}</ScrollArea></CardContent></Card></TabsContent>
-      <TabsContent value="projects"><Card><CardHeader><CardTitle>项目发布排名</CardTitle></CardHeader><CardContent><ScrollArea className="h-[600px]">{projects.map((p,i)=><div key={p.id} className="flex p-2 text-sm border-b"><span className="w-8 text-muted-foreground">{i+1}</span><span className="flex-1">{p.title}</span><span className="text-xs text-muted-foreground">综合分 {p._score?.toFixed(1)}</span></div>)}</ScrollArea></CardContent></Card></TabsContent>
-      <TabsContent value="contests"><Card><CardHeader><CardTitle>竞赛发布排名</CardTitle></CardHeader><CardContent><ScrollArea className="h-[600px]">{contests.map((c,i)=><div key={c.id} className="flex p-2 text-sm border-b"><span className="w-8 text-muted-foreground">{i+1}</span><span className="flex-1">{c.title}</span><span className="text-xs text-muted-foreground">综合分 {c._score?.toFixed(1)}</span></div>)}</ScrollArea></CardContent></Card></TabsContent>
+      <TabsContent value="projects"><Card><CardHeader><CardTitle>项目发布排名</CardTitle></CardHeader><CardContent><ScrollArea className="h-[600px]">{projects.map((p,i)=><div key={p.id} className="flex p-2 text-sm border-b"><span className="w-8 text-muted-foreground">{i+1}</span><span className="flex-1">{p.title}</span><Link to={'/user/' + p.author} className="mr-3 text-xs text-muted-foreground hover:underline">@{p._nick}</Link><span className="text-xs text-muted-foreground">综合分 {p._score?.toFixed(1)}</span></div>)}</ScrollArea></CardContent></Card></TabsContent>
+      <TabsContent value="contests"><Card><CardHeader><CardTitle>竞赛发布排名</CardTitle></CardHeader><CardContent><ScrollArea className="h-[600px]">{contests.map((c,i)=><div key={c.id} className="flex p-2 text-sm border-b"><span className="w-8 text-muted-foreground">{i+1}</span><span className="flex-1">{c.title}</span><Link to={'/user/' + c.author} className="mr-3 text-xs text-muted-foreground hover:underline">@{c._nick}</Link><span className="text-xs text-muted-foreground">综合分 {c._score?.toFixed(1)}</span></div>)}</ScrollArea></CardContent></Card></TabsContent>
     </Tabs>
   );
 }
