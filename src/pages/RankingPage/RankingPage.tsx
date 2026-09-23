@@ -71,7 +71,7 @@ export default function RankingPage() {
               {national.map((u,i)=>(
                 <div key={u.id} id={u.id===me?'rank-me':undefined} className={`flex p-2 text-sm border-b ${u.id===me?'bg-amber-500/20 font-bold':''}`}>
                   <span className="w-8 text-muted-foreground">{i+1}</span>
-                  <Link to={/user/} className="flex-1 hover:underline">{u.nickname}{u.id===me?' (我)':''}</Link>
+                  <Link to={'/user/' + u.id} className="flex-1 hover:underline">{u.nickname}{u.id===me?' (我)':''}</Link>
                   <span>⭐{u.stars}</span>
                 </div>
               ))}
