@@ -52,6 +52,11 @@ export default function GuildPage() {
     setShowMembers(gid);
   };
 
+  const promote = async (mid: string, role: string) => {
+    await supabase.from('guild_members').update({ role }).eq('id', mid);
+    loadMembers(showMembers!);
+  };
+
   const sendRed = async (gid: string) => {
     if (!me) return;
     await supabase.from('red_packets').insert({ guild_id: gid, sender: me, amount: amt });
