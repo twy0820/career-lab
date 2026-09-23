@@ -13,10 +13,10 @@ jobs:
           SUPABASE_URL: https://qgqmxxcdzjvljckewvhd.supabase.co
           SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
         run: |
-          curl -s -X POST "$SUPABASE_URL/functions/v1/settle-season" \
+          curl -s -X POST "$SUPABASE_URL/rest/v1/rpc/settle_season" \
             -H "Authorization: Bearer $SUPABASE_SERVICE_KEY" \
             -H "Content-Type: application/json"
-          echo "Season settlement triggered"
+          echo "Season settlement done"
 
       - name: Auto hide low usage
         env:
