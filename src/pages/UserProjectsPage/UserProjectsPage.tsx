@@ -203,7 +203,7 @@ export default function UserProjectsPage() {
                 <p>{cm.content}</p>
                 <div className="mt-1 flex gap-2">
                   {cm.user_id === me && <Button size="sm" variant="ghost" onClick={() => delComment(cm.id, openComments)}><Trash2 className="h-3 w-3" /></Button>}
-                  {p.author === me && <Button size="sm" variant="ghost" onClick={() => pinComment(cm.id, openComments, !cm.is_pinned)}>{cm.is_pinned ? '取消置顶' : '置顶'}</Button>}
+                  {list.find(x=>x.id===openComments)?.author === me && <Button size="sm" variant="ghost" onClick={() => pinComment(cm.id, openComments, !cm.is_pinned)}>{cm.is_pinned ? '取消置顶' : '置顶'}</Button>}
                 </div>
               </div>
             ))}
