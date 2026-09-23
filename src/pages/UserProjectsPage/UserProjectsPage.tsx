@@ -30,7 +30,9 @@ export default function UserProjectsPage() {
   const [commentText, setCommentText] = useState('');
   const [openComments, setOpenComments] = useState<string | null>(null);
   const [ratingText, setRatingText] = useState('');
-  const [tab, setTab] = useState<'mine' | 'others'>('mine');
+  const [tab, setTab] = useState<'mine' | 'others' | 'joined'>('mine');
+  const [joined, setJoined] = useState<any[]>([]);
+  const [myCoins, setMyCoins] = useState(0);
 
   useEffect(() => {
     supabase.auth.getUser().then(({ data }) => { if (data.user) { setMe(data.user.id); setMyId(data.user.id); } });
@@ -40,6 +42,35 @@ export default function UserProjectsPage() {
   const refresh = async () => {
     const { data } = await supabase.from('custom_projects').select('*').order('created_at', { ascending: false });
     setList(data ?? []);
+    const { data: userData } = await supabase.auth.getUser();
+    const uid = userData.user?.id;
+    if (uid) {
+      const { data: parts } = await supabase.from('custom_participants').select('*').eq('user_id', uid).not('project_id','is',null);
+      const ids = (parts ?? []).map((x:any)=>x.project_id);
+      const { data: ps } = ids.length ? await supabase.from('custom_projects').select('*').in('id', ids) : { data: [] };
+      setJoined((ps ?? []).map((x:any)=>{ const rec = (parts??[]).find((y:any)=>y.project_id===x.id); return {...x, _status: rec?.status, _recId: rec?.id}; }));
+      const { data: u } = await supabase.from('user_meta').select('coins').eq('id', uid).single();
+      setMyCoins(u?.coins || 0);
+    }
+  };
+
+  const completeProject = async (p: any) => {
+    if (!me) return;
+    await supabase.from('custom_participants').update({ status: 'completed' }).eq('id', p._recId);
+    const { data: u } = await supabase.from('user_meta').select('coins,stars').eq('id', me).single();
+    const refund = p.entry_cost || 0;
+    const bonus = p.reward_coins || 0;
+    await supabase.from('user_meta').update({ coins: (u?.coins||0) + refund + bonus, stars: (u?.stars||0) + 1 }).eq('id', me);
+    alert('提交完成！退还押金 ' + refund + '，获得奖励 ' + bonus + ' 猫猫币，+1 星');
+    refresh();
+  };
+
+  const quitProject = async (p: any) => {
+    if (!me) return;
+    if (!confirm('放弃后押金不退还，确认放弃？')) return;
+    await supabase.from('custom_participants').update({ status: 'abandoned' }).eq('id', p._recId);
+    alert('已放弃该项目，押金不退还');
+    refresh();
   };
 
   const loadComments = async (pid: string) => {
@@ -250,6 +281,7 @@ export default function UserProjectsPage() {
       <div className="flex gap-2">
         <Button variant={tab==='mine'?'default':'outline'} onClick={()=>setTab('mine')}>我发布的 ({myProjects.length})</Button>
         <Button variant={tab==='others'?'default':'outline'} onClick={()=>setTab('others')}>别人发布的 ({otherProjects.length})</Button>
+        <Button variant={tab==='joined'?'default':'outline'} onClick={()=>setTab('joined')}>我的参与 ({joined.length})</Button>
       </div>
 
       {tab === 'mine' && (
@@ -310,6 +342,34 @@ export default function UserProjectsPage() {
               <Input type="number" min="1" max="5" placeholder="评分1-5" value={ratingText} onChange={e=>setRatingText(e.target.value)} />
               <Button size="sm" variant="outline" onClick={() => rate(openComments)}>评分</Button>
             </div>
+          </CardContent>
+        </Card>
+      )}
+
+      {tab === 'joined' && (
+        <Card>
+          <CardHeader><CardTitle>我参与的项目（猫猫币余额 {myCoins}）</CardTitle></CardHeader>
+          <CardContent>
+            <ScrollArea className="h-[400px]">
+              {joined.map(p => (
+                <div key={p.id} className="mb-3 rounded border p-3">
+                  <p className="font-semibold">{p.title} <span className="ml-1 rounded bg-sky-500/20 px-1 text-[10px]">{p._status === 'completed' ? '已完成' : p._status === 'abandoned' ? '已放弃' : '进行中'}</span></p>
+                  <p className="text-xs text-muted-foreground">{p.description}</p>
+                  <div className="mt-2 flex flex-wrap gap-3 text-xs">
+                    <span className="flex items-center gap-1"><Clock className="h-3 w-3" />{p.deadline_days}天</span>
+                    <span className="flex items-center gap-1"><Users className="h-3 w-3" />{p.needed}人</span>
+                    {p.reward_coins>0 && <span className="flex items-center gap-1"><Coins className="h-3 w-3" />押金{p.entry_cost} → 奖励{p.reward_coins}</span>}
+                  </div>
+                  {p._status === 'active' && (
+                    <div className="mt-2 flex gap-2">
+                      <Button size="sm" onClick={()=>completeProject(p)}>提交完成</Button>
+                      <Button size="sm" variant="outline" onClick={()=>quitProject(p)}>放弃</Button>
+                    </div>
+                  )}
+                </div>
+              ))}
+              {joined.length === 0 && <p className="text-sm text-muted-foreground">还没有参加任何项目，去「别人发布的」里看看吧</p>}
+            </ScrollArea>
           </CardContent>
         </Card>
       )}
