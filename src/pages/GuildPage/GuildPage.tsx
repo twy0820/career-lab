@@ -18,6 +18,10 @@ export default function GuildPage() {
   const [chatGuild, setChatGuild] = useState<string | null>(null);
   const [chatMsgs, setChatMsgs] = useState<any[]>([]);
   const [chatInput, setChatInput] = useState('');
+  const [redTo, setRedTo] = useState('');
+  const [noticeGuild, setNoticeGuild] = useState<string | null>(null);
+  const [notices, setNotices] = useState<any[]>([]);
+  const [noticeInput, setNoticeInput] = useState('');
 
   useEffect(() => {
     supabase.auth.getUser().then(({ data }) => data.user && setMe(data.user.id));
@@ -71,8 +75,21 @@ export default function GuildPage() {
     const { data: u } = await supabase.from('user_meta').select('coins').eq('id', me).single();
     if (!u || u.coins < amt) { alert('猫猫币不足，无法发红包'); return; }
     await supabase.from('user_meta').update({ coins: u.coins - amt }).eq('id', me);
-    await supabase.from('red_packets').insert({ guild_id: gid, sender: me, amount: amt });
+    await supabase.from('red_packets').insert({ guild_id: gid, sender: me, amount: amt, receiver: redTo || null });
     refresh();
+  };
+
+  const openNotices = async (gid: string) => {
+    setNoticeGuild(gid);
+    const { data } = await supabase.from('guild_notices').select('*').eq('guild_id', gid).order('created_at',{ascending:false});
+    setNotices(data ?? []);
+  };
+
+  const postNotice = async () => {
+    if (!me || !noticeGuild || !noticeInput.trim()) return;
+    await supabase.from('guild_notices').insert({ guild_id: noticeGuild, author: me, content: noticeInput.trim() });
+    setNoticeInput('');
+    openNotices(noticeGuild);
   };
 
   const openChat = async (gid: string) => {
@@ -106,9 +123,11 @@ export default function GuildPage() {
                   <Button size="sm" variant="outline" onClick={()=>join(g)}>加入</Button>
                   <Button size="sm" variant="outline" onClick={()=>loadMembers(g.id)}>成员</Button>
                   <Button size="sm" variant="outline" onClick={()=>openChat(g.id)}><MessageSquare className="h-3 w-3" />聊天</Button>
+                  <Button size="sm" variant="outline" onClick={()=>openNotices(g.id)}>公告招聘</Button>
                   {g.leader === me && <Button size="sm" variant="outline" onClick={()=>disband(g)}><Trash2 className="h-3 w-3" />解散</Button>}
                   <div className="flex gap-1">
-                    <Input type="number" value={amt} onChange={e=>setAmt(+e.target.value)} className="h-7 w-20" />
+                    <Input type="number" value={amt} onChange={e=>setAmt(+e.target.value)} className="h-7 w-20" placeholder="金额" />
+                    <Input value={redTo} onChange={e=>setRedTo(e.target.value)} className="h-7 w-24" placeholder="指定用户ID(可空)" />
                     <Button size="sm" variant="outline" onClick={()=>sendRed(g.id)}><Gift className="h-3 w-3" />红包</Button>
                   </div>
                 </div>
@@ -160,6 +179,22 @@ export default function GuildPage() {
             <div className="mt-2 flex gap-2">
               <Input value={chatInput} onChange={e=>setChatInput(e.target.value)} onKeyDown={e=>e.key==='Enter'&&sendChat()} />
               <Button size="sm" onClick={sendChat}>发送</Button>
+            </div>
+          </CardContent>
+        </Card>
+      )}
+      {noticeGuild && (
+        <Card className="md:col-span-2">
+          <CardHeader><CardTitle>公会公告 / 招聘</CardTitle></CardHeader>
+          <CardContent>
+            <ScrollArea className="h-40">
+              {notices.map((n:any)=>(
+                <div key={n.id} className="mb-2 rounded border p-2 text-sm">{n.content}</div>
+              ))}
+            </ScrollArea>
+            <div className="mt-2 flex gap-2">
+              <Input value={noticeInput} onChange={e=>setNoticeInput(e.target.value)} placeholder="发布招聘或公告..." />
+              <Button size="sm" onClick={postNotice}>发布</Button>
             </div>
           </CardContent>
         </Card>
