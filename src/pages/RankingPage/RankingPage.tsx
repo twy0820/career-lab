@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 import { Crosshair } from 'lucide-react';
 
 export default function RankingPage() {
@@ -70,7 +71,7 @@ export default function RankingPage() {
               {national.map((u,i)=>(
                 <div key={u.id} id={u.id===me?'rank-me':undefined} className={`flex p-2 text-sm border-b ${u.id===me?'bg-amber-500/20 font-bold':''}`}>
                   <span className="w-8 text-muted-foreground">{i+1}</span>
-                  <span className="flex-1">{u.nickname}{u.id===me?' (我)':''}</span>
+                  <Link to={/user/} className="flex-1 hover:underline">{u.nickname}{u.id===me?' (我)':''}</Link>
                   <span>⭐{u.stars}</span>
                 </div>
               ))}
