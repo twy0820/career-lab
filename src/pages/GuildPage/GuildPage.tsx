@@ -85,6 +85,7 @@ export default function GuildPage() {
                 <p className="text-sm font-semibold">{(t as any).custom_projects?.title}</p>
                 <p className="text-xs text-muted-foreground">需 {t.needed} 人</p>
                 <Button size="sm" className="mt-1" onClick={async()=>{if(me){await supabase.from('team_members').insert({team_id:t.id,user_id:me});refresh();}}}>加入队伍</Button>
+                <Button size="sm" variant="outline" className="mt-1 ml-1" onClick={async()=>{if(me){await supabase.from('teams').update({status:'matching'}).eq('id',t.id);refresh();}}}>系统匹配</Button>
               </div>
             ))}
           </ScrollArea>
