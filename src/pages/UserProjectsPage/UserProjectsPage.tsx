@@ -116,11 +116,38 @@ export default function UserProjectsPage() {
       min_stars: form.enableCondition ? form.minStars : 0,
     };
     if (editing) {
-      await supabase.from('custom_projects').update(payload).eq('id', editing.id);
+      if (editing.is_public !== false && (editing.usage_count || 0) > 0) {
+        await supabase.from('custom_projects').update({ pending_changes: payload }).eq('id', editing.id);
+        alert('该项目正在被参与，修改已进入赛季等待队列，赛季结算后自动生效。也可在卡片上点击「立即生效」花费猫猫币即时推送。');
+      } else {
+        await supabase.from('custom_projects').update(payload).eq('id', editing.id);
+      }
     } else {
+      if (form.isPublic) {
+        const { data: u } = await supabase.from('user_meta').select('coins').eq('id', me).single();
+        const cost = 50;
+        if (!u || (u.coins || 0) < cost) { alert('上架公开项目需要 ' + cost + ' 猫猫币，余额不足'); return; }
+        await supabase.from('user_meta').update({ coins: u.coins - cost }).eq('id', me);
+      }
       await supabase.from('custom_projects').insert({ ...payload, author: me });
     }
     setShowForm(false);
+    refresh();
+  };
+
+  const pushNow = async (p: any) => {
+    if (!me || !p.pending_changes) return;
+    const cost = 200;
+    const { data: u } = await supabase.from('user_meta').select('coins').eq('id', me).single();
+    if (!u || (u.coins || 0) < cost) { alert('立即生效需要 ' + cost + ' 猫猫币，余额不足'); return; }
+    if (!confirm('立即生效将花费 ' + cost + ' 猫猫币，确认？')) return;
+    await supabase.from('user_meta').update({ coins: u.coins - cost }).eq('id', me);
+    await supabase.from('custom_projects').update({ ...p.pending_changes, pending_changes: null }).eq('id', p.id);
+    refresh();
+  };
+
+  const withdrawPending = async (p: any) => {
+    await supabase.from('custom_projects').update({ pending_changes: null }).eq('id', p.id);
     refresh();
   };
 
@@ -201,7 +228,7 @@ export default function UserProjectsPage() {
                 <div key={p.id} className="mb-3 rounded border border-amber-500/40 p-3 bg-amber-500/5">
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
-                      <p className="font-semibold">{p.title} {p.is_public === false && <span className="ml-1 rounded bg-gray-500/30 px-1 text-[10px]">私密</span>}</p>
+                      <p className="font-semibold">{p.title} {p.is_public === false && <span className="ml-1 rounded bg-gray-500/30 px-1 text-[10px]">私密</span>}{p.pending_changes && <span className="ml-1 rounded bg-sky-500/30 px-1 text-[10px]">待生效修改</span>}</p>
                       <p className="text-xs text-muted-foreground">{p.description}</p>
                       <div className="mt-1 flex flex-wrap gap-3 text-xs">
                         <p className="text-[10px] text-muted-foreground">参与人数: {p.usage_count || 0}</p>
@@ -214,6 +241,7 @@ export default function UserProjectsPage() {
                       <Button size="sm" variant="outline" onClick={() => openEdit(p)}><Pencil className="h-3 w-3" /></Button>
                       <Button size="sm" variant="outline" onClick={() => del(p.id)}><Trash2 className="h-3 w-3" /></Button>
                       <Button size="sm" variant="outline" onClick={() => { setOpenComments(openComments===p.id?null:p.id); loadComments(p.id); }}><MessageSquare className="h-3 w-3" /></Button>
+                      {p.pending_changes && <><Button size="sm" variant="outline" onClick={() => pushNow(p)}>立即生效</Button><Button size="sm" variant="ghost" onClick={() => withdrawPending(p)}>撤回</Button></>}
                     </div>
                   </div>
                 </div>
