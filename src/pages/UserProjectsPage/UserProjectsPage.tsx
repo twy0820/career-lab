@@ -88,6 +88,27 @@ export default function UserProjectsPage() {
     loadComments(pid);
   };
 
+  const joinProject = async (p: any) => {
+    if (!me) { alert('请先登录'); return; }
+    if (p.author === me) { alert('不能参加自己发布的项目'); return; }
+    const { data: exist } = await supabase.from('custom_participants').select('id').eq('project_id', p.id).eq('user_id', me);
+    const already = !!(exist && exist.length);
+    const { data: u } = await supabase.from('user_meta').select('*').eq('id', me).single();
+    if (!u) { alert('用户资料未初始化，请先完善个人资料'); return; }
+    if (p.min_level > 0 && (u.level || 1) < p.min_level) { alert('等级不足，需要 Lv.' + p.min_level); return; }
+    if (p.min_rank && u.rank && u.rank !== p.min_rank) { alert('段位不符合要求'); return; }
+    if (p.min_stars > 0 && (u.stars || 0) < p.min_stars) { alert('星星不足，需要 ' + p.min_stars + ' 星'); return; }
+    const cost = (p.entry_cost || 0) + (p.min_level > 0 ? 0 : 0);
+    if (cost > 0 && (u.coins || 0) < cost) { alert('猫猫币不足，需要 ' + cost + ' 币'); return; }
+    if (cost > 0) await supabase.from('user_meta').update({ coins: u.coins - cost }).eq('id', me);
+    if (!already) {
+      await supabase.from('custom_participants').insert({ project_id: p.id, user_id: me, status: 'active' });
+      await supabase.from('custom_projects').update({ usage_count: (p.usage_count || 0) + 1 }).eq('id', p.id);
+    }
+    alert(already ? '你已参加过该项目（重复参加不重复计数）' : '参加成功！押金 ' + cost + ' 猫猫币，完成后退还并获得奖励');
+    refresh();
+  };
+
   const toggleLike = async (pid: string) => {
     if (!me) return;
     const { data } = await supabase.from('likes').select('id').eq('user_id',me).eq('target_type','project').eq('target_id',pid);
@@ -308,6 +329,7 @@ export default function UserProjectsPage() {
                     {p.reward_coins>0 && <span className="flex items-center gap-1"><Coins className="h-3 w-3" />{p.entry_cost}→{p.reward_coins}</span>}
                   </div>
                   <div className="mt-2 flex gap-2">
+                    <Button size="sm" onClick={()=>joinProject(p)}><Users className="h-3 w-3" /> 参加</Button>
                     <Button size="sm" variant="outline" onClick={()=>toggleLike(p.id)}><Heart className="h-3 w-3" /> 赞</Button>
                     <Button size="sm" variant="outline" onClick={()=>toggleFav(p.id)}><Star className="h-3 w-3" /> 收藏</Button>
                     <Button size="sm" variant="outline" onClick={()=>{navigator.clipboard.writeText(location.origin+'/career-lab/user-projects');alert('项目链接已复制，可分享给好友');}}><Share2 className="h-3 w-3" /> 转发</Button>
