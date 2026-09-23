@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabase';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -76,6 +76,7 @@ export default function FriendsPage() {
           <div className="flex gap-2 mb-2">
             <Input placeholder="搜索昵称加好友" value={query} onChange={e=>setQuery(e.target.value)} />
             <Button onClick={search}><UserPlus className="h-4 w-4" /></Button>
+            <Button variant="outline" onClick={()=>{const n=prompt("群聊名称"); if(n) setChats([...chats,{id:"group_"+Date.now(),name:n+" (群聊)"}]);}}>创建群聊</Button>
           </div>
           {results.map(u=>(
             <div key={u.id} className="flex items-center justify-between rounded border p-2 mb-1">
