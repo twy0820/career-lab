@@ -69,6 +69,13 @@ export default function UserProjectsPage() {
     loadComments(pid);
   };
 
+  const likeComment = async (cid: string, pid: string) => {
+    await supabase.from('comments').update({likes: (cm_likes?:number) => 0}).eq('id', cid);
+    const { data } = await supabase.from('comments').select('likes').eq('id', cid).single();
+    await supabase.from('comments').update({likes: (data?.likes || 0) + 1}).eq('id', cid);
+    loadComments(pid);
+  };
+
   const openCreate = () => { setEditing(null); setForm({ ...emptyForm }); setShowForm(true); };
   const openEdit = (p: any) => {
     setEditing(p);
@@ -204,6 +211,7 @@ export default function UserProjectsPage() {
                 <p>{cm.content}</p>
                 <div className="mt-1 flex gap-2">
                   {cm.user_id === me && <Button size="sm" variant="ghost" onClick={() => delComment(cm.id, openComments)}><Trash2 className="h-3 w-3" /></Button>}
+                  <Button size="sm" variant="ghost" onClick={() => likeComment(cm.id, openComments)}><ThumbsUp className="h-3 w-3" /> 赞</Button>
                   {list.find(x=>x.id===openComments)?.author === me && <Button size="sm" variant="ghost" onClick={() => pinComment(cm.id, openComments, !cm.is_pinned)}>{cm.is_pinned ? '取消置顶' : '置顶'}</Button>}
                 </div>
               </div>
