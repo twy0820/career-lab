@@ -29,6 +29,7 @@ export default function UserProjectsPage() {
   const [comments, setComments] = useState<Record<string, any[]>>({});
   const [commentText, setCommentText] = useState('');
   const [openComments, setOpenComments] = useState<string | null>(null);
+  const [ratingText, setRatingText] = useState('');
 
   useEffect(() => {
     supabase.auth.getUser().then(({ data }) => { if (data.user) { setMe(data.user.id); setMyId(data.user.id); } });
@@ -49,6 +50,22 @@ export default function UserProjectsPage() {
     if (!me || !commentText.trim()) return;
     await supabase.from('comments').insert({user_id:me,target_type:'project',target_id:pid,content:commentText.trim()});
     setCommentText('');
+    loadComments(pid);
+  };
+
+  const rate = async (pid: string) => {
+    if (!me || !ratingText.trim()) return;
+    await supabase.from('ratings').insert({user_id:me,target_type:'project',target_id:pid,score:parseFloat(ratingText)});
+    setRatingText('');
+  };
+
+  const delComment = async (cid: string, pid: string) => {
+    await supabase.from('comments').delete().eq('id',cid);
+    loadComments(pid);
+  };
+
+  const pinComment = async (cid: string, pid: string, v: boolean) => {
+    await supabase.from('comments').update({is_pinned:v}).eq('id',cid);
     loadComments(pid);
   };
 
@@ -178,17 +195,25 @@ export default function UserProjectsPage() {
           <CardHeader><CardTitle>评论区</CardTitle></CardHeader>
           <CardContent className="space-y-2">
             {comments[openComments].map((cm:any) => (
-              <div key={cm.id} className="rounded border p-2 text-sm">
+              <div key={cm.id} className={"rounded border p-2 text-sm " + (cm.is_pinned ? 'border-amber-500 bg-amber-500/10' : '')}>
                 <div className="flex items-center justify-between">
-                  <span className="text-xs text-muted-foreground">{cm.user_id === me ? '我' : '用户'}</span>
+                  <span className="text-xs text-muted-foreground">{cm.is_pinned ? '📌 ' : ''}{cm.user_id === me ? '我' : '用户'}</span>
                   <span className="flex items-center gap-1 text-xs"><ThumbsUp className="h-3 w-3" />{cm.likes || 0}</span>
                 </div>
                 <p>{cm.content}</p>
+                <div className="mt-1 flex gap-2">
+                  {cm.user_id === me && <Button size="sm" variant="ghost" onClick={() => delComment(cm.id, openComments)}><Trash2 className="h-3 w-3" /></Button>}
+                  {p.author === me && <Button size="sm" variant="ghost" onClick={() => pinComment(cm.id, openComments, !cm.is_pinned)}>{cm.is_pinned ? '取消置顶' : '置顶'}</Button>}
+                </div>
               </div>
             ))}
             <div className="flex gap-2">
               <Input placeholder="写评论..." value={commentText} onChange={e=>setCommentText(e.target.value)} />
               <Button size="sm" onClick={() => addComment(openComments)}>发送</Button>
+            </div>
+            <div className="flex gap-2">
+              <Input type="number" min="1" max="5" placeholder="评分1-5" value={ratingText} onChange={e=>setRatingText(e.target.value)} />
+              <Button size="sm" variant="outline" onClick={() => rate(openComments)}>评分</Button>
             </div>
           </CardContent>
         </Card>
