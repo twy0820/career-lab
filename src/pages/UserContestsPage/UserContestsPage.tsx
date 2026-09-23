@@ -92,6 +92,8 @@ export default function UserContestsPage() {
 
   const del = async (id: string) => {
     if (!confirm('确认删除？此操作不可恢复。')) return;
+    await supabase.from('comments').delete().eq('target_type','contest').eq('target_id', id);
+    await supabase.from('ratings').delete().eq('target_type','contest').eq('target_id', id);
     const { error } = await supabase.from('custom_contests').delete().eq('id', id);
     if (error) alert('删除失败: ' + error.message);
     refresh();
