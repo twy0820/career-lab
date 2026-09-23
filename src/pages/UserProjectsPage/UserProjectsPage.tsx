@@ -173,6 +173,7 @@ export default function UserProjectsPage() {
                     <p className="font-semibold">{p.title} {p.is_public === false && <span className="ml-1 rounded bg-gray-500/30 px-1 text-[10px]">私密</span>}</p>
                     <p className="text-xs text-muted-foreground">{p.description}</p>
                     <div className="mt-1 flex flex-wrap gap-3 text-xs">
+                    <p className="text-[10px] text-muted-foreground">参与人数: {p.usage_count || 0}</p>
                       <span className="flex items-center gap-1"><Clock className="h-3 w-3" />{p.deadline_days}天</span>
                       <span className="flex items-center gap-1"><Users className="h-3 w-3" />{p.needed}人</span>
                       {p.start_date && <span className="text-muted-foreground">开始 {p.start_date}</span>}
