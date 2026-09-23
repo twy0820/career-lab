@@ -92,7 +92,7 @@ export default function UserContestsPage() {
   const del = async (id: string) => { if (!confirm('确认删除？')) return; await supabase.from('custom_contests').delete().eq('id', id); refresh(); };
 
   const myItems = list.filter(p => p.author === myId);
-  const otherItems = list.filter(p => p.author !== myId);
+  const otherItems = list.filter(p => p.author !== myId && (p.is_public !== false) && ((p.usage_count || 0) / (p.needed || 1) >= 0.5));
 
   return (
     <div className="space-y-4">
