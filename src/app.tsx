@@ -16,6 +16,7 @@ import GuildPage from '@/pages/GuildPage/GuildPage';
 import ProfilePage from '@/pages/ProfilePage/ProfilePage';
 import UserProjectsPage from '@/pages/UserProjectsPage/UserProjectsPage';
 import UserContestsPage from '@/pages/UserContestsPage/UserContestsPage';
+import UserProfilePage from '@/pages/UserProfilePage/UserProfilePage';
 import NotFoundPage from '@/pages/NotFoundPage/NotFoundPage';
 
 export default function App() {
@@ -38,6 +39,7 @@ export default function App() {
         <Route path="me" element={<ProfilePage />} />
         <Route path="user-projects" element={<UserProjectsPage />} />
         <Route path="user-contests" element={<UserContestsPage />} />
+        <Route path="user/:id" element={<UserProfilePage />} />
       </Route>
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
