@@ -7,23 +7,32 @@ import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Switch } from '@/components/ui/switch';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { Plus, Heart, Star, Users, Clock, Coins, ArrowLeft, ChevronDown, Trophy } from 'lucide-react';
+import { Plus, Heart, Star, Users, Clock, Coins, ArrowLeft, ChevronDown, Trash2, Pencil, Eye, EyeOff, Send, MessageSquare, ThumbsUp, Trophy } from 'lucide-react';
 import { RANKS } from '@/data/ranks';
+
+const emptyForm = {
+  title: '', description: '', difficulty: 2,
+  isPublic: true, startDate: '',
+  enableReward: false, rewardCoins: 200, entryCost: 20,
+  enableCondition: false, minLevel: 1, minRank: '', minStars: 0, entryCostFree: 0,
+  needed: 3, days: 7,
+};
 
 export default function UserContestsPage() {
   const nav = useNavigate();
   const [me, setMe] = useState<string | null>(null);
+  const [myId, setMyId] = useState<string | null>(null);
   const [list, setList] = useState<any[]>([]);
   const [showForm, setShowForm] = useState(false);
-  const [form, setForm] = useState({
-    title: '', description: '', difficulty: 2,
-    enableReward: false, rewardCoins: 200, entryCost: 20,
-    enableCondition: false, minLevel: 1, minRank: '', minStars: 0,
-    needed: 3, days: 7,
-  });
+  const [editing, setEditing] = useState<any | null>(null);
+  const [form, setForm] = useState({ ...emptyForm });
+  const [comments, setComments] = useState<Record<string, any[]>>({});
+  const [commentText, setCommentText] = useState('');
+  const [ratingText, setRatingText] = useState('');
+  const [openComments, setOpenComments] = useState<string | null>(null);
 
   useEffect(() => {
-    supabase.auth.getUser().then(({ data }) => data.user && setMe(data.user.id));
+    supabase.auth.getUser().then(({ data }) => { if (data.user) { setMe(data.user.id); setMyId(data.user.id); } });
     refresh();
   }, [me]);
 
@@ -32,20 +41,52 @@ export default function UserContestsPage() {
     setList(data ?? []);
   };
 
-  const create = async () => {
-    if (!me || !form.title.trim()) return;
-    await supabase.from('custom_contests').insert({
-      author: me, title: form.title, description: form.description,
-      difficulty: form.difficulty, entry_cost: form.enableReward ? form.entryCost : 0,
-      reward_coins: form.enableReward ? form.rewardCoins : 0,
-      needed: form.needed, deadline_days: form.days,
-      min_level: form.enableCondition ? form.minLevel : 0,
-      min_rank: form.enableCondition ? form.minRank : '',
-      min_stars: form.enableCondition ? form.minStars : 0,
-    });
-    setShowForm(false);
-    refresh();
+  const loadComments = async (pid: string) => {
+    const { data } = await supabase.from('comments').select('*').eq('target_type','contest').eq('target_id',pid).order('is_pinned',{ascending:false}).order('likes',{ascending:false});
+    setComments(prev => ({...prev, [pid]: data ?? []}));
   };
+
+  const addComment = async (pid: string) => {
+    if (!me || !commentText.trim()) return;
+    await supabase.from('comments').insert({user_id:me,target_type:'contest',target_id:pid,content:commentText.trim()});
+    setCommentText(''); loadComments(pid);
+  };
+
+  const rate = async (pid: string) => {
+    if (!me || !ratingText.trim()) return;
+    await supabase.from('ratings').insert({user_id:me,target_type:'contest',target_id:pid,score:parseFloat(ratingText)});
+    setRatingText('');
+  };
+
+  const delComment = async (cid: string, pid: string) => { await supabase.from('comments').delete().eq('id',cid); loadComments(pid); };
+  const pinComment = async (cid: string, pid: string, v: boolean) => { await supabase.from('comments').update({is_pinned:v}).eq('id',cid); loadComments(pid); };
+
+  const openCreate = () => { setEditing(null); setForm({ ...emptyForm }); setShowForm(true); };
+  const openEdit = (p: any) => {
+    setEditing(p);
+    setForm({ title: p.title, description: p.description, difficulty: p.difficulty, isPublic: p.is_public !== false, startDate: p.start_date || '',
+      enableReward: p.entry_cost > 0 || p.reward_coins > 0, rewardCoins: p.reward_coins || 200, entryCost: p.entry_cost || 20,
+      enableCondition: p.min_level > 0, minLevel: p.min_level || 1, minRank: p.min_rank || '', minStars: p.min_stars || 0, entryCostFree: 0,
+      needed: p.needed || 3, days: p.deadline_days || 7 });
+    setShowForm(true);
+  };
+
+  const save = async () => {
+    if (!me || !form.title.trim()) return;
+    const payload = { title: form.title, description: form.description, difficulty: form.difficulty,
+      is_public: form.isPublic, start_date: form.startDate,
+      entry_cost: form.enableReward ? form.entryCost : 0, reward_coins: form.enableReward ? form.rewardCoins : 0,
+      needed: form.needed, deadline_days: form.days,
+      min_level: form.enableCondition ? form.minLevel : 0, min_rank: form.enableCondition ? form.minRank : '', min_stars: form.enableCondition ? form.minStars : 0 };
+    if (editing) { await supabase.from('custom_contests').update(payload).eq('id', editing.id); }
+    else { await supabase.from('custom_contests').insert({ ...payload, author: me }); }
+    setShowForm(false); refresh();
+  };
+
+  const del = async (id: string) => { if (!confirm('确认删除？')) return; await supabase.from('custom_contests').delete().eq('id', id); refresh(); };
+
+  const myItems = list.filter(p => p.author === myId);
+  const otherItems = list.filter(p => p.author !== myId);
 
   return (
     <div className="space-y-4">
@@ -54,53 +95,110 @@ export default function UserContestsPage() {
         <h1 className="text-xl font-bold">用户竞赛市场</h1>
       </div>
 
-      <Button onClick={() => setShowForm(!showForm)} className="w-full">
-        <Trophy className="h-4 w-4" /> {showForm ? '收起发布表单' : '发布新竞赛'} <ChevronDown className={showForm ? 'rotate-180 transition' : 'transition'} />
-      </Button>
+      <Button onClick={openCreate} className="w-full"><Trophy className="h-4 w-4" /> 发布新竞赛</Button>
 
       {showForm && (
         <Card>
-          <CardHeader><CardTitle>填写竞赛详情</CardTitle></CardHeader>
+          <CardHeader><CardTitle>{editing ? '编辑竞赛' : '填写竞赛详情'}</CardTitle></CardHeader>
           <CardContent className="space-y-3">
-            <div><label className="text-xs text-muted-foreground">竞赛标题（必填）</label><Input placeholder="例如：前端攻防赛" value={form.title} onChange={e=>setForm({...form,title:e.target.value})} /></div>
-            <div><label className="text-xs text-muted-foreground">竞赛描述</label><Textarea placeholder="赛题、规则、评分标准" value={form.description} onChange={e=>setForm({...form,description:e.target.value})} /></div>
-            <div><label className="text-xs text-muted-foreground">难度（1=入门 5=挑战）</label><Input type="number" min={1} max={5} value={form.difficulty} onChange={e=>setForm({...form,difficulty:+e.target.value})} /></div>
-            <div className="flex items-center gap-2"><Switch checked={form.enableReward} onCheckedChange={v=>setForm({...form,enableReward:v})} /><span className="text-xs font-medium">开启奖惩机制</span></div>
+            <div><label className="text-xs text-muted-foreground">竞赛标题（必填）</label><Input value={form.title} onChange={e=>setForm({...form,title:e.target.value})} /></div>
+            <div><label className="text-xs text-muted-foreground">竞赛描述</label><Textarea value={form.description} onChange={e=>setForm({...form,description:e.target.value})} /></div>
+            <div className="grid grid-cols-2 gap-2">
+              <div><label className="text-xs text-muted-foreground">难度（1-5）</label><Input type="number" min={1} max={5} value={form.difficulty} onChange={e=>setForm({...form,difficulty:+e.target.value})} /></div>
+              <div><label className="text-xs text-muted-foreground">开始时间</label><Input type="date" value={form.startDate} onChange={e=>setForm({...form,startDate:e.target.value})} /></div>
+            </div>
+            <div className="flex items-center gap-2"><Switch checked={form.isPublic} onCheckedChange={v=>setForm({...form,isPublic:v})} /><span className="text-xs font-medium">{form.isPublic ? '公开竞赛' : '私密竞赛'}</span></div>
+            <div className="flex items-center gap-2"><Switch checked={form.enableReward} onCheckedChange={v=>setForm({...form,enableReward:v})} /><span className="text-xs font-medium">开启押金奖惩</span></div>
             {form.enableReward && (
               <div className="grid grid-cols-2 gap-2">
-                <div><label className="text-xs text-muted-foreground">参赛者支付猫猫币</label><Input type="number" value={form.entryCost} onChange={e=>setForm({...form,entryCost:+e.target.value})} /></div>
-                <div><label className="text-xs text-muted-foreground">获奖奖励猫猫币</label><Input type="number" value={form.rewardCoins} onChange={e=>setForm({...form,rewardCoins:+e.target.value})} /></div>
+                <div><label className="text-xs text-muted-foreground">押金猫猫币</label><Input type="number" value={form.entryCost} onChange={e=>setForm({...form,entryCost:+e.target.value})} /></div>
+                <div><label className="text-xs text-muted-foreground">获奖猫猫币</label><Input type="number" value={form.rewardCoins} onChange={e=>setForm({...form,rewardCoins:+e.target.value})} /></div>
               </div>
             )}
             <div className="flex items-center gap-2"><Switch checked={form.enableCondition} onCheckedChange={v=>setForm({...form,enableCondition:v})} /><span className="text-xs font-medium">开启报名条件</span></div>
             {form.enableCondition && (
-              <div className="grid grid-cols-3 gap-2">
+              <div className="grid grid-cols-2 gap-2">
                 <div><label className="text-xs text-muted-foreground">最低等级 Lv</label><Input type="number" value={form.minLevel} onChange={e=>setForm({...form,minLevel:+e.target.value})} /></div>
                 <div><label className="text-xs text-muted-foreground">段位要求</label><select className="w-full border rounded p-2" value={form.minRank} onChange={e=>setForm({...form,minRank:e.target.value})}><option value="">不限</option>{RANKS.map(r=><option key={r.id} value={r.id}>{r.name}</option>)}</select></div>
                 <div><label className="text-xs text-muted-foreground">最低星星</label><Input type="number" value={form.minStars} onChange={e=>setForm({...form,minStars:+e.target.value})} /></div>
+                <div><label className="text-xs text-muted-foreground">额外花费猫猫币</label><Input type="number" value={form.entryCostFree} onChange={e=>setForm({...form,entryCostFree:+e.target.value})} /></div>
               </div>
             )}
             <div className="grid grid-cols-2 gap-2">
               <div><label className="text-xs text-muted-foreground">队伍人数（必填）</label><Input type="number" value={form.needed} onChange={e=>setForm({...form,needed:+e.target.value})} /></div>
               <div><label className="text-xs text-muted-foreground">完成期限/天（必填）</label><Input type="number" value={form.days} onChange={e=>setForm({...form,days:+e.target.value})} /></div>
             </div>
-            <Button onClick={create} className="w-full"><Plus className="h-4 w-4" /> 确认发布</Button>
+            <div className="flex gap-2">
+              <Button onClick={save} className="flex-1"><Send className="h-4 w-4" /> {editing ? '保存修改' : '确认发布'}</Button>
+              {editing && <Button variant="outline" onClick={() => setShowForm(false)}>取消</Button>}
+            </div>
           </CardContent>
         </Card>
       )}
 
       <Card>
-        <CardHeader><CardTitle>已发布竞赛 ({list.length})</CardTitle></CardHeader>
+        <CardHeader><CardTitle>我发布的竞赛 ({myItems.length})</CardTitle></CardHeader>
         <CardContent>
-          <ScrollArea className="h-[500px]">
-            {list.map(p => (
+          <ScrollArea className="h-[300px]">
+            {myItems.map(p => (
+              <div key={p.id} className="mb-3 rounded border border-amber-500/40 p-3 bg-amber-500/5">
+                <div className="flex items-start justify-between">
+                  <div className="flex-1">
+                    <p className="font-semibold">{p.title} {p.is_public === false && <span className="ml-1 rounded bg-gray-500/30 px-1 text-[10px]">私密</span>}</p>
+                    <p className="text-xs text-muted-foreground">{p.description}</p>
+                  </div>
+                  <div className="flex gap-1">
+                    <Button size="sm" variant="outline" onClick={() => openEdit(p)}><Pencil className="h-3 w-3" /></Button>
+                    <Button size="sm" variant="outline" onClick={() => del(p.id)}><Trash2 className="h-3 w-3" /></Button>
+                    <Button size="sm" variant="outline" onClick={() => { setOpenComments(openComments===p.id?null:p.id); loadComments(p.id); }}><MessageSquare className="h-3 w-3" /></Button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </ScrollArea>
+        </CardContent>
+      </Card>
+
+      {openComments && comments[openComments] && (
+        <Card>
+          <CardHeader><CardTitle>评论区</CardTitle></CardHeader>
+          <CardContent className="space-y-2">
+            {comments[openComments].map((cm:any) => (
+              <div key={cm.id} className={"rounded border p-2 text-sm " + (cm.is_pinned ? 'border-amber-500 bg-amber-500/10' : '')}>
+                <div className="flex items-center justify-between">
+                  <span className="text-xs text-muted-foreground">{cm.is_pinned ? '📌 ' : ''}{cm.user_id === me ? '我' : '用户'}</span>
+                  <span className="flex items-center gap-1 text-xs"><ThumbsUp className="h-3 w-3" />{cm.likes || 0}</span>
+                </div>
+                <p>{cm.content}</p>
+                <div className="mt-1 flex gap-2">
+                  {cm.user_id === me && <Button size="sm" variant="ghost" onClick={() => delComment(cm.id, openComments)}><Trash2 className="h-3 w-3" /></Button>}
+                  {list.find(x=>x.id===openComments)?.author === me && <Button size="sm" variant="ghost" onClick={() => pinComment(cm.id, openComments, !cm.is_pinned)}>{cm.is_pinned ? '取消置顶' : '置顶'}</Button>}
+                </div>
+              </div>
+            ))}
+            <div className="flex gap-2">
+              <Input placeholder="写评论..." value={commentText} onChange={e=>setCommentText(e.target.value)} />
+              <Button size="sm" onClick={() => addComment(openComments)}>发送</Button>
+            </div>
+            <div className="flex gap-2">
+              <Input type="number" min="1" max="5" placeholder="评分1-5" value={ratingText} onChange={e=>setRatingText(e.target.value)} />
+              <Button size="sm" variant="outline" onClick={() => rate(openComments)}>评分</Button>
+            </div>
+          </CardContent>
+        </Card>
+      )}
+
+      <Card>
+        <CardHeader><CardTitle>别人发布的竞赛 ({otherItems.length})</CardTitle></CardHeader>
+        <CardContent>
+          <ScrollArea className="h-[300px]">
+            {otherItems.map(p => (
               <div key={p.id} className="mb-3 rounded border p-3">
                 <p className="font-semibold">{p.title}</p>
                 <p className="text-xs text-muted-foreground">{p.description}</p>
-                <div className="mt-2 flex flex-wrap gap-3 text-xs">
-                  <span className="flex items-center gap-1"><Clock className="h-3 w-3" />{p.deadline_days}天</span>
-                  <span className="flex items-center gap-1"><Users className="h-3 w-3" />{p.needed}人</span>
-                  {p.reward_coins>0 && <span className="flex items-center gap-1"><Coins className="h-3 w-3" />{p.entry_cost}→{p.reward_coins}</span>}
+                <div className="mt-2 flex gap-2">
+                  <Button size="sm" variant="outline"><Heart className="h-3 w-3" /> 赞</Button>
+                  <Button size="sm" variant="outline"><Star className="h-3 w-3" /> 收藏</Button>
                 </div>
               </div>
             ))}
