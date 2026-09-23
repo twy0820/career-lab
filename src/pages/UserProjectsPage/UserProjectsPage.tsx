@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Switch } from '@/components/ui/switch';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { Plus, Heart, Star, Users, Clock, Coins, ArrowLeft, ChevronDown, Trash2, Pencil, Eye, EyeOff, Send, MessageSquare, ThumbsUp } from 'lucide-react';
+import { Plus, Heart, Star, Users, Clock, Coins, ArrowLeft, ChevronDown, Trash2, Pencil, Eye, EyeOff, Send, MessageSquare, ThumbsUp, Share2 } from 'lucide-react';
 import { RANKS } from '@/data/ranks';
 
 const emptyForm = {
@@ -270,6 +270,7 @@ export default function UserProjectsPage() {
                   <div className="mt-2 flex gap-2">
                     <Button size="sm" variant="outline" onClick={()=>toggleLike(p.id)}><Heart className="h-3 w-3" /> 赞</Button>
                     <Button size="sm" variant="outline" onClick={()=>toggleFav(p.id)}><Star className="h-3 w-3" /> 收藏</Button>
+                    <Button size="sm" variant="outline" onClick={()=>{navigator.clipboard.writeText(location.origin+'/career-lab/user-projects');alert('项目链接已复制，可分享给好友');}}><Share2 className="h-3 w-3" /> 转发</Button>
                   </div>
                 </div>
               ))}
