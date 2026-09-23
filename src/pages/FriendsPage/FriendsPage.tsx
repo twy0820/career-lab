@@ -5,9 +5,9 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
-import { Send, UserPlus, X } from 'lucide-react';
+import { Send, UserPlus, X, Users } from 'lucide-react';
 
-interface ChatWindow { id: string; name: string; }
+interface ChatWindow { id: string; name: string; isGroup?: boolean; }
 
 export default function FriendsPage() {
   const [me, setMe] = useState<string | null>(null);
@@ -18,6 +18,7 @@ export default function FriendsPage() {
   const [openChat, setOpenChat] = useState<ChatWindow | null>(null);
   const [messages, setMessages] = useState<any[]>([]);
   const [draft, setDraft] = useState('');
+  const [groups, setGroups] = useState<any[]>([]);
 
   useEffect(() => {
     supabase.auth.getUser().then(({ data }) => data.user && setMe(data.user.id));
@@ -32,6 +33,8 @@ export default function FriendsPage() {
         const { data: meta } = await supabase.from('user_meta').select('*').in('id', ids);
         setFriends(meta ?? []);
       }
+      const { data: gs } = await supabase.from('group_members').select('groups(*)').eq('user_id', me);
+      setGroups(gs?.map((r:any) => r.groups).filter(Boolean) ?? []);
     })();
   }, [me]);
 
@@ -48,11 +51,28 @@ export default function FriendsPage() {
     setResults([]);
   };
 
+  const createGroup = async () => {
+    const n = prompt('群聊名称');
+    if (!n || !me) return;
+    const { data: g } = await supabase.from('groups').insert({ name: n, creator: me }).select().single();
+    if (g) {
+      await supabase.from('group_members').insert({ group_id: g.id, user_id: me });
+      setGroups([...groups, g]);
+    }
+  };
+
   const openDialog = (u: any) => {
     const c = { id: u.id, name: u.nickname };
     setOpenChat(c);
     if (!chats.find(x=>x.id===u.id)) setChats([...chats, c]);
     loadMsgs(u.id);
+  };
+
+  const openGroup = (g: any) => {
+    const c = { id: g.id, name: g.name, isGroup: true };
+    setOpenChat(c);
+    if (!chats.find(x=>x.id===g.id)) setChats([...chats, c]);
+    loadGroupMsgs(g.id);
   };
 
   const loadMsgs = async (uid: string) => {
@@ -61,11 +81,21 @@ export default function FriendsPage() {
     setMessages(data ?? []);
   };
 
+  const loadGroupMsgs = async (gid: string) => {
+    const { data } = await supabase.from('group_messages').select('*').eq('group_id', gid).order('created_at');
+    setMessages(data ?? []);
+  };
+
   const send = async () => {
     if (!me || !openChat || !draft.trim()) return;
-    await supabase.from('messages').insert({ sender: me, receiver: openChat.id, text: draft });
+    if (openChat.isGroup) {
+      await supabase.from('group_messages').insert({ group_id: openChat.id, sender: me, text: draft });
+      loadGroupMsgs(openChat.id);
+    } else {
+      await supabase.from('messages').insert({ sender: me, receiver: openChat.id, text: draft });
+      loadMsgs(openChat.id);
+    }
     setDraft('');
-    loadMsgs(openChat.id);
   };
 
   return (
@@ -76,7 +106,7 @@ export default function FriendsPage() {
           <div className="flex gap-2 mb-2">
             <Input placeholder="搜索昵称加好友" value={query} onChange={e=>setQuery(e.target.value)} />
             <Button onClick={search}><UserPlus className="h-4 w-4" /></Button>
-            <Button variant="outline" onClick={()=>{const n=prompt("群聊名称"); if(n) setChats([...chats,{id:"group_"+Date.now(),name:n+" (群聊)"}]);}}>创建群聊</Button>
+            <Button variant="outline" onClick={createGroup}><Users className="h-4 w-4" />建群</Button>
           </div>
           {results.map(u=>(
             <div key={u.id} className="flex items-center justify-between rounded border p-2 mb-1">
@@ -84,7 +114,7 @@ export default function FriendsPage() {
               <Button size="sm" variant="outline" onClick={()=>addFriend(u.id)}>加好友</Button>
             </div>
           ))}
-          <ScrollArea className="h-80">
+          <ScrollArea className="h-64">
             {friends.map(u=>(
               <button key={u.id} onClick={()=>openDialog(u)} className="flex w-full items-center gap-2 rounded p-2 hover:bg-muted text-left">
                 <Avatar className="h-6 w-6"><AvatarFallback>{u.nickname[0]}</AvatarFallback></Avatar>
@@ -93,6 +123,15 @@ export default function FriendsPage() {
               </button>
             ))}
           </ScrollArea>
+          <div className="mt-2 border-t pt-2">
+            <p className="text-xs text-muted-foreground mb-1">我的群聊</p>
+            {groups.map(g=>(
+              <button key={g.id} onClick={()=>openGroup(g)} className="flex w-full items-center gap-2 rounded p-2 hover:bg-muted text-left">
+                <Users className="h-4 w-4" />
+                <span className="text-sm">{g.name}</span>
+              </button>
+            ))}
+          </div>
         </CardContent>
       </Card>
 
