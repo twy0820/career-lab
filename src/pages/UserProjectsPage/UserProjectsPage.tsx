@@ -76,6 +76,20 @@ export default function UserProjectsPage() {
     loadComments(pid);
   };
 
+  const toggleLike = async (pid: string) => {
+    if (!me) return;
+    const { data } = await supabase.from('likes').select('id').eq('user_id',me).eq('target_type','project').eq('target_id',pid);
+    if (data && data.length) { await supabase.from('likes').delete().eq('id', data[0].id); }
+    else { await supabase.from('likes').insert({user_id:me,target_type:'project',target_id:pid}); }
+  };
+
+  const toggleFav = async (pid: string) => {
+    if (!me) return;
+    const { data } = await supabase.from('favorites').select('id').eq('user_id',me).eq('target_type','project').eq('target_id',pid);
+    if (data && data.length) { await supabase.from('favorites').delete().eq('id', data[0].id); }
+    else { await supabase.from('favorites').insert({user_id:me,target_type:'project',target_id:pid}); }
+  };
+
   const openCreate = () => { setEditing(null); setForm({ ...emptyForm }); setShowForm(true); };
   const openEdit = (p: any) => {
     setEditing(p);
@@ -254,8 +268,8 @@ export default function UserProjectsPage() {
                     {p.reward_coins>0 && <span className="flex items-center gap-1"><Coins className="h-3 w-3" />{p.entry_cost}→{p.reward_coins}</span>}
                   </div>
                   <div className="mt-2 flex gap-2">
-                    <Button size="sm" variant="outline"><Heart className="h-3 w-3" /> 赞</Button>
-                    <Button size="sm" variant="outline"><Star className="h-3 w-3" /> 收藏</Button>
+                    <Button size="sm" variant="outline" onClick={()=>toggleLike(p.id)}><Heart className="h-3 w-3" /> 赞</Button>
+                    <Button size="sm" variant="outline" onClick={()=>toggleFav(p.id)}><Star className="h-3 w-3" /> 收藏</Button>
                   </div>
                 </div>
               ))}
