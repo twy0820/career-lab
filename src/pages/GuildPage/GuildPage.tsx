@@ -53,8 +53,30 @@ export default function GuildPage() {
 
   const join = async (g: any) => {
     if (!me) return;
-    await supabase.from('guild_members').insert({ guild_id: g.id, user_id: me });
-    await supabase.from('guilds').update({ member_count: g.member_count + 1 }).eq('id', g.id);
+    const { data: exist } = await supabase.from('guild_members').select('id').eq('guild_id', g.id).eq('user_id', me);
+    if (exist && exist.length) { alert('你已在该公会中'); return; }
+    await supabase.from('guild_members').insert({ guild_id: g.id, user_id: me, role: 'member' });
+    const newCount = (g.member_count || 0) + 1;
+    const newLevel = newCount >= 100 ? 5 : newCount >= 50 ? 4 : newCount >= 20 ? 3 : newCount >= 10 ? 2 : 1;
+    await supabase.from('guilds').update({ member_count: newCount, level: newLevel }).eq('id', g.id);
+    refresh();
+  };
+
+  const leaveGuild = async (g: any) => {
+    if (!me) return;
+    if (g.leader === me) { alert('会长需先解散公会或转让会长'); return; }
+    if (!confirm('确认退出公会？')) return;
+    await supabase.from('guild_members').delete().eq('guild_id', g.id).eq('user_id', me);
+    await supabase.from('guilds').update({ member_count: Math.max(0, (g.member_count || 1) - 1) }).eq('id', g.id);
+    refresh();
+  };
+
+  const transferLeader = async (g: any, uid: string) => {
+    if (!me || g.leader !== me) return;
+    if (!confirm('确认将会长转让给该成员？')) return;
+    await supabase.from('guilds').update({ leader: uid }).eq('id', g.id);
+    await supabase.from('guild_members').update({ role: 'leader' }).eq('guild_id', g.id).eq('user_id', uid);
+    await supabase.from('guild_members').update({ role: 'member' }).eq('guild_id', g.id).eq('user_id', me);
     refresh();
   };
 
@@ -147,6 +169,7 @@ export default function GuildPage() {
                 <p className="text-xs text-muted-foreground">{g.member_count} 人</p>
                 <div className="mt-2 flex gap-2 flex-wrap">
                   <Button size="sm" variant="outline" onClick={()=>join(g)}>加入</Button>
+                  <Button size="sm" variant="ghost" onClick={()=>leaveGuild(g)}>退出</Button>
                   <Button size="sm" variant="outline" onClick={()=>loadMembers(g.id)}>成员</Button>
                   <Button size="sm" variant="outline" onClick={()=>openChat(g.id)}><MessageSquare className="h-3 w-3" />聊天</Button>
                   <Button size="sm" variant="outline" onClick={()=>openNotices(g.id)}>公告招聘</Button>
@@ -190,7 +213,7 @@ export default function GuildPage() {
               <div key={m.id} className="flex items-center p-2 text-sm border-b">
                 <span className="flex-1">{m.user_id}</span>
                 <span className="text-xs">{m.role}</span>
-                {m.role!=='leader' && <><Button size="sm" variant="ghost" onClick={()=>promote(m.id,'officer')}>任命</Button><Button size="sm" variant="ghost" onClick={()=>promote(m.id,'member')}>降职</Button></>}
+                {m.role!=='leader' && <><Button size="sm" variant="ghost" onClick={()=>promote(m.id,'officer')}>任命</Button><Button size="sm" variant="ghost" onClick={()=>promote(m.id,'member')}>降职</Button><Button size="sm" variant="ghost" onClick={()=>transferLeader(guilds.find(x=>x.id===showMembers), m.user_id)}>转让会长</Button></>}
               </div>
             ))}
           </CardContent>
