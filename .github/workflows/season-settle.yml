@@ -1,0 +1,19 @@
+name: Season Settlement
+on:
+  schedule:
+    - cron: '0 0 1 */3 *'
+  workflow_dispatch:
+
+jobs:
+  settle:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Settle season
+        env:
+          SUPABASE_URL: https://qgqmxxcdzjvljckewvhd.supabase.co
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: |
+          curl -s -X POST "$SUPABASE_URL/functions/v1/settle-season" \
+            -H "Authorization: Bearer $SUPABASE_SERVICE_KEY" \
+            -H "Content-Type: application/json"
+          echo "Season settlement triggered"
