@@ -130,9 +130,12 @@ export default function ProgressProvider({ children }: { children: ReactNode }) 
     state.submissions.reduce((s, sub) => s + arenaXp(sub.arenaId), 0) +
     state.doneLessons.length * XP_LESSON +
     projectsCompleted.length * XP_PROJECT_DONE;
-  const level = Math.floor(xp / XP_PER_LEVEL) + 1;
-  const levelProgress = (xp % XP_PER_LEVEL) / XP_PER_LEVEL;
-  const nextLevelXp = level * XP_PER_LEVEL;
+  const MAX_LEVEL = 100;
+  const rawLevel = Math.floor(xp / XP_PER_LEVEL) + 1;
+  const level = Math.min(rawLevel, MAX_LEVEL);
+  const isMaxLevel = rawLevel >= MAX_LEVEL;
+  const levelProgress = isMaxLevel ? 1 : (xp % XP_PER_LEVEL) / XP_PER_LEVEL;
+  const nextLevelXp = isMaxLevel ? (MAX_LEVEL - 1) * XP_PER_LEVEL : level * XP_PER_LEVEL;
 
 
   const snapshot: IProgressSnapshot = {
@@ -270,6 +273,8 @@ export default function ProgressProvider({ children }: { children: ReactNode }) 
         setSkillStatus,
         markLessonDone,
         joinProject,
+        isMaxLevel,
+        maxLevel: MAX_LEVEL,
         leaveProject,
         leaveArena,
         toggleTask,

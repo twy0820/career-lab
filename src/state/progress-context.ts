@@ -9,6 +9,8 @@ export interface IProgressContextValue {
   level: number;
   levelProgress: number; // 0-1，当前等级内进度
   nextLevelXp: number;
+  isMaxLevel: boolean;
+  maxLevel: number;
   achievements: IAchievement[];
   projectsCompleted: string[];
   setSkillStatus: (skillId: string, status: ISkillStatus) => void;

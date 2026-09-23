@@ -10,7 +10,7 @@ import { Trophy, FileText, Star, Coins, Gem, Heart, Users } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
 
 export default function ProfilePage() {
-  const { state, level } = useProgress();
+  const { state, level, isMaxLevel, maxLevel, xp } = useProgress();
   const [me, setMe] = useState<string | null>(null);
   const [myProjects, setMyProjects] = useState<any[]>([]);
   const [myContests, setMyContests] = useState<any[]>([]);
@@ -66,7 +66,8 @@ export default function ProfilePage() {
             <div className="text-5xl">🐱</div>
             <div className="flex-1">
               <h1 className="text-xl font-bold">{state.nickname || '猫同学'}</h1>
-              <p className="text-sm text-muted-foreground">Lv.{level}{myGuild && <span className="ml-2">· 公会：{myGuild.name}</span>}</p>
+              <p className="text-sm text-muted-foreground">Lv.{level}{isMaxLevel ? ' · 已满级' : ' / ' + maxLevel}{myGuild && <span className="ml-2">· 公会：{myGuild.name}</span>}</p>
+              {isMaxLevel && <p className="text-xs text-amber-500">已达等级上限（经验 {xp}），后续经验按 50% 转为猫猫币加成</p>}
               <div className="mt-2 flex gap-4 text-sm">
                 <span className="flex items-center gap-1"><Star className="h-4 w-4 text-amber-500" /> {state.stars ?? 0} 星</span>
                 <span className="flex items-center gap-1"><Coins className="h-4 w-4 text-amber-400" /> {coins} 币</span>
