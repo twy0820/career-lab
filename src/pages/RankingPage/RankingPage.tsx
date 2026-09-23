@@ -22,10 +22,20 @@ export default function RankingPage() {
       setNational(n ?? []);
       const { data: g } = await supabase.from('guilds').select('*').order('member_count',{ascending:false});
       setGuild(g ?? []);
-      const { data: p } = await supabase.from('custom_projects').select('*').order('created_at',{ascending:false}).limit(50);
-      setProjects(p ?? []);
-      const { data: cc } = await supabase.from('custom_contests').select('*').order('created_at',{ascending:false}).limit(50);
-      setContests(cc ?? []);
+      const { data: p } = await supabase.from('custom_projects').select('*').limit(200);
+      const { data: allLikes } = await supabase.from('likes').select('target_type,target_id');
+      const { data: allFavs } = await supabase.from('favorites').select('target_type,target_id');
+      const { data: allRatings } = await supabase.from('ratings').select('target_type,target_id,score');
+      const scoreOf = (type: string, tid: string) => {
+        const lk = (allLikes ?? []).filter((x:any)=>x.target_type===type && x.target_id===tid).length;
+        const fv = (allFavs ?? []).filter((x:any)=>x.target_type===type && x.target_id===tid).length;
+        const rt = (allRatings ?? []).filter((x:any)=>x.target_type===type && x.target_id===tid);
+        const avg = rt.length ? rt.reduce((s:number,r:any)=>s+(r.score||0),0)/rt.length : 0;
+        return lk*1 + fv*2 + avg*3;
+      };
+      setProjects((p ?? []).map((x:any)=>({...x, _score: scoreOf('project', x.id)})).sort((a:any,b:any)=>b._score-a._score).slice(0,50));
+      const { data: cc } = await supabase.from('custom_contests').select('*').limit(200);
+      setContests((cc ?? []).map((x:any)=>({...x, _score: scoreOf('contest', x.id)})).sort((a:any,b:any)=>b._score-a._score).slice(0,50));
       if (userData.user) {
         const { data: f } = await supabase.from('friends').select('*').or(`user_id.eq.${userData.user.id},friend_id.eq.${userData.user.id}`);
         setFriends(f ?? []);
@@ -84,8 +94,8 @@ export default function RankingPage() {
         </Card>
       </TabsContent>
       <TabsContent value="guild"><Card><CardHeader><CardTitle>公会排名</CardTitle></CardHeader><CardContent><ScrollArea className="h-[600px]">{guild.map((g,i)=><div key={g.id} className="flex p-2 text-sm border-b"><span className="w-8 text-muted-foreground">{i+1}</span><span className="flex-1">{g.name}</span><span>{g.member_count}人</span></div>)}</ScrollArea></CardContent></Card></TabsContent>
-      <TabsContent value="projects"><Card><CardHeader><CardTitle>项目发布排名</CardTitle></CardHeader><CardContent><ScrollArea className="h-[600px]">{projects.map((p,i)=><div key={p.id} className="flex p-2 text-sm border-b"><span className="w-8 text-muted-foreground">{i+1}</span><span className="flex-1">{p.title}</span><span className="text-xs text-muted-foreground">难度{p.difficulty}</span></div>)}</ScrollArea></CardContent></Card></TabsContent>
-      <TabsContent value="contests"><Card><CardHeader><CardTitle>竞赛发布排名</CardTitle></CardHeader><CardContent><ScrollArea className="h-[600px]">{contests.map((c,i)=><div key={c.id} className="flex p-2 text-sm border-b"><span className="w-8 text-muted-foreground">{i+1}</span><span className="flex-1">{c.title}</span><span className="text-xs text-muted-foreground">难度{c.difficulty}</span></div>)}</ScrollArea></CardContent></Card></TabsContent>
+      <TabsContent value="projects"><Card><CardHeader><CardTitle>项目发布排名</CardTitle></CardHeader><CardContent><ScrollArea className="h-[600px]">{projects.map((p,i)=><div key={p.id} className="flex p-2 text-sm border-b"><span className="w-8 text-muted-foreground">{i+1}</span><span className="flex-1">{p.title}</span><span className="text-xs text-muted-foreground">综合分 {p._score?.toFixed(1)}</span></div>)}</ScrollArea></CardContent></Card></TabsContent>
+      <TabsContent value="contests"><Card><CardHeader><CardTitle>竞赛发布排名</CardTitle></CardHeader><CardContent><ScrollArea className="h-[600px]">{contests.map((c,i)=><div key={c.id} className="flex p-2 text-sm border-b"><span className="w-8 text-muted-foreground">{i+1}</span><span className="flex-1">{c.title}</span><span className="text-xs text-muted-foreground">综合分 {c._score?.toFixed(1)}</span></div>)}</ScrollArea></CardContent></Card></TabsContent>
     </Tabs>
   );
 }
