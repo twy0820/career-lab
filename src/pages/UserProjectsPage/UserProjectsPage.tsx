@@ -117,7 +117,7 @@ export default function UserProjectsPage() {
   };
 
   const myProjects = list.filter(p => p.author === myId);
-  const otherProjects = list.filter(p => p.author !== myId);
+  const otherProjects = list.filter(p => p.author !== myId && (p.is_public !== false) && ((p.usage_count || 0) / (p.needed || 1) >= 0.5));
 
   return (
     <div className="space-y-4">
