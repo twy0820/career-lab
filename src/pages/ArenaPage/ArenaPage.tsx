@@ -49,8 +49,6 @@ export default function ArenaPage() {
 
       <div className="rounded-lg border border-primary/30 bg-primary/5 p-3 flex items-center justify-between"><p className="text-sm">想发起自己的竞赛？前往 <Link to="/user-contests" className="text-primary underline">用户竞赛市场</Link></p></div>
 
-      <div className="rounded-lg border border-primary/30 bg-primary/5 p-3 flex items-center justify-between"><p className="text-sm">想发起自己的竞赛？前往 <Link to="/user-contests" className="text-primary underline">用户竞赛市场</Link></p></div>
-
       {/* 本周 AI 模拟竞赛 */}
       {mocks.contests.length > 0 && (
         <div className="space-y-3">
@@ -87,6 +85,7 @@ export default function ArenaPage() {
                       </Button>
                     )}
                   </div>
+                </TerminalPanel>
               );
             })}
           </div>
@@ -160,6 +159,7 @@ export default function ArenaPage() {
                   </Button>
                 )}
               </div>
+            </TerminalPanel>
           );
         })}
       </div>
