@@ -55,8 +55,20 @@ export default function UserContestsPage() {
 
   const rate = async (pid: string) => {
     if (!me || !ratingText.trim()) return;
+    const p = list.find(x => x.id === pid);
+    const { data: parts } = await supabase.from('custom_participants').select('*').eq('contest_id', pid).eq('user_id', me);
+    const part = parts && parts[0];
+    if (!part) { alert('只有参加过该竞赛的用户可以评分'); return; }
+    const days = p?.deadline_days || 7;
+    const elapsed = (Date.now() - new Date(part.created_at || Date.now()).getTime()) / 86400000;
+    const abandoned = part.status === 'abandoned' || part.status === 'quit';
+    if (!abandoned && elapsed < days / 2) {
+      alert('竞赛进行未过半（已进行 ' + elapsed.toFixed(1) + ' 天 / 共 ' + days + ' 天），需过半或中途放弃后才能评分');
+      return;
+    }
     await supabase.from('ratings').insert({user_id:me,target_type:'contest',target_id:pid,score:parseFloat(ratingText)});
     setRatingText('');
+    alert('评分成功');
   };
 
   const delComment = async (cid: string, pid: string) => { await supabase.from('comments').delete().eq('id',cid); loadComments(pid); };
