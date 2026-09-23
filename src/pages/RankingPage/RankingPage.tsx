@@ -3,6 +3,8 @@ import { supabase } from '@/lib/supabase';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import { Button } from '@/components/ui/button';
+import { Crosshair } from 'lucide-react';
 
 export default function RankingPage() {
   const [national, setNational] = useState<any[]>([]);
@@ -31,6 +33,13 @@ export default function RankingPage() {
     })();
   }, []);
 
+  const myRank = national.findIndex(u => u.id === me);
+
+  const scrollToMe = () => {
+    const el = document.getElementById('rank-me');
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  };
+
   return (
     <Tabs defaultValue="national">
       <TabsList>
@@ -40,8 +49,40 @@ export default function RankingPage() {
         <TabsTrigger value="projects">项目排名</TabsTrigger>
         <TabsTrigger value="contests">竞赛排名</TabsTrigger>
       </TabsList>
-      <TabsContent value="national"><Card><CardHeader><CardTitle>全国排名（按星星）</CardTitle></CardHeader><CardContent><ScrollArea className="h-[600px]">{national.map((u,i)=><div key={u.id} className="flex p-2 text-sm border-b"><span className="w-8 text-muted-foreground">{i+1}</span><span className="flex-1">{u.nickname}</span><span>⭐{u.stars}</span></div>)}</ScrollArea></CardContent></Card></TabsContent>
-      <TabsContent value="friends"><Card><CardHeader><CardTitle>好友排名</CardTitle></CardHeader><CardContent><ScrollArea className="h-[600px]">{friends.map((f,i)=><div key={f.id} className="flex p-2 text-sm border-b"><span className="w-8 text-muted-foreground">{i+1}</span><span className="flex-1">好友</span></div>)}</ScrollArea></CardContent></Card></TabsContent>
+      <TabsContent value="national">
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between">
+            <CardTitle>全国排名（按星星）{myRank >= 0 && <span className="ml-2 text-sm text-muted-foreground">我的排名: {myRank+1}</span>}</CardTitle>
+            <Button size="sm" variant="outline" onClick={scrollToMe}><Crosshair className="h-3 w-3" /> 定位到我</Button>
+          </CardHeader>
+          <CardContent>
+            <ScrollArea className="h-[600px]">
+              {national.map((u,i)=>(
+                <div key={u.id} id={u.id===me?'rank-me':undefined} className={`flex p-2 text-sm border-b ${u.id===me?'bg-amber-500/20 font-bold':''}`}>
+                  <span className="w-8 text-muted-foreground">{i+1}</span>
+                  <span className="flex-1">{u.nickname}{u.id===me?' (我)':''}</span>
+                  <span>⭐{u.stars}</span>
+                </div>
+              ))}
+            </ScrollArea>
+          </CardContent>
+        </Card>
+      </TabsContent>
+      <TabsContent value="friends">
+        <Card>
+          <CardHeader><CardTitle>好友排名</CardTitle></CardHeader>
+          <CardContent>
+            <ScrollArea className="h-[600px]">
+              {friends.filter(f=>f.user_id!==me && f.friend_id!==me).map((f,i)=>(
+                <div key={f.id} className="flex p-2 text-sm border-b">
+                  <span className="w-8 text-muted-foreground">{i+1}</span>
+                  <span className="flex-1">好友</span>
+                </div>
+              ))}
+            </ScrollArea>
+          </CardContent>
+        </Card>
+      </TabsContent>
       <TabsContent value="guild"><Card><CardHeader><CardTitle>公会排名</CardTitle></CardHeader><CardContent><ScrollArea className="h-[600px]">{guild.map((g,i)=><div key={g.id} className="flex p-2 text-sm border-b"><span className="w-8 text-muted-foreground">{i+1}</span><span className="flex-1">{g.name}</span><span>{g.member_count}人</span></div>)}</ScrollArea></CardContent></Card></TabsContent>
       <TabsContent value="projects"><Card><CardHeader><CardTitle>项目发布排名</CardTitle></CardHeader><CardContent><ScrollArea className="h-[600px]">{projects.map((p,i)=><div key={p.id} className="flex p-2 text-sm border-b"><span className="w-8 text-muted-foreground">{i+1}</span><span className="flex-1">{p.title}</span><span className="text-xs text-muted-foreground">难度{p.difficulty}</span></div>)}</ScrollArea></CardContent></Card></TabsContent>
       <TabsContent value="contests"><Card><CardHeader><CardTitle>竞赛发布排名</CardTitle></CardHeader><CardContent><ScrollArea className="h-[600px]">{contests.map((c,i)=><div key={c.id} className="flex p-2 text-sm border-b"><span className="w-8 text-muted-foreground">{i+1}</span><span className="flex-1">{c.title}</span><span className="text-xs text-muted-foreground">难度{c.difficulty}</span></div>)}</ScrollArea></CardContent></Card></TabsContent>
