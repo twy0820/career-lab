@@ -30,6 +30,7 @@ export default function UserContestsPage() {
   const [commentText, setCommentText] = useState('');
   const [ratingText, setRatingText] = useState('');
   const [openComments, setOpenComments] = useState<string | null>(null);
+  const [tab, setTab] = useState<'mine' | 'others'>('mine');
 
   useEffect(() => {
     supabase.auth.getUser().then(({ data }) => { if (data.user) { setMe(data.user.id); setMyId(data.user.id); } });
@@ -89,7 +90,12 @@ export default function UserContestsPage() {
     setShowForm(false); refresh();
   };
 
-  const del = async (id: string) => { if (!confirm('确认删除？')) return; await supabase.from('custom_contests').delete().eq('id', id); refresh(); };
+  const del = async (id: string) => {
+    if (!confirm('确认删除？此操作不可恢复。')) return;
+    const { error } = await supabase.from('custom_contests').delete().eq('id', id);
+    if (error) alert('删除失败: ' + error.message);
+    refresh();
+  };
 
   const myItems = list.filter(p => p.author === myId);
   const otherItems = list.filter(p => p.author !== myId && (p.is_public !== false) && ((p.usage_count || 0) / (p.needed || 1) >= 0.5));
@@ -101,7 +107,9 @@ export default function UserContestsPage() {
         <h1 className="text-xl font-bold">用户竞赛市场</h1>
       </div>
 
-      <Button onClick={openCreate} className="w-full"><Trophy className="h-4 w-4" /> 发布新竞赛</Button>
+      <Button onClick={() => setShowForm(!showForm)} className="w-full">
+        <Plus className="h-4 w-4" /> {showForm ? '收起发布表单' : '发布新竞赛'} <ChevronDown className={showForm ? 'rotate-180 transition' : 'transition'} />
+      </Button>
 
       {showForm && (
         <Card>
@@ -113,11 +121,11 @@ export default function UserContestsPage() {
               <div><label className="text-xs text-muted-foreground">难度（1-5）</label><Input type="number" min={1} max={5} value={form.difficulty} onChange={e=>setForm({...form,difficulty:+e.target.value})} /></div>
               <div><label className="text-xs text-muted-foreground">开始时间</label><Input type="date" value={form.startDate} onChange={e=>setForm({...form,startDate:e.target.value})} /></div>
             </div>
-            <div className="flex items-center gap-2"><Switch checked={form.isPublic} onCheckedChange={v=>setForm({...form,isPublic:v})} /><span className="text-xs font-medium">{form.isPublic ? '公开竞赛' : '私密竞赛'}</span></div>
+            <div className="flex items-center gap-2"><Switch checked={form.isPublic} onCheckedChange={v=>setForm({...form,isPublic:v})} /><span className="text-xs font-medium">{form.isPublic ? <><Eye className="inline h-3 w-3" /> 公开竞赛（上架需猫猫币）</> : <><EyeOff className="inline h-3 w-3" /> 私密竞赛（免费）</>}</span></div>
             <div className="flex items-center gap-2"><Switch checked={form.enableReward} onCheckedChange={v=>setForm({...form,enableReward:v})} /><span className="text-xs font-medium">开启押金奖惩</span></div>
             {form.enableReward && (
               <div className="grid grid-cols-2 gap-2">
-                <div><label className="text-xs text-muted-foreground">押金猫猫币</label><Input type="number" value={form.entryCost} onChange={e=>setForm({...form,entryCost:+e.target.value})} /></div>
+                <div><label className="text-xs text-muted-foreground">押金（参加者支付猫猫币，完成退还+奖励）</label><Input type="number" value={form.entryCost} onChange={e=>setForm({...form,entryCost:+e.target.value})} /></div>
                 <div><label className="text-xs text-muted-foreground">获奖猫猫币</label><Input type="number" value={form.rewardCoins} onChange={e=>setForm({...form,rewardCoins:+e.target.value})} /></div>
               </div>
             )}
@@ -135,37 +143,48 @@ export default function UserContestsPage() {
               <div><label className="text-xs text-muted-foreground">完成期限/天（必填）</label><Input type="number" value={form.days} onChange={e=>setForm({...form,days:+e.target.value})} /></div>
             </div>
             <div className="flex gap-2">
-              <Button onClick={save} className="flex-1"><Send className="h-4 w-4" /> {editing ? '保存修改' : '确认发布'}</Button>
+              <Button onClick={save} className="flex-1"><Send className="h-4 w-4" /> {editing ? '保存修改（进入赛季等待队列）' : '确认发布'}</Button>
               {editing && <Button variant="outline" onClick={() => setShowForm(false)}>取消</Button>}
             </div>
           </CardContent>
         </Card>
       )}
 
-      <Card>
-        <CardHeader><CardTitle>我发布的竞赛 ({myItems.length})</CardTitle></CardHeader>
-        <CardContent>
-          <ScrollArea className="h-[300px]">
-            {myItems.map(p => (
-              <div key={p.id} className="mb-3 rounded border border-amber-500/40 p-3 bg-amber-500/5">
-                <div className="flex items-start justify-between">
-                  <div className="flex-1">
-                    <p className="font-semibold">{p.title} {p.is_public === false && <span className="ml-1 rounded bg-gray-500/30 px-1 text-[10px]">私密</span>}</p>
-                    <p className="text-xs text-muted-foreground">{p.description}</p>
-                    <p className="text-[10px] text-muted-foreground">参与人数: {p.usage_count || 0}</p>
-                    <p className="text-[10px] text-muted-foreground">参与人数: {p.usage_count || 0}</p>
-                  </div>
-                  <div className="flex gap-1">
-                    <Button size="sm" variant="outline" onClick={() => openEdit(p)}><Pencil className="h-3 w-3" /></Button>
-                    <Button size="sm" variant="outline" onClick={() => del(p.id)}><Trash2 className="h-3 w-3" /></Button>
-                    <Button size="sm" variant="outline" onClick={() => { setOpenComments(openComments===p.id?null:p.id); loadComments(p.id); }}><MessageSquare className="h-3 w-3" /></Button>
+      <div className="flex gap-2">
+        <Button variant={tab==='mine'?'default':'outline'} onClick={()=>setTab('mine')}>我发布的 ({myItems.length})</Button>
+        <Button variant={tab==='others'?'default':'outline'} onClick={()=>setTab('others')}>别人发布的 ({otherItems.length})</Button>
+      </div>
+
+      {tab === 'mine' && (
+        <Card>
+          <CardHeader><CardTitle>我发布的竞赛</CardTitle></CardHeader>
+          <CardContent>
+            <ScrollArea className="h-[400px]">
+              {myItems.map(p => (
+                <div key={p.id} className="mb-3 rounded border border-amber-500/40 p-3 bg-amber-500/5">
+                  <div className="flex items-start justify-between">
+                    <div className="flex-1">
+                      <p className="font-semibold">{p.title} {p.is_public === false && <span className="ml-1 rounded bg-gray-500/30 px-1 text-[10px]">私密</span>}</p>
+                      <p className="text-xs text-muted-foreground">{p.description}</p>
+                      <div className="mt-1 flex flex-wrap gap-3 text-xs">
+                        <span className="text-[10px] text-muted-foreground">参与人数: {p.usage_count || 0}</span>
+                        <span className="flex items-center gap-1"><Clock className="h-3 w-3" />{p.deadline_days}天</span>
+                        <span className="flex items-center gap-1"><Users className="h-3 w-3" />{p.needed}人</span>
+                        {p.start_date && <span className="text-muted-foreground">开始 {p.start_date}</span>}
+                      </div>
+                    </div>
+                    <div className="flex gap-1">
+                      <Button size="sm" variant="outline" onClick={() => openEdit(p)}><Pencil className="h-3 w-3" /></Button>
+                      <Button size="sm" variant="outline" onClick={() => del(p.id)}><Trash2 className="h-3 w-3" /></Button>
+                      <Button size="sm" variant="outline" onClick={() => { setOpenComments(openComments===p.id?null:p.id); loadComments(p.id); }}><MessageSquare className="h-3 w-3" /></Button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </ScrollArea>
-        </CardContent>
-      </Card>
+              ))}
+            </ScrollArea>
+          </CardContent>
+        </Card>
+      )}
 
       {openComments && comments[openComments] && (
         <Card>
@@ -197,24 +216,31 @@ export default function UserContestsPage() {
         </Card>
       )}
 
-      <Card>
-        <CardHeader><CardTitle>别人发布的竞赛 ({otherItems.length})</CardTitle></CardHeader>
-        <CardContent>
-          <ScrollArea className="h-[300px]">
-            {otherItems.map(p => (
-              <div key={p.id} className="mb-3 rounded border p-3">
-                <p className="font-semibold">{p.title}</p>
-                <p className="text-xs text-muted-foreground">{p.description}</p>
-                    <p className="text-[10px] text-muted-foreground">参与人数: {p.usage_count || 0}</p>
-                <div className="mt-2 flex gap-2">
-                  <Button size="sm" variant="outline"><Heart className="h-3 w-3" /> 赞</Button>
-                  <Button size="sm" variant="outline"><Star className="h-3 w-3" /> 收藏</Button>
+      {tab === 'others' && (
+        <Card>
+          <CardHeader><CardTitle>别人发布的竞赛</CardTitle></CardHeader>
+          <CardContent>
+            <ScrollArea className="h-[400px]">
+              {otherItems.map(p => (
+                <div key={p.id} className="mb-3 rounded border p-3">
+                  <p className="font-semibold">{p.title}</p>
+                  <p className="text-xs text-muted-foreground">{p.description}</p>
+                  <div className="mt-2 flex flex-wrap gap-3 text-xs">
+                    <span className="text-[10px] text-muted-foreground">参与人数: {p.usage_count || 0}</span>
+                    <span className="flex items-center gap-1"><Clock className="h-3 w-3" />{p.deadline_days}天</span>
+                    <span className="flex items-center gap-1"><Users className="h-3 w-3" />{p.needed}人</span>
+                    {p.reward_coins>0 && <span className="flex items-center gap-1"><Coins className="h-3 w-3" />{p.entry_cost}→{p.reward_coins}</span>}
+                  </div>
+                  <div className="mt-2 flex gap-2">
+                    <Button size="sm" variant="outline"><Heart className="h-3 w-3" /> 赞</Button>
+                    <Button size="sm" variant="outline"><Star className="h-3 w-3" /> 收藏</Button>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </ScrollArea>
-        </CardContent>
-      </Card>
+              ))}
+            </ScrollArea>
+          </CardContent>
+        </Card>
+      )}
     </div>
   );
 }
