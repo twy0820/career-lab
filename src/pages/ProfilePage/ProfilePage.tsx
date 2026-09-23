@@ -11,12 +11,14 @@ export default function ProfilePage() {
   const { state, level } = useProgress();
   const [myProjects, setMyProjects] = useState<any[]>([]);
   const [myContests, setMyContests] = useState<any[]>([]);
+  const [visits, setVisits] = useState<any[]>([]);
 
   useEffect(() => {
     supabase.auth.getUser().then(({ data }) => {
       if (data.user) {
         supabase.from('custom_projects').select('*').eq('author', data.user.id).then(({ data: p }) => setMyProjects(p ?? []));
         supabase.from('custom_contests').select('*').eq('author', data.user.id).then(({ data: c }) => setMyContests(c ?? []));
+        supabase.from('visits').select('*').order('created_at',{ascending:false}).limit(10).then(({ data: v }) => setVisits(v ?? []));
       }
     });
   }, []);
@@ -42,6 +44,7 @@ export default function ProfilePage() {
         <TabsList>
           <TabsTrigger value="achievements">成就履历</TabsTrigger>
           <TabsTrigger value="resume">简历生成器</TabsTrigger>
+          <TabsTrigger value="visits">访客</TabsTrigger>
           <TabsTrigger value="published">我发布的</TabsTrigger>
         </TabsList>
         <TabsContent value="achievements">
@@ -53,6 +56,11 @@ export default function ProfilePage() {
         <TabsContent value="resume">
           <Card><CardHeader><CardTitle>简历</CardTitle></CardHeader><CardContent>
             <Button asChild><Link to="/resume">打开简历生成器</Link></Button>
+          </CardContent></Card>
+        </TabsContent>
+        <TabsContent value="visits">
+          <Card><CardHeader><CardTitle>最近访客 ({visits.length})</CardTitle></CardHeader><CardContent>
+            {visits.map((v:any) => <p key={v.id} className="text-sm">{v.visitor_id} 来访</p>)}
           </CardContent></Card>
         </TabsContent>
         <TabsContent value="published">
