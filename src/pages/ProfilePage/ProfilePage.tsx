@@ -60,7 +60,7 @@ export default function ProfilePage() {
         </TabsContent>
         <TabsContent value="visits">
           <Card><CardHeader><CardTitle>最近访客 ({visits.length})</CardTitle></CardHeader><CardContent>
-            {visits.map((v:any) => <p key={v.id} className="text-sm">{v.visitor_id} 来访</p>)}
+            {visits.map((v:any) => <p key={v.id} className="text-sm">{v.visitor} 来访</p>)}
           </CardContent></Card>
         </TabsContent>
         <TabsContent value="published">
