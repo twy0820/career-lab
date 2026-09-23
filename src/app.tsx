@@ -14,6 +14,7 @@ import FriendsPage from '@/pages/FriendsPage/FriendsPage';
 import RankingPage from '@/pages/RankingPage/RankingPage';
 import GuildPage from '@/pages/GuildPage/GuildPage';
 import ProfilePage from '@/pages/ProfilePage/ProfilePage';
+import UserProjectsPage from '@/pages/UserProjectsPage/UserProjectsPage';
 import NotFoundPage from '@/pages/NotFoundPage/NotFoundPage';
 
 export default function App() {
@@ -34,6 +35,7 @@ export default function App() {
         <Route path="resume" element={<ResumePage />} />
         <Route path="dict" element={<DictionaryPage />} />
         <Route path="me" element={<ProfilePage />} />
+        <Route path="user-projects" element={<UserProjectsPage />} />
       </Route>
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
