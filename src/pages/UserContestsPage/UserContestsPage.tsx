@@ -153,6 +153,7 @@ export default function UserContestsPage() {
                     <p className="font-semibold">{p.title} {p.is_public === false && <span className="ml-1 rounded bg-gray-500/30 px-1 text-[10px]">私密</span>}</p>
                     <p className="text-xs text-muted-foreground">{p.description}</p>
                     <p className="text-[10px] text-muted-foreground">参与人数: {p.usage_count || 0}</p>
+                    <p className="text-[10px] text-muted-foreground">参与人数: {p.usage_count || 0}</p>
                   </div>
                   <div className="flex gap-1">
                     <Button size="sm" variant="outline" onClick={() => openEdit(p)}><Pencil className="h-3 w-3" /></Button>
