@@ -1,15 +1,18 @@
-﻿import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabase';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { Gift, Plus } from 'lucide-react';
+import { Gift, Plus, Crown, Shield, User } from 'lucide-react';
+
+const ROLE_ICON: Record<string, any> = { leader: Crown, officer: Shield, member: User };
 
 export default function GuildPage() {
   const [me, setMe] = useState<string | null>(null);
   const [guilds, setGuilds] = useState<any[]>([]);
   const [teams, setTeams] = useState<any[]>([]);
+  const [redPackets, setRedPackets] = useState<any[]>([]);
   const [name, setName] = useState('');
   const [amt, setAmt] = useState(100);
 
@@ -23,6 +26,8 @@ export default function GuildPage() {
     setGuilds(g ?? []);
     const { data: t } = await supabase.from('teams').select('*,custom_projects(title)').eq('status','forming');
     setTeams(t ?? []);
+    const { data: r } = await supabase.from('red_packets').select('*').order('created_at',{ascending:false}).limit(20);
+    setRedPackets(r ?? []);
   };
 
   const create = async () => {
@@ -63,7 +68,7 @@ export default function GuildPage() {
                   <Button size="sm" variant="outline" onClick={()=>join(g)}>加入</Button>
                   <div className="flex gap-1">
                     <Input type="number" value={amt} onChange={e=>setAmt(+e.target.value)} className="h-7 w-20" />
-                    <Button size="sm" variant="outline" onClick={()=>sendRed(g.id)}><Gift className="h-3 w-3" /></Button>
+                    <Button size="sm" variant="outline" onClick={()=>sendRed(g.id)}><Gift className="h-3 w-3" />发红包</Button>
                   </div>
                 </div>
               </div>
@@ -80,6 +85,20 @@ export default function GuildPage() {
                 <p className="text-sm font-semibold">{(t as any).custom_projects?.title}</p>
                 <p className="text-xs text-muted-foreground">需 {t.needed} 人</p>
                 <Button size="sm" className="mt-1" onClick={async()=>{if(me){await supabase.from('team_members').insert({team_id:t.id,user_id:me});refresh();}}}>加入队伍</Button>
+              </div>
+            ))}
+          </ScrollArea>
+        </CardContent>
+      </Card>
+      <Card className="md:col-span-2">
+        <CardHeader><CardTitle>红包记录</CardTitle></CardHeader>
+        <CardContent>
+          <ScrollArea className="h-48">
+            {redPackets.map(r=>(
+              <div key={r.id} className="flex items-center gap-2 p-2 text-sm border-b">
+                <Gift className="h-4 w-4 text-amber-500" />
+                <span className="flex-1">猫猫币 x {r.amount}</span>
+                <span className="text-xs text-muted-foreground">{r.created_at?.slice(0,10)}</span>
               </div>
             ))}
           </ScrollArea>
