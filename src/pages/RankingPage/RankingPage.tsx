@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabase';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -73,7 +73,7 @@ export default function RankingPage() {
           <CardHeader><CardTitle>好友排名</CardTitle></CardHeader>
           <CardContent>
             <ScrollArea className="h-[600px]">
-              {friends.filter(f=>f.user_id!==me && f.friend_id!==me).map((f,i)=>(
+              {friends.map((f,i)=>(
                 <div key={f.id} className="flex p-2 text-sm border-b">
                   <span className="w-8 text-muted-foreground">{i+1}</span>
                   <span className="flex-1">好友</span>
