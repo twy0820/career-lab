@@ -19,6 +19,11 @@ export default function ProfilePage() {
   const [likes, setLikes] = useState<any[]>([]);
   const [myGuild, setMyGuild] = useState<any>(null);
   const [diamonds, setDiamonds] = useState(0);
+  const SEASON_DAYS = 90;
+  const SEASON_EPOCH = new Date('2026-01-01T00:00:00Z').getTime();
+  const daysSinceEpoch = Math.floor((Date.now() - SEASON_EPOCH) / 86400000);
+  const seasonNo = Math.floor(daysSinceEpoch / SEASON_DAYS) + 1;
+  const seasonDaysLeft = SEASON_DAYS - (daysSinceEpoch % SEASON_DAYS);
   const [coins, setCoins] = useState(0);
   const [exchangeAmt, setExchangeAmt] = useState(10);
   const [privacy, setPrivacy] = useState(false);
@@ -75,6 +80,15 @@ export default function ProfilePage() {
               </div>
             </div>
           </div>
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader><CardTitle>赛季信息</CardTitle></CardHeader>
+        <CardContent className="text-sm space-y-1">
+          <p>当前赛季：第 {seasonNo} 赛季（每 90 天结算一次）</p>
+          <p className="text-muted-foreground">距下次结算还有 {seasonDaysLeft} 天</p>
+          <p className="text-muted-foreground">结算规则：等待队列修改自动生效 · 使用率低于 50% 的项目自动下架 · 星星 ×0.3 降段并折算猫猫币 · 已解锁过的段位不再受报名限制 · 踩奶境不掉星，哈气境及以上逾期未完成扣星</p>
         </CardContent>
       </Card>
 
