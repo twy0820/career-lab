@@ -1,57 +1,55 @@
 {
-  "generatedAt": "2026-09-22T05:55:04.133679+00:00",
+  "generatedAt": "2026-09-24T05:55:06.042911+00:00",
   "projects": [
     {
-      "id": "proj001",
-      "title": "企业内部合规文档RAG问答助手",
-      "company": "字节跳动",
-      "role": "全栈开发实习生",
+      "id": "proj-rag-agent-001",
+      "title": "企业内部私有文档智能问答Agent",
+      "company": "字节跳动飞书云文档团队",
+      "role": "AI应用开发实习生",
       "stack": [
         "Python",
-        "LangChain",
+        "LangChain 0.2",
+        "Llama 3 8B",
         "ChromaDB",
-        "React",
         "FastAPI",
-        "Docker"
+        "Vue 3"
       ],
-      "summary": "搭建面向企业内部员工的合规文档问答系统，支持员工自然语言提问，基于RAG技术从内部合规制度、项目文档库中检索相关内容，结合大模型生成准确可溯源的回答，同时支持文档上传与知识库增量更新",
-      "background": "企业内部沉淀了大量合规要求、流程规范、历史项目文档，新老员工查找信息依赖传统关键词搜索，经常找不到匹配的准确内容，新人入职合规培训信息获取效率低，需要一套基于大模型的精准问答工具解决该痛点",
+      "summary": "开发可私有化部署的企业内部智能问答系统，支持基于员工上传的Word/PDF/Markdown文档回答问题，提供多轮对话能力、答案引文溯源功能，降低员工查找内部信息的时间成本",
+      "background": "当前企业内部沉淀大量非结构化文档，新老员工查找信息需要翻阅大量历史资料，效率极低；同时企业数据敏感不允许使用外部公开大模型，因此需要私有化部署的基于RAG的智能问答Agent解决需求",
       "duration": "4周",
-      "difficulty": 2,
-      "category": "RAG/全栈开发",
+      "difficulty": 2.5,
+      "category": "RAG/Agent",
       "skills": [
-        "skill_rag_base",
-        "skill_frontend_dev",
-        "skill_backend_api",
-        "skill_prompt_eng",
-        "skill_container_deploy"
+        "skill_rag_engineering",
+        "skill_agent_development",
+        "skill_vector_database",
+        "skill_rest_api_development"
       ]
     },
     {
-      "id": "proj002",
-      "title": "电商运营智能数据分析Agent",
-      "company": "拼多多",
-      "role": "数据开发实习生",
+      "id": "proj-fullstack-data-002",
+      "title": "大学生就业趋势可视化分析全栈平台",
+      "company": "智联招聘数据业务部",
+      "role": "全栈开发实习生",
       "stack": [
-        "Python",
-        "LangGraph",
+        "Next.js 14",
+        "TailwindCSS",
+        "D3.js",
         "Pandas",
-        "Plotly",
-        "SQL",
-        "FastAPI",
-        "GPT-4o Mini"
+        "PostgreSQL",
+        "Docker",
+        "Vercel"
       ],
-      "summary": "开发面向电商运营的智能数据分析Agent，支持运营用自然语言提出各类业务分析需求，Agent自动完成需求拆解、SQL查询生成、异常数据校验、清洗分析、可视化图表生成，最终输出结构化分析结论与建议",
-      "background": "电商运营日常需要频繁查询流量、转化、GMV、用户分层等各类业务数据，传统流程需要运营提需求给数据部门排期，响应慢周期长，无法支撑快速运营决策，需要智能Agent实现自助式数据分析，降低普通运营的数据分析门槛",
+      "summary": "搭建面向在校大学生的就业趋势分析平台，整合近3年校招公开招聘数据，支持按行业、城市、学历、岗位维度筛选分析，提供薪资分布、岗位需求变化等可视化图表，帮助学生做择业决策",
+      "background": "在校大学生校招择业时缺乏公开透明的行业就业趋势数据，现有招聘平台只展示单个岗位信息，缺少多维度聚合分析功能，学生无法整体了解目标领域的就业情况",
       "duration": "5周",
-      "difficulty": 3,
-      "category": "Agent/数据开发",
+      "difficulty": 2.3,
+      "category": "全栈/数据",
       "skills": [
-        "skill_agent_orchestration",
-        "skill_sql_generation",
-        "skill_data_process",
-        "skill_result_visualization",
-        "skill_error_handling"
+        "skill_fullstack_development",
+        "skill_data_analysis",
+        "skill_data_visualization",
+        "skill_frontend_engineering"
       ]
     }
   ]
