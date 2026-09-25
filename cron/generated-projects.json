@@ -1,55 +1,58 @@
 {
-  "generatedAt": "2026-09-24T05:55:06.042911+00:00",
+  "generatedAt": "2026-09-25T05:56:06.443381+00:00",
   "projects": [
     {
-      "id": "proj-rag-agent-001",
-      "title": "企业内部私有文档智能问答Agent",
-      "company": "字节跳动飞书云文档团队",
-      "role": "AI应用开发实习生",
+      "id": "proj001",
+      "title": "企业内部私有知识库问答Agent",
+      "company": "字节跳动飞书生态部",
+      "role": "AI开发实习生",
       "stack": [
         "Python",
         "LangChain 0.2",
-        "Llama 3 8B",
+        "Llama3 8B",
+        "OpenAI Embedding",
         "ChromaDB",
-        "FastAPI",
-        "Vue 3"
+        "Streamlit"
       ],
-      "summary": "开发可私有化部署的企业内部智能问答系统，支持基于员工上传的Word/PDF/Markdown文档回答问题，提供多轮对话能力、答案引文溯源功能，降低员工查找内部信息的时间成本",
-      "background": "当前企业内部沉淀大量非结构化文档，新老员工查找信息需要翻阅大量历史资料，效率极低；同时企业数据敏感不允许使用外部公开大模型，因此需要私有化部署的基于RAG的智能问答Agent解决需求",
+      "summary": "开发面向企业内部员工的私有知识库智能问答系统，支持多格式文档批量导入、精准检索、多轮上下文对话、回答来源引用溯源，解决企业内部信息查找效率低的问题",
+      "background": "2026年企业数字化转型深入，多数企业沉淀了大量内部文档、制度、项目资料，员工查找信息耗时久，基于RAG+Agent的私有知识库问答是企业普遍需求，该项目还原企业真实落地场景，适配0基础到中级开发者的能力进阶要求",
       "duration": "4周",
-      "difficulty": 2.5,
-      "category": "RAG/Agent",
+      "difficulty": 2,
+      "category": "AI / RAG + Agent",
       "skills": [
-        "skill_rag_engineering",
-        "skill_agent_development",
-        "skill_vector_database",
-        "skill_rest_api_development"
+        "skill_rag_arch_design",
+        "skill_agent_dev",
+        "skill_vector_db_optimize",
+        "skill_prototype_dev"
       ]
     },
     {
-      "id": "proj-fullstack-data-002",
-      "title": "大学生就业趋势可视化分析全栈平台",
-      "company": "智联招聘数据业务部",
+      "id": "proj002",
+      "title": "校园兼职供需对接全栈Web应用",
+      "company": "美团校园业务部",
       "role": "全栈开发实习生",
       "stack": [
-        "Next.js 14",
+        "React 19",
+        "Vite 5",
         "TailwindCSS",
-        "D3.js",
-        "Pandas",
+        "Node.js",
+        "Express",
+        "Prisma",
         "PostgreSQL",
         "Docker",
-        "Vercel"
+        "GitHub Actions"
       ],
-      "summary": "搭建面向在校大学生的就业趋势分析平台，整合近3年校招公开招聘数据，支持按行业、城市、学历、岗位维度筛选分析，提供薪资分布、岗位需求变化等可视化图表，帮助学生做择业决策",
-      "background": "在校大学生校招择业时缺乏公开透明的行业就业趋势数据，现有招聘平台只展示单个岗位信息，缺少多维度聚合分析功能，学生无法整体了解目标领域的就业情况",
-      "duration": "5周",
-      "difficulty": 2.3,
-      "category": "全栈/数据",
+      "summary": "开发面向大学生的校园兼职供需对接全栈应用，支持企业方发布岗位、学生投递简历、在线沟通、岗位收藏推送等核心功能，同时搭建完整的前端工程化流程，实现自动化构建部署",
+      "background": "大学生校园兼职信息分散不对称，企业需要轻量化的校园岗位发布渠道，该项目还原互联网公司从需求分析到上线的全栈开发流程，结合2026年前端工程化的主流要求设计，适配校招实战考核标准",
+      "duration": "6周",
+      "difficulty": 3,
+      "category": "全栈 / 前端工程化",
       "skills": [
-        "skill_fullstack_development",
-        "skill_data_analysis",
-        "skill_data_visualization",
-        "skill_frontend_engineering"
+        "skill_component_dev",
+        "skill_restful_api_design",
+        "skill_frontend_engineering",
+        "skill_db_design",
+        "skill_fullstack_deploy"
       ]
     }
   ]
