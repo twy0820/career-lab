@@ -1,58 +1,56 @@
 {
-  "generatedAt": "2026-09-25T05:56:06.443381+00:00",
+  "generatedAt": "2026-09-26T05:56:10.018973+00:00",
   "projects": [
     {
       "id": "proj001",
-      "title": "企业内部私有知识库问答Agent",
-      "company": "字节跳动飞书生态部",
-      "role": "AI开发实习生",
+      "title": "企业内部私有知识库智能问答RAG系统",
+      "company": "字节跳动飞书协作事业部",
+      "role": "全栈开发实习生",
       "stack": [
-        "Python",
-        "LangChain 0.2",
-        "Llama3 8B",
-        "OpenAI Embedding",
-        "ChromaDB",
-        "Streamlit"
+        "React",
+        "Tailwind CSS",
+        "FastAPI",
+        "Qdrant",
+        "BGE-M3",
+        "PostgreSQL",
+        "通义千问开源大模型"
       ],
-      "summary": "开发面向企业内部员工的私有知识库智能问答系统，支持多格式文档批量导入、精准检索、多轮上下文对话、回答来源引用溯源，解决企业内部信息查找效率低的问题",
-      "background": "2026年企业数字化转型深入，多数企业沉淀了大量内部文档、制度、项目资料，员工查找信息耗时久，基于RAG+Agent的私有知识库问答是企业普遍需求，该项目还原企业真实落地场景，适配0基础到中级开发者的能力进阶要求",
+      "summary": "开发支持多格式文档上传、自动向量化存储、私有检索问答的内部知识库系统，允许员工通过自然语言提问获取企业内部文档中的精准答案，支持答案来源引用溯源",
+      "background": "企业内部积累了大量制度、方案、技术文档等非结构化数据，员工人工检索信息效率极低，同时企业数据敏感不能外传至公共大模型，需要轻量可私有部署的RAG方案解决内部知识问答需求",
       "duration": "4周",
-      "difficulty": 2,
-      "category": "AI / RAG + Agent",
+      "difficulty": 2.5,
+      "category": "RAG + 全栈开发",
       "skills": [
-        "skill_rag_arch_design",
-        "skill_agent_dev",
-        "skill_vector_db_optimize",
-        "skill_prototype_dev"
+        "skill_rag_flow_design",
+        "skill_unstructured_doc_parse",
+        "skill_vector_db_usage",
+        "skill_fullstack_dev_basic"
       ]
     },
     {
       "id": "proj002",
-      "title": "校园兼职供需对接全栈Web应用",
-      "company": "美团校园业务部",
-      "role": "全栈开发实习生",
+      "title": "电商售后场景智能工单自动处理多Agent系统",
+      "company": "阿里巴巴淘宝天猫用户体验事业部",
+      "role": "AI应用开发实习生",
       "stack": [
-        "React 19",
-        "Vite 5",
-        "TailwindCSS",
-        "Node.js",
-        "Express",
-        "Prisma",
-        "PostgreSQL",
-        "Docker",
-        "GitHub Actions"
+        "LangGraph",
+        "FastAPI",
+        "React",
+        "MySQL",
+        "RabbitMQ",
+        "通义千问",
+        "Pandas"
       ],
-      "summary": "开发面向大学生的校园兼职供需对接全栈应用，支持企业方发布岗位、学生投递简历、在线沟通、岗位收藏推送等核心功能，同时搭建完整的前端工程化流程，实现自动化构建部署",
-      "background": "大学生校园兼职信息分散不对称，企业需要轻量化的校园岗位发布渠道，该项目还原互联网公司从需求分析到上线的全栈开发流程，结合2026年前端工程化的主流要求设计，适配校招实战考核标准",
+      "summary": "构建多Agent协作的售后工单处理系统，自动完成用户售后诉求识别、工单分类分流、售后知识库匹配解决方案、自动回复用户，无法解决的诉求自动流转人工客服，自动沉淀全流程处理日志",
+      "background": "电商平台每日产生海量售后咨询工单，人工处理成本高、响应延迟高，需要AI驱动的自动处理系统分流80%以上的常规诉求，降低人工压力，同时提升用户售后响应体验",
       "duration": "6周",
       "difficulty": 3,
-      "category": "全栈 / 前端工程化",
+      "category": "AI Agent + 数据应用",
       "skills": [
-        "skill_component_dev",
-        "skill_restful_api_design",
-        "skill_frontend_engineering",
-        "skill_db_design",
-        "skill_fullstack_deploy"
+        "skill_multi_agent_workflow_design",
+        "skill_llm_tool_call",
+        "skill_intent_slot_filling",
+        "skill_business_data_cleaning"
       ]
     }
   ]
