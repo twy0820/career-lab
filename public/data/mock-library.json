@@ -1,6 +1,350 @@
 {
-  "generatedAt": "2026-09-21T05:41:08.664182+00:00",
+  "generatedAt": "2026-09-28T06:08:16.024965+00:00",
   "projects": [
+    {
+      "id": "p57",
+      "title": "企业内部私有化RAG知识库问答机器人",
+      "company": "字节跳动飞书云文档团队",
+      "role": "AI应用开发实习生",
+      "stack": [
+        "Python",
+        "FastAPI",
+        "Redis",
+        "Chroma",
+        "Docker",
+        "React"
+      ],
+      "summary": "开发面向企业内部的私有化知识库问答机器人，支持员工基于内部文档快速查询问题答案，降低信息查找成本",
+      "background": "企业内部积累了大量制度、流程、技术文档，新员工入职查找信息效率低，传统关键词搜索准确率不足，需要基于RAG技术构建智能问答系统",
+      "duration": "2周",
+      "difficulty": 1,
+      "category": "RAG应用开发",
+      "skills": [
+        "python",
+        "sql",
+        "redis",
+        "vector",
+        "llm",
+        "dl",
+        "docker",
+        "fastapi",
+        "react",
+        "deploy",
+        "web"
+      ],
+      "phases": [
+        {
+          "id": "p57-s1",
+          "name": "需求分析与环境搭建",
+          "goal": "完成开发环境部署，梳理需求并完成内部文档数据预处理",
+          "prep": [
+            "领取云服务器资源",
+            "Fork项目模板仓库"
+          ],
+          "knowledge": [
+            "RAG基础原理",
+            "向量数据库基本使用",
+            "Python异步接口开发基础"
+          ],
+          "deliverables": [
+            "可运行的开发环境",
+            "预处理完成的内部文档数据集"
+          ],
+          "tickets": [
+            {
+              "id": "p57-t1",
+              "title": "完成开发环境搭建与文档数据导入",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "基于提供的示例文档集，完成向量入库，部署好FastAPI基础服务框架",
+              "acceptance": [
+                "能正常启动服务，向量库可正常检索",
+                "文档数据预处理完成，格式符合要求"
+              ],
+              "xp": 50
+            }
+          ]
+        },
+        {
+          "id": "p57-s2",
+          "name": "核心功能开发与部署",
+          "goal": "完成问答核心逻辑开发与简单前端交互页开发，部署可访问服务",
+          "prep": [
+            "完成第一阶段所有交付物"
+          ],
+          "knowledge": [
+            "prompt工程基础",
+            "RAG召回优化基础",
+            "前后端联调基础"
+          ],
+          "deliverables": [
+            "可公开访问的问答服务",
+            "接口文档"
+          ],
+          "tickets": [
+            {
+              "id": "p57-t2",
+              "title": "完成RAG问答核心逻辑与前端交互开发",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "实现召回+排序+生成的全流程RAG逻辑，开发简单的问答前端页面",
+              "acceptance": [
+                "提问后10s内返回准确答案",
+                "前端页面可正常交互，服务稳定运行24小时"
+              ],
+              "xp": 100
+            }
+          ]
+        }
+      ],
+      "fresh": true
+    },
+    {
+      "id": "p58",
+      "title": "多模态Agent电商导购助手",
+      "company": "阿里巴巴淘宝内容电商团队",
+      "role": "AI Agent开发工程师",
+      "stack": [
+        "Python",
+        "LangGraph",
+        "Qwen-VL",
+        "Milvus",
+        "FastAPI",
+        "React",
+        "Docker"
+      ],
+      "summary": "开发支持用户图文提问的多模态Agent导购助手，能理解用户穿搭、商品需求，自动检索商品并生成导购回答",
+      "background": "传统电商搜索仅支持文本关键词，用户常常会发穿搭图、商品草图提问，需要多模态理解结合Agent工具调用完成导购需求，提升转化率",
+      "duration": "4周",
+      "difficulty": 2,
+      "category": "多模态AI Agent",
+      "skills": [
+        "python",
+        "vector",
+        "redis",
+        "llm",
+        "dl",
+        "docker",
+        "fastapi",
+        "react",
+        "deploy",
+        "web"
+      ],
+      "phases": [
+        {
+          "id": "p58-s1",
+          "name": "数据准备与开发框架搭建",
+          "goal": "完成商品数据集预处理，搭建Agent开发框架",
+          "prep": [
+            "领取公开电商商品数据集",
+            "申请多模态大模型API权限"
+          ],
+          "knowledge": [
+            "多模态大模型基本使用",
+            "Agent工作流原理",
+            "向量建库基础"
+          ],
+          "deliverables": [
+            "多模态商品向量库",
+            "可运行的Agent框架骨架"
+          ],
+          "tickets": [
+            {
+              "id": "p58-t1",
+              "title": "完成商品多模态向量建库",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "对十万级商品的图、文信息编码，构建多模态向量库，支持图文混合检索",
+              "acceptance": [
+                "向量库建库完成，检索准确率达到基准值以上",
+                "框架骨架能正常启动"
+              ],
+              "xp": 80
+            }
+          ]
+        },
+        {
+          "id": "p58-s2",
+          "name": "Agent核心逻辑开发",
+          "goal": "完成多模态理解、工具调用、回答生成的核心流程开发",
+          "prep": [
+            "完成第一阶段交付物"
+          ],
+          "knowledge": [
+            "LangGraph工作流开发",
+            "多模态prompt工程",
+            "工具调用设计"
+          ],
+          "deliverables": [
+            "可运行的Agent核心服务"
+          ],
+          "tickets": [
+            {
+              "id": "p58-t2",
+              "title": "实现多模态Agent导购工作流",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "实现用户提问理解、商品检索、结果整理回答的全流程，支持图文混合提问",
+              "acceptance": [
+                "对80%以上的标准测试提问返回正确的导购结果",
+                "工作流可正常流转，无逻辑错误"
+              ],
+              "xp": 120
+            }
+          ]
+        },
+        {
+          "id": "p58-s3",
+          "name": "测试优化与部署上线",
+          "goal": "完成效果优化，部署可访问的Demo服务",
+          "prep": [
+            "完成第二阶段交付物"
+          ],
+          "knowledge": [
+            "Agent效果评测方法",
+            "云服务部署基础",
+            "前端交互开发"
+          ],
+          "deliverables": [
+            "公开可访问的Demo服务",
+            "效果评测报告"
+          ],
+          "tickets": [
+            {
+              "id": "p58-t3",
+              "title": "完成Demo部署与效果优化",
+              "kind": "开发",
+              "priority": "P1",
+              "context": "优化Agent的错误重试逻辑，提升准确率，部署前端Demo，支持在线体验",
+              "acceptance": [
+                "Demo可正常访问交互，准确率比基准提升10%以上"
+              ],
+              "xp": 100
+            }
+          ]
+        }
+      ],
+      "fresh": true
+    },
+    {
+      "id": "p59",
+      "title": "大模型推理服务弹性扩缩容平台开发",
+      "company": "字节跳动云智能AI Infra团队",
+      "role": "AI Infra开发工程师",
+      "stack": [
+        "Go",
+        "Kubernetes",
+        "Docker",
+        "Prometheus",
+        "vLLM",
+        "TensorRT-LLM"
+      ],
+      "summary": "基于Kubernetes开发面向大模型推理服务的弹性扩缩容平台，根据实时流量动态调整推理实例数量，降低推理服务的资源成本",
+      "background": "大模型推理服务流量波动大，峰值流量需要足够的算力支撑，低峰期闲置资源浪费严重，现有HPA无法适配大模型推理的负载特点，需要定制化的弹性扩缩容方案",
+      "duration": "8周",
+      "difficulty": 4,
+      "category": "AI Infra 云原生",
+      "skills": [
+        "go",
+        "linux",
+        "docker",
+        "llm",
+        "dl",
+        "deploy",
+        "git"
+      ],
+      "phases": [
+        {
+          "id": "p59-s1",
+          "name": "需求调研与框架设计",
+          "goal": "梳理现有扩缩容方案的痛点，完成平台架构设计",
+          "prep": [
+            "搭建本地k8s开发环境",
+            "研读vLLM推理服务接口文档"
+          ],
+          "knowledge": [
+            "Kubernetes核心原理",
+            "HPA扩缩容原理",
+            "大模型推理服务特点"
+          ],
+          "deliverables": [
+            "架构设计文档",
+            "需求规格说明书"
+          ],
+          "tickets": [
+            {
+              "id": "p59-t1",
+              "title": "完成架构设计与开发环境搭建",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "完成控制器模块、监控模块、扩缩容模块的架构拆分，搭建好本地开发调试环境",
+              "acceptance": [
+                "架构设计文档通过评审，开发环境可正常调试"
+              ],
+              "xp": 100
+            }
+          ]
+        },
+        {
+          "id": "p59-s2",
+          "name": "核心模块开发",
+          "goal": "完成监控采集模块、预测扩缩容模块、k8s控制器模块开发",
+          "prep": [
+            "完成第一阶段交付物"
+          ],
+          "knowledge": [
+            "Prometheus监控开发",
+            "Go k8s客户端开发",
+            "时间序列流量预测"
+          ],
+          "deliverables": [
+            "三个核心模块的可运行代码"
+          ],
+          "tickets": [
+            {
+              "id": "p59-t2",
+              "title": "完成核心模块开发与单元测试",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "实现基于大模型推理负载的流量预测扩缩容逻辑，开发k8s自定义控制器",
+              "acceptance": [
+                "所有单元测试通过，核心模块功能符合设计要求"
+              ],
+              "xp": 200
+            }
+          ]
+        },
+        {
+          "id": "p59-s3",
+          "name": "压测试测试与优化",
+          "goal": "完成端到端测试，验证成本节约效果，优化性能",
+          "prep": [
+            "完成第二阶段交付物"
+          ],
+          "knowledge": [
+            "大模型推理压测方法",
+            "性能优化方法"
+          ],
+          "deliverables": [
+            "压测报告，可部署的平台镜像"
+          ],
+          "tickets": [
+            {
+              "id": "p59-t3",
+              "title": "完成压测验证，对比现有方案的成本节约率",
+              "kind": "测试",
+              "priority": "P0",
+              "context": "用真实流量痕迹压测平台，验证扩缩容的响应速度和成本节约效果",
+              "acceptance": [
+                "相比原生HPA，资源成本降低30%以上，扩缩容响应延迟低于2分钟"
+              ],
+              "xp": 150
+            }
+          ]
+        }
+      ],
+      "fresh": true
+    },
     {
       "id": "p54",
       "title": "个人本地知识库RAG问答Agent",
@@ -84,8 +428,7 @@
             }
           ]
         }
-      ],
-      "fresh": true
+      ]
     },
     {
       "id": "p55",
@@ -185,8 +528,7 @@
             }
           ]
         }
-      ],
-      "fresh": true
+      ]
     },
     {
       "id": "p56",
@@ -287,8 +629,7 @@
             }
           ]
         }
-      ],
-      "fresh": true
+      ]
     },
     {
       "id": "p51",
@@ -508,6 +849,67 @@
   ],
   "contests": [
     {
+      "id": "a35",
+      "name": "2026多模态RAG技术创新竞赛",
+      "host": "阿里云开发者社区",
+      "category": "AI应用开发",
+      "level": "初级-中级",
+      "difficulty": 2,
+      "skills": [
+        "python",
+        "vector",
+        "llm",
+        "dl",
+        "docker",
+        "deploy"
+      ],
+      "regStart": "2026-01-12",
+      "regEnd": "2026-01-26",
+      "contestStart": "2026-01-27",
+      "contestEnd": "2026-02-27",
+      "tags": [
+        "多模态",
+        "RAG",
+        "AI应用",
+        "大模型"
+      ],
+      "summary": "基于赛事提供的10万份企业多模态文档（含图文、表格）数据集与测试问答集，开发准确率最高的多模态RAG问答系统，按准确率排名发放奖金",
+      "registrationUrl": "https://developer.aliyun.com/competition/multimodal-rag-2026",
+      "officialUrl": "https://developer.aliyun.com/competition/multimodal-rag-2026",
+      "recurring": false,
+      "fresh": true
+    },
+    {
+      "id": "a36",
+      "name": "大模型Agent工具调用算法挑战赛",
+      "host": "字节跳动竞赛平台",
+      "category": "AI算法竞赛",
+      "level": "中级-高级",
+      "difficulty": 4,
+      "skills": [
+        "python",
+        "algo",
+        "llm",
+        "dl",
+        "ds"
+      ],
+      "regStart": "2026-01-12",
+      "regEnd": "2026-02-01",
+      "contestStart": "2026-02-02",
+      "contestEnd": "2026-03-02",
+      "tags": [
+        "Agent",
+        "工具调用",
+        "大模型",
+        "AI算法"
+      ],
+      "summary": "赛事提供包含1000个第三方工具的工具集与5000道复杂问题测试集，选手需要优化大模型的工具规划、调用、错误纠正能力，按工具调用准确率与响应速度综合排名",
+      "registrationUrl": "https://competition.bytedance.com/agent-toolcall-2026",
+      "officialUrl": "https://competition.bytedance.com/agent-toolcall-2026",
+      "recurring": false,
+      "fresh": true
+    },
+    {
       "id": "a33",
       "name": "2026多模态RAG检索挑战赛",
       "host": "字节跳动AI Lab",
@@ -526,8 +928,7 @@
       "summary": "面向真实企业多模态知识库场景，参赛队伍需要构建端到端多模态RAG系统，比拼检索精度、回答准确率和推理速度，设置百万奖金池",
       "registrationUrl": "https://contest.bytedance.com/2026-multimodal-rag",
       "officialUrl": "https://contest.bytedance.com/2026-multimodal-rag",
-      "recurring": false,
-      "fresh": true
+      "recurring": false
     },
     {
       "id": "a34",
@@ -548,8 +949,7 @@
       "summary": "参赛队伍需要在给定的云资源配额内部署AI Agent服务，比拼高并发场景下的请求成功率、平均延迟和资源利用率，考察工程优化和云原生技术能力",
       "registrationUrl": "https://tianchi.aliyun.com/2026-agent-challenge",
       "officialUrl": "https://tianchi.aliyun.com/2026-agent-challenge",
-      "recurring": false,
-      "fresh": true
+      "recurring": false
     },
     {
       "id": "a31",
@@ -558,7 +958,11 @@
       "category": "AI竞赛",
       "level": "中级",
       "difficulty": 3,
-      "skills": ["llm", "vector", "python"],
+      "skills": [
+        "llm",
+        "vector",
+        "python"
+      ],
       "regStart": "2026-09-20",
       "regEnd": "2026-10-20",
       "contestStart": "2026-10-25",
@@ -581,7 +985,12 @@
       "category": "全栈AI竞赛",
       "level": "高级",
       "difficulty": 5,
-      "skills": ["llm", "agent", "react", "python"],
+      "skills": [
+        "llm",
+        "agent",
+        "react",
+        "python"
+      ],
       "regStart": "2026-09-20",
       "regEnd": "2026-10-10",
       "contestStart": "2026-10-15",
