@@ -1,58 +1,55 @@
 {
-  "generatedAt": "2026-09-27T06:21:58.294017+00:00",
+  "generatedAt": "2026-09-28T06:23:26.526244+00:00",
   "projects": [
     {
-      "id": "proj001",
-      "title": "企业内部私有知识库智能问答Agent",
-      "company": "字节跳动飞书协作事业部",
+      "id": "proj_001",
+      "title": "高校私有知识库AI问答Agent",
+      "company": "字节跳动校园生态部",
       "role": "AI应用开发实习生",
       "stack": [
         "Python",
         "LangChain",
-        "OpenAI Embedding",
         "ChromaDB",
-        "FastAPI",
-        "飞书开放平台"
+        "GPT-4o Mini",
+        "React 18",
+        "FastAPI"
       ],
-      "summary": "开发一款面向企业内部员工的智能问答助手，支持员工上传多种格式的内部文档，基于RAG技术实现精准的信息检索，结合Agent能力处理多轮对话、复杂问题拆解，帮助员工快速查找内部制度、技术规范、业务文档等信息，提升信息获取效率",
-      "background": "当前企业内部文档分散在多个系统，新员工融入、老员工查询业务规则都需要花费大量时间搜索信息，传统搜索无法理解语义，不能回答关联问题，因此需要基于RAG+Agent构建轻量化的内部问答工具",
+      "summary": "开发面向本校师生的轻量化AI问答助手，基于本校公开公告、课程大纲、校园活动资料构建私有RAG知识库，同时集成Agent能力支持课表查询、活动预约等动态操作，最终交付可在线访问的原型产品",
+      "background": "新生入学、日常校园生活中，师生查找校园信息分散在多个独立系统，信息不对称问题突出，企业校园生态产品线需要验证轻量化AI校园助手的落地可行性，需要开发者从0到1完成全流程原型开发",
       "duration": "4周",
       "difficulty": 2,
       "category": "RAG/Agent",
       "skills": [
-        "rag-base-001",
-        "agent-design-002",
-        "api-integration-003",
-        "python-dev-004"
+        "skill_rag_build",
+        "skill_langchain_agent",
+        "skill_front_back_conn"
       ]
     },
     {
-      "id": "proj002",
-      "title": "内容团队AI共创全栈协同平台",
-      "company": "小红书内容技术部",
-      "role": "全栈开发实习生",
+      "id": "proj_002",
+      "title": "零售电商用户行为转化分析交互看板",
+      "company": "阿里巴巴零售事业群运营数据部",
+      "role": "全栈数据开发实习生",
       "stack": [
-        "React",
-        "Next.js 15",
+        "Vue3",
+        "Vite",
         "TailwindCSS",
-        "Node.js",
-        "Prisma",
-        "PostgreSQL",
-        "OpenAI GPT-4o Mini",
-        "RAG",
-        "Socket.io"
+        "ECharts",
+        "Python",
+        "Pandas",
+        "FastAPI",
+        "SQLite"
       ],
-      "summary": "开发一款面向内容创作团队的一站式全栈协同平台，支持多人实时协作写稿、AI辅助生成/改写内容、基于团队历史优质内容构建私有RAG知识库做参考创作、版本管理和选题评审，解决当前AI创作工具分散、协同效率低、内容资产无法复用的问题",
-      "background": "内容团队创作过程中，需要同时使用文档工具、AI生成工具、云存储，流程割裂，团队积累的优质内容无法复用为AI创作的参考，多人协同写稿体验差，因此需要整合AI能力的全栈协同创作平台",
-      "duration": "6周",
+      "summary": "基于公开零售电商用户行为脱敏数据集，完成数据清洗、用户分层、转化路径分析，开发可交互的数据分析看板，支持运营人员自定义时间范围、用户群体筛选，直观查看漏斗转化、用户留存、流量来源等核心业务指标",
+      "background": "电商运营团队日常需要分析用户全链路转化情况，现有内部固定报表灵活性不足，无法支持运营自助探索分析，需要开发轻量化可交互的分析看板原型，验证敏捷分析方案的可行性",
+      "duration": "5周",
       "difficulty": 3,
-      "category": "全栈/前端工程化",
+      "category": "全栈/数据/前端工程化",
       "skills": [
-        "fullstack-dev-001",
-        "frontend-engineering-002",
-        "database-design-003",
-        "ai-integration-004",
-        "real-time-collab-005"
+        "skill_data_clean_analysis",
+        "skill_vite_engineering",
+        "skill_data_visualization",
+        "skill_restful_api_dev"
       ]
     }
   ]
