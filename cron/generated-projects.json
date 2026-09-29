@@ -1,55 +1,55 @@
 {
-  "generatedAt": "2026-09-28T06:23:26.526244+00:00",
+  "generatedAt": "2026-09-29T06:38:48.747420+00:00",
   "projects": [
     {
-      "id": "proj_001",
-      "title": "高校私有知识库AI问答Agent",
-      "company": "字节跳动校园生态部",
-      "role": "AI应用开发实习生",
+      "id": "proj-rag-fullstack-001",
+      "title": "企业内部私有RAG知识库问答系统",
+      "company": "字节跳动 内部协作工具部",
+      "role": "全栈开发实习生",
       "stack": [
-        "Python",
-        "LangChain",
+        "Vite",
+        "React",
+        "TailwindCSS",
+        "FastAPI",
         "ChromaDB",
-        "GPT-4o Mini",
-        "React 18",
-        "FastAPI"
+        "BGE Embedding",
+        "通义千问开源大模型"
       ],
-      "summary": "开发面向本校师生的轻量化AI问答助手，基于本校公开公告、课程大纲、校园活动资料构建私有RAG知识库，同时集成Agent能力支持课表查询、活动预约等动态操作，最终交付可在线访问的原型产品",
-      "background": "新生入学、日常校园生活中，师生查找校园信息分散在多个独立系统，信息不对称问题突出，企业校园生态产品线需要验证轻量化AI校园助手的落地可行性，需要开发者从0到1完成全流程原型开发",
+      "summary": "开发支持多源内部文档导入、自然语言提问的私有问答知识库，支持文档上传、对话历史保存、回答来源引用功能，解决企业内部信息检索效率低的问题",
+      "background": "当前企业内部文档分散在飞书文档、Confluence、GitBook等多个平台，新员工找流程、查规范需要翻阅大量文档，检索效率极低；私有RAG可在不泄露内部数据的前提下提供准确问答服务，是2026年企业AI落地最主流的场景之一",
       "duration": "4周",
       "difficulty": 2,
-      "category": "RAG/Agent",
+      "category": "RAG + 全栈开发",
       "skills": [
-        "skill_rag_build",
-        "skill_langchain_agent",
-        "skill_front_back_conn"
+        "skill-rag-implementation",
+        "skill-fullstack-development",
+        "skill-vector-db-management",
+        "skill-frontend-component-development"
       ]
     },
     {
-      "id": "proj_002",
-      "title": "零售电商用户行为转化分析交互看板",
-      "company": "阿里巴巴零售事业群运营数据部",
-      "role": "全栈数据开发实习生",
+      "id": "proj-agent-data-002",
+      "title": "中小电商智能选品决策多Agent系统",
+      "company": "阿里巴巴 商家服务生态部",
+      "role": "AI数据应用开发实习生",
       "stack": [
-        "Vue3",
-        "Vite",
-        "TailwindCSS",
-        "ECharts",
-        "Python",
+        "LangGraph",
         "Pandas",
+        "ECharts",
         "FastAPI",
-        "SQLite"
+        "Qwen2-7B",
+        "阿里云公开电商数据集"
       ],
-      "summary": "基于公开零售电商用户行为脱敏数据集，完成数据清洗、用户分层、转化路径分析，开发可交互的数据分析看板，支持运营人员自定义时间范围、用户群体筛选，直观查看漏斗转化、用户留存、流量来源等核心业务指标",
-      "background": "电商运营团队日常需要分析用户全链路转化情况，现有内部固定报表灵活性不足，无法支持运营自助探索分析，需要开发轻量化可交互的分析看板原型，验证敏捷分析方案的可行性",
+      "summary": "开发基于多Agent协作的电商选品决策工具，由数据抓取Agent、趋势分析Agent、报告生成Agent协作，自动分析行业数据、热点趋势，输出可视化选品报告和决策建议，帮助中小商家降低选品门槛",
+      "background": "中小电商商家缺乏专业数据分析团队，难以把握平台流量趋势、用户需求变化，选品盲目容易导致库存积压或错失流量风口；大模型Agent可自动化完成全流程数据分析，低成本赋能中小商家，是AI在电商服务领域的热门落地方向",
       "duration": "5周",
       "difficulty": 3,
-      "category": "全栈/数据/前端工程化",
+      "category": "Agent + 数据分析",
       "skills": [
-        "skill_data_clean_analysis",
-        "skill_vite_engineering",
-        "skill_data_visualization",
-        "skill_restful_api_dev"
+        "skill-agent-orchestration",
+        "skill-data-analysis",
+        "skill-llm-tool-calling",
+        "skill-data-visualization"
       ]
     }
   ]
