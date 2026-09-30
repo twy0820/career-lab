@@ -1,55 +1,60 @@
 {
-  "generatedAt": "2026-09-29T06:38:48.747420+00:00",
+  "generatedAt": "2026-09-30T06:21:09.340157+00:00",
   "projects": [
     {
-      "id": "proj-rag-fullstack-001",
-      "title": "企业内部私有RAG知识库问答系统",
-      "company": "字节跳动 内部协作工具部",
-      "role": "全栈开发实习生",
+      "id": 1,
+      "title": "基于RAG的个人私有知识库问答助手",
+      "company": "字节跳动智能云AI应用部",
+      "role": "AI开发实习生",
       "stack": [
-        "Vite",
-        "React",
-        "TailwindCSS",
+        "Python",
+        "LangChain",
+        "OpenAI Embedding",
+        "Chroma向量数据库",
         "FastAPI",
-        "ChromaDB",
-        "BGE Embedding",
-        "通义千问开源大模型"
+        "Vue3"
       ],
-      "summary": "开发支持多源内部文档导入、自然语言提问的私有问答知识库，支持文档上传、对话历史保存、回答来源引用功能，解决企业内部信息检索效率低的问题",
-      "background": "当前企业内部文档分散在飞书文档、Confluence、GitBook等多个平台，新员工找流程、查规范需要翻阅大量文档，检索效率极低；私有RAG可在不泄露内部数据的前提下提供准确问答服务，是2026年企业AI落地最主流的场景之一",
+      "summary": "开发一个可本地部署的个人私有知识库问答助手，支持用户上传PDF/Markdown格式的学习笔记、课程课件，基于RAG技术实现对个人知识库内容的自然语言问答，帮助用户快速从海量个人资料中提取信息",
+      "background": "当代大学生积累了大量电子学习资料，传统搜索方式无法精准回答基于内容的问题，公开大模型容易泄露隐私，本项目基于RAG技术构建私有本地知识库，满足个人知识问答需求",
       "duration": "4周",
       "difficulty": 2,
-      "category": "RAG + 全栈开发",
+      "category": "大语言模型应用开发(RAG)",
       "skills": [
-        "skill-rag-implementation",
-        "skill-fullstack-development",
-        "skill-vector-db-management",
-        "skill-frontend-component-development"
+        1001,
+        1002,
+        1003,
+        1004,
+        1005
       ]
     },
     {
-      "id": "proj-agent-data-002",
-      "title": "中小电商智能选品决策多Agent系统",
-      "company": "阿里巴巴 商家服务生态部",
-      "role": "AI数据应用开发实习生",
+      "id": 2,
+      "title": "带前端工程化配置的校园闲置交易全栈平台",
+      "company": "腾讯云校园创新实验室",
+      "role": "全栈开发实习生",
       "stack": [
-        "LangGraph",
-        "Pandas",
-        "ECharts",
-        "FastAPI",
-        "Qwen2-7B",
-        "阿里云公开电商数据集"
+        "Vue3",
+        "Vite",
+        "TailwindCSS",
+        "Pinia",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "Docker",
+        "GitHub Actions"
       ],
-      "summary": "开发基于多Agent协作的电商选品决策工具，由数据抓取Agent、趋势分析Agent、报告生成Agent协作，自动分析行业数据、热点趋势，输出可视化选品报告和决策建议，帮助中小商家降低选品门槛",
-      "background": "中小电商商家缺乏专业数据分析团队，难以把握平台流量趋势、用户需求变化，选品盲目容易导致库存积压或错失流量风口；大模型Agent可自动化完成全流程数据分析，低成本赋能中小商家，是AI在电商服务领域的热门落地方向",
+      "summary": "开发面向高校大学生的校园闲置物品交易全栈平台，支持闲置发布、分类搜索、在线聊天、校园自提约定功能，同时完成前端工程化配置：代码规范校验、自动化构建、一键部署",
+      "background": "大学生群体有大量闲置教材、电子产品、生活用品需要交易，现有第三方平台不针对校园本地场景优化，本项目面向校园场景打造轻量化交易平台，同时让开发者实践现代前端工程化开发流程",
       "duration": "5周",
       "difficulty": 3,
-      "category": "Agent + 数据分析",
+      "category": "全栈开发/前端工程化",
       "skills": [
-        "skill-agent-orchestration",
-        "skill-data-analysis",
-        "skill-llm-tool-calling",
-        "skill-data-visualization"
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006
       ]
     }
   ]
