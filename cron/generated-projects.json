@@ -1,60 +1,56 @@
 {
-  "generatedAt": "2026-09-30T06:21:09.340157+00:00",
+  "generatedAt": "2026-10-01T06:57:04.839032+00:00",
   "projects": [
     {
-      "id": 1,
-      "title": "基于RAG的个人私有知识库问答助手",
-      "company": "字节跳动智能云AI应用部",
-      "role": "AI开发实习生",
+      "id": "proj001",
+      "title": "企业内部私有知识库智能问答助手",
+      "company": "中型互联网公司内部效率工具部",
+      "role": "全栈开发实习生",
       "stack": [
         "Python",
         "LangChain",
-        "OpenAI Embedding",
-        "Chroma向量数据库",
+        "ChromaDB",
         "FastAPI",
-        "Vue3"
+        "React",
+        "OpenAI Embedding"
       ],
-      "summary": "开发一个可本地部署的个人私有知识库问答助手，支持用户上传PDF/Markdown格式的学习笔记、课程课件，基于RAG技术实现对个人知识库内容的自然语言问答，帮助用户快速从海量个人资料中提取信息",
-      "background": "当代大学生积累了大量电子学习资料，传统搜索方式无法精准回答基于内容的问题，公开大模型容易泄露隐私，本项目基于RAG技术构建私有本地知识库，满足个人知识问答需求",
+      "summary": "开发面向企业内部员工的智能问答工具，支持自然语言提问，自动从内部多格式文档（PDF/Word/Markdown）中检索信息生成准确回答，解决员工查找内部文档效率低的痛点",
+      "background": "企业内部沉淀了大量制度、技术、产品文档，新员工融入、老员工查询信息都需要人工翻阅大量文档，信息查找耗时久、准确率低，基于RAG技术搭建私有知识库问答工具可大幅提升内部协作效率",
       "duration": "4周",
       "difficulty": 2,
-      "category": "大语言模型应用开发(RAG)",
+      "category": "RAG+全栈",
       "skills": [
-        1001,
-        1002,
-        1003,
-        1004,
-        1005
+        "skill_rag_retrieval_augmentation",
+        "skill_backend_api_dev",
+        "skill_react_frontend_dev",
+        "skill_vector_db_management"
       ]
     },
     {
-      "id": 2,
-      "title": "带前端工程化配置的校园闲置交易全栈平台",
-      "company": "腾讯云校园创新实验室",
-      "role": "全栈开发实习生",
+      "id": "proj002",
+      "title": "自然语言驱动的零售业务自助数据分析Agent",
+      "company": "线下连锁零售品牌数据部门",
+      "role": "数据开发实习生",
       "stack": [
+        "Python",
+        "LangGraph",
+        "Pandas",
+        "SQLAlchemy",
+        "Plotly",
         "Vue3",
-        "Vite",
-        "TailwindCSS",
-        "Pinia",
-        "Node.js",
-        "Express",
-        "MongoDB",
-        "Docker",
-        "GitHub Actions"
+        "FastAPI"
       ],
-      "summary": "开发面向高校大学生的校园闲置物品交易全栈平台，支持闲置发布、分类搜索、在线聊天、校园自提约定功能，同时完成前端工程化配置：代码规范校验、自动化构建、一键部署",
-      "background": "大学生群体有大量闲置教材、电子产品、生活用品需要交易，现有第三方平台不针对校园本地场景优化，本项目面向校园场景打造轻量化交易平台，同时让开发者实践现代前端工程化开发流程",
+      "summary": "搭建Agent驱动的自助数据分析工具，不懂SQL的业务运营人员可通过自然语言提问销售、库存、客流相关问题，Agent自动完成数据查询、计算、可视化，生成分析结论，无需数据工程师人工提数",
+      "background": "零售企业业务人员日常有大量零散数据分析需求，传统模式需要提交给数据部门排期，响应慢效率低，通过Agent技术实现自然语言自助数据分析，可解放数据部门人力，提升业务响应速度",
       "duration": "5周",
       "difficulty": 3,
-      "category": "全栈开发/前端工程化",
+      "category": "Agent+数据开发",
       "skills": [
-        2001,
-        2002,
-        2003,
-        2004,
-        2005,
-        2006
+        "skill_agent_workflow_orchestration",
+        "skill_text2sql_generation",
+        "skill_business_data_analysis",
+        "skill_data_visualization",
+        "skill_agent_tool_calling"
       ]
     }
   ]
