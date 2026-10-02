@@ -1,56 +1,56 @@
 {
-  "generatedAt": "2026-10-01T06:57:04.839032+00:00",
+  "generatedAt": "2026-10-02T06:47:10.886804+00:00",
   "projects": [
     {
       "id": "proj001",
-      "title": "企业内部私有知识库智能问答助手",
-      "company": "中型互联网公司内部效率工具部",
-      "role": "全栈开发实习生",
+      "title": "企业内部AI研发文档问答助手",
+      "company": "字节跳动 电商技术部",
+      "role": "AI开发实习生",
       "stack": [
         "Python",
         "LangChain",
         "ChromaDB",
+        "豆包大模型API",
         "FastAPI",
-        "React",
-        "OpenAI Embedding"
+        "基础React"
       ],
-      "summary": "开发面向企业内部员工的智能问答工具，支持自然语言提问，自动从内部多格式文档（PDF/Word/Markdown）中检索信息生成准确回答，解决员工查找内部文档效率低的痛点",
-      "background": "企业内部沉淀了大量制度、技术、产品文档，新员工融入、老员工查询信息都需要人工翻阅大量文档，信息查找耗时久、准确率低，基于RAG技术搭建私有知识库问答工具可大幅提升内部协作效率",
+      "summary": "为企业内部研发团队搭建基于RAG+Agent的私有文档问答助手，支持PDF/MD/DOCX多种格式研发文档导入、自然语言提问，返回带引用来源的准确回答，支持多轮上下文追问，帮助新员工快速查找研发规范、接口文档等信息，减少信息检索成本",
+      "background": "随着企业研发规模扩大，沉淀了大量非结构化的研发文档（接口规范、架构设计、踩坑记录等），新员工入职后需要花费大量时间查找信息，传统关键词搜索方式准确率低、无法理解自然语言问题，需要搭建轻量化的AI问答工具解决该痛点",
       "duration": "4周",
       "difficulty": 2,
-      "category": "RAG+全栈",
+      "category": "RAG/Agent",
       "skills": [
-        "skill_rag_retrieval_augmentation",
-        "skill_backend_api_dev",
-        "skill_react_frontend_dev",
-        "skill_vector_db_management"
+        "rag-base-001",
+        "agent-converse-001",
+        "py-base-001",
+        "api-dev-001"
       ]
     },
     {
       "id": "proj002",
-      "title": "自然语言驱动的零售业务自助数据分析Agent",
-      "company": "线下连锁零售品牌数据部门",
-      "role": "数据开发实习生",
+      "title": "大学生实习招聘供需数据可视化看板",
+      "company": "拉勾网 校招产品部",
+      "role": "全栈开发实习生",
       "stack": [
-        "Python",
-        "LangGraph",
-        "Pandas",
-        "SQLAlchemy",
-        "Plotly",
-        "Vue3",
-        "FastAPI"
+        "Vite",
+        "React",
+        "TailwindCSS",
+        "ECharts",
+        "Node.js",
+        "Express",
+        "MySQL",
+        "Pandas"
       ],
-      "summary": "搭建Agent驱动的自助数据分析工具，不懂SQL的业务运营人员可通过自然语言提问销售、库存、客流相关问题，Agent自动完成数据查询、计算、可视化，生成分析结论，无需数据工程师人工提数",
-      "background": "零售企业业务人员日常有大量零散数据分析需求，传统模式需要提交给数据部门排期，响应慢效率低，通过Agent技术实现自然语言自助数据分析，可解放数据部门人力，提升业务响应速度",
-      "duration": "5周",
+      "summary": "基于公开真实招聘数据集搭建全栈可交互数据分析看板，支持按行业、城市、学历维度筛选，展示岗位供需分布、薪资趋势、热门技能词云、院校流向等多维度可视化分析，为企业校招团队和求职学生提供趋势参考",
+      "background": "每年校招季，企业校招部门需要把握最新的供需动态调整招聘计划，学生也需要了解市场趋势调整求职方向，传统静态统计报告更新不及时、不支持交互查询，需要搭建轻量化可交互的分析看板满足需求",
+      "duration": "6周",
       "difficulty": 3,
-      "category": "Agent+数据开发",
+      "category": "全栈/数据",
       "skills": [
-        "skill_agent_workflow_orchestration",
-        "skill_text2sql_generation",
-        "skill_business_data_analysis",
-        "skill_data_visualization",
-        "skill_agent_tool_calling"
+        "fe-engineering-001",
+        "data-process-001",
+        "fullstack-api-001",
+        "data-visual-001"
       ]
     }
   ]
