@@ -1,56 +1,53 @@
 {
-  "generatedAt": "2026-10-02T06:47:10.886804+00:00",
+  "generatedAt": "2026-10-03T06:07:14.537692+00:00",
   "projects": [
     {
       "id": "proj001",
-      "title": "企业内部AI研发文档问答助手",
-      "company": "字节跳动 电商技术部",
-      "role": "AI开发实习生",
+      "title": "企业内部私有知识库RAG问答Agent",
+      "company": "飞书生态合作部",
+      "role": "AI应用开发实习生",
       "stack": [
-        "Python",
+        "React",
+        "Vite",
         "LangChain",
         "ChromaDB",
-        "豆包大模型API",
-        "FastAPI",
-        "基础React"
+        "OpenAI Embedding",
+        "TailwindCSS"
       ],
-      "summary": "为企业内部研发团队搭建基于RAG+Agent的私有文档问答助手，支持PDF/MD/DOCX多种格式研发文档导入、自然语言提问，返回带引用来源的准确回答，支持多轮上下文追问，帮助新员工快速查找研发规范、接口文档等信息，减少信息检索成本",
-      "background": "随着企业研发规模扩大，沉淀了大量非结构化的研发文档（接口规范、架构设计、踩坑记录等），新员工入职后需要花费大量时间查找信息，传统关键词搜索方式准确率低、无法理解自然语言问题，需要搭建轻量化的AI问答工具解决该痛点",
+      "summary": "开发面向中小企的嵌入式内部知识库问答助手，支持员工上传PDF/Word文档，基于RAG技术回答企业制度、流程类问题，返回答案同时附带原文引用来源，支持多轮对话上下文理解",
+      "background": "中小微企业内部文档分散在云盘、群文件、本地存储，新老员工查找信息效率极低，飞书生态需要标准化的可复用RAG问答模板产品交付给客户，本项目为可落地的Demo版本",
       "duration": "4周",
       "difficulty": 2,
       "category": "RAG/Agent",
       "skills": [
-        "rag-base-001",
-        "agent-converse-001",
-        "py-base-001",
-        "api-dev-001"
+        "rag_001",
+        "agent_001",
+        "fullstack_001"
       ]
     },
     {
       "id": "proj002",
-      "title": "大学生实习招聘供需数据可视化看板",
-      "company": "拉勾网 校招产品部",
-      "role": "全栈开发实习生",
+      "title": "校园实习招聘信息聚合与数据分析平台",
+      "company": "前程无忧校园事业部",
+      "role": "全栈数据开发实习生",
       "stack": [
-        "Vite",
-        "React",
+        "Next.js 14",
         "TailwindCSS",
+        "Prisma",
+        "PostgreSQL",
+        "Pandas",
         "ECharts",
-        "Node.js",
-        "Express",
-        "MySQL",
-        "Pandas"
+        "Docker"
       ],
-      "summary": "基于公开真实招聘数据集搭建全栈可交互数据分析看板，支持按行业、城市、学历维度筛选，展示岗位供需分布、薪资趋势、热门技能词云、院校流向等多维度可视化分析，为企业校招团队和求职学生提供趋势参考",
-      "background": "每年校招季，企业校招部门需要把握最新的供需动态调整招聘计划，学生也需要了解市场趋势调整求职方向，传统静态统计报告更新不及时、不支持交互查询，需要搭建轻量化可交互的分析看板满足需求",
-      "duration": "6周",
+      "summary": "构建面向大学生的实习招聘聚合平台，整合多源公开招聘信息，完成数据清洗去重，提供岗位搜索筛选、薪资趋势可视化、热门方向岗位供需分析功能，支持按学校、城市、薪资维度灵活筛选",
+      "background": "当前大学生找实习信息分散在多个招聘渠道，缺乏针对校园群体的聚合分析工具，无法直观看到不同方向、城市的实习薪资和岗位供需变化，本项目为校园推广测试Demo项目，基于前端工程化规范搭建可迭代代码结构",
+      "duration": "5周",
       "difficulty": 3,
-      "category": "全栈/数据",
+      "category": "全栈/数据/前端工程化",
       "skills": [
-        "fe-engineering-001",
-        "data-process-001",
-        "fullstack-api-001",
-        "data-visual-001"
+        "data_001",
+        "fullstack_002",
+        "fe_engineering_001"
       ]
     }
   ]
