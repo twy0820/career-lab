@@ -1,53 +1,60 @@
 {
-  "generatedAt": "2026-10-03T06:07:14.537692+00:00",
+  "generatedAt": "2026-10-04T06:39:35.484621+00:00",
   "projects": [
     {
-      "id": "proj001",
-      "title": "企业内部私有知识库RAG问答Agent",
-      "company": "飞书生态合作部",
-      "role": "AI应用开发实习生",
+      "id": 1,
+      "title": "基于RAG的企业内部文档智能问答Agent",
+      "company": "字节跳动 内部工具部",
+      "role": "AI开发实习生",
       "stack": [
-        "React",
-        "Vite",
+        "Python",
         "LangChain",
+        "OpenAI GPT-4o Mini",
         "ChromaDB",
-        "OpenAI Embedding",
-        "TailwindCSS"
+        "FastAPI",
+        "HTML/CSS"
       ],
-      "summary": "开发面向中小企的嵌入式内部知识库问答助手，支持员工上传PDF/Word文档，基于RAG技术回答企业制度、流程类问题，返回答案同时附带原文引用来源，支持多轮对话上下文理解",
-      "background": "中小微企业内部文档分散在云盘、群文件、本地存储，新老员工查找信息效率极低，飞书生态需要标准化的可复用RAG问答模板产品交付给客户，本项目为可落地的Demo版本",
+      "summary": "开发一个面向企业内部员工的智能问答助手，能够基于企业私有文档库回答问题，支持多轮对话记忆和上下文追问",
+      "background": "企业内部存在大量规章制度、项目文档、产品手册等非结构化文档，员工查找信息效率低下，传统搜索无法直接给出答案，需要基于大语言模型结合检索增强生成(RAG)技术打造智能问答助手",
       "duration": "4周",
       "difficulty": 2,
-      "category": "RAG/Agent",
+      "category": "AI大模型应用/RAG + Agent",
       "skills": [
-        "rag_001",
-        "agent_001",
-        "fullstack_001"
+        "skill_rag_implementation",
+        "skill_agent_development",
+        "skill_python_basics",
+        "skill_api_development",
+        "skill_vector_database"
       ]
     },
     {
-      "id": "proj002",
-      "title": "校园实习招聘信息聚合与数据分析平台",
-      "company": "前程无忧校园事业部",
-      "role": "全栈数据开发实习生",
+      "id": 2,
+      "title": "开源新人贡献指引全栈社区平台",
+      "company": "GitHub 中国开源社区运营部",
+      "role": "全栈开发实习生",
       "stack": [
-        "Next.js 14",
+        "React 18",
+        "Vite",
         "TailwindCSS",
-        "Prisma",
-        "PostgreSQL",
-        "Pandas",
-        "ECharts",
-        "Docker"
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "Docker",
+        "GitHub Actions",
+        "Axios"
       ],
-      "summary": "构建面向大学生的实习招聘聚合平台，整合多源公开招聘信息，完成数据清洗去重，提供岗位搜索筛选、薪资趋势可视化、热门方向岗位供需分析功能，支持按学校、城市、薪资维度灵活筛选",
-      "background": "当前大学生找实习信息分散在多个招聘渠道，缺乏针对校园群体的聚合分析工具，无法直观看到不同方向、城市的实习薪资和岗位供需变化，本项目为校园推广测试Demo项目，基于前端工程化规范搭建可迭代代码结构",
-      "duration": "5周",
+      "summary": "打造一个帮助编程新手入门开源贡献的全栈社区平台，聚合优质适合新人贡献的开源项目、发布轻量级贡献任务、支持开发者交流，同时完成前端工程化配置与自动化部署",
+      "background": "大量编程新人想要参与开源贡献但找不到合适的入门项目，现有开源平台信息分散，缺少新人友好的引导与聚合，因此需要搭建一个垂直的社区平台解决这个痛点，同时要求符合现代前端工程化规范",
+      "duration": "6周",
       "difficulty": 3,
-      "category": "全栈/数据/前端工程化",
+      "category": "全栈开发/前端工程化",
       "skills": [
-        "data_001",
-        "fullstack_002",
-        "fe_engineering_001"
+        "skill_react_development",
+        "skill_frontend_engineering",
+        "skill_nodejs_development",
+        "skill_ci_cd",
+        "skill_docker_containerization",
+        "skill_database_design"
       ]
     }
   ]
