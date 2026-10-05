@@ -1,60 +1,60 @@
 {
-  "generatedAt": "2026-10-04T06:39:35.484621+00:00",
+  "generatedAt": "2026-10-05T06:36:45.794715+00:00",
   "projects": [
     {
-      "id": 1,
-      "title": "基于RAG的企业内部文档智能问答Agent",
-      "company": "字节跳动 内部工具部",
-      "role": "AI开发实习生",
+      "id": "proj-rag-001",
+      "title": "企业内部合规知识问答RAG智能Agent",
+      "company": "字节跳动飞书协作事业部",
+      "role": "AI应用开发实习生",
       "stack": [
         "Python",
         "LangChain",
-        "OpenAI GPT-4o Mini",
         "ChromaDB",
+        "OpenAI Embedding",
         "FastAPI",
-        "HTML/CSS"
+        "Streamlit"
       ],
-      "summary": "开发一个面向企业内部员工的智能问答助手，能够基于企业私有文档库回答问题，支持多轮对话记忆和上下文追问",
-      "background": "企业内部存在大量规章制度、项目文档、产品手册等非结构化文档，员工查找信息效率低下，传统搜索无法直接给出答案，需要基于大语言模型结合检索增强生成(RAG)技术打造智能问答助手",
+      "summary": "开发面向企业内部员工的私有化智能问答Agent，能够基于企业内部存量合规、流程文档，精准回答员工的业务问题，支持回答溯源和多轮上下文对话，解决新员工找流程、查合规效率低的问题",
+      "background": "企业内部沉淀了大量非结构化的制度、合规、流程文档，新员工入职后查找信息依赖人工询问，效率低且容易出错，部分敏感信息不能对接外部公开大模型，需要私有化部署的RAG方案解决内部问答需求",
       "duration": "4周",
       "difficulty": 2,
-      "category": "AI大模型应用/RAG + Agent",
+      "category": "大模型应用/RAG/Agent",
       "skills": [
-        "skill_rag_implementation",
-        "skill_agent_development",
-        "skill_python_basics",
-        "skill_api_development",
-        "skill_vector_database"
+        "skill_rag_arch_design",
+        "skill_vector_db_operation",
+        "skill_embedding_optimize",
+        "skill_prompt_engineering",
+        "skill_agent_multi_turn_dialogue"
       ]
     },
     {
-      "id": 2,
-      "title": "开源新人贡献指引全栈社区平台",
-      "company": "GitHub 中国开源社区运营部",
+      "id": "proj-fullstack-001",
+      "title": "AI驱动大学生毕设内容协作全栈平台",
+      "company": "腾讯云开发者生态团队",
       "role": "全栈开发实习生",
       "stack": [
         "React 18",
         "Vite",
         "TailwindCSS",
         "Node.js",
-        "Express",
-        "MongoDB",
+        "NestJS",
+        "PostgreSQL",
+        "JWT",
         "Docker",
-        "GitHub Actions",
-        "Axios"
+        "通义千问API"
       ],
-      "summary": "打造一个帮助编程新手入门开源贡献的全栈社区平台，聚合优质适合新人贡献的开源项目、发布轻量级贡献任务、支持开发者交流，同时完成前端工程化配置与自动化部署",
-      "background": "大量编程新人想要参与开源贡献但找不到合适的入门项目，现有开源平台信息分散，缺少新人友好的引导与聚合，因此需要搭建一个垂直的社区平台解决这个痛点，同时要求符合现代前端工程化规范",
+      "summary": "开发面向大学生的毕业设计全流程协作平台，集成AI开题建议生成、文献综述改写、进度管理、多人版本协作功能，轻量化贴合学生毕设场景，整合AI能力提升创作效率",
+      "background": "大学生完成毕业设计需要分散使用文档工具、聊天工具、AI工具，流程割裂，现有通用平台功能冗余不贴合毕设垂直场景，需要一款轻量化集成工具满足需求",
       "duration": "6周",
       "difficulty": 3,
-      "category": "全栈开发/前端工程化",
+      "category": "全栈开发/AI应用",
       "skills": [
-        "skill_react_development",
-        "skill_frontend_engineering",
-        "skill_nodejs_development",
-        "skill_ci_cd",
-        "skill_docker_containerization",
-        "skill_database_design"
+        "skill_frontend_componentization",
+        "skill_backend_api_design",
+        "skill_relational_db_design",
+        "skill_user_auth",
+        "skill_ai_api_integration",
+        "skill_fullstack_joint_debugging"
       ]
     }
   ]
