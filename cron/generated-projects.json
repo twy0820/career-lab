@@ -1,60 +1,54 @@
 {
-  "generatedAt": "2026-10-05T06:36:45.794715+00:00",
+  "generatedAt": "2026-10-06T07:16:20.682775+00:00",
   "projects": [
     {
-      "id": "proj-rag-001",
-      "title": "企业内部合规知识问答RAG智能Agent",
-      "company": "字节跳动飞书协作事业部",
-      "role": "AI应用开发实习生",
+      "id": 1,
+      "title": "中小企业私有化内部知识库RAG问答助手",
+      "company": "字节跳动飞书生态创新部",
+      "role": "AI全栈开发实习生",
       "stack": [
-        "Python",
+        "React 18",
+        "FastAPI",
         "LangChain",
         "ChromaDB",
-        "OpenAI Embedding",
-        "FastAPI",
-        "Streamlit"
+        "Ollama",
+        "Docker"
       ],
-      "summary": "开发面向企业内部员工的私有化智能问答Agent，能够基于企业内部存量合规、流程文档，精准回答员工的业务问题，支持回答溯源和多轮上下文对话，解决新员工找流程、查合规效率低的问题",
-      "background": "企业内部沉淀了大量非结构化的制度、合规、流程文档，新员工入职后查找信息依赖人工询问，效率低且容易出错，部分敏感信息不能对接外部公开大模型，需要私有化部署的RAG方案解决内部问答需求",
+      "summary": "开发可私有化部署的企业内部知识库问答系统，支持员工按权限上传各类文档、语义检索、基于私有知识库生成大模型回答，满足企业内部知识查询需求，全程数据不出本地",
+      "background": "当前企业内部文档分散，新员工知识学习效率低，同时企业敏感数据不允许上传到公共大模型平台，亟需低成本可快速部署的内部知识问答工具",
       "duration": "4周",
       "difficulty": 2,
-      "category": "大模型应用/RAG/Agent",
+      "category": "RAG + 全栈开发",
       "skills": [
-        "skill_rag_arch_design",
-        "skill_vector_db_operation",
-        "skill_embedding_optimize",
-        "skill_prompt_engineering",
-        "skill_agent_multi_turn_dialogue"
+        "skill_rag_construction",
+        "skill_fullstack_development",
+        "skill_llm_local_deploy",
+        "skill_api_design"
       ]
     },
     {
-      "id": "proj-fullstack-001",
-      "title": "AI驱动大学生毕设内容协作全栈平台",
-      "company": "腾讯云开发者生态团队",
-      "role": "全栈开发实习生",
+      "id": 2,
+      "title": "多Agent驱动的团队自动周报汇总生成系统",
+      "company": "阿里钉钉协作产品部",
+      "role": "AI应用开发实习生",
       "stack": [
-        "React 18",
-        "Vite",
+        "Next.js 15",
         "TailwindCSS",
-        "Node.js",
-        "NestJS",
-        "PostgreSQL",
-        "JWT",
-        "Docker",
-        "通义千问API"
+        "LangGraph",
+        "豆包大模型API",
+        "Prisma",
+        "PostgreSQL"
       ],
-      "summary": "开发面向大学生的毕业设计全流程协作平台，集成AI开题建议生成、文献综述改写、进度管理、多人版本协作功能，轻量化贴合学生毕设场景，整合AI能力提升创作效率",
-      "background": "大学生完成毕业设计需要分散使用文档工具、聊天工具、AI工具，流程割裂，现有通用平台功能冗余不贴合毕设垂直场景，需要一款轻量化集成工具满足需求",
-      "duration": "6周",
+      "summary": "搭建基于多Agent分工的自动周报系统，支持成员提交碎片化工作内容，多Agent分别完成信息收集、内容整理、亮点提炼、问题汇总、排版生成，自动输出团队汇总周报，支持在线审核修改导出",
+      "background": "互联网团队每周周报撰写、汇总占用大量人力时间，人工汇总容易遗漏关键信息，基于多Agent的自动化工作流可以大幅降低行政事务时间占比，提升团队整体效率",
+      "duration": "5周",
       "difficulty": 3,
-      "category": "全栈开发/AI应用",
+      "category": "Agent + 前端工程化",
       "skills": [
-        "skill_frontend_componentization",
-        "skill_backend_api_design",
-        "skill_relational_db_design",
-        "skill_user_auth",
-        "skill_ai_api_integration",
-        "skill_fullstack_joint_debugging"
+        "skill_multi_agent_design",
+        "skill_frontend_engineering",
+        "skill_workflow_orchestration",
+        "skill_database_management"
       ]
     }
   ]
