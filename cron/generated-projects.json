@@ -1,54 +1,58 @@
 {
-  "generatedAt": "2026-10-06T07:16:20.682775+00:00",
+  "generatedAt": "2026-10-07T06:55:26.299008+00:00",
   "projects": [
     {
-      "id": 1,
-      "title": "中小企业私有化内部知识库RAG问答助手",
-      "company": "字节跳动飞书生态创新部",
-      "role": "AI全栈开发实习生",
+      "id": "proj001",
+      "title": "企业内部私有化RAG智能问答Agent",
+      "company": "字节跳动 飞书协作事业部",
+      "role": "AI应用开发实习生",
       "stack": [
-        "React 18",
-        "FastAPI",
+        "Python",
         "LangChain",
+        "Llama 3 8B",
         "ChromaDB",
-        "Ollama",
-        "Docker"
+        "FastAPI",
+        "React",
+        "TailwindCSS"
       ],
-      "summary": "开发可私有化部署的企业内部知识库问答系统，支持员工按权限上传各类文档、语义检索、基于私有知识库生成大模型回答，满足企业内部知识查询需求，全程数据不出本地",
-      "background": "当前企业内部文档分散，新员工知识学习效率低，同时企业敏感数据不允许上传到公共大模型平台，亟需低成本可快速部署的内部知识问答工具",
+      "summary": "从零搭建适配企业内部私有文档的智能问答系统，支持多文档检索、多轮上下文对话、工具调用（查询最新内部制度、对接内部日历排期），私有化部署保障数据安全，满足企业内部员工信息查询需求",
+      "background": "企业内部沉淀了大量规章制度、项目文档、产品手册等非结构化数据，员工查找信息效率低，公共大模型存在数据泄密风险，企业需要一款私有化部署的智能问答助手提升内部协作效率",
       "duration": "4周",
       "difficulty": 2,
-      "category": "RAG + 全栈开发",
+      "category": "大模型应用开发(RAG/Agent)",
       "skills": [
-        "skill_rag_construction",
-        "skill_fullstack_development",
-        "skill_llm_local_deploy",
-        "skill_api_design"
+        "sk001",
+        "sk002",
+        "sk003",
+        "sk004"
       ]
     },
     {
-      "id": 2,
-      "title": "多Agent驱动的团队自动周报汇总生成系统",
-      "company": "阿里钉钉协作产品部",
-      "role": "AI应用开发实习生",
+      "id": "proj002",
+      "title": "AI辅助创作个人博客全栈平台",
+      "company": "小红书 创作者技术部",
+      "role": "全栈开发实习生",
       "stack": [
-        "Next.js 15",
+        "Vite",
+        "React",
         "TailwindCSS",
-        "LangGraph",
-        "豆包大模型API",
-        "Prisma",
-        "PostgreSQL"
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "OpenAI API",
+        "Docker"
       ],
-      "summary": "搭建基于多Agent分工的自动周报系统，支持成员提交碎片化工作内容，多Agent分别完成信息收集、内容整理、亮点提炼、问题汇总、排版生成，自动输出团队汇总周报，支持在线审核修改导出",
-      "background": "互联网团队每周周报撰写、汇总占用大量人力时间，人工汇总容易遗漏关键信息，基于多Agent的自动化工作流可以大幅降低行政事务时间占比，提升团队整体效率",
+      "summary": "开发一款面向个人创作者的AI辅助博客全栈平台，支持用户注册登录、AI辅助撰写大纲、内容生成、Markdown编辑预览、博客分类管理、公开访问，完成前端工程化配置与性能优化",
+      "background": "越来越多的内容创作者需要轻量化的博客搭建工具，结合AI辅助创作可以大幅提升内容产出效率，现有第三方平台自由度低，需要一款可自行部署、带AI能力的个人博客解决方案",
       "duration": "5周",
       "difficulty": 3,
-      "category": "Agent + 前端工程化",
+      "category": "全栈开发/前端工程化",
       "skills": [
-        "skill_multi_agent_design",
-        "skill_frontend_engineering",
-        "skill_workflow_orchestration",
-        "skill_database_management"
+        "sk005",
+        "sk006",
+        "sk007",
+        "sk008",
+        "sk009"
       ]
     }
   ]
