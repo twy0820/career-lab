@@ -1,58 +1,58 @@
 {
-  "generatedAt": "2026-10-08T07:03:30.383337+00:00",
+  "generatedAt": "2026-10-09T07:11:09.865018+00:00",
   "projects": [
     {
       "id": "proj001",
-      "title": "企业内部技术文档智能问答助手",
-      "company": "字节跳动飞书生态部",
-      "role": "AI应用开发实习生",
+      "title": "企业内部合规文档私有化智能问答助手",
+      "company": "字节跳动 内部合规与法务部",
+      "role": "全栈开发实习生",
       "stack": [
         "Python",
         "LangChain",
-        "OpenAI Embedding",
-        "ChromaDB",
+        "Chroma",
         "FastAPI",
-        "React"
+        "Vue3",
+        "OpenAI Embedding",
+        "Docker"
       ],
-      "summary": "开发一个基于RAG+轻量Agent的企业内部智能问答助手，支持多格式文档上传、上下文对话、回答来源引用、跨文档关联查询，帮助员工快速从海量内部文档中获取信息，降低信息查找成本",
-      "background": "当前企业内部技术文档、规章制度散落在网盘、知识库、IM群等多个渠道，新员工融入、老员工查资料都需要花费大量时间搜索，传统搜索无法理解语义，无法直接给出答案，因此需要基于大模型搭建轻量化的RAG问答系统，同时支持简单Agent能力处理复杂跨文档查询需求",
+      "summary": "从零搭建基于RAG技术的私有化内部合规文档问答系统，支持管理员上传/更新PDF/Word格式合规文档，前端支持员工自然语言提问，返回基于内部文档的准确回答并标注引用来源，满足内部合规查询需求",
+      "background": "企业内部沉淀了数千份不同版本的合规制度、法务审核文档，员工日常查询规则需要逐份翻阅，效率极低且容易出错；同时合规数据属于内部敏感数据，不能外传至通用大模型，因此需要搭建私有化的智能问答系统",
       "duration": "4周",
       "difficulty": 2,
-      "category": "RAG/Agent",
+      "category": "RAG+全栈开发",
       "skills": [
-        "skill001",
-        "skill002",
-        "skill003",
-        "skill004"
+        "skill_rag_build",
+        "skill_fastapi_dev",
+        "skill_vue3_dev",
+        "skill_vector_db_optimize",
+        "skill_docker_container"
       ]
     },
     {
       "id": "proj002",
-      "title": "校园社团活动管理全栈平台",
-      "company": "阿里钉钉校园服务事业部",
-      "role": "全栈开发实习生",
+      "title": "Agent驱动的电商运营数据分析自动化工作台",
+      "company": "阿里巴巴 淘系运营技术部",
+      "role": "数据开发实习生",
       "stack": [
-        "React 18",
-        "Vite",
-        "TailwindCSS",
-        "ShadCN UI",
-        "Node.js",
-        "Express",
-        "MongoDB",
-        "Docker",
-        "GitHub Actions"
+        "Python",
+        "LangGraph",
+        "Pandas",
+        "Plotly",
+        "Next.js",
+        "Supabase",
+        "GPT-4o Mini"
       ],
-      "summary": "开发面向高校社团的一体化活动管理全栈平台，支持社团管理员发布活动、审批报名、数据统计，支持普通学生浏览报名、活动日历提醒，同时按照前端工程化规范完成组件抽离、工程配置、自动化部署",
-      "background": "目前国内大多数高校社团的活动管理仍停留在微信群通知、Excel统计报名的阶段，容易出现信息遗漏、数据混乱、统计麻烦的问题，需要一款轻量化、免费的校园社团管理平台，同时要求项目符合现代前端工程化规范，便于后续功能迭代和多人协作",
-      "duration": "5周",
+      "summary": "搭建基于多Agent编排的电商数据分析自动化工作台，支持运营通过自然语言提出分析需求，系统自动规划分析流程、调用数据查询、计算、可视化工具，生成结构化分析报告和异动结论，降低非技术运营的数据分析门槛",
+      "background": "电商运营日常需要对店铺销量、流量、转化率等核心指标做每日复盘、异动原因分析，传统模式需要运营手动拉取数据、写SQL查询、制作报表，整个流程耗时久，对非技术背景运营不友好，亟需自然语言驱动的自动化分析工具",
+      "duration": "6周",
       "difficulty": 3,
-      "category": "全栈/前端工程化",
+      "category": "Agent+数据分析",
       "skills": [
-        "skill005",
-        "skill006",
-        "skill007",
-        "skill008",
-        "skill009"
+        "skill_agent_orchestration",
+        "skill_data_analysis",
+        "skill_nl2data",
+        "skill_nextjs_dev",
+        "skill_data_visualization"
       ]
     }
   ]
