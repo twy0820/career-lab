@@ -1,41 +1,56 @@
 {
-  "generatedAt": "2026-10-11T06:52:58.368963+00:00",
+  "generatedAt": "2026-10-12T07:02:09.066028+00:00",
   "projects": [
     {
-      "id": "proj001",
-      "title": "企业内部员工知识库智能问答系统",
-      "company": "字节跳动内部工具部（模拟）",
+      "id": "proj_001",
+      "title": "企业私有内部AI知识库问答助手",
+      "company": "字节跳动 飞书事业部",
       "role": "全栈开发实习生",
-      "stack": "React 18, FastAPI, LangChain, ChromaDB, OpenAI Embedding, Docker",
-      "summary": "开发面向企业内部员工的智能问答系统，支持员工用自然语言提问获取公司制度、技术文档、流程规范的精准回答，附带来源引用、多轮上下文对话能力",
-      "background": "企业内部文档分散在飞书、GitBook、网盘等多个平台，新人找信息效率极低，需要基于RAG技术搭建私有知识库问答工具，降低信息检索成本",
+      "stack": [
+        "Next.js",
+        "LangChain",
+        "ChromaDB",
+        "OpenAI Embedding",
+        "TailwindCSS",
+        "NextAuth"
+      ],
+      "summary": "支持企业员工上传内部文档（PDF/Word/Markdown），自动切片构建向量索引，基于RAG技术实现精准的私有知识问答，支持文档权限管理、问答历史记录，满足企业内部数据安全要求，帮助员工快速检索获取内部知识",
+      "background": "当前企业内部业务文档、历史项目资料分散在共享盘、在线文档等多个渠道，新员工上手、老员工查找历史信息效率极低，通用大模型无法访问私有内部数据，直接上传数据到公共大模型存在泄露风险，因此需要搭建可私有化部署的内部AI问答工具解决该痛点",
       "duration": "4周",
       "difficulty": 2,
       "category": "RAG + 全栈开发",
       "skills": [
-        "rag_basic_001",
-        "fullstack_web_001",
-        "vector_db_001",
-        "rest_api_dev_001"
+        "skill_rag_retrieval_augmentation",
+        "skill_fullstack_web_development",
+        "skill_vector_database_management",
+        "skill_frontend_component_dev",
+        "skill_data_security_processing"
       ]
     },
     {
-      "id": "proj002",
-      "title": "电商用户运营智能分析Agent",
-      "company": "阿里巴巴零售用户运营部（模拟）",
-      "role": "数据应用开发实习生",
-      "stack": "LangGraph, Pandas, Streamlit, PostgreSQL, Plotly, GPT-4o Mini",
-      "summary": "搭建能自动完成电商用户行为数据查询、趋势分析、受众分层、生成运营报告的智能Agent，支持运营人员用自然语言提问，自动输出分析结论和可视化图表",
-      "background": "电商运营日常需要做大量定制化用户数据，传统流程需要依赖数据分析师提需求，周期长响应慢，通过Agent实现自然语言驱动的自助分析，大幅提升运营效率",
+      "id": "proj_002",
+      "title": "电商智能多Agent客服调度系统",
+      "company": "阿里巴巴 淘宝天猫客户体验事业部",
+      "role": "AI应用开发实习生",
+      "stack": [
+        "React",
+        "FastAPI",
+        "LangGraph",
+        "Redis",
+        "PostgreSQL",
+        "GPT-4o Mini"
+      ],
+      "summary": "针对电商全场景用户咨询需求，构建多智能体分工调度系统，自动识别用户意图，分别调度物流查询智能体、退换售后智能体、商品咨询智能体、投诉处理智能体处理请求，自动完成业务操作，无法解决的自动转人工并同步上下文",
+      "background": "传统单智能体电商客服无法覆盖复杂业务场景，跨任务处理准确率低，人工客服接入不及时导致用户体验差、流失率上升，企业需要基于多智能体分工架构的智能客服，提升问题一次解决率，降低人工客服成本",
       "duration": "5周",
       "difficulty": 3,
-      "category": "Agent + 数据应用开发",
+      "category": "AI Agent + 全栈开发",
       "skills": [
-        "agent_dev_001",
-        "data_analysis_001",
-        "sql_basic_001",
-        "data_visualization_001",
-        "nlu_application_001"
+        "skill_agent_orchestration",
+        "skill_intent_recognition",
+        "skill_backend_api_design",
+        "skill_data_persistence",
+        "skill_system_integration"
       ]
     }
   ]
