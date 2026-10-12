@@ -1,6 +1,390 @@
 {
-  "generatedAt": "2026-10-05T06:27:13.294259+00:00",
+  "generatedAt": "2026-10-12T06:47:16.202983+00:00",
   "projects": [
+    {
+      "id": "p63",
+      "title": "本地私有化个人知识库RAG应用",
+      "company": "字节跳动飞书",
+      "role": "初级全栈开发工程师",
+      "stack": [
+        "React",
+        "FastAPI",
+        "Chroma",
+        "BGE Embedding",
+        "Docker"
+      ],
+      "summary": "开发可本地部署的私有化个人知识库RAG应用，支持文档上传、智能问答检索，保障用户数据隐私",
+      "background": "大模型时代个人知识资产快速增长，公有云知识库存在数据泄露风险，轻量化本地RAG成为个人知识管理的热门需求",
+      "duration": "2周",
+      "difficulty": 1,
+      "category": "全栈/RAG",
+      "skills": [
+        "python",
+        "web",
+        "react",
+        "fastapi",
+        "docker",
+        "llm",
+        "git"
+      ],
+      "phases": [
+        {
+          "id": "p63-s1",
+          "name": "需求分析与开发环境搭建",
+          "goal": "完成需求梳理和基础开发环境配置",
+          "prep": [
+            "安装docker、git、python开发环境",
+            "申请开源大模型API访问权限"
+          ],
+          "knowledge": [
+            "RAG基本原理",
+            "前后端分离架构基础"
+          ],
+          "deliverables": [
+            "环境配置文档",
+            "产品需求梳理文档"
+          ],
+          "tickets": [
+            {
+              "id": "p63-t1",
+              "title": "初始化前后端项目脚手架",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "搭建FastAPI后端脚手架和React前端脚手架，初始化git远程仓库",
+              "acceptance": [
+                "后端服务可正常启动",
+                "前端项目可正常打包",
+                "代码已提交到git仓库"
+              ],
+              "xp": 30
+            }
+          ]
+        },
+        {
+          "id": "p63-s2",
+          "name": "核心RAG模块开发",
+          "goal": "实现文档处理、向量存储和问答生成核心能力",
+          "prep": [
+            "了解开源Embedding模型使用方法",
+            "熟悉Chroma向量库基本操作"
+          ],
+          "knowledge": [
+            "文档切分策略",
+            "向量检索基础"
+          ],
+          "deliverables": [
+            "可独立运行的RAG核心模块"
+          ],
+          "tickets": [
+            {
+              "id": "p63-t2",
+              "title": "实现文档上传与向量化存储模块",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "支持上传txt、md、pdf三种格式文档，完成切片、嵌入和向量存储",
+              "acceptance": [
+                "支持三种格式文档上传解析",
+                "切片向量成功存入向量库",
+                "接口返回符合规范"
+              ],
+              "xp": 50
+            }
+          ]
+        },
+        {
+          "id": "p63-s3",
+          "name": "前端对接与容器化部署",
+          "goal": "完成前端交互开发和本地Docker打包部署",
+          "prep": [
+            "掌握Docker镜像打包方法",
+            "熟悉React前端路由开发"
+          ],
+          "knowledge": [
+            "前后端接口对接",
+            "容器化部署基础"
+          ],
+          "deliverables": [
+            "完整可本地运行的应用",
+            "可用Docker镜像",
+            "项目说明文档"
+          ],
+          "tickets": [
+            {
+              "id": "p63-t3",
+              "title": "开发问答交互页面并打包部署",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "开发问答展示、历史记录前端页面，对接后端接口，打包Docker镜像",
+              "acceptance": [
+                "前端可正常输入问题展示回答",
+                "可通过docker run一键启动完整服务",
+                "README编写完成"
+              ],
+              "xp": 40
+            }
+          ]
+        }
+      ],
+      "fresh": true
+    },
+    {
+      "id": "p64",
+      "title": "企业级多模态Agent智能客服系统",
+      "company": "阿里国际站",
+      "role": "中级AI后端开发工程师",
+      "stack": [
+        "LangGraph",
+        "通义千问多模态",
+        "Pinecone",
+        "FastAPI",
+        "Docker",
+        "MySQL"
+      ],
+      "summary": "开发支持图文混合输入、自动工具调用、意图识别的多模态Agent客服系统，处理跨境电商用户售后咨询，降低人工客服成本",
+      "background": "2026年跨境电商客服场景中，用户频繁发送商品问题图片，传统纯文本客服无法识别图文内容，多模态Agent可自动解决超过70%的常见问题，成为企业降本增效的核心需求",
+      "duration": "4周",
+      "difficulty": 3,
+      "category": "Agent/多模态",
+      "skills": [
+        "python",
+        "sql",
+        "vector",
+        "docker",
+        "linux",
+        "llm",
+        "deploy",
+        "git"
+      ],
+      "phases": [
+        {
+          "id": "p64-s1",
+          "name": "需求梳理与基础设施搭建",
+          "goal": "梳理业务流程，完成基础服务依赖部署",
+          "prep": [
+            "了解跨境电商客服业务规范",
+            "熟悉LangGraph框架基本用法"
+          ],
+          "knowledge": [
+            "Agent工作流基本原理",
+            "多模态大模型调用规范"
+          ],
+          "deliverables": [
+            "业务需求文档",
+            "基础服务依赖部署完成"
+          ],
+          "tickets": [
+            {
+              "id": "p64-t1",
+              "title": "搭建知识库与业务数据库底座",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "创建商品常见问题业务表结构，部署向量库，导入已有售后知识库数据",
+              "acceptance": [
+                "表结构创建符合业务规范",
+                "知识库数据导入成功",
+                "基础连接测试通过"
+              ],
+              "xp": 60
+            }
+          ]
+        },
+        {
+          "id": "p64-s2",
+          "name": "多模态理解与工具调用模块开发",
+          "goal": "实现图文输入解析和工具调用能力",
+          "prep": [
+            "了解多模态大模型输入输出格式",
+            "掌握大模型函数调用规范"
+          ],
+          "knowledge": [
+            "意图识别",
+            "多模态特征提取",
+            "工具编排"
+          ],
+          "deliverables": [
+            "多模态处理模块",
+            "工具调用核心模块"
+          ],
+          "tickets": [
+            {
+              "id": "p64-t2",
+              "title": "实现图文输入解析与意图识别模块",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "支持用户图片+文本混合输入，解析用户问题，识别用户意图（咨询/售后/转人工）",
+              "acceptance": [
+                "正确解析图文混合内容",
+                "意图识别准确率达到90%以上",
+                "模块接口测试通过"
+              ],
+              "xp": 80
+            }
+          ]
+        },
+        {
+          "id": "p64-s3",
+          "name": "Agent工作流编排与压测部署",
+          "goal": "完成全流程联调，满足生产环境性能要求",
+          "prep": [
+            "了解LangGraph状态管理机制",
+            "熟悉分布式压测方法"
+          ],
+          "knowledge": [
+            "Agent状态流转设计",
+            "错误重试机制"
+          ],
+          "deliverables": [
+            "完整可运行的Agent客服服务",
+            "压力测试报告"
+          ],
+          "tickets": [
+            {
+              "id": "p64-t3",
+              "title": "编排全工作流并完成压测部署",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "实现知识库检索、回答生成、转人工触发全流程，完成生产环境压力测试",
+              "acceptance": [
+                "工作流状态跳转正常",
+                "100QPS下平均响应延迟低于2s",
+                "压测报告输出完成"
+              ],
+              "xp": 100
+            }
+          ]
+        }
+      ],
+      "fresh": true
+    },
+    {
+      "id": "p65",
+      "title": "云原生轻量化大模型微调推理服务平台",
+      "company": "亚马逊云科技AWS中国",
+      "role": "高级AI Infra开发工程师",
+      "stack": [
+        "vLLM",
+        "PEFT LoRA",
+        "Kubernetes",
+        "Prometheus",
+        "FastAPI",
+        "React"
+      ],
+      "summary": "开发支持多租户的轻量化大模型微调推理平台，支持一键LoRA微调、弹性推理部署、自动扩缩容，降低企业大模型定制落地成本",
+      "background": "2026年企业大模型定制需求激增，公有云大模型服务成本高，企业需要私有化部署的轻量化平台，支持中小模型快速迭代，满足数据隐私合规要求",
+      "duration": "6周",
+      "difficulty": 4,
+      "category": "AI Infra/云原生",
+      "skills": [
+        "python",
+        "go",
+        "linux",
+        "docker",
+        "dist",
+        "llm",
+        "dl",
+        "deploy",
+        "react",
+        "git"
+      ],
+      "phases": [
+        {
+          "id": "p65-s1",
+          "name": "架构设计与基础底座搭建",
+          "goal": "完成平台架构设计，搭建K8s基础控制平面",
+          "prep": [
+            "了解云原生AI平台基本架构",
+            "熟悉K8s作业调度机制"
+          ],
+          "knowledge": [
+            "云原生架构设计",
+            "多租户隔离原理"
+          ],
+          "deliverables": [
+            "架构设计文档",
+            "K8s基础集群配置完成"
+          ],
+          "tickets": [
+            {
+              "id": "p65-t1",
+              "title": "设计架构并配置多租户权限体系",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "完成平台分层架构设计，搭建K8s控制平面，配置多租户RBAC权限隔离",
+              "acceptance": [
+                "架构设计文档输出完成",
+                "多租户权限配置生效",
+                "集群资源可用"
+              ],
+              "xp": 100
+            }
+          ]
+        },
+        {
+          "id": "p65-s2",
+          "name": "微调作业管理模块开发",
+          "goal": "实现LoRA微调任务全生命周期管理",
+          "prep": [
+            "掌握LoRA微调原理",
+            "熟悉PEFT框架用法"
+          ],
+          "knowledge": [
+            "大模型微调并行化",
+            "K8s作业调度"
+          ],
+          "deliverables": [
+            "可运行的微调作业管理模块"
+          ],
+          "tickets": [
+            {
+              "id": "p65-t2",
+              "title": "实现微调任务提交、监控、管理功能",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "支持用户自定义参数提交LoRA微调任务，实时监控任务进度，支持停止/删除任务，输出微调后的模型权重",
+              "acceptance": [
+                "支持自定义参数提交微调任务",
+                "任务状态实时更新",
+                "成功输出符合要求的微调模型"
+              ],
+              "xp": 120
+            }
+          ]
+        },
+        {
+          "id": "p65-s3",
+          "name": "弹性推理模块开发与平台联调",
+          "goal": "实现弹性推理服务，完成平台整体集成",
+          "prep": [
+            "了解vLLM推理优化原理",
+            "熟悉K8s HPA自动扩缩容机制"
+          ],
+          "knowledge": [
+            "大模型推理优化",
+            "监控告警设计"
+          ],
+          "deliverables": [
+            "完整可运行的平台"
+          ],
+          "tickets": [
+            {
+              "id": "p65-t3",
+              "title": "实现弹性推理服务并完成平台联调",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "支持一键部署微调后的模型为推理服务，实现基于负载的自动扩缩容，添加监控告警，对接前端管理页面，完成全平台联调",
+              "acceptance": [
+                "一键部署推理服务成功",
+                "自动扩缩容触发正常",
+                "前端可完整管理微调推理任务",
+                "全平台联调通过"
+              ],
+              "xp": 150
+            }
+          ]
+        }
+      ],
+      "fresh": true
+    },
     {
       "id": "p60",
       "title": "企业内部研发知识库轻量化RAG问答系统",
@@ -138,8 +522,7 @@
             }
           ]
         }
-      ],
-      "fresh": true
+      ]
     },
     {
       "id": "p61",
@@ -290,8 +673,7 @@
             }
           ]
         }
-      ],
-      "fresh": true
+      ]
     },
     {
       "id": "p62",
@@ -425,8 +807,7 @@
             }
           ]
         }
-      ],
-      "fresh": true
+      ]
     },
     {
       "id": "p57",
@@ -1273,6 +1654,68 @@
   ],
   "contests": [
     {
+      "id": "a39",
+      "name": "2026 火山引擎RAG性能优化挑战赛",
+      "host": "字节跳动火山引擎",
+      "category": "RAG/LLM",
+      "level": "初级-中级",
+      "difficulty": 2,
+      "skills": [
+        "python",
+        "llm",
+        "vector",
+        "dl",
+        "algo",
+        "git"
+      ],
+      "regStart": "2026-01-12",
+      "regEnd": "2026-01-26",
+      "contestStart": "2026-01-27",
+      "contestEnd": "2026-02-10",
+      "tags": [
+        "RAG",
+        "大模型",
+        "向量检索",
+        "企业实战"
+      ],
+      "summary": "面向学生和初级开发者的RAG实战竞赛，基于公开企业客服数据集，优化RAG的检索准确率、回答质量和推理延迟，优胜者可获得火山引擎校招绿色通道",
+      "registrationUrl": "https://www.volcengine.com/contest/rag2026",
+      "officialUrl": "https://www.volcengine.com/contest/rag2026",
+      "recurring": false,
+      "fresh": true
+    },
+    {
+      "id": "a40",
+      "name": "2026 多模态Agent工具调用创意竞赛",
+      "host": "阿里通义实验室",
+      "category": "Agent/多模态",
+      "level": "中级-高级",
+      "difficulty": 3,
+      "skills": [
+        "python",
+        "llm",
+        "dl",
+        "algo",
+        "vector",
+        "git"
+      ],
+      "regStart": "2026-01-12",
+      "regEnd": "2026-02-02",
+      "contestStart": "2026-02-03",
+      "contestEnd": "2026-02-24",
+      "tags": [
+        "多模态",
+        "Agent",
+        "工具调用",
+        "AIGC"
+      ],
+      "summary": "要求参赛选手开发能够处理图文混合输入、调用多种工具完成复杂任务的多模态Agent，综合评估能力天花板和工程落地性，优胜者可获得阿里集团校招/社招绿色通道",
+      "registrationUrl": "https://tongyi.aliyun.com/contest/agent2026",
+      "officialUrl": "https://tongyi.aliyun.com/contest/agent2026",
+      "recurring": false,
+      "fresh": true
+    },
+    {
       "id": "a37",
       "name": "2026多模态RAG应用开发挑战赛",
       "host": "智源研究院 × 阿里云智能",
@@ -1301,8 +1744,7 @@
       "summary": "主办方提供包含图文表格的10万份企业公开文档数据集，参赛队伍需要开发高准确率、低延迟的多模态RAG系统，按指标排名，优胜者获得就业内推、奖金与阿里云资源支持",
       "registrationUrl": "https://www.aliyun.com/activity/ai/mrag-challenge-2026",
       "officialUrl": "https://www.aihub.cn/contests/mrag2026",
-      "recurring": false,
-      "fresh": true
+      "recurring": false
     },
     {
       "id": "a38",
@@ -1334,8 +1776,7 @@
       "summary": "基于公开标准Agent工具调用基准数据集，参赛选手需要优化Agent的工具调用准确率，减少不必要的工具调用步骤，降低总token消耗，综合排名优胜者获得字节跳动AI相关岗位面试绿卡与奖金",
       "registrationUrl": "https://competition.bytedance.com/agent-efficiency-2026",
       "officialUrl": "https://competition.bytedance.com/agent-efficiency-2026",
-      "recurring": false,
-      "fresh": true
+      "recurring": false
     },
     {
       "id": "a35",
