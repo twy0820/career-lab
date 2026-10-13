@@ -1,56 +1,62 @@
 {
-  "generatedAt": "2026-10-12T07:02:09.066028+00:00",
+  "generatedAt": "2026-10-13T07:26:34.411544+00:00",
   "projects": [
     {
-      "id": "proj_001",
-      "title": "企业私有内部AI知识库问答助手",
-      "company": "字节跳动 飞书事业部",
-      "role": "全栈开发实习生",
+      "id": "proj-001",
+      "title": "企业内部私有文档智能问答助手（RAG+轻量Agent落地）",
+      "company": "字节跳动飞书生态事业部",
+      "role": "AI应用开发实习生",
       "stack": [
-        "Next.js",
+        "Python",
         "LangChain",
         "ChromaDB",
         "OpenAI Embedding",
-        "TailwindCSS",
-        "NextAuth"
+        "FastAPI",
+        "飞书开放平台"
       ],
-      "summary": "支持企业员工上传内部文档（PDF/Word/Markdown），自动切片构建向量索引，基于RAG技术实现精准的私有知识问答，支持文档权限管理、问答历史记录，满足企业内部数据安全要求，帮助员工快速检索获取内部知识",
-      "background": "当前企业内部业务文档、历史项目资料分散在共享盘、在线文档等多个渠道，新员工上手、老员工查找历史信息效率极低，通用大模型无法访问私有内部数据，直接上传数据到公共大模型存在泄露风险，因此需要搭建可私有化部署的内部AI问答工具解决该痛点",
+      "summary": "开发对接企业内部飞书文档库的智能问答工具，支持私有文档权限过滤、多轮上下文对话、复杂问题自动拆解检索，帮助员工快速从海量内部文档中获取答案，降低信息查找成本",
+      "background": "企业内部沉淀了海量文档资料，传统关键词搜索无法理解语义、准度低，新员工融入、老员工跨部门找信息效率极低，RAG是当前大模型落地企业内部场景的最核心方案，企业急需具备落地能力的开发人员",
       "duration": "4周",
       "difficulty": 2,
-      "category": "RAG + 全栈开发",
+      "category": "AI大模型应用开发(RAG/Agent)",
       "skills": [
-        "skill_rag_retrieval_augmentation",
-        "skill_fullstack_web_development",
-        "skill_vector_database_management",
-        "skill_frontend_component_dev",
-        "skill_data_security_processing"
+        "skill-rag-dev",
+        "skill-lightweight-agent",
+        "skill-rest-api-dev",
+        "skill-vector-db-usage",
+        "skill-large-model-integration"
       ]
     },
     {
-      "id": "proj_002",
-      "title": "电商智能多Agent客服调度系统",
-      "company": "阿里巴巴 淘宝天猫客户体验事业部",
-      "role": "AI应用开发实习生",
+      "id": "proj-002",
+      "title": "AI简历生成优化全栈平台（前端工程化落地）",
+      "company": "智联招聘AI产品部",
+      "role": "全栈开发实习生",
       "stack": [
         "React",
-        "FastAPI",
-        "LangGraph",
-        "Redis",
+        "TypeScript",
+        "Vite",
+        "TailwindCSS",
+        "Node.js",
+        "Express",
+        "Prisma",
         "PostgreSQL",
-        "GPT-4o Mini"
+        "Docker",
+        "OpenAI API"
       ],
-      "summary": "针对电商全场景用户咨询需求，构建多智能体分工调度系统，自动识别用户意图，分别调度物流查询智能体、退换售后智能体、商品咨询智能体、投诉处理智能体处理请求，自动完成业务操作，无法解决的自动转人工并同步上下文",
-      "background": "传统单智能体电商客服无法覆盖复杂业务场景，跨任务处理准确率低，人工客服接入不及时导致用户体验差、流失率上升，企业需要基于多智能体分工架构的智能客服，提升问题一次解决率，降低人工客服成本",
-      "duration": "5周",
+      "summary": "从0到1开发支持AI生成简历、岗位匹配优化、简历内容润色、PDF导出的全栈求职平台，完成工程化配置、代码规范校验、自动化构建与容器化部署",
+      "background": "AI赋能求职是当下互联网热门落地场景，企业需要既懂AI对接、又能完成全栈开发和前端工程化落地的开发者，该项目贴合真实企业业务需求，覆盖全栈开发核心能力考察，适合0基础到中级开发者练习",
+      "duration": "6周",
       "difficulty": 3,
-      "category": "AI Agent + 全栈开发",
+      "category": "全栈开发/前端工程化",
       "skills": [
-        "skill_agent_orchestration",
-        "skill_intent_recognition",
-        "skill_backend_api_design",
-        "skill_data_persistence",
-        "skill_system_integration"
+        "skill-react-dev",
+        "skill-typescript",
+        "skill-frontend-engineering",
+        "skill-backend-api-dev",
+        "skill-database-design",
+        "skill-ai-service-integration",
+        "skill-container-deployment"
       ]
     }
   ]
