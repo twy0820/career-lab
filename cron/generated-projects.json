@@ -1,62 +1,56 @@
 {
-  "generatedAt": "2026-10-13T07:26:34.411544+00:00",
+  "generatedAt": "2026-10-14T05:54:07.937054+00:00",
   "projects": [
     {
-      "id": "proj-001",
-      "title": "企业内部私有文档智能问答助手（RAG+轻量Agent落地）",
-      "company": "字节跳动飞书生态事业部",
-      "role": "AI应用开发实习生",
+      "id": "proj001",
+      "title": "企业内部合规文档智能问答RAG系统",
+      "company": "字节跳动飞书云文档事业部",
+      "role": "全栈AI开发实习生",
       "stack": [
         "Python",
         "LangChain",
-        "ChromaDB",
-        "OpenAI Embedding",
+        "Llama 3 8B",
+        "React 18",
         "FastAPI",
-        "飞书开放平台"
+        "ChromaDB",
+        "Docker"
       ],
-      "summary": "开发对接企业内部飞书文档库的智能问答工具，支持私有文档权限过滤、多轮上下文对话、复杂问题自动拆解检索，帮助员工快速从海量内部文档中获取答案，降低信息查找成本",
-      "background": "企业内部沉淀了海量文档资料，传统关键词搜索无法理解语义、准度低，新员工融入、老员工跨部门找信息效率极低，RAG是当前大模型落地企业内部场景的最核心方案，企业急需具备落地能力的开发人员",
+      "summary": "开发一个面向企业内部员工的合规文档智能问答系统，支持管理员上传多格式合规文档、自动切片构建向量库，员工可通过自然语言提问获取准确回答，同时支持回答来源溯源，避免大模型幻觉问题",
+      "background": "企业内部合规制度、流程文档数量多且更新频繁，传统关键词搜索无法精准匹配员工问题，新员工合规培训信息获取效率低，因此需要基于RAG技术构建精准的内部问答系统",
       "duration": "4周",
       "difficulty": 2,
-      "category": "AI大模型应用开发(RAG/Agent)",
+      "category": "RAG + 全栈开发",
       "skills": [
-        "skill-rag-dev",
-        "skill-lightweight-agent",
-        "skill-rest-api-dev",
-        "skill-vector-db-usage",
-        "skill-large-model-integration"
+        "skill_rag_retrieval_optimization",
+        "skill_fullstack_api_development",
+        "skill_vector_database_management",
+        "skill_frontend_basic_dev"
       ]
     },
     {
-      "id": "proj-002",
-      "title": "AI简历生成优化全栈平台（前端工程化落地）",
-      "company": "智联招聘AI产品部",
-      "role": "全栈开发实习生",
+      "id": "proj002",
+      "title": "电商大促智能运营数据分析Agent",
+      "company": "阿里巴巴淘系运营技术中心",
+      "role": "AI数据开发实习生",
       "stack": [
-        "React",
-        "TypeScript",
-        "Vite",
-        "TailwindCSS",
-        "Node.js",
-        "Express",
-        "Prisma",
-        "PostgreSQL",
-        "Docker",
-        "OpenAI API"
+        "Python",
+        "LangGraph",
+        "Pandas",
+        "MySQL",
+        "Plotly",
+        "FastAPI",
+        "GPT-4o Mini"
       ],
-      "summary": "从0到1开发支持AI生成简历、岗位匹配优化、简历内容润色、PDF导出的全栈求职平台，完成工程化配置、代码规范校验、自动化构建与容器化部署",
-      "background": "AI赋能求职是当下互联网热门落地场景，企业需要既懂AI对接、又能完成全栈开发和前端工程化落地的开发者，该项目贴合真实企业业务需求，覆盖全栈开发核心能力考察，适合0基础到中级开发者练习",
-      "duration": "6周",
+      "summary": "构建一个能够自动完成电商大促运营数据分析的多Agent系统，支持运营人员用自然语言提问，Agent自动完成数据提取、异常检测、维度下钻分析，最终生成可视化分析报告，支持导出分享",
+      "background": "电商大促期间运营人员需要实时监控销量、转化率、客单价等核心指标，人工取数、分析、出报告周期长，无法快速响应业务变化，基于Agent的自动化数据分析能够大幅提升运营决策效率",
+      "duration": "3周",
       "difficulty": 3,
-      "category": "全栈开发/前端工程化",
+      "category": "AI Agent + 数据分析",
       "skills": [
-        "skill-react-dev",
-        "skill-typescript",
-        "skill-frontend-engineering",
-        "skill-backend-api-dev",
-        "skill-database-design",
-        "skill-ai-service-integration",
-        "skill-container-deployment"
+        "skill_multi_agent_workflow_design",
+        "skill_sql_data_query",
+        "skill_business_data_analysis",
+        "skill_agent_tool_calling"
       ]
     }
   ]
