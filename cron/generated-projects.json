@@ -1,56 +1,57 @@
 {
-  "generatedAt": "2026-10-14T05:54:07.937054+00:00",
+  "generatedAt": "2026-10-15T05:38:07.631579+00:00",
   "projects": [
     {
-      "id": "proj001",
-      "title": "企业内部合规文档智能问答RAG系统",
-      "company": "字节跳动飞书云文档事业部",
-      "role": "全栈AI开发实习生",
+      "id": "proj_001",
+      "title": "企业内部合规知识库智能RAG问答系统",
+      "company": "字节跳动 合规中台团队",
+      "role": "全栈开发实习生",
       "stack": [
         "Python",
         "LangChain",
-        "Llama 3 8B",
-        "React 18",
-        "FastAPI",
         "ChromaDB",
+        "FastAPI",
+        "React 18",
+        "TailwindCSS",
         "Docker"
       ],
-      "summary": "开发一个面向企业内部员工的合规文档智能问答系统，支持管理员上传多格式合规文档、自动切片构建向量库，员工可通过自然语言提问获取准确回答，同时支持回答来源溯源，避免大模型幻觉问题",
-      "background": "企业内部合规制度、流程文档数量多且更新频繁，传统关键词搜索无法精准匹配员工问题，新员工合规培训信息获取效率低，因此需要基于RAG技术构建精准的内部问答系统",
+      "summary": "为企业内部员工打造的合规问题智能问答工具，支持员工自然语言提问，基于内部合规文档库通过RAG技术返回准确可溯源的回答，替代人工检索文档的低效流程",
+      "background": "企业内部沉淀了大量合规制度、政策要求类文档，员工遇到合规相关问题时需要人工检索大量文档，效率低且容易出现信息遗漏、理解错误，影响业务推进，因此需要基于RAG技术搭建稳定、准确的智能问答工具供全公司内部使用",
       "duration": "4周",
       "difficulty": 2,
       "category": "RAG + 全栈开发",
       "skills": [
-        "skill_rag_retrieval_optimization",
-        "skill_fullstack_api_development",
-        "skill_vector_database_management",
-        "skill_frontend_basic_dev"
+        "skill_rag_system_design",
+        "skill_fullstack_connection",
+        "skill_vector_db_usage",
+        "skill_llm_application_dev"
       ]
     },
     {
-      "id": "proj002",
-      "title": "电商大促智能运营数据分析Agent",
-      "company": "阿里巴巴淘系运营技术中心",
-      "role": "AI数据开发实习生",
+      "id": "proj_002",
+      "title": "零售用户消费行为分析看板项目",
+      "company": "沃尔玛中国 数据运营团队",
+      "role": "数据分析实习生",
       "stack": [
         "Python",
-        "LangGraph",
         "Pandas",
-        "MySQL",
-        "Plotly",
-        "FastAPI",
-        "GPT-4o Mini"
+        "NumPy",
+        "Scikit-learn",
+        "Power BI",
+        "SQL",
+        "Matplotlib"
       ],
-      "summary": "构建一个能够自动完成电商大促运营数据分析的多Agent系统，支持运营人员用自然语言提问，Agent自动完成数据提取、异常检测、维度下钻分析，最终生成可视化分析报告，支持导出分享",
-      "background": "电商大促期间运营人员需要实时监控销量、转化率、客单价等核心指标，人工取数、分析、出报告周期长，无法快速响应业务变化，基于Agent的自动化数据分析能够大幅提升运营决策效率",
+      "summary": "基于零售线下+线上全渠道用户消费数据，完成用户分群、复购预测与业务洞察分析，输出交互式分析看板支撑运营决策",
+      "background": "零售企业沉淀了海量用户消费数据，但缺乏系统化的用户价值分层与业务趋势分析，无法支撑精细化运营投放，需要基于真实历史数据完成分析并产出可落地的业务建议与可视化看板",
       "duration": "3周",
-      "difficulty": 3,
-      "category": "AI Agent + 数据分析",
+      "difficulty": 2,
+      "category": "数据分析 + 商业智能",
       "skills": [
-        "skill_multi_agent_workflow_design",
         "skill_sql_data_query",
-        "skill_business_data_analysis",
-        "skill_agent_tool_calling"
+        "skill_data_cleaning",
+        "skill_user_segmentation",
+        "skill_business_insight",
+        "skill_bi_visualization"
       ]
     }
   ]
