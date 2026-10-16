@@ -1,57 +1,57 @@
 {
-  "generatedAt": "2026-10-15T05:38:07.631579+00:00",
+  "generatedAt": "2026-10-16T05:33:39.463460+00:00",
   "projects": [
     {
-      "id": "proj_001",
-      "title": "企业内部合规知识库智能RAG问答系统",
-      "company": "字节跳动 合规中台团队",
+      "id": 1,
+      "title": "企业内部研发知识库智能问答助手",
+      "company": "字节跳动飞书协作事业部",
       "role": "全栈开发实习生",
       "stack": [
-        "Python",
-        "LangChain",
-        "ChromaDB",
-        "FastAPI",
         "React 18",
-        "TailwindCSS",
+        "FastAPI",
+        "LangChain",
+        "Chroma 向量数据库",
+        "通义千问开源大模型",
         "Docker"
       ],
-      "summary": "为企业内部员工打造的合规问题智能问答工具，支持员工自然语言提问，基于内部合规文档库通过RAG技术返回准确可溯源的回答，替代人工检索文档的低效流程",
-      "background": "企业内部沉淀了大量合规制度、政策要求类文档，员工遇到合规相关问题时需要人工检索大量文档，效率低且容易出现信息遗漏、理解错误，影响业务推进，因此需要基于RAG技术搭建稳定、准确的智能问答工具供全公司内部使用",
+      "summary": "开发一套支持企业内部文档上传、自动向量化存储、自然语言问答的全栈智能助手，回答问题时自动标注答案来源引用，支持基础的多文档权限划分，满足内部研发人员快速查询规范、历史方案等知识的需求",
+      "background": "企业内部沉淀了多年的研发规范、项目文档、技术方案，分散在多个存储系统，研发人员查找信息效率低，需要一个基于大模型的智能问答工具，能快速从海量文档中定位答案，减少信息检索时间",
       "duration": "4周",
       "difficulty": 2,
       "category": "RAG + 全栈开发",
       "skills": [
-        "skill_rag_system_design",
-        "skill_fullstack_connection",
-        "skill_vector_db_usage",
-        "skill_llm_application_dev"
+        "skill_rag_001",
+        "skill_react_002",
+        "skill_fastapi_003",
+        "skill_vector_db_004",
+        "skill_docker_deploy_005"
       ]
     },
     {
-      "id": "proj_002",
-      "title": "零售用户消费行为分析看板项目",
-      "company": "沃尔玛中国 数据运营团队",
-      "role": "数据分析实习生",
+      "id": 2,
+      "title": "电商运营智能数据分析Agent",
+      "company": "阿里巴巴淘宝零售技术事业部",
+      "role": "数据分析开发实习生",
       "stack": [
-        "Python",
+        "LangGraph",
         "Pandas",
-        "NumPy",
-        "Scikit-learn",
-        "Power BI",
-        "SQL",
-        "Matplotlib"
+        "MySQL",
+        "Streamlit",
+        "Plotly",
+        "GLM-4 大模型",
+        "大模型工具调用"
       ],
-      "summary": "基于零售线下+线上全渠道用户消费数据，完成用户分群、复购预测与业务洞察分析，输出交互式分析看板支撑运营决策",
-      "background": "零售企业沉淀了海量用户消费数据，但缺乏系统化的用户价值分层与业务趋势分析，无法支撑精细化运营投放，需要基于真实历史数据完成分析并产出可落地的业务建议与可视化看板",
-      "duration": "3周",
-      "difficulty": 2,
-      "category": "数据分析 + 商业智能",
+      "summary": "基于多Agent工作流编排构建自然语言驱动的电商数据分析系统，支持运营人员用自然语言提出业务问题，系统自动拆解问题、生成SQL查询数据、完成统计分析、生成可视化图表和业务结论，输出可交互的分析报告",
+      "background": "淘宝中小商家运营日常需要查询大量销售、流量、用户转化数据，每次分析都需要提需求给数据部门，等待周期长效率低，需要一个能让运营自助完成数据分析的智能工具，降低数据获取门槛",
+      "duration": "6周",
+      "difficulty": 3,
+      "category": "AI Agent + 数据分析",
       "skills": [
-        "skill_sql_data_query",
-        "skill_data_cleaning",
-        "skill_user_segmentation",
-        "skill_business_insight",
-        "skill_bi_visualization"
+        "skill_agent_orchestration_006",
+        "skill_sql_query_007",
+        "skill_python_analysis_008",
+        "skill_data_visualization_009",
+        "skill_llm_tool_call_010"
       ]
     }
   ]
