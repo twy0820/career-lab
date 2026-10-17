@@ -1,57 +1,56 @@
 {
-  "generatedAt": "2026-10-16T05:33:39.463460+00:00",
+  "generatedAt": "2026-10-17T05:22:29.817697+00:00",
   "projects": [
     {
-      "id": 1,
-      "title": "企业内部研发知识库智能问答助手",
-      "company": "字节跳动飞书协作事业部",
+      "id": "proj_2026_001",
+      "title": "企业内部私有知识库问答助手",
+      "company": "字节跳动 飞书协作事业部",
       "role": "全栈开发实习生",
       "stack": [
         "React 18",
         "FastAPI",
         "LangChain",
-        "Chroma 向量数据库",
-        "通义千问开源大模型",
+        "Chroma",
+        "GLM-4 Embedding",
         "Docker"
       ],
-      "summary": "开发一套支持企业内部文档上传、自动向量化存储、自然语言问答的全栈智能助手，回答问题时自动标注答案来源引用，支持基础的多文档权限划分，满足内部研发人员快速查询规范、历史方案等知识的需求",
-      "background": "企业内部沉淀了多年的研发规范、项目文档、技术方案，分散在多个存储系统，研发人员查找信息效率低，需要一个基于大模型的智能问答工具，能快速从海量文档中定位答案，减少信息检索时间",
+      "summary": "开发供企业内部员工使用的文档问答工具，支持上传PDF/Word/Markdown格式内部文档，基于RAG技术实现私有知识库构建，支持自然语言提问，返回带文档来源引用的准确回答",
+      "background": "企业内部业务文档沉淀量逐年增长，新员工业务学习、老员工信息检索依赖传统关键词搜索，无法理解自然语言需求，信息查找效率低，需要轻量化可本地部署的私有问答助手解决该问题",
       "duration": "4周",
       "difficulty": 2,
-      "category": "RAG + 全栈开发",
+      "category": "RAG+全栈开发",
       "skills": [
-        "skill_rag_001",
-        "skill_react_002",
-        "skill_fastapi_003",
-        "skill_vector_db_004",
-        "skill_docker_deploy_005"
+        "skill_rag_build",
+        "skill_frontend_basic",
+        "skill_backend_api",
+        "skill_vector_db_ops",
+        "skill_docker_basic"
       ]
     },
     {
-      "id": 2,
-      "title": "电商运营智能数据分析Agent",
-      "company": "阿里巴巴淘宝零售技术事业部",
-      "role": "数据分析开发实习生",
+      "id": "proj_2026_002",
+      "title": "电商用户增长异动分析智能Agent",
+      "company": "阿里巴巴 淘宝用户增长部",
+      "role": "AI数据应用实习生",
       "stack": [
+        "Python",
         "LangGraph",
         "Pandas",
-        "MySQL",
-        "Streamlit",
-        "Plotly",
-        "GLM-4 大模型",
-        "大模型工具调用"
+        "Apache Superset",
+        "Django",
+        "MySQL"
       ],
-      "summary": "基于多Agent工作流编排构建自然语言驱动的电商数据分析系统，支持运营人员用自然语言提出业务问题，系统自动拆解问题、生成SQL查询数据、完成统计分析、生成可视化图表和业务结论，输出可交互的分析报告",
-      "background": "淘宝中小商家运营日常需要查询大量销售、流量、用户转化数据，每次分析都需要提需求给数据部门，等待周期长效率低，需要一个能让运营自助完成数据分析的智能工具，降低数据获取门槛",
+      "summary": "构建多Agent协同的数据分析系统，自动定时拉取电商每日用户行为数据，完成转化漏斗计算、流量异动识别、根因自动推理，生成可视化分析报表并推送异动告警给业务运营",
+      "background": "电商每日产生海量用户行为数据，传统人工分析每日流量转化异动的流程耗时久，响应慢，无法及时发现业务问题，需要智能Agent自动完成常规分析工作，释放数据分析师人力",
       "duration": "6周",
       "difficulty": 3,
-      "category": "AI Agent + 数据分析",
+      "category": "Agent+数据分析",
       "skills": [
-        "skill_agent_orchestration_006",
-        "skill_sql_query_007",
-        "skill_python_analysis_008",
-        "skill_data_visualization_009",
-        "skill_llm_tool_call_010"
+        "skill_agent_orchestration",
+        "skill_data_cleaning",
+        "skill_bi_report_dev",
+        "skill_abnormal_detection",
+        "skill_data_pipeline"
       ]
     }
   ]
