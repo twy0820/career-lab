@@ -1,56 +1,57 @@
 {
-  "generatedAt": "2026-10-17T05:22:29.817697+00:00",
+  "generatedAt": "2026-10-18T05:30:27.234297+00:00",
   "projects": [
     {
-      "id": "proj_2026_001",
-      "title": "企业内部私有知识库问答助手",
-      "company": "字节跳动 飞书协作事业部",
-      "role": "全栈开发实习生",
+      "id": 1,
+      "title": "企业内部智能文档问答助手",
+      "company": "飞书科技 协作产品部",
+      "role": "AI应用开发实习生",
       "stack": [
-        "React 18",
-        "FastAPI",
+        "Python",
         "LangChain",
-        "Chroma",
-        "GLM-4 Embedding",
-        "Docker"
+        "豆包大模型API",
+        "Chroma向量数据库",
+        "React",
+        "Vite"
       ],
-      "summary": "开发供企业内部员工使用的文档问答工具，支持上传PDF/Word/Markdown格式内部文档，基于RAG技术实现私有知识库构建，支持自然语言提问，返回带文档来源引用的准确回答",
-      "background": "企业内部业务文档沉淀量逐年增长，新员工业务学习、老员工信息检索依赖传统关键词搜索，无法理解自然语言需求，信息查找效率低，需要轻量化可本地部署的私有问答助手解决该问题",
+      "summary": "开发面向企业内部员工的智能问答助手，支持多格式内部文档上传、自然语言提问、基于RAG的准确回答，同时支持回答溯源，标注信息来源的文档片段",
+      "background": "企业内部沉淀了大量制度、项目、产品文档，传统关键字搜索无法精准回答员工问题，新员工入职熟悉流程周期长，需要基于RAG技术搭建轻量化的内部知识问答工具，提升信息检索效率",
       "duration": "4周",
       "difficulty": 2,
-      "category": "RAG+全栈开发",
+      "category": "RAG/Agent",
       "skills": [
-        "skill_rag_build",
-        "skill_frontend_basic",
-        "skill_backend_api",
-        "skill_vector_db_ops",
-        "skill_docker_basic"
+        "rag_base_build",
+        "llm_api_integration",
+        "vector_db_usage",
+        "basic_react_dev"
       ]
     },
     {
-      "id": "proj_2026_002",
-      "title": "电商用户增长异动分析智能Agent",
-      "company": "阿里巴巴 淘宝用户增长部",
-      "role": "AI数据应用实习生",
+      "id": 2,
+      "title": "本地商家AI营销内容生成协同平台",
+      "company": "美团本地生活 商家服务技术部",
+      "role": "全栈开发实习生",
       "stack": [
-        "Python",
-        "LangGraph",
-        "Pandas",
-        "Apache Superset",
-        "Django",
-        "MySQL"
+        "Next.js 14",
+        "TailwindCSS",
+        "Node.js",
+        "PostgreSQL",
+        "Redis",
+        "豆包大模型API",
+        "Docker",
+        "前端工程化工具链"
       ],
-      "summary": "构建多Agent协同的数据分析系统，自动定时拉取电商每日用户行为数据，完成转化漏斗计算、流量异动识别、根因自动推理，生成可视化分析报表并推送异动告警给业务运营",
-      "background": "电商每日产生海量用户行为数据，传统人工分析每日流量转化异动的流程耗时久，响应慢，无法及时发现业务问题，需要智能Agent自动完成常规分析工作，释放数据分析师人力",
+      "summary": "开发面向中小本地商家的AI营销内容生成协同平台，支持商家根据品类、营销活动生成美团商家动态、朋友圈文案、宣传脚本，支持商家团队协作编辑、内容历史管理、风格自定义",
+      "background": "千万量级中小本地商家缺乏专业营销内容制作团队，人工产出营销内容效率低成本高，商家需要一款轻量化、本土化的AI内容生成工具，满足日常线上运营的内容需求",
       "duration": "6周",
       "difficulty": 3,
-      "category": "Agent+数据分析",
+      "category": "全栈/前端工程化",
       "skills": [
-        "skill_agent_orchestration",
-        "skill_data_cleaning",
-        "skill_bi_report_dev",
-        "skill_abnormal_detection",
-        "skill_data_pipeline"
+        "nextjs_fullstack_dev",
+        "database_design",
+        "frontend_optimization",
+        "llm_prompt_engineering",
+        "docker_basic"
       ]
     }
   ]
