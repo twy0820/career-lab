@@ -1,57 +1,58 @@
 {
-  "generatedAt": "2026-10-18T05:30:27.234297+00:00",
+  "generatedAt": "2026-10-19T05:49:54.679870+00:00",
   "projects": [
     {
       "id": 1,
-      "title": "企业内部智能文档问答助手",
-      "company": "飞书科技 协作产品部",
-      "role": "AI应用开发实习生",
+      "title": "企业内部私有知识库智能问答助手",
+      "company": "字节跳动 飞书协作事业部",
+      "role": "全栈AI应用开发实习生",
       "stack": [
         "Python",
         "LangChain",
-        "豆包大模型API",
-        "Chroma向量数据库",
-        "React",
-        "Vite"
+        "OpenAI Embedding",
+        "Chroma",
+        "Next.js",
+        "FastAPI",
+        "TailwindCSS"
       ],
-      "summary": "开发面向企业内部员工的智能问答助手，支持多格式内部文档上传、自然语言提问、基于RAG的准确回答，同时支持回答溯源，标注信息来源的文档片段",
-      "background": "企业内部沉淀了大量制度、项目、产品文档，传统关键字搜索无法精准回答员工问题，新员工入职熟悉流程周期长，需要基于RAG技术搭建轻量化的内部知识问答工具，提升信息检索效率",
+      "summary": "开发支持员工上传PDF/Word/Markdown多种格式文档、基于RAG技术的企业内部私有知识库智能问答系统，支持上下文对话、回答来源标注，满足内部员工快速查找制度、项目文档信息的需求",
+      "background": "企业内部沉淀了大量制度文档、项目历史文档，分散在不同存储平台，员工查找信息效率极低；通用大模型训练数据不包含企业私有数据，无法直接回答内部业务问题，需要基于RAG技术搭建轻量私有知识库问答工具解决该痛点",
       "duration": "4周",
       "difficulty": 2,
-      "category": "RAG/Agent",
+      "category": "RAG + 全栈开发",
       "skills": [
-        "rag_base_build",
-        "llm_api_integration",
-        "vector_db_usage",
-        "basic_react_dev"
+        "skill_rag_001",
+        "skill_fullstack_001",
+        "skill_api_design_001",
+        "skill_ai_application_001"
       ]
     },
     {
       "id": 2,
-      "title": "本地商家AI营销内容生成协同平台",
-      "company": "美团本地生活 商家服务技术部",
-      "role": "全栈开发实习生",
+      "title": "AI多Agent创作者内容辅助生产平台",
+      "company": "小红书 创作者生态事业部",
+      "role": "AI应用开发实习生",
       "stack": [
-        "Next.js 14",
-        "TailwindCSS",
+        "Python",
+        "LangGraph",
+        "GPT-4o Mini",
+        "Vite",
+        "React",
         "Node.js",
-        "PostgreSQL",
-        "Redis",
-        "豆包大模型API",
-        "Docker",
-        "前端工程化工具链"
+        "Supabase",
+        "Puppeteer"
       ],
-      "summary": "开发面向中小本地商家的AI营销内容生成协同平台，支持商家根据品类、营销活动生成美团商家动态、朋友圈文案、宣传脚本，支持商家团队协作编辑、内容历史管理、风格自定义",
-      "background": "千万量级中小本地商家缺乏专业营销内容制作团队，人工产出营销内容效率低成本高，商家需要一款轻量化、本土化的AI内容生成工具，满足日常线上运营的内容需求",
-      "duration": "6周",
+      "summary": "搭建多Agent协作的创作者内容生产辅助平台，由选题调研Agent、素材整理Agent、文案生成Agent、合规审核Agent分工协作，帮助中小创作者快速完成种草内容生产，支持一键生成草稿、热门标签推荐",
+      "background": "中小创作者内容生产周期长，从选题找参考到写稿改稿需要多工具切换，重复工作多、效率低下；通过多Agent分工协作，可以自动化完成大部分前置准备工作，降低创作门槛、提升产出效率，是当前内容平台的核心需求方向",
+      "duration": "5周",
       "difficulty": 3,
-      "category": "全栈/前端工程化",
+      "category": "Multi-Agent + 全栈开发",
       "skills": [
-        "nextjs_fullstack_dev",
-        "database_design",
-        "frontend_optimization",
-        "llm_prompt_engineering",
-        "docker_basic"
+        "skill_agent_001",
+        "skill_multi_agent_coordination_001",
+        "skill_fullstack_002",
+        "skill_ai_application_002",
+        "skill_web_scraping_001"
       ]
     }
   ]
