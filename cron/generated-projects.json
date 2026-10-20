@@ -1,58 +1,55 @@
 {
-  "generatedAt": "2026-10-19T05:49:54.679870+00:00",
+  "generatedAt": "2026-10-20T05:43:41.734035+00:00",
   "projects": [
     {
-      "id": 1,
-      "title": "企业内部私有知识库智能问答助手",
-      "company": "字节跳动 飞书协作事业部",
+      "id": "pro-rag-001",
+      "title": "企业内部知识库智能问答助手",
+      "company": "字节跳动 内部效率工具团队",
       "role": "全栈AI应用开发实习生",
       "stack": [
-        "Python",
+        "React",
+        "Node.js",
         "LangChain",
         "OpenAI Embedding",
-        "Chroma",
-        "Next.js",
-        "FastAPI",
-        "TailwindCSS"
+        "ChromaDB",
+        "Docker"
       ],
-      "summary": "开发支持员工上传PDF/Word/Markdown多种格式文档、基于RAG技术的企业内部私有知识库智能问答系统，支持上下文对话、回答来源标注，满足内部员工快速查找制度、项目文档信息的需求",
-      "background": "企业内部沉淀了大量制度文档、项目历史文档，分散在不同存储平台，员工查找信息效率极低；通用大模型训练数据不包含企业私有数据，无法直接回答内部业务问题，需要基于RAG技术搭建轻量私有知识库问答工具解决该痛点",
+      "summary": "开发面向企业内部员工的私有知识库问答工具，支持团队上传PDF/Word文档，基于RAG技术实现自然语言问答，快速定位内部知识解决问题",
+      "background": "企业内部沉淀了大量制度、技术、业务文档，传统关键词搜索准确率低，员工找信息效率低，需要基于大模型+RAG的私有问答工具提升信息获取效率",
       "duration": "4周",
       "difficulty": 2,
-      "category": "RAG + 全栈开发",
+      "category": "RAG + 全栈",
       "skills": [
-        "skill_rag_001",
-        "skill_fullstack_001",
-        "skill_api_design_001",
-        "skill_ai_application_001"
+        "skill-rag-001",
+        "skill-fullstack-001",
+        "skill-llm-app-001",
+        "skill-db-001"
       ]
     },
     {
-      "id": 2,
-      "title": "AI多Agent创作者内容辅助生产平台",
-      "company": "小红书 创作者生态事业部",
+      "id": "pro-agent-002",
+      "title": "电商场景智能客服多Agent系统",
+      "company": "阿里巴巴 淘客用户体验部",
       "role": "AI应用开发实习生",
       "stack": [
-        "Python",
+        "Next.js",
         "LangGraph",
         "GPT-4o Mini",
-        "Vite",
-        "React",
-        "Node.js",
-        "Supabase",
-        "Puppeteer"
+        "Redis",
+        "Pinecone",
+        "MySQL"
       ],
-      "summary": "搭建多Agent协作的创作者内容生产辅助平台，由选题调研Agent、素材整理Agent、文案生成Agent、合规审核Agent分工协作，帮助中小创作者快速完成种草内容生产，支持一键生成草稿、热门标签推荐",
-      "background": "中小创作者内容生产周期长，从选题找参考到写稿改稿需要多工具切换，重复工作多、效率低下；通过多Agent分工协作，可以自动化完成大部分前置准备工作，降低创作门槛、提升产出效率，是当前内容平台的核心需求方向",
-      "duration": "5周",
+      "summary": "开发可自主处理电商咨询的智能客服多Agent系统，支持意图识别、工具调用（查物流、改地址、申请售后）、复杂问题转人工，实现90%常见咨询自动化处理",
+      "background": "传统关键词匹配客服无法处理模糊、多轮、复杂的用户咨询，人工客服成本高，需要基于Agent的智能客服系统提升咨询处理效率，降低运营成本",
+      "duration": "6周",
       "difficulty": 3,
-      "category": "Multi-Agent + 全栈开发",
+      "category": "Agent + 全栈",
       "skills": [
-        "skill_agent_001",
-        "skill_multi_agent_coordination_001",
-        "skill_fullstack_002",
-        "skill_ai_application_002",
-        "skill_web_scraping_001"
+        "skill-agent-001",
+        "skill-tool-call-001",
+        "skill-dialog-001",
+        "skill-fullstack-002",
+        "skill-llm-app-002"
       ]
     }
   ]
