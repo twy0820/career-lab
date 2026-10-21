@@ -1,55 +1,60 @@
 {
-  "generatedAt": "2026-10-20T05:43:41.734035+00:00",
+  "generatedAt": "2026-10-21T05:47:08.126724+00:00",
   "projects": [
     {
-      "id": "pro-rag-001",
-      "title": "企业内部知识库智能问答助手",
-      "company": "字节跳动 内部效率工具团队",
-      "role": "全栈AI应用开发实习生",
+      "id": "proj001",
+      "title": "企业私有知识库问答Agent",
+      "company": "字节跳动飞书事业部",
+      "role": "AI开发实习生",
       "stack": [
-        "React",
-        "Node.js",
+        "Python",
         "LangChain",
-        "OpenAI Embedding",
+        "LlamaIndex",
         "ChromaDB",
-        "Docker"
+        "LLaMA 3",
+        "FastAPI",
+        "Streamlit"
       ],
-      "summary": "开发面向企业内部员工的私有知识库问答工具，支持团队上传PDF/Word文档，基于RAG技术实现自然语言问答，快速定位内部知识解决问题",
-      "background": "企业内部沉淀了大量制度、技术、业务文档，传统关键词搜索准确率低，员工找信息效率低，需要基于大模型+RAG的私有问答工具提升信息获取效率",
+      "summary": "本项目从零搭建基于检索增强生成（RAG）技术的企业私有知识库问答Agent，支持PDF/Word/TXT等多格式文档上传解析，自定义分块策略，向量存储与语义检索，结合大模型生成无幻觉的准确回答，同时支持多轮对话上下文记忆，最终交付可交互的Web Demo。",
+      "background": "随着企业数字化转型，内部沉淀了大量文档、手册、规章制度等非结构化数据，员工查找信息效率低下，通用大模型无法直接基于企业私有数据回答问题，还容易产生幻觉，因此需要搭建一个基于RAG技术的企业内部问答Agent，帮助员工快速获取准确信息。",
       "duration": "4周",
       "difficulty": 2,
-      "category": "RAG + 全栈",
+      "category": "RAG/Agent",
       "skills": [
-        "skill-rag-001",
-        "skill-fullstack-001",
-        "skill-llm-app-001",
-        "skill-db-001"
+        "skill001",
+        "skill002",
+        "skill003",
+        "skill004",
+        "skill005"
       ]
     },
     {
-      "id": "pro-agent-002",
-      "title": "电商场景智能客服多Agent系统",
-      "company": "阿里巴巴 淘客用户体验部",
-      "role": "AI应用开发实习生",
+      "id": "proj002",
+      "title": "企业级可自定义数据可视化分析全栈平台",
+      "company": "阿里云智能事业群",
+      "role": "全栈开发实习生",
       "stack": [
-        "Next.js",
-        "LangGraph",
-        "GPT-4o Mini",
-        "Redis",
-        "Pinecone",
-        "MySQL"
+        "React",
+        "Vite",
+        "TailwindCSS",
+        "Node.js",
+        "Express",
+        "PostgreSQL",
+        "ECharts",
+        "Docker",
+        "Git"
       ],
-      "summary": "开发可自主处理电商咨询的智能客服多Agent系统，支持意图识别、工具调用（查物流、改地址、申请售后）、复杂问题转人工，实现90%常见咨询自动化处理",
-      "background": "传统关键词匹配客服无法处理模糊、多轮、复杂的用户咨询，人工客服成本高，需要基于Agent的智能客服系统提升咨询处理效率，降低运营成本",
+      "summary": "本项目从零开发企业级全栈数据可视化分析平台，前端采用工程化架构开发，支持用户注册登录、多源CSV数据上传、自定义维度指标配置、拖拽生成交互式可视化报表、报表保存分享功能；后端实现接口服务、数据存储、权限管理，完整实践现代前端工程化规范与全栈开发流程。",
+      "background": "企业业务运营过程中产生大量销售、用户、运营数据，业务人员需要频繁进行多维度数据分析，传统依赖数据分析师出报表的模式效率低，Excel处理大数据量卡顿，因此需要搭建一个轻量化的企业级数据可视化分析平台，让业务人员可以自主完成数据分析与报表制作。",
       "duration": "6周",
       "difficulty": 3,
-      "category": "Agent + 全栈",
+      "category": "全栈/数据/前端工程化",
       "skills": [
-        "skill-agent-001",
-        "skill-tool-call-001",
-        "skill-dialog-001",
-        "skill-fullstack-002",
-        "skill-llm-app-002"
+        "skill006",
+        "skill007",
+        "skill008",
+        "skill009",
+        "skill010"
       ]
     }
   ]
