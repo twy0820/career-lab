@@ -1,72 +1,60 @@
 {
-  "generatedAt": "2026-10-22T05:49:30.757541+00:00",
+  "generatedAt": "2026-10-23T05:48:33.791932+00:00",
   "projects": [
     {
-      "id": "proj-001",
-      "title": "企业内部私有化知识库问答助手开发",
-      "company": "字节跳动 效率工程团队",
-      "role": "全栈开发实习生",
-      "stack": "React 18, Node.js, LangChain, OpenAI Embedding, ChromaDB, Docker",
-      "summary": "完成从前端交互页面到后端RAG服务的全流程开发，实现文档上传、向量化存储、检索问答生成的完整功能，满足企业内部信息检索的安全高效需求",
-      "background": "企业内部沉淀了大量技术文档、产品规范等非结构化信息，新员工入职查找信息效率低下，需要搭建私有化部署的RAG问答系统，保障数据安全同时提升信息获取效率",
+      "id": "proj_rag_001",
+      "title": "企业内部智能问答助手（RAG+Agent实践）",
+      "company": "字节跳动 内部知识平台部",
+      "role": "初级AI应用开发工程师",
+      "stack": [
+        "Python",
+        "LangChain",
+        "OpenAI Embedding",
+        "ChromaDB",
+        "FastAPI",
+        "Vue 3",
+        "Docker"
+      ],
+      "summary": "开发可落地的企业内部智能问答原型，支持员工上传内部文档、基于私有内容问答，同时集成Agent工具调用能力，可完成查询员工信息、跳转流程申请等操作",
+      "background": "当前企业内部数字化文档数量激增，传统关键词搜索准确率低，员工查找信息耗时久，RAG+Agent是当前大模型落地企业场景最主流的技术方案，本项目贴合企业真实需求，适合0基础到中级开发者入门大模型应用开发",
       "duration": "4周",
       "difficulty": 2,
-      "category": "RAG + 全栈开发",
+      "category": "RAG/Agent",
       "skills": [
-        {
-          "id": "sk-001",
-          "name": "前端基础开发"
-        },
-        {
-          "id": "sk-002",
-          "name": "后端API开发"
-        },
-        {
-          "id": "sk-003",
-          "name": "RAG流程设计优化"
-        },
-        {
-          "id": "sk-004",
-          "name": "向量数据库基础使用"
-        },
-        {
-          "id": "sk-005",
-          "name": "Docker容器化部署"
-        }
+        "rag_001",
+        "rag_002",
+        "agent_001",
+        "db_001",
+        "api_001"
       ]
     },
     {
-      "id": "proj-002",
-      "title": "电商智能选品数据分析Agent",
-      "company": "阿里淘系 商家运营中台团队",
-      "role": "数据开发实习生",
-      "stack": "Python, LangGraph, Pandas, Plotly, FastAPI, Vue 3, PostgreSQL",
-      "summary": "开发基于大模型Agent的智能选品分析工具，能够理解商家自然语言选品需求，自动完成多源数据拉取、清洗、分析，输出可视化选品报告和商品推荐",
-      "background": "淘宝中小商家选品需要人工分析销售数据、竞品数据、搜索热度数据等多源信息，流程繁琐效率低，需要搭建智能Agent自动完成全流程分析，降低商家选品门槛",
-      "duration": "5周",
+      "id": "proj_fullstack_001",
+      "title": "轻量化团队内容协作管理系统",
+      "company": "阿里巴巴 飞书生态事业部",
+      "role": "初级全栈开发工程师",
+      "stack": [
+        "React 18",
+        "Next.js 15",
+        "TailwindCSS",
+        "Turborepo",
+        "Prisma",
+        "PostgreSQL",
+        "Redis",
+        "GitHub Actions",
+        "Docker"
+      ],
+      "summary": "从0到1搭建面向中小团队的私有化内容协作管理系统，支持文档创建、权限分级、版本历史、在线预览、markdown编辑功能，同时实现前端工程化构建优化",
+      "background": "中小团队对低成本可定制的内容管理需求旺盛，成熟大型协作软件功能冗余成本高，本项目结合全栈开发与前端工程化热门方向，让开发者实践企业级项目开发流程，掌握当前企业最需要的全栈工程能力",
+      "duration": "6周",
       "difficulty": 3,
-      "category": "Agent + 数据分析",
+      "category": "全栈/前端工程化",
       "skills": [
-        {
-          "id": "sk-101",
-          "name": "Python数据处理基础"
-        },
-        {
-          "id": "sk-102",
-          "name": "Agent工作流编排"
-        },
-        {
-          "id": "sk-103",
-          "name": "数据分析与可视化"
-        },
-        {
-          "id": "sk-104",
-          "name": "大模型工具调用开发"
-        },
-        {
-          "id": "sk-105",
-          "name": "前后端API对接"
-        }
+        "fe_arch_001",
+        "fullstack_001",
+        "build_001",
+        "cicd_001",
+        "db_001"
       ]
     }
   ]
