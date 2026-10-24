@@ -1,60 +1,58 @@
 {
-  "generatedAt": "2026-10-23T05:48:33.791932+00:00",
+  "generatedAt": "2026-10-24T05:28:50.240664+00:00",
   "projects": [
     {
-      "id": "proj_rag_001",
-      "title": "企业内部智能问答助手（RAG+Agent实践）",
-      "company": "字节跳动 内部知识平台部",
-      "role": "初级AI应用开发工程师",
+      "id": "proj-2026-001",
+      "title": "中小制造企业售后知识库RAG智能问答系统搭建",
+      "company": "云科智造（国内中型工业SaaS服务商）",
+      "role": "AI应用开发实习生",
       "stack": [
-        "Python",
-        "LangChain",
-        "OpenAI Embedding",
-        "ChromaDB",
-        "FastAPI",
-        "Vue 3",
-        "Docker"
+        "Python 3.12",
+        "LangChain 0.3",
+        "Qwen2.5-7B",
+        "FAISS",
+        "React 19",
+        "Next.js 15",
+        "PostgreSQL"
       ],
-      "summary": "开发可落地的企业内部智能问答原型，支持员工上传内部文档、基于私有内容问答，同时集成Agent工具调用能力，可完成查询员工信息、跳转流程申请等操作",
-      "background": "当前企业内部数字化文档数量激增，传统关键词搜索准确率低，员工查找信息耗时久，RAG+Agent是当前大模型落地企业场景最主流的技术方案，本项目贴合企业真实需求，适合0基础到中级开发者入门大模型应用开发",
+      "summary": "针对制造企业售后场景下零散分布的设备手册、历史工单、故障排查文档做结构化解析与向量检索，搭建轻量化RAG问答系统，让售后工程师现场即可精准获取故障解决方案，降低新人培训成本与问题响应时长。",
+      "background": "云科智造服务的300+中小制造客户售后资料分散在Word、历史工单、旧PDF文档中，售后人员遇到陌生故障需要人工翻查多份资料，平均故障响应时长超过40分钟，企业急需低投入的智能问答工具提效。",
       "duration": "4周",
-      "difficulty": 2,
-      "category": "RAG/Agent",
+      "difficulty": 2.5,
+      "category": "RAG+全栈应用",
       "skills": [
-        "rag_001",
-        "rag_002",
-        "agent_001",
-        "db_001",
-        "api_001"
+        "skill-rag-001",
+        "skill-fullstack-003",
+        "skill-llm-007",
+        "skill-frontend-012",
+        "skill-db-004"
       ]
     },
     {
-      "id": "proj_fullstack_001",
-      "title": "轻量化团队内容协作管理系统",
-      "company": "阿里巴巴 飞书生态事业部",
-      "role": "初级全栈开发工程师",
+      "id": "proj-2026-002",
+      "title": "电商短视频投放自动化Agent运营平台开发",
+      "company": "星途传媒（头部短视频代运营服务商）",
+      "role": "AI数据全栈开发工程师",
       "stack": [
-        "React 18",
-        "Next.js 15",
-        "TailwindCSS",
-        "Turborepo",
-        "Prisma",
-        "PostgreSQL",
-        "Redis",
-        "GitHub Actions",
-        "Docker"
+        "Python 3.12",
+        "Dify 2.0",
+        "Vue 3.5",
+        "Vite 6",
+        "ClickHouse",
+        "ECharts 5.5",
+        "Pinia 3"
       ],
-      "summary": "从0到1搭建面向中小团队的私有化内容协作管理系统，支持文档创建、权限分级、版本历史、在线预览、markdown编辑功能，同时实现前端工程化构建优化",
-      "background": "中小团队对低成本可定制的内容管理需求旺盛，成熟大型协作软件功能冗余成本高，本项目结合全栈开发与前端工程化热门方向，让开发者实践企业级项目开发流程，掌握当前企业最需要的全栈工程能力",
-      "duration": "6周",
+      "summary": "实现多平台短视频投放数据自动拉取、异常投放效果自动告警、投放策略自动优化、运营报表自动生成的多Agent协同平台，替代运营人员每日60%的重复数据处理工作，将策略调整响应时长从2小时压缩到5分钟。",
+      "background": "星途传媒当前运营200+品牌的抖音、快手投放账户，运营团队每日需要花费大量时间跨平台拉取数据、拼接报表、人工排查投放异常，策略调整滞后导致投放ROI损失长期超过15%，急需自动化Agent系统提效降损。",
+      "duration": "5周",
       "difficulty": 3,
-      "category": "全栈/前端工程化",
+      "category": "AI Agent+数据工程+前端工程化",
       "skills": [
-        "fe_arch_001",
-        "fullstack_001",
-        "build_001",
-        "cicd_001",
-        "db_001"
+        "skill-agent-002",
+        "skill-data-009",
+        "skill-fe-eng-014",
+        "skill-dw-006",
+        "skill-visualization-008"
       ]
     }
   ]
