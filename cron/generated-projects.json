@@ -1,58 +1,56 @@
 {
-  "generatedAt": "2026-10-24T05:28:50.240664+00:00",
+  "generatedAt": "2026-10-25T05:47:08.970800+00:00",
   "projects": [
     {
       "id": "proj-2026-001",
-      "title": "中小制造企业售后知识库RAG智能问答系统搭建",
-      "company": "云科智造（国内中型工业SaaS服务商）",
-      "role": "AI应用开发实习生",
+      "title": "高校专业知识库智能问答RAG系统开发",
+      "company": "猿力教育科技（模拟智慧校园项目组）",
+      "role": "AI全栈应用开发实习生",
       "stack": [
         "Python 3.12",
         "LangChain 0.3",
         "Qwen2.5-7B",
-        "FAISS",
+        "FastAPI 0.115",
         "React 19",
-        "Next.js 15",
-        "PostgreSQL"
+        "Milvus 2.4",
+        "Vite 6"
       ],
-      "summary": "针对制造企业售后场景下零散分布的设备手册、历史工单、故障排查文档做结构化解析与向量检索，搭建轻量化RAG问答系统，让售后工程师现场即可精准获取故障解决方案，降低新人培训成本与问题响应时长。",
-      "background": "云科智造服务的300+中小制造客户售后资料分散在Word、历史工单、旧PDF文档中，售后人员遇到陌生故障需要人工翻查多份资料，平均故障响应时长超过40分钟，企业急需低投入的智能问答工具提效。",
+      "summary": "从0到1搭建面向高校师生的专业领域知识库问答系统，支持文档批量上传解析、语义召回、答案生成溯源、用户权限管理等核心能力，解决传统高校资料检索零散、关键词匹配准确率低的痛点。",
+      "background": "2026年国内高校智慧校园建设全面普及，教务处需要将散落在各学院的培养方案、历年真题、课程讲义、科研成果等资料统一聚合，为师生提供精准的智能问答服务，替代原有低效的站内搜索功能。",
       "duration": "4周",
       "difficulty": 2.5,
-      "category": "RAG+全栈应用",
+      "category": "RAG+全栈应用开发",
       "skills": [
-        "skill-rag-001",
-        "skill-fullstack-003",
-        "skill-llm-007",
-        "skill-frontend-012",
-        "skill-db-004"
+        "sk-rag-001",
+        "sk-fullstack-003",
+        "sk-vector-db-002",
+        "sk-llm-infer-004"
       ]
     },
     {
       "id": "proj-2026-002",
-      "title": "电商短视频投放自动化Agent运营平台开发",
-      "company": "星途传媒（头部短视频代运营服务商）",
-      "role": "AI数据全栈开发工程师",
+      "title": "电商营销活动低代码自动化运营Agent平台搭建",
+      "company": "字节跳动抖音电商（模拟大促技术支撑组）",
+      "role": "前端工程化+AI应用开发实习生",
       "stack": [
-        "Python 3.12",
-        "Dify 2.0",
         "Vue 3.5",
-        "Vite 6",
-        "ClickHouse",
-        "ECharts 5.5",
-        "Pinia 3"
+        "TypeScript 5.6",
+        "ByteAgent 0.7",
+        "Monorepo",
+        "WebWorker 2.0",
+        "Ant Design Vue 4.5",
+        "Node 22"
       ],
-      "summary": "实现多平台短视频投放数据自动拉取、异常投放效果自动告警、投放策略自动优化、运营报表自动生成的多Agent协同平台，替代运营人员每日60%的重复数据处理工作，将策略调整响应时长从2小时压缩到5分钟。",
-      "background": "星途传媒当前运营200+品牌的抖音、快手投放账户，运营团队每日需要花费大量时间跨平台拉取数据、拼接报表、人工排查投放异常，策略调整滞后导致投放ROI损失长期超过15%，急需自动化Agent系统提效降损。",
+      "summary": "搭建面向电商运营人员的无代码Agent配置平台，支持运营可视化拖拽生成营销活动规则、自动生成投放素材脚本、实时监控活动数据并自主调优投放策略，大幅降低大促期间的开发排期压力。",
+      "background": "2026年抖音电商大促期间运营侧个性化活动需求同比上涨300%，传统研发排期模式完全无法响应快速迭代的运营需求，亟需低代码+Agent的方案让非技术人员自主完成运营活动的全链路配置。",
       "duration": "5周",
       "difficulty": 3,
-      "category": "AI Agent+数据工程+前端工程化",
+      "category": "Agent+前端工程化",
       "skills": [
-        "skill-agent-002",
-        "skill-data-009",
-        "skill-fe-eng-014",
-        "skill-dw-006",
-        "skill-visualization-008"
+        "sk-agent-007",
+        "sk-fe-engineering-012",
+        "sk-lowcode-005",
+        "sk-monorepo-009"
       ]
     }
   ]
