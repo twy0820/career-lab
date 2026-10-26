@@ -1,56 +1,54 @@
 {
-  "generatedAt": "2026-10-25T05:47:08.970800+00:00",
+  "generatedAt": "2026-10-26T05:50:04.370448+00:00",
   "projects": [
     {
       "id": "proj-2026-001",
-      "title": "高校专业知识库智能问答RAG系统开发",
-      "company": "猿力教育科技（模拟智慧校园项目组）",
-      "role": "AI全栈应用开发实习生",
+      "title": "企业内部私有知识库RAG智能答疑平台",
+      "company": "字节跳动内部效率工程部",
+      "role": "全栈开发实习生",
       "stack": [
-        "Python 3.12",
-        "LangChain 0.3",
-        "Qwen2.5-7B",
-        "FastAPI 0.115",
         "React 19",
-        "Milvus 2.4",
-        "Vite 6"
+        "TailwindCSS 4",
+        "FastAPI 0.115",
+        "Llama 3.2 1B",
+        "Chroma 向量库",
+        "LangChain 0.3"
       ],
-      "summary": "从0到1搭建面向高校师生的专业领域知识库问答系统，支持文档批量上传解析、语义召回、答案生成溯源、用户权限管理等核心能力，解决传统高校资料检索零散、关键词匹配准确率低的痛点。",
-      "background": "2026年国内高校智慧校园建设全面普及，教务处需要将散落在各学院的培养方案、历年真题、课程讲义、科研成果等资料统一聚合，为师生提供精准的智能问答服务，替代原有低效的站内搜索功能。",
+      "summary": "实现支持多格式文档上传解析、语义分片检索、大模型溯源答疑、部门级权限管控的轻量化私有知识库系统，解决企业内部文档分散在飞书/Confluence/本地存储、员工查找信息效率低的痛点，上线后可将新员工入职信息查找耗时降低70%",
+      "background": "2026年字节跳动各业务线沉淀了超20T非结构化内部文档，传统关键词搜索召回准确率不足40%，员工单次查找指定信息平均耗时超2小时，急需低成本落地轻量化RAG系统提升全员办公效率",
       "duration": "4周",
       "difficulty": 2.5,
-      "category": "RAG+全栈应用开发",
+      "category": "RAG+全栈融合方向",
       "skills": [
-        "sk-rag-001",
-        "sk-fullstack-003",
-        "sk-vector-db-002",
-        "sk-llm-infer-004"
+        "skill-rag-001",
+        "skill-fullstack-012",
+        "skill-vector-db-007",
+        "skill-llm-integration-003"
       ]
     },
     {
       "id": "proj-2026-002",
-      "title": "电商营销活动低代码自动化运营Agent平台搭建",
-      "company": "字节跳动抖音电商（模拟大促技术支撑组）",
-      "role": "前端工程化+AI应用开发实习生",
+      "title": "电商大促智能运营Agent实时数据看板系统",
+      "company": "阿里淘天618大促技术部",
+      "role": "前端工程化+数据开发实习生",
       "stack": [
-        "Vue 3.5",
-        "TypeScript 5.6",
-        "ByteAgent 0.7",
-        "Monorepo",
-        "WebWorker 2.0",
-        "Ant Design Vue 4.5",
-        "Node 22"
+        "Next.js 15",
+        "Turbopack",
+        "ECharts 6",
+        "AutoGPT 2.0",
+        "DuckDB WASM",
+        "GitHub Actions CI/CD"
       ],
-      "summary": "搭建面向电商运营人员的无代码Agent配置平台，支持运营可视化拖拽生成营销活动规则、自动生成投放素材脚本、实时监控活动数据并自主调优投放策略，大幅降低大促期间的开发排期压力。",
-      "background": "2026年抖音电商大促期间运营侧个性化活动需求同比上涨300%，传统研发排期模式完全无法响应快速迭代的运营需求，亟需低代码+Agent的方案让非技术人员自主完成运营活动的全链路配置。",
+      "summary": "实现支持实时交易指标可视化、智能Agent自动识别流量/交易异常波动、自动生成运营优化方案、多渠道告警推送的大促看板，同时通过前端工程化优化将首屏加载耗时压缩到1.2s以内，支撑大促期间上万运营人员实时决策",
+      "background": "2026年淘天618大促期间核心交易链路有37项实时观测指标，过往人工盯盘发现异常平均耗时超12分钟，单次异常漏判可能带来超千万元交易损失，急需落地带自主决策Agent能力的高性能数据看板",
       "duration": "5周",
       "difficulty": 3,
-      "category": "Agent+前端工程化",
+      "category": "Agent+前端工程化+数据可视化方向",
       "skills": [
-        "sk-agent-007",
-        "sk-fe-engineering-012",
-        "sk-lowcode-005",
-        "sk-monorepo-009"
+        "skill-agent-009",
+        "skill-fe-engineering-021",
+        "skill-data-visual-014",
+        "skill-wasm-005"
       ]
     }
   ]
