@@ -1,54 +1,40 @@
 {
-  "generatedAt": "2026-10-26T05:50:04.370448+00:00",
+  "generatedAt": "2026-10-27T06:02:12.792299+00:00",
   "projects": [
     {
-      "id": "proj-2026-001",
-      "title": "企业内部私有知识库RAG智能答疑平台",
-      "company": "字节跳动内部效率工程部",
+      "id": "P2026001",
+      "title": "中小微企业内部文档RAG智能问答系统全栈开发",
+      "company": "云启互联（国内中型SaaS服务商）",
       "role": "全栈开发实习生",
-      "stack": [
-        "React 19",
-        "TailwindCSS 4",
-        "FastAPI 0.115",
-        "Llama 3.2 1B",
-        "Chroma 向量库",
-        "LangChain 0.3"
-      ],
-      "summary": "实现支持多格式文档上传解析、语义分片检索、大模型溯源答疑、部门级权限管控的轻量化私有知识库系统，解决企业内部文档分散在飞书/Confluence/本地存储、员工查找信息效率低的痛点，上线后可将新员工入职信息查找耗时降低70%",
-      "background": "2026年字节跳动各业务线沉淀了超20T非结构化内部文档，传统关键词搜索召回准确率不足40%，员工单次查找指定信息平均耗时超2小时，急需低成本落地轻量化RAG系统提升全员办公效率",
-      "duration": "4周",
+      "stack": "React19 + TailwindCSS 4 + FastAPI + LlamaIndex 0.12 + 通义千问Qwen2.5-7B开源模型 + Chroma向量数据库 + Docker",
+      "summary": "模拟企业内部零散的员工制度、产品手册、运维文档统一结构化存储，搭建支持文档上传、切片、向量化、精准召回的低门槛RAG问答系统，解决新员工查资料效率低、老员工答疑成本高的痛点",
+      "background": "云启互联原有内部文档散落在飞书云文档、共享盘、本地Excel等10余个渠道，新人入职熟悉业务平均需要15天，人工答疑每周占用技术团队12人天工作量，急需轻量化可一键部署的RAG系统替代人工检索",
+      "duration": "2周（累计40小时实操）",
       "difficulty": 2.5,
-      "category": "RAG+全栈融合方向",
+      "category": "RAG+全栈开发",
       "skills": [
-        "skill-rag-001",
-        "skill-fullstack-012",
-        "skill-vector-db-007",
-        "skill-llm-integration-003"
+        "SK-RAG-001",
+        "SK-FE-007",
+        "SK-BE-012",
+        "SK-DEPLOY-003"
       ]
     },
     {
-      "id": "proj-2026-002",
-      "title": "电商大促智能运营Agent实时数据看板系统",
-      "company": "阿里淘天618大促技术部",
-      "role": "前端工程化+数据开发实习生",
-      "stack": [
-        "Next.js 15",
-        "Turbopack",
-        "ECharts 6",
-        "AutoGPT 2.0",
-        "DuckDB WASM",
-        "GitHub Actions CI/CD"
-      ],
-      "summary": "实现支持实时交易指标可视化、智能Agent自动识别流量/交易异常波动、自动生成运营优化方案、多渠道告警推送的大促看板，同时通过前端工程化优化将首屏加载耗时压缩到1.2s以内，支撑大促期间上万运营人员实时决策",
-      "background": "2026年淘天618大促期间核心交易链路有37项实时观测指标，过往人工盯盘发现异常平均耗时超12分钟，单次异常漏判可能带来超千万元交易损失，急需落地带自主决策Agent能力的高性能数据看板",
-      "duration": "5周",
-      "difficulty": 3,
-      "category": "Agent+前端工程化+数据可视化方向",
+      "id": "P2026002",
+      "title": "直播电商无代码用户行为分析Agent平台搭建",
+      "company": "星途优选（头部抖音直播电商机构）",
+      "role": "AI数据应用开发实习生",
+      "stack": "Vue3 + Vite 6 前端工程化 + Pandas 2.2 + OpenAI Agents SDK v1 + DuckDB 嵌入式分析引擎 + Apache Superset",
+      "summary": "搭建面向非技术运营人员的自动化分析Agent，支持用自然语言提问自动完成直播GMV统计、用户转化漏斗分析、爆款商品关联挖掘，自动生成可视化报表，无需运营人员编写SQL或Python代码",
+      "background": "星途优选120名直播运营人员90%不会写SQL，每次取数分析需要排队等数据团队排期，平均响应时长超过4小时，大促期间数据需求积压超过200条，急需低门槛的自动化Agent平台释放数据团队人力",
+      "duration": "2.5周（累计50小时实操）",
+      "difficulty": 2.7,
+      "category": "AI Agent+数据工程+前端工程化",
       "skills": [
-        "skill-agent-009",
-        "skill-fe-engineering-021",
-        "skill-data-visual-014",
-        "skill-wasm-005"
+        "SK-AGENT-002",
+        "SK-DATA-009",
+        "SK-FE-ENG-004",
+        "SK-VIS-006"
       ]
     }
   ]
