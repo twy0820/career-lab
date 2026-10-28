@@ -1,40 +1,55 @@
 {
-  "generatedAt": "2026-10-27T06:02:12.792299+00:00",
+  "generatedAt": "2026-10-28T06:41:25.742316+00:00",
   "projects": [
     {
-      "id": "P2026001",
-      "title": "中小微企业内部文档RAG智能问答系统全栈开发",
-      "company": "云启互联（国内中型SaaS服务商）",
-      "role": "全栈开发实习生",
-      "stack": "React19 + TailwindCSS 4 + FastAPI + LlamaIndex 0.12 + 通义千问Qwen2.5-7B开源模型 + Chroma向量数据库 + Docker",
-      "summary": "模拟企业内部零散的员工制度、产品手册、运维文档统一结构化存储，搭建支持文档上传、切片、向量化、精准召回的低门槛RAG问答系统，解决新员工查资料效率低、老员工答疑成本高的痛点",
-      "background": "云启互联原有内部文档散落在飞书云文档、共享盘、本地Excel等10余个渠道，新人入职熟悉业务平均需要15天，人工答疑每周占用技术团队12人天工作量，急需轻量化可一键部署的RAG系统替代人工检索",
-      "duration": "2周（累计40小时实操）",
+      "id": "proj-2026-001",
+      "title": "高校学科私有知识库RAG智能问答平台开发",
+      "company": "云智高教（国内头部教育SaaS服务商）",
+      "role": "全栈开发实习工程师",
+      "stack": [
+        "Python 3.12",
+        "LangChain 0.3",
+        "Qwen2.5-7B 开源大模型",
+        "FastAPI",
+        "React 19",
+        "TailwindCSS 4",
+        "Milvus 向量数据库"
+      ],
+      "summary": "从零搭建适配高校院系内部课件、科研文献、往年试卷的低幻觉私有RAG问答系统，替代传统关键词检索，支持学生精准定位知识点、获取关联资料，同时配套后台上传、权限管控模块",
+      "background": "2026年国内90%以上双一流高校都在推进院系级数字化知识库建设，传统检索方案语义匹配度不足30%，无法满足师生快速获取精准内部资料的需求，企业急需低成本可落地的RAG全栈开发人才",
+      "duration": "4周（每周投入10小时）",
       "difficulty": 2.5,
       "category": "RAG+全栈开发",
       "skills": [
-        "SK-RAG-001",
-        "SK-FE-007",
-        "SK-BE-012",
-        "SK-DEPLOY-003"
+        "skill-rag-001",
+        "skill-vector-002",
+        "skill-fullstack-003",
+        "skill-prompt-004"
       ]
     },
     {
-      "id": "P2026002",
-      "title": "直播电商无代码用户行为分析Agent平台搭建",
-      "company": "星途优选（头部抖音直播电商机构）",
-      "role": "AI数据应用开发实习生",
-      "stack": "Vue3 + Vite 6 前端工程化 + Pandas 2.2 + OpenAI Agents SDK v1 + DuckDB 嵌入式分析引擎 + Apache Superset",
-      "summary": "搭建面向非技术运营人员的自动化分析Agent，支持用自然语言提问自动完成直播GMV统计、用户转化漏斗分析、爆款商品关联挖掘，自动生成可视化报表，无需运营人员编写SQL或Python代码",
-      "background": "星途优选120名直播运营人员90%不会写SQL，每次取数分析需要排队等数据团队排期，平均响应时长超过4小时，大促期间数据需求积压超过200条，急需低门槛的自动化Agent平台释放数据团队人力",
-      "duration": "2.5周（累计50小时实操）",
-      "difficulty": 2.7,
-      "category": "AI Agent+数据工程+前端工程化",
+      "id": "proj-2026-002",
+      "title": "直播电商多Agent运营数据洞察工作台开发",
+      "company": "星途传媒（头部抖音电商直播服务商）",
+      "role": "前端工程化+数据应用开发实习生",
+      "stack": [
+        "Vue 3.5",
+        "Vite 6",
+        "Monorepo 工程化方案",
+        "AgentLang 多Agent编排框架",
+        "Apache ECharts 5.6",
+        "Supabase 低代码后端"
+      ],
+      "summary": "搭建面向电商运营团队的智能工作台，由数据清洗Agent、异常定位Agent、报告生成Agent三个协作Agent自动处理多平台直播流量、转化数据，自动输出每日运营复盘结论，替代80%人工统计分析工作",
+      "background": "2026年直播电商行业运营人均要对接12个以上平台的后台数据，人工统计日均耗时超3小时，企业急需掌握Agent应用、前端工程化、数据可视化的复合型开发人才",
+      "duration": "5周（每周投入10小时）",
+      "difficulty": 2.8,
+      "category": "Agent+前端工程化+数据应用",
       "skills": [
-        "SK-AGENT-002",
-        "SK-DATA-009",
-        "SK-FE-ENG-004",
-        "SK-VIS-006"
+        "skill-agent-001",
+        "skill-fe-eng-002",
+        "skill-data-viz-003",
+        "skill-automation-004"
       ]
     }
   ]
