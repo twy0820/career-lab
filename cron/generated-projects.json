@@ -1,55 +1,42 @@
 {
-  "generatedAt": "2026-10-28T06:41:25.742316+00:00",
+  "generatedAt": "2026-10-29T06:48:40.235280+00:00",
   "projects": [
     {
-      "id": "proj-2026-001",
-      "title": "高校学科私有知识库RAG智能问答平台开发",
-      "company": "云智高教（国内头部教育SaaS服务商）",
-      "role": "全栈开发实习工程师",
-      "stack": [
-        "Python 3.12",
-        "LangChain 0.3",
-        "Qwen2.5-7B 开源大模型",
-        "FastAPI",
-        "React 19",
-        "TailwindCSS 4",
-        "Milvus 向量数据库"
-      ],
-      "summary": "从零搭建适配高校院系内部课件、科研文献、往年试卷的低幻觉私有RAG问答系统，替代传统关键词检索，支持学生精准定位知识点、获取关联资料，同时配套后台上传、权限管控模块",
-      "background": "2026年国内90%以上双一流高校都在推进院系级数字化知识库建设，传统检索方案语义匹配度不足30%，无法满足师生快速获取精准内部资料的需求，企业急需低成本可落地的RAG全栈开发人才",
-      "duration": "4周（每周投入10小时）",
+      "id": "PROJ2026001",
+      "title": "中小教培机构私有知识库RAG智能答疑系统开发",
+      "company": "云校科技（国内垂直教培SaaS服务商）",
+      "role": "全栈AI开发实战实习生",
+      "stack": "Python3.12、LangChain0.3、Qwen2.5-7B、Milvus2.4、FastAPI0.115、Vue3+Vite5",
+      "summary": "面向中小教培机构搭建本地化部署的私有知识库答疑系统，支持自动上传讲义、错题集、历年真题做向量入库，避免公域大模型泄露教学核心数据，为学员提供定制化答疑服务，降低人工答疑成本60%以上，产出可直接上线的最小可用版本。",
+      "background": "2026年大量中小教培机构反馈使用公域大模型答疑频繁出现内部试卷泄露、知识点匹配错误问题，没有能力投入百万级成本搭建专属AI系统，企业急需低成本、1个月内可交付的轻量化RAG解决方案。",
+      "duration": "4周",
       "difficulty": 2.5,
       "category": "RAG+全栈开发",
       "skills": [
-        "skill-rag-001",
-        "skill-vector-002",
-        "skill-fullstack-003",
-        "skill-prompt-004"
+        "SK001",
+        "SK002",
+        "SK003",
+        "SK004",
+        "SK005"
       ]
     },
     {
-      "id": "proj-2026-002",
-      "title": "直播电商多Agent运营数据洞察工作台开发",
-      "company": "星途传媒（头部抖音电商直播服务商）",
+      "id": "PROJ2026002",
+      "title": "电商大促活动页性能智能调度Agent平台搭建",
+      "company": "淘天集团前端效能部模拟项目",
       "role": "前端工程化+数据应用开发实习生",
-      "stack": [
-        "Vue 3.5",
-        "Vite 6",
-        "Monorepo 工程化方案",
-        "AgentLang 多Agent编排框架",
-        "Apache ECharts 5.6",
-        "Supabase 低代码后端"
-      ],
-      "summary": "搭建面向电商运营团队的智能工作台，由数据清洗Agent、异常定位Agent、报告生成Agent三个协作Agent自动处理多平台直播流量、转化数据，自动输出每日运营复盘结论，替代80%人工统计分析工作",
-      "background": "2026年直播电商行业运营人均要对接12个以上平台的后台数据，人工统计日均耗时超3小时，企业急需掌握Agent应用、前端工程化、数据可视化的复合型开发人才",
-      "duration": "5周（每周投入10小时）",
-      "difficulty": 2.8,
-      "category": "Agent+前端工程化+数据应用",
+      "stack": "Node.js22、Rspack2、Puppeteer23、OpenTelemetry、React19、ClickHouse24",
+      "summary": "搭建自动化Agent平台，大促前自动扫描上百个活动页的资源体积、首屏耗时、白屏率等核心指标，自动完成冗余资源清理、分包策略调整、CDN优先级调度，无需前端人工逐个排查性能问题，将活动页平均加载耗时降低40%。",
+      "background": "2026年电商618大促期间有120+定制化活动页，人工排查性能问题需要2周以上，多次出现活动页加载超时导致GMV损失的问题，企业急需可自动完成性能检测、优化方案生成、上线校验的智能效能平台。",
+      "duration": "5周",
+      "difficulty": 3,
+      "category": "前端工程化+数据Agent",
       "skills": [
-        "skill-agent-001",
-        "skill-fe-eng-002",
-        "skill-data-viz-003",
-        "skill-automation-004"
+        "SK006",
+        "SK007",
+        "SK008",
+        "SK009",
+        "SK010"
       ]
     }
   ]
