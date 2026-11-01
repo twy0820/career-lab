@@ -1,58 +1,56 @@
 {
-  "generatedAt": "2026-10-31T06:43:31.136613+00:00",
+  "generatedAt": "2026-11-01T07:12:06.692175+00:00",
   "projects": [
     {
-      "id": "P2026001",
-      "title": "中小企私有知识库低门槛RAG问答系统搭建项目",
-      "company": "云帆企服科技",
-      "role": "AI应用开发实习生",
+      "id": "PROJ-2026-001",
+      "title": "中小电商知识库智能导购RAG系统全栈开发",
+      "company": "微店云SaaS科技",
+      "role": "全栈开发实习生",
       "stack": [
-        "Python 3.12",
+        "Vue3 + Vite5 + Pinia",
+        "FastAPI 0.115",
         "LangChain v0.3",
-        "Qwen2.5-7B 本地部署",
-        "Chroma 向量数据库",
-        "FastAPI",
-        "Streamlit"
+        "Qwen2.5-7B 开源大模型",
+        "Milvus 2.4 向量数据库",
+        "Docker Compose"
       ],
-      "summary": "从0完成私有化RAG全链路搭建，实现无需联网即可对企业内部产品手册、政策文件、客服话术库的精准问答，解决传统关键词检索召回率不足60%的痛点，最终交付可直接部署的开箱即用系统。",
-      "background": "云帆企服服务300+本地中小商家，原有客服人工查阅内部资料平均耗时15分钟，用户咨询投诉率居高不下，要求在零外部大模型付费调用的前提下，低成本搭建适配10人以内团队使用的私有知识库问答系统。",
-      "duration": "4周，每周投入8小时，总时长32小时",
-      "difficulty": 2.5,
-      "category": "RAG落地应用",
+      "summary": "搭建轻量化电商导购RAG SaaS工具，支持商家一键上传商品手册、售后规则文档自动生成专属知识库，C端用户咨询时精准返回带商品跳转链接的合规导购回答，解决通用大模型乱编商品参数的痛点，项目最终支持100+商家同时接入使用",
+      "background": "2026年国内百万级中小电商普遍无力承担定制化大模型开发成本，传统关键词匹配客服答非所问率超过60%，微店云急需推出低门槛RAG导购工具降低商家客服成本",
+      "duration": "40小时（4周，每周投入10小时）",
+      "difficulty": 2.4,
+      "category": "RAG + 全栈开发",
       "skills": [
-        "SK001 开源大模型本地调用",
-        "SK002 向量数据库增删改查操作",
-        "SK003 RAG全链路编排",
-        "SK004 检索增强Prompt工程优化",
-        "SK005 轻量API接口封装"
+        "SKILL-VUE3-01",
+        "SKILL-FASTAPI-02",
+        "SKILL-RAG-BASICS-03",
+        "SKILL-VECTORDB-04",
+        "SKILL-LLM-PROMPT-ENGINEERING-05"
       ]
     },
     {
-      "id": "P2026002",
-      "title": "10万级用户AI协作笔记平台前端工程化全栈迭代项目",
-      "company": "星野互联",
-      "role": "全栈开发工程化实习生",
+      "id": "PROJ-2026-002",
+      "title": "新消费品牌运营数据智能分析Agent平台搭建",
+      "company": "悦鲜生连锁零售",
+      "role": "数据开发+前端工程化实习生",
       "stack": [
-        "React 19",
-        "TypeScript 5.6",
-        "Vite 6",
-        "Tailwind CSS v4",
-        "Node.js 22",
-        "Prisma ORM",
-        "PostgreSQL",
-        "GitHub Actions CI/CD"
+        "React 19 + Next.js 15 + Turbopack",
+        "Pandas 2.2",
+        "AutoGPT v0.6",
+        "DuckDB 1.1",
+        "Grafana 11",
+        "pnpm 9"
       ],
-      "summary": "对现有12万大学生用户使用的AI协作笔记平台做工程化重构，实现构建速度提升70%、首屏加载低于1.2s、多端响应式全适配、多人协作细粒度权限管控的升级目标，产出可直接上线的生产级代码。",
-      "background": "星野互联旗下AI笔记产品旧版本存在构建打包慢、移动端布局错乱、多人编辑权限混乱等问题，用户流失率达28%，要求基于2026年前端工程化主流方案完成核心模块重构，满足产品后续3个月的用户增长需求。",
-      "duration": "5周，每周投入8小时，总时长40小时",
-      "difficulty": 3,
-      "category": "全栈+前端工程化",
+      "summary": "搭建无代码自然语言数据分析Agent平台，运营人员无需掌握SQL，直接用自然语言提问即可自动触发Agent完成数据查询、清洗、可视化图表生成、异常原因拆解全流程，原本3天的数据需求响应时长缩短到10秒以内",
+      "background": "悦鲜生全国有2000+门店，运营团队共300人，90%的运营人员不会写SQL，过往提数据需求需要排队等待数据部门排期，业务决策效率极低，2026年企业急需用AI Agent降本提效",
+      "duration": "45小时（4周，每周投入11-12小时）",
+      "difficulty": 2.7,
+      "category": "AI Agent + 数据工程 + 前端工程化",
       "skills": [
-        "SK006 React 19新特性业务开发",
-        "SK007 Vite工程化打包优化",
-        "SK008 全栈RESTful接口联调",
-        "SK009 CI/CD自动化部署流水线搭建",
-        "SK010 多端响应式适配方案落地"
+        "SKILL-NEXTJS-06",
+        "SKILL-FRONTEND-MONOREPO-ENGINEERING-07",
+        "SKILL-AGENT-TOOL-CALLING-08",
+        "SKILL-BIGDATA-ETL-09",
+        "SKILL-DUCKDB-ANALYSIS-10"
       ]
     }
   ]
