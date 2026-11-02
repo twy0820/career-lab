@@ -1,56 +1,42 @@
 {
-  "generatedAt": "2026-11-01T07:12:06.692175+00:00",
+  "generatedAt": "2026-11-02T07:22:53.310144+00:00",
   "projects": [
     {
       "id": "PROJ-2026-001",
-      "title": "中小电商知识库智能导购RAG系统全栈开发",
-      "company": "微店云SaaS科技",
-      "role": "全栈开发实习生",
-      "stack": [
-        "Vue3 + Vite5 + Pinia",
-        "FastAPI 0.115",
-        "LangChain v0.3",
-        "Qwen2.5-7B 开源大模型",
-        "Milvus 2.4 向量数据库",
-        "Docker Compose"
-      ],
-      "summary": "搭建轻量化电商导购RAG SaaS工具，支持商家一键上传商品手册、售后规则文档自动生成专属知识库，C端用户咨询时精准返回带商品跳转链接的合规导购回答，解决通用大模型乱编商品参数的痛点，项目最终支持100+商家同时接入使用",
-      "background": "2026年国内百万级中小电商普遍无力承担定制化大模型开发成本，传统关键词匹配客服答非所问率超过60%，微店云急需推出低门槛RAG导购工具降低商家客服成本",
-      "duration": "40小时（4周，每周投入10小时）",
-      "difficulty": 2.4,
-      "category": "RAG + 全栈开发",
+      "title": "本地生活商家私域智能问答RAG系统",
+      "company": "微邻科技（本地生活SaaS头部创业公司）",
+      "role": "全栈AI应用开发实习生",
+      "stack": "React19 + TailwindCSS4 + Node.js22 + LangChain0.3 + 通义千问3.5 + Milvus2.5 + Docker",
+      "summary": "带领2人小团队为餐饮、到店服务类中小商家搭建低代码可配置的私域智能问答RAG系统，支持商家自主上传门店规则、菜单、优惠活动文档自动生成专属问答库，对接企业微信、抖音私信渠道实现自动回复，要求问答准确率达92%以上，单商家部署耗时小于10分钟",
+      "background": "2026年国内中小商家私域运营人力成本同比上涨32%，传统关键词规则客服答非所问导致的用户投诉率占比超40%，公司紧急推出轻量化RAG工具抢占下沉市场10万+商家存量用户",
+      "duration": "4周",
+      "difficulty": 2.5,
+      "category": "RAG+全栈融合方向",
       "skills": [
-        "SKILL-VUE3-01",
-        "SKILL-FASTAPI-02",
-        "SKILL-RAG-BASICS-03",
-        "SKILL-VECTORDB-04",
-        "SKILL-LLM-PROMPT-ENGINEERING-05"
+        "SKILL-REACT19",
+        "SKILL-LANGCHAIN0.3",
+        "SKILL-MILVUS向量库运维",
+        "SKILL-NODEJS22后端开发",
+        "SKILL-RAG检索优化"
       ]
     },
     {
       "id": "PROJ-2026-002",
-      "title": "新消费品牌运营数据智能分析Agent平台搭建",
-      "company": "悦鲜生连锁零售",
-      "role": "数据开发+前端工程化实习生",
-      "stack": [
-        "React 19 + Next.js 15 + Turbopack",
-        "Pandas 2.2",
-        "AutoGPT v0.6",
-        "DuckDB 1.1",
-        "Grafana 11",
-        "pnpm 9"
-      ],
-      "summary": "搭建无代码自然语言数据分析Agent平台，运营人员无需掌握SQL，直接用自然语言提问即可自动触发Agent完成数据查询、清洗、可视化图表生成、异常原因拆解全流程，原本3天的数据需求响应时长缩短到10秒以内",
-      "background": "悦鲜生全国有2000+门店，运营团队共300人，90%的运营人员不会写SQL，过往提数据需求需要排队等待数据部门排期，业务决策效率极低，2026年企业急需用AI Agent降本提效",
-      "duration": "45小时（4周，每周投入11-12小时）",
-      "difficulty": 2.7,
-      "category": "AI Agent + 数据工程 + 前端工程化",
+      "title": "中后台组件库智能生成与发布Agent平台",
+      "company": "云枢软件（国内头部ToB企业服务厂商）",
+      "role": "前端工程化&AI应用开发工程师",
+      "stack": "Vue3.5 + Vite6 + pnpm10 + Playwright + OpenAI o1-mini + Semantic Versioning + GitHub Actions CI/CD",
+      "summary": "参与搭建全链路智能Agent平台，可根据产品输入的自然语言需求、Figma设计稿自动生成符合企业设计规范的中后台通用组件，自动完成单元测试、API文档生成、版本灰度发布全流程，目标将重复组件开发效率提升70%以上",
+      "background": "2026年公司12条ToB业务线并行迭代，重复造通用组件占前端研发总人力的41%，传统组件库迭代周期长达2周完全跟不上业务节奏，急需AI Agent替代重复低价值的组件开发发布流程",
+      "duration": "5周",
+      "difficulty": 2.8,
+      "category": "前端工程化+AI Agent方向",
       "skills": [
-        "SKILL-NEXTJS-06",
-        "SKILL-FRONTEND-MONOREPO-ENGINEERING-07",
-        "SKILL-AGENT-TOOL-CALLING-08",
-        "SKILL-BIGDATA-ETL-09",
-        "SKILL-DUCKDB-ANALYSIS-10"
+        "SKILL-VUE3.5组件开发",
+        "SKILL-VITE6工程化配置",
+        "SKILL-FE-DEV-OPS",
+        "SKILL-Agent工具调用编排",
+        "SKILL-自动化测试落地"
       ]
     }
   ]
