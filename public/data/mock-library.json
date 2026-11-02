@@ -1,6 +1,453 @@
 {
-  "generatedAt": "2026-10-12T06:47:16.202983+00:00",
+  "generatedAt": "2026-11-02T06:59:48.789428+00:00",
   "projects": [
+    {
+      "id": "p66",
+      "title": "个人多模态知识库轻量RAG系统落地",
+      "company": "智记科技（AI工具SaaS创业公司）",
+      "role": "AI应用开发实习生",
+      "stack": [
+        "python",
+        "fastapi",
+        "react",
+        "chroma",
+        "docker"
+      ],
+      "summary": "面向C端个人用户实现支持文档、手绘图片、短视频关键帧检索的轻量化RAG系统，无需复杂微调即可实现个人全量知识资产的自然语言问答，支持1000份以内私有数据毫秒级响应。",
+      "background": "当前大量个人用户的知识资产散落在笔记、截图、本地视频中，通用大模型无法触达私有数据，轻量RAG产品需求激增，要求零配置即可开箱使用。",
+      "duration": "7天",
+      "difficulty": 1,
+      "category": "AI应用开发",
+      "skills": [
+        "python",
+        "fastapi",
+        "react",
+        "vector",
+        "docker",
+        "llm",
+        "git"
+      ],
+      "phases": [
+        {
+          "id": 1,
+          "name": "环境搭建与多模态数据解析模块开发",
+          "goal": "完成项目基础环境配置，实现PDF、图片、短视频文件的上传和基础解析",
+          "prep": [
+            "提前安装Python3.11、Node18环境"
+          ],
+          "knowledge": [
+            "Python基础语法、文件IO操作、前端基础搭建"
+          ],
+          "deliverables": [
+            "可正常运行的项目脚手架、多格式文件解析脚本"
+          ],
+          "tickets": [
+            {
+              "id": 101,
+              "title": "FastAPI后端基础服务框架搭建",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "完成基础路由、跨域配置、全局异常捕获",
+              "acceptance": [
+                "健康检查接口返回200"
+              ],
+              "xp": 50
+            },
+            {
+              "id": 102,
+              "title": "多模态文件解析逻辑实现",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "提取文档文本、图片OCR结果、视频关键帧文本内容",
+              "acceptance": [
+                "三类文件均可正确输出纯文本内容"
+              ],
+              "xp": 80
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "向量检索与问答链路开发",
+          "goal": "实现向量入库、语义检索、大模型生成问答的完整链路",
+          "prep": [
+            "提前申请开源大模型API密钥"
+          ],
+          "knowledge": [
+            "向量数据库基础操作、RAG基础原理"
+          ],
+          "deliverables": [
+            "完整的检索问答服务接口"
+          ],
+          "tickets": [
+            {
+              "id": 201,
+              "title": "文本分块与向量入库逻辑实现",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "将解析后的文本分块生成向量存入向量库",
+              "acceptance": [
+                "查询向量库可返回正确的分块结果"
+              ],
+              "xp": 70
+            },
+            {
+              "id": 202,
+              "title": "检索增强问答链路对接",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "将检索结果作为上下文传入大模型生成答案",
+              "acceptance": [
+                "问答结果100%来自用户上传的私有数据"
+              ],
+              "xp": 100
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "name": "前端交互与容器化部署",
+          "goal": "完成前端页面开发，打包为Docker镜像实现一键部署",
+          "prep": [
+            "提前掌握Docker基础命令"
+          ],
+          "knowledge": [
+            "React基础组件开发、Docker镜像打包"
+          ],
+          "deliverables": [
+            "可直接运行的Docker镜像、可用的前端交互页面"
+          ],
+          "tickets": [
+            {
+              "id": 301,
+              "title": "前端文件上传与问答交互页面开发",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "实现拖拽上传、对话流展示功能",
+              "acceptance": [
+                "端到端流程可正常跑通"
+              ],
+              "xp": 60
+            },
+            {
+              "id": 302,
+              "title": "全链路Docker镜像打包",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "前后端服务打包为单一镜像，配置环境变量即可运行",
+              "acceptance": [
+                "镜像启动后无需额外配置即可使用完整功能"
+              ],
+              "xp": 40
+            }
+          ]
+        }
+      ],
+      "fresh": true
+    },
+    {
+      "id": "p67",
+      "title": "企业级Agent集群分布式任务调度引擎开发",
+      "company": "青云智云（云基础设施服务商）",
+      "role": "云原生后端开发工程师",
+      "stack": [
+        "go",
+        "k8s",
+        "redis",
+        "etcd",
+        "prometheus"
+      ],
+      "summary": "面向企业内部大规模部署的数百个Agent实例，开发支持LLM任务优先级调度、断点续跑、资源动态扩缩容的分布式调度引擎，相比传统K8s原生调度提升Agent集群整体吞吐率40%以上。",
+      "background": "当前大量企业批量部署办公Agent、运维Agent等智能体，传统容器调度框架没有针对LLM长耗时任务、多工具调用场景做适配，经常出现任务排队、资源抢占冲突问题，急需定制化调度引擎。",
+      "duration": "14天",
+      "difficulty": 3,
+      "category": "云原生+AI Infra",
+      "skills": [
+        "go",
+        "linux",
+        "git",
+        "docker",
+        "dist",
+        "redis",
+        "sql",
+        "deploy"
+      ],
+      "phases": [
+        {
+          "id": 1,
+          "name": "调度核心框架开发",
+          "goal": "完成Agent任务队列、节点注册、基础调度逻辑开发",
+          "prep": [
+            "提前掌握Go协程机制、K8s基础API调用"
+          ],
+          "knowledge": [
+            "分布式系统基础、Go并发编程"
+          ],
+          "deliverables": [
+            "基础调度服务可完成Agent任务的分发执行"
+          ],
+          "tickets": [
+            {
+              "id": 101,
+              "title": "分布式任务队列实现",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "基于Redis实现支持优先级的延迟任务队列",
+              "acceptance": [
+                "任务可按优先级排序执行，支持延迟投递"
+              ],
+              "xp": 120
+            },
+            {
+              "id": 102,
+              "title": "节点心跳与资源上报模块开发",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "Agent节点定时上报GPU、CPU、内存占用情况",
+              "acceptance": [
+                "调度端可实时获取所有节点的资源状态"
+              ],
+              "xp": 100
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "Agent场景特性适配开发",
+          "goal": "实现LLM长任务断点续跑、工具调用上下文同步能力",
+          "prep": [
+            "提前调研Agent任务生命周期特征"
+          ],
+          "knowledge": [
+            "状态机实现、分布式一致性基础"
+          ],
+          "deliverables": [
+            "支持任务断点续跑的调度适配层"
+          ],
+          "tickets": [
+            {
+              "id": 201,
+              "title": "Agent任务状态持久化实现",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "任务执行过程中每一步状态存入关系型数据库",
+              "acceptance": [
+                "Agent节点异常重启后任务可从断点处继续执行"
+              ],
+              "xp": 150
+            },
+            {
+              "id": 202,
+              "title": "资源抢占隔离逻辑开发",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "高优先级Agent任务可抢占低优先级任务的闲置GPU资源",
+              "acceptance": [
+                "高优先级任务平均排队延迟降低60%"
+              ],
+              "xp": 130
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "name": "高可用与压测优化",
+          "goal": "实现调度服务多副本高可用，压测达到1000QPS任务调度能力",
+          "prep": [
+            "提前掌握分布式压测工具使用"
+          ],
+          "knowledge": [
+            "分布式锁、服务高可用架构"
+          ],
+          "deliverables": [
+            "可上线运行的生产级调度引擎"
+          ],
+          "tickets": [
+            {
+              "id": 301,
+              "title": "调度服务无状态改造与多副本部署",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "基于Etcd实现分布式选主，服务无状态可水平扩展",
+              "acceptance": [
+                "任意一个调度副本宕机后服务无感知"
+              ],
+              "xp": 140
+            },
+            {
+              "id": 302,
+              "title": "全链路压测与性能优化",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "压测修复性能瓶颈，达到1000QPS调度能力",
+              "acceptance": [
+                "单任务调度延迟低于10ms，无任务丢失"
+              ],
+              "xp": 110
+            }
+          ]
+        }
+      ],
+      "fresh": true
+    },
+    {
+      "id": "p68",
+      "title": "多模态驱动的电商商品内容自动化生产流水线搭建",
+      "company": "淘购电商（头部综合电商平台）",
+      "role": "全栈AI应用工程师",
+      "stack": [
+        "java",
+        "springboot",
+        "vue3",
+        "python",
+        "stable diffusion"
+      ],
+      "summary": "基于商品原始参数、主图素材，全自动化生成商品详情页、营销短视频、直播脚本、买家秀文案的全链路生产流水线，对接电商商家后台实现一键发布，内容生产效率相比人工提升10倍以上。",
+      "background": "平台百万级商家每年需要投入大量人力生产商品营销内容，成本高、周期长，多模态大模型的成熟让端到端自动化内容生产成为可能，急需工程化落地支持全平台商家使用。",
+      "duration": "21天",
+      "difficulty": 4,
+      "category": "全栈+多模态工程化",
+      "skills": [
+        "java",
+        "spring",
+        "vue",
+        "python",
+        "dl",
+        "llm",
+        "vector",
+        "sql",
+        "redis",
+        "deploy"
+      ],
+      "phases": [
+        {
+          "id": 1,
+          "name": "多模态生成核心能力开发",
+          "goal": "实现商品文案生成、图片优化、短视频自动剪辑的核心能力",
+          "prep": [
+            "提前掌握多模态大模型API调用、视频处理工具链"
+          ],
+          "knowledge": [
+            "多模态生成原理、提示词工程优化"
+          ],
+          "deliverables": [
+            "独立可用的多模态内容生成能力模块"
+          ],
+          "tickets": [
+            {
+              "id": 101,
+              "title": "商品全品类文案生成模块开发",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "基于大模型生成符合平台规则的详情页文案、买家秀、直播脚本",
+              "acceptance": [
+                "文案通过率达到95%以上，无违规内容"
+              ],
+              "xp": 200
+            },
+            {
+              "id": 102,
+              "title": "商品图优化与短视频自动生成模块开发",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "基于文生图、视频生成模型自动生成商品营销图和15s短视频",
+              "acceptance": [
+                "生成的内容符合电商平台内容规范"
+              ],
+              "xp": 220
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "全栈业务系统与内容审核链路开发",
+          "goal": "开发商家使用后台，对接平台内容安全审核接口，实现生成内容自动过审",
+          "prep": [
+            "提前熟悉SpringBoot开发规范、Vue3组件库"
+          ],
+          "knowledge": [
+            "全栈业务系统开发、内容审核流程设计"
+          ],
+          "deliverables": [
+            "可用的商家操作后台与内容审核全链路"
+          ],
+          "tickets": [
+            {
+              "id": 201,
+              "title": "后端商家权限与任务管理系统开发",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "实现商家登录、任务提交、生成进度查询功能",
+              "acceptance": [
+                "商家可正常提交任务并查看生成状态"
+              ],
+              "xp": 180
+            },
+            {
+              "id": 202,
+              "title": "商家操作前端页面开发",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "实现任务创建、生成结果预览、一键发布功能",
+              "acceptance": [
+                "商家端交互流程符合产品设计要求"
+              ],
+              "xp": 150
+            },
+            {
+              "id": 203,
+              "title": "自动内容审核链路对接",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "所有生成内容自动过审，不合格内容自动重生成",
+              "acceptance": [
+                "审核通过率达到100%，违规内容直接拦截"
+              ],
+              "xp": 160
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "name": "性能优化与生产上线",
+          "goal": "实现异步任务削峰填谷，支持1000并发任务同时执行，对接商家商品后台实现一键发布",
+          "prep": [
+            "提前掌握消息队列、缓存优化方案"
+          ],
+          "knowledge": [
+            "高并发系统优化、云原生生产部署规范"
+          ],
+          "deliverables": [
+            "生产级可对外服务的内容生成流水线"
+          ],
+          "tickets": [
+            {
+              "id": 301,
+              "title": "异步任务队列与缓存优化",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "基于Redis做热点缓存，RocketMQ做异步任务削峰",
+              "acceptance": [
+                "系统可稳定承载1000并发任务"
+              ],
+              "xp": 170
+            },
+            {
+              "id": 302,
+              "title": "电商商家后台发布链路对接",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "生成的内容可一键同步到商品详情页、短视频平台端口",
+              "acceptance": [
+                "生成内容点击发布后1分钟内即可在公网展示"
+              ],
+              "xp": 140
+            }
+          ]
+        }
+      ],
+      "fresh": true
+    },
     {
       "id": "p63",
       "title": "本地私有化个人知识库RAG应用",
@@ -124,8 +571,7 @@
             }
           ]
         }
-      ],
-      "fresh": true
+      ]
     },
     {
       "id": "p64",
@@ -253,8 +699,7 @@
             }
           ]
         }
-      ],
-      "fresh": true
+      ]
     },
     {
       "id": "p65",
@@ -382,8 +827,7 @@
             }
           ]
         }
-      ],
-      "fresh": true
+      ]
     },
     {
       "id": "p60",
@@ -1654,6 +2098,67 @@
   ],
   "contests": [
     {
+      "id": "a41",
+      "name": "2026 CCF 面向工业场景的轻量RAG优化挑战赛",
+      "host": "中国计算机学会(CCF) 人工智能专委会",
+      "category": "AI应用创新赛",
+      "level": "区域级",
+      "difficulty": 2,
+      "skills": [
+        "python",
+        "llm",
+        "algo",
+        "ds",
+        "git"
+      ],
+      "regStart": "2026-06-15",
+      "regEnd": "2026-07-15",
+      "contestStart": "2026-07-20",
+      "contestEnd": "2026-07-27",
+      "tags": [
+        "RAG优化",
+        "工业知识库",
+        "低资源场景",
+        "准确率优化"
+      ],
+      "summary": "面向高校学生和初级AI开发者，给定工业风电设备运维的10万份非结构化故障手册数据，要求选手在7天内搭建出响应延迟低于200ms、问答准确率高于92%的轻量RAG系统，无需额外微调大模型，最终按综合得分排名颁发证书和实习绿色通道。",
+      "registrationUrl": "https://ccf-ai-challenge.cn/rag2026/reg",
+      "officialUrl": "https://ccf-ai-challenge.cn/rag2026",
+      "recurring": false,
+      "fresh": true
+    },
+    {
+      "id": "a42",
+      "name": "2026 阿里云云原生AI Infra 极限挑战赛",
+      "host": "阿里云云原生团队 + 天池平台",
+      "category": "系统工程竞赛",
+      "level": "全国级",
+      "difficulty": 4,
+      "skills": [
+        "go",
+        "linux",
+        "dist",
+        "docker",
+        "deploy",
+        "llm"
+      ],
+      "regStart": "2026-06-15",
+      "regEnd": "2026-08-01",
+      "contestStart": "2026-08-10",
+      "contestEnd": "2026-08-20",
+      "tags": [
+        "AI Infra",
+        "Agent调度",
+        "云原生",
+        "LLM推理优化"
+      ],
+      "summary": "要求选手在给定的10卡GPU集群+20核CPU资源池上，实现高并发Agent集群调度引擎，优化LLM推理资源复用，最终在10000并发Agent任务场景下最大化整体任务吞吐率、最小化推理长尾延迟，排名前10的选手可获得阿里云校招直通offer和百万级云资源奖励。",
+      "registrationUrl": "https://tianchi.aliyun.com/competition/entrance/231987/registration",
+      "officialUrl": "https://tianchi.aliyun.com/competition/entrance/231987",
+      "recurring": false,
+      "fresh": true
+    },
+    {
       "id": "a39",
       "name": "2026 火山引擎RAG性能优化挑战赛",
       "host": "字节跳动火山引擎",
@@ -1681,8 +2186,7 @@
       "summary": "面向学生和初级开发者的RAG实战竞赛，基于公开企业客服数据集，优化RAG的检索准确率、回答质量和推理延迟，优胜者可获得火山引擎校招绿色通道",
       "registrationUrl": "https://www.volcengine.com/contest/rag2026",
       "officialUrl": "https://www.volcengine.com/contest/rag2026",
-      "recurring": false,
-      "fresh": true
+      "recurring": false
     },
     {
       "id": "a40",
@@ -1712,8 +2216,7 @@
       "summary": "要求参赛选手开发能够处理图文混合输入、调用多种工具完成复杂任务的多模态Agent，综合评估能力天花板和工程落地性，优胜者可获得阿里集团校招/社招绿色通道",
       "registrationUrl": "https://tongyi.aliyun.com/contest/agent2026",
       "officialUrl": "https://tongyi.aliyun.com/contest/agent2026",
-      "recurring": false,
-      "fresh": true
+      "recurring": false
     },
     {
       "id": "a37",
