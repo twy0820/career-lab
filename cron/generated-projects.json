@@ -1,42 +1,56 @@
 {
-  "generatedAt": "2026-11-02T07:22:53.310144+00:00",
+  "generatedAt": "2026-11-03T07:39:53.189747+00:00",
   "projects": [
     {
-      "id": "PROJ-2026-001",
-      "title": "本地生活商家私域智能问答RAG系统",
-      "company": "微邻科技（本地生活SaaS头部创业公司）",
+      "id": 1,
+      "title": "中小电商智能商品问答RAG知识库落地系统",
+      "company": "鲜丰优选（区域中型私域电商服务商）",
       "role": "全栈AI应用开发实习生",
-      "stack": "React19 + TailwindCSS4 + Node.js22 + LangChain0.3 + 通义千问3.5 + Milvus2.5 + Docker",
-      "summary": "带领2人小团队为餐饮、到店服务类中小商家搭建低代码可配置的私域智能问答RAG系统，支持商家自主上传门店规则、菜单、优惠活动文档自动生成专属问答库，对接企业微信、抖音私信渠道实现自动回复，要求问答准确率达92%以上，单商家部署耗时小于10分钟",
-      "background": "2026年国内中小商家私域运营人力成本同比上涨32%，传统关键词规则客服答非所问导致的用户投诉率占比超40%，公司紧急推出轻量化RAG工具抢占下沉市场10万+商家存量用户",
+      "stack": [
+        "Vue3 + Vite5",
+        "LangChain 0.3",
+        "Qwen2.5-7B",
+        "Milvus 2.4",
+        "Node.js 22",
+        "PostgreSQL 16"
+      ],
+      "summary": "实现自动爬取电商商品详情、售后规则、物流说明类非结构化文档，完成切片向量化构建私有知识库，为C端用户和客服团队提供低幻觉的精准商品问答服务，替代原有人工查文档的低效响应模式",
+      "background": "企业现有售后咨询重复率达72%，人工响应等待时长超3分钟，直接调用通用大模型回答商品参数、售后规则的幻觉率超过40%，急需轻量可落地的RAG方案降低人力成本",
       "duration": "4周",
       "difficulty": 2.5,
-      "category": "RAG+全栈融合方向",
+      "category": "RAG + 全栈开发",
       "skills": [
-        "SKILL-REACT19",
-        "SKILL-LANGCHAIN0.3",
-        "SKILL-MILVUS向量库运维",
-        "SKILL-NODEJS22后端开发",
-        "SKILL-RAG检索优化"
+        "sk_001",
+        "sk_002",
+        "sk_003",
+        "sk_004",
+        "sk_005"
       ]
     },
     {
-      "id": "PROJ-2026-002",
-      "title": "中后台组件库智能生成与发布Agent平台",
-      "company": "云枢软件（国内头部ToB企业服务厂商）",
-      "role": "前端工程化&AI应用开发工程师",
-      "stack": "Vue3.5 + Vite6 + pnpm10 + Playwright + OpenAI o1-mini + Semantic Versioning + GitHub Actions CI/CD",
-      "summary": "参与搭建全链路智能Agent平台，可根据产品输入的自然语言需求、Figma设计稿自动生成符合企业设计规范的中后台通用组件，自动完成单元测试、API文档生成、版本灰度发布全流程，目标将重复组件开发效率提升70%以上",
-      "background": "2026年公司12条ToB业务线并行迭代，重复造通用组件占前端研发总人力的41%，传统组件库迭代周期长达2周完全跟不上业务节奏，急需AI Agent替代重复低价值的组件开发发布流程",
+      "id": 2,
+      "title": "零代码企业行政办公Agent任务编排平台",
+      "company": "企效云（企业数字化行政SaaS服务商）",
+      "role": "低代码Agent前端开发工程师",
+      "stack": [
+        "React 19",
+        "Dify 0.12",
+        "AgentLite 0.2",
+        "TailwindCSS 3.4",
+        "Supabase",
+        "Redis 7"
+      ],
+      "summary": "实现拖拽式可视化编排界面，支持非技术背景的行政人员自主组装考勤统计、报销初审、会议预约自动提醒、访客登记通知等多Agent协作自动化工作流，无需编写代码即可上线定制化办公自动化能力",
+      "background": "企业客户内部零散行政自动化需求排期等待时长超2周，现有通用办公机器人灵活性不足，低门槛可自定义的Agent编排工具缺口极大",
       "duration": "5周",
-      "difficulty": 2.8,
-      "category": "前端工程化+AI Agent方向",
+      "difficulty": 3,
+      "category": "Agent + 前端工程化",
       "skills": [
-        "SKILL-VUE3.5组件开发",
-        "SKILL-VITE6工程化配置",
-        "SKILL-FE-DEV-OPS",
-        "SKILL-Agent工具调用编排",
-        "SKILL-自动化测试落地"
+        "sk_006",
+        "sk_007",
+        "sk_008",
+        "sk_009",
+        "sk_010"
       ]
     }
   ]
