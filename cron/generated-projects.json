@@ -1,52 +1,57 @@
 {
-  "generatedAt": "2026-11-04T07:18:26.522107+00:00",
+  "generatedAt": "2026-11-05T07:45:48.503240+00:00",
   "projects": [
     {
-      "id": "PROJ-2026-001",
-      "title": "中小微企业内部知识库轻量化RAG智能问答系统全栈落地项目",
-      "company": "云智企服科技（国内中型企业服务SaaS厂商）",
+      "id": "proj_2026_001",
+      "title": "社区生鲜门店智能经营顾问RAG全栈系统开发",
+      "company": "鲜橙零售SaaS服务有限公司",
       "role": "全栈开发实战实习生",
       "stack": [
-        "React 19 + Vite 6",
-        "Python 3.12 + LangChain 0.3",
-        "Milvus 2.5 向量数据库",
-        "通义千问3.5 大模型API",
-        "Docker 27 容器化部署"
+        "Python 3.12",
+        "FastAPI",
+        "LangChain 0.3",
+        "ChromaDB",
+        "React 18",
+        "TailwindCSS",
+        "Prisma ORM",
+        "PostgreSQL"
       ],
-      "summary": "从0到1搭建适配企业非结构化内部文档（产品手册、运营规范、售后SOP）的RAG问答系统，配套Web端管理后台与员工微信小程序入口，实现问答响应准确率≥92%，单条查询耗时低于2s",
-      "background": "云智企服原有120人规模的运营、客服团队查找内部资料需要遍历8个共享文件夹，平均单次查询耗时14.7分钟，企业要求用最低成本落地轻量化智能问答系统，替代传统人工检索模式",
-      "duration": "4周",
-      "difficulty": 2.5,
-      "category": "RAG + 全栈开发",
+      "summary": "为服务1200+线下社区生鲜门店的SaaS平台开发低门槛智能问答系统，将门店历史进销存数据、官方经营指导文档、周边消费趋势报告做向量化检索，支持门店老板用自然语言直接查询库存预警、选品建议、会员复购策略，替代原多系统翻查报表的低效操作。",
+      "background": "2026年线下零售数字化渗透率突破70%，大量中小门店经营者无数据分析能力，传统SaaS系统学习成本高，该项目是企业降本提效的核心落地需求，上线后可降低门店客服咨询量60%。",
+      "duration": "21天",
+      "difficulty": 2.4,
+      "category": "RAG+全栈开发",
       "skills": [
-        "SKILL-RAG-001 多格式文档智能分块与向量化优化",
-        "SKILL-FE-012 React19异步组件与服务端状态管理",
-        "SKILL-BE-007 向量检索召回率调优",
-        "SKILL-OPS-003 轻量服务容器化一键部署"
+        "sk_py_001",
+        "sk_api_003",
+        "sk_rag_007",
+        "sk_react_012"
       ]
     },
     {
-      "id": "PROJ-2026-002",
-      "title": "垂类电商营销自动化Agent平台数据链路与前端工程化落地项目",
-      "company": "潮品集市（年GMV 30亿潮流电商平台）",
-      "role": "前端+数据工程开发实习生",
+      "id": "proj_2026_002",
+      "title": "企业内部组件库自动化运维Agent平台搭建",
+      "company": "知学云科在线教育集团",
+      "role": "前端工程化实战实习生",
       "stack": [
-        "Next.js 15 + Turbopack",
-        "Biome 全链路代码规范校验",
-        "Apache Flink 1.19 实时计算",
-        "ClickHouse 24 实时数仓",
-        "Coze 多Agent编排平台"
+        "Vue 3.5",
+        "Vite 6.0",
+        "Monorepo",
+        "Playwright",
+        "OpenAI Agent SDK",
+        "GitHub Actions",
+        "Element Plus 二次封装"
       ],
-      "summary": "搭建支持用户行为分析Agent、营销文案生成Agent、投放效果复盘Agent协同调度的自动化营销平台，配套可视化运营看板，实现营销活动生成效率提升70%，活动转化率从原有2.1%提升至5%以上",
-      "background": "潮品集市2026年营销团队人力成本同比上涨40%，传统人工策划营销活动链路长、响应慢，要求落地AI Agent驱动的自动化营销体系，降低运营人力投入的同时提升转化效果",
-      "duration": "5周",
-      "difficulty": 3,
-      "category": "AI Agent + 前端工程化 + 数据工程",
+      "summary": "针对企业内部20条业务线共用的137个通用业务组件，搭建自动化回归测试流水线，同时接入AI Agent能力实现组件Bug自动定位、修复代码自动生成、合并PR自动校验，将原组件版本迭代的3天人工回归测试时长压缩到2小时。",
+      "background": "2026年中大型企业前端基建提效需求爆发，传统组件库迭代依赖人工测试、手动改Bug的模式已经跟不上业务迭代速度，该项目是企业前端工程化体系升级的核心考核项目。",
+      "duration": "18天",
+      "difficulty": 2.7,
+      "category": "前端工程化+AI Agent",
       "skills": [
-        "SKILL-AGENT-004 多Agent任务调度与结果校验编排",
-        "SKILL-FE-023 Turbopack大型 monorepo 工程化配置",
-        "SKILL-DATA-017 用户行为实时数仓链路搭建",
-        "SKILL-FE-027 低代码营销活动可视化拖拽组件开发"
+        "sk_fe_018",
+        "sk_test_022",
+        "sk_agent_027",
+        "sk_cicd_031"
       ]
     }
   ]
