@@ -1,54 +1,56 @@
 {
-  "generatedAt": "2026-11-06T07:44:39.335521+00:00",
+  "generatedAt": "2026-11-07T06:52:32.048483+00:00",
   "projects": [
     {
-      "id": "P2026001",
-      "title": "中小电商私域知识库智能问答Agent系统开发",
-      "company": "微盟（模拟企业实战场景）",
-      "role": "全栈AI应用开发工程师",
+      "id": "proj-2026-001",
+      "title": "中小制造企业内部规程文档智能检索RAG平台开发",
+      "company": "珠三角智能制造数字化SaaS服务商",
+      "role": "全栈AI应用开发实习生",
       "stack": [
-        "Vue3 + Vite5 + Pinia",
-        "Node.js22 + Express",
-        "LangChain0.3",
-        "Qwen2.5-7B",
-        "Chroma向量数据库",
-        "Docker Compose"
+        "React19 + Vite6",
+        "Node.js 22",
+        "LangChain 0.3",
+        "通义千问Qwen2.5-7B",
+        "Milvus 2.4",
+        "阿里云OSS"
       ],
-      "summary": "为中小电商搭建低幻觉私域客服系统，完成商品手册、售后规则、历史客诉数据的结构化解析入库，实现带工具调用能力的RAG智能问答，支持自动生成售后工单、退换货规则校验等业务闭环，可直接部署落地替代70%人工客服重复劳动",
-      "background": "2026年国内中小电商私域客服人力成本同比上涨32%，传统关键词匹配问答系统答非所问率高达47%，企业急需低成本可快速落地的AI客服解决方案",
-      "duration": "4周/32课时",
-      "difficulty": 2.5,
-      "category": "RAG+Agent+全栈开发",
+      "summary": "面向中小制造企业落地轻量化RAG应用，实现设备图纸、操作规范、安全文档的自然语言精准问答，替代传统关键词检索，将新员工资料查询效率提升70%，全程覆盖从文档分片、向量入库、检索召回优化到前端交互全流程",
+      "background": "大量中小制造企业的内部技术文档分散在本地Excel、PDF、扫描件中，传统关键词检索经常漏查、错配内容，每年因操作规范查询失误导致的产线故障损失超10万，客户要求零改造现有存储体系快速上线智能检索能力",
+      "duration": "4周",
+      "difficulty": 2.3,
+      "category": "RAG + 全栈开发",
       "skills": [
-        "S001",
-        "S002",
-        "S003",
-        "S004"
+        "skill-rag-001",
+        "skill-fullstack-007",
+        "skill-vector-db-003",
+        "skill-react-012",
+        "skill-llm-application-006"
       ]
     },
     {
-      "id": "P2026002",
-      "title": "百万级用户行为埋点数据分析平台前端工程化落地",
-      "company": "字节跳动抖音本地生活（模拟企业实战场景）",
-      "role": "前端数据应用开发工程师",
+      "id": "proj-2026-002",
+      "title": "多Agent驱动的电商运营自动决策低代码看板系统",
+      "company": "国内头部淘系电商代运营服务商",
+      "role": "前端工程化+AI数据应用开发工程师",
       "stack": [
-        "React19 + Next.js15",
-        "TypeScript5.6",
-        "ECharts5.5",
-        "Monorepo + Turbo",
-        "Playwright",
-        "Vitest"
+        "Next.js 15",
+        "Turbopack",
+        "AgentLite 0.2",
+        "ClickHouse 24.3",
+        "ECharts 5.5",
+        "Zustand"
       ],
-      "summary": "完成抖音本地生活商家端行为分析看板的工程化重构，解决原有项目包体积过大、首屏加载慢、多团队协作依赖混乱的问题，实现千万级埋点数据实时可视化渲染、自定义报表导出、细粒度商家权限管控等核心能力",
-      "background": "2026年抖音本地生活入驻商家突破2000万，原有数据看板首屏加载耗时超6s，多团队并行迭代冲突率高达35%，急需通过前沿前端工程化方案完成性能与研发效率双升级",
-      "duration": "3周/24课时",
-      "difficulty": 2.2,
-      "category": "前端工程化+大数据应用",
+      "summary": "搭建支持拖拽配置的电商运营数据看板，接入数据统计Agent、选品分析Agent、投放优化Agent三个智能体，自动同步全平台店铺交易数据，每日自动产出运营决策建议，替代运营人员每日3小时的手动导表分析工作",
+      "background": "服务商旗下托管47家消费类电商店铺，每日产生超20万条交易、流量、投放数据，传统人工制表分析响应滞后24小时以上，无法适配大促期间实时调优投放策略的需求，需要可快速迭代的智能化看板产品",
+      "duration": "5周",
+      "difficulty": 2.9,
+      "category": "AI Agent + 前端工程化 + 数据可视化",
       "skills": [
-        "S005",
-        "S006",
-        "S007",
-        "S008"
+        "skill-agent-002",
+        "skill-fe-engineering-015",
+        "skill-data-warehouse-008",
+        "skill-echarts-004",
+        "skill-lowcode-011"
       ]
     }
   ]
