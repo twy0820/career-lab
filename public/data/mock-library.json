@@ -1,6 +1,419 @@
 {
-  "generatedAt": "2026-11-02T06:59:48.789428+00:00",
+  "generatedAt": "2026-11-09T07:27:00.667176+00:00",
   "projects": [
+    {
+      "id": "p69",
+      "title": "小微企业轻量门店运营知识库RAG助手搭建",
+      "company": "蜜雪冰城区域运营部",
+      "role": "AI全栈开发实习生",
+      "stack": [
+        "FastAPI",
+        "ChromaDB",
+        "Vue3",
+        "Docker"
+      ],
+      "summary": "面向连锁门店运营人员搭建低门槛RAG助手，支持门店规章、活动规则、客诉处理文档的智能问答，替代传统人工翻找文档的低效模式",
+      "background": "区域运营部现存超过200份分散的运营文档，门店新人培训答疑成本高，传统关键词检索准确率不足60%，急需轻量化无需运维的RAG系统",
+      "duration": "7天",
+      "difficulty": 1,
+      "category": "AI应用全栈入门",
+      "skills": [
+        "python",
+        "fastapi",
+        "vector",
+        "vue",
+        "docker",
+        "git"
+      ],
+      "phases": [
+        {
+          "id": "phase1",
+          "name": "需求拆解与环境准备",
+          "goal": "完成需求对齐和基础开发环境配置",
+          "prep": [
+            "下载公开运营文档数据集",
+            "申请通义千问开源大模型API密钥"
+          ],
+          "knowledge": [
+            "RAG基础原理",
+            "FastAPI基础接口开发"
+          ],
+          "deliverables": [
+            "需求规格说明书",
+            "本地开发环境运行报告"
+          ],
+          "tickets": [
+            {
+              "id": "t1",
+              "title": "完成100份运营文档的清洗与切分脚本开发",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "将PDF/Word文档转换为纯文本并按512token窗口切分",
+              "acceptance": [
+                "切分后文档无乱码",
+                "块重叠率控制在10%以内"
+              ],
+              "xp": 50
+            },
+            {
+              "id": "t2",
+              "title": "完成向量库基础部署与文档入库",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "用ChromaDB部署本地向量库，完成切分后文本的向量化入库",
+              "acceptance": [
+                "向量检索Top3召回准确率不低于80%"
+              ],
+              "xp": 80
+            }
+          ]
+        },
+        {
+          "id": "phase2",
+          "name": "问答核心逻辑开发",
+          "goal": "完成检索增强生成的问答链路开发",
+          "prep": [
+            "参考OpenAI function call官方文档"
+          ],
+          "knowledge": [
+            "Prompt工程",
+            "大模型API调用规范"
+          ],
+          "deliverables": [
+            "后端问答接口"
+          ],
+          "tickets": [
+            {
+              "id": "t3",
+              "title": "开发问答链路接口",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "实现用户query向量化、向量召回、上下文拼接、大模型生成的全链路逻辑",
+              "acceptance": [
+                "接口响应耗时低于3s",
+                "回答内容全部来自给定知识库无幻觉"
+              ],
+              "xp": 100
+            }
+          ]
+        },
+        {
+          "id": "phase3",
+          "name": "前端交互与容器化部署",
+          "goal": "完成可视化交互页面和一键部署",
+          "prep": [
+            "学习Vue3基础组件开发"
+          ],
+          "knowledge": [
+            "前后端联调规范",
+            "Docker镜像打包"
+          ],
+          "deliverables": [
+            "可直接运行的Docker镜像",
+            "前端交互页面"
+          ],
+          "tickets": [
+            {
+              "id": "t4",
+              "title": "开发对话类前端页面",
+              "kind": "开发",
+              "priority": "P1",
+              "context": "实现聊天窗口、历史记录展示功能",
+              "acceptance": [
+                "页面无布局错乱",
+                "对话消息实时展示"
+              ],
+              "xp": 70
+            },
+            {
+              "id": "t5",
+              "title": "全链路镜像打包部署",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "将前后端和向量库全部打包进Docker镜像，实现一键启动",
+              "acceptance": [
+                "单镜像启动后全链路可正常访问"
+              ],
+              "xp": 60
+            }
+          ]
+        }
+      ],
+      "fresh": true
+    },
+    {
+      "id": "p70",
+      "title": "云原生多模态Agent素材处理流水线搭建",
+      "company": "剪映商业内容SaaS部",
+      "role": "AI数据工程开发工程师",
+      "stack": [
+        "Go",
+        "K8s",
+        "Milvus",
+        "LangGraph",
+        "Redis"
+      ],
+      "summary": "面向广告内容生成场景搭建多模态Agent流水线，自动完成用户上传的图片/视频/文本素材的解析、打标、检索、入库全流程，支持每秒100级别的素材并发处理",
+      "background": "当前商用素材处理任务采用单机串行模式，万级素材处理耗时超过24小时，资源利用率不足30%，急需云原生分布式流水线提升吞吐能力",
+      "duration": "14天",
+      "difficulty": 3,
+      "category": "云原生AI数据工程",
+      "skills": [
+        "go",
+        "sql",
+        "redis",
+        "vector",
+        "linux",
+        "git",
+        "docker",
+        "dist",
+        "ml",
+        "llm",
+        "deploy"
+      ],
+      "phases": [
+        {
+          "id": "phase1",
+          "name": "分布式任务调度框架开发",
+          "goal": "基于Go开发轻量任务分发调度模块",
+          "prep": "学习K8s Job调度API",
+          "knowledge": [
+            "分布式任务调度原理",
+            "Go协程并发编程"
+          ],
+          "deliverables": "任务调度服务",
+          "tickets": [
+            {
+              "id": "t1",
+              "title": "开发任务分片与状态管理模块",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "将批量素材任务拆分为子任务，用Redis存储任务状态",
+              "acceptance": [
+                "任务分片后无重复无遗漏，状态更新延迟低于1s"
+              ],
+              "xp": 120
+            },
+            {
+              "id": "t2",
+              "title": "对接K8s弹性Worker池",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "根据任务队列长度自动伸缩处理Pod数量",
+              "acceptance": [
+                "100并发任务下自动扩容到20个Pod，任务完成后自动缩容到0"
+              ],
+              "xp": 150
+            }
+          ]
+        },
+        {
+          "id": "phase2",
+          "name": "多模态Agent处理节点开发",
+          "goal": "实现多模态素材解析、打标Agent逻辑",
+          "prep": "学习CLIP多模态向量模型调用方法",
+          "knowledge": [
+            "多模态向量生成",
+            "Agent工具调用逻辑"
+          ],
+          "deliverables": "多模态处理Worker镜像",
+          "tickets": [
+            {
+              "id": "t3",
+              "title": "开发图片/视频多模态向量化模块",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "提取图片关键帧向量、视频全片段向量",
+              "acceptance": [
+                "向量维度对齐1024，单帧提取耗时低于100ms"
+              ],
+              "xp": 100
+            },
+            {
+              "id": "t4",
+              "title": "开发素材自动打标Agent",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "调用多模态大模型自动生成素材的场景、风格、主体标签",
+              "acceptance": [
+                "标签准确率不低于90%"
+              ],
+              "xp": 130
+            }
+          ]
+        },
+        {
+          "id": "phase3",
+          "name": "向量库与性能调优",
+          "goal": "完成Milvus分布式部署和全链路压测",
+          "prep": "学习Milvus分片集群配置",
+          "knowledge": [
+            "分布式向量检索优化",
+            "全链路压测方法"
+          ],
+          "deliverables": "可承载亿级向量的多模态检索系统",
+          "tickets": [
+            {
+              "id": "t5",
+              "title": "Milvus集群部署与索引优化",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "配置IVF_FLAT索引，优化分片策略",
+              "acceptance": [
+                "亿级向量检索QPS不低于500，P99延迟低于50ms"
+              ],
+              "xp": 140
+            },
+            {
+              "id": "t6",
+              "title": "全链路压测与资源利用率调优",
+              "kind": "开发",
+              "priority": "P1",
+              "context": "优化Worker资源占用，将集群整体GPU利用率提升到70%以上",
+              "acceptance": [
+                "万级素材处理耗时低于1小时"
+              ],
+              "xp": 90
+            }
+          ]
+        }
+      ],
+      "fresh": true
+    },
+    {
+      "id": "p71",
+      "title": "前端工程化驱动的低代码Agent可视化编排平台开发",
+      "company": "宜信企业级低代码平台部",
+      "role": "前端架构师",
+      "stack": [
+        "React 19",
+        "Turbopack",
+        "WebWorker",
+        "LLM Runtime"
+      ],
+      "summary": "面向非技术用户搭建可视化拖拽的Agent编排平台，用户无需编码即可通过拖拽节点、连线的方式搭建自定义工作流Agent，平台支持一键发布到云端运行",
+      "background": "当前企业内部Agent开发需要专业工程师编写代码，业务人员需求交付周期平均超过2周，急需低门槛可视化编排工具将交付周期压缩到4小时以内",
+      "duration": "21天",
+      "difficulty": 4,
+      "category": "前端工程化+AI Agent",
+      "skills": [
+        "react",
+        "web",
+        "llm",
+        "git",
+        "review",
+        "deploy",
+        "ds"
+      ],
+      "phases": [
+        {
+          "id": "phase1",
+          "name": "高性能编排画布底座开发",
+          "goal": "基于React开发支持万级节点的拖拽式可视化画布",
+          "prep": "调研React Flow等开源画布框架的性能瓶颈",
+          "knowledge": [
+            "虚拟滚动渲染",
+            "WebWorker非阻塞计算"
+          ],
+          "deliverables": "高性能可视化编排画布",
+          "tickets": [
+            {
+              "id": "t1",
+              "title": "开发基于WebWorker的节点布局算法",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "将复杂工作流的布局计算放到子线程执行，避免阻塞主线程",
+              "acceptance": [
+                "1000个节点的画布布局计算耗时低于200ms，主线程无卡顿"
+              ],
+              "xp": 180
+            },
+            {
+              "id": "t2",
+              "title": "Turbopack构建工程优化",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "配置模块联邦、按需加载规则，将页面首屏加载时间压缩到2s以内",
+              "acceptance": [
+                "生产环境构建速度提升到Webpack的5倍以上"
+              ],
+              "xp": 120
+            }
+          ]
+        },
+        {
+          "id": "phase2",
+          "name": "AI辅助编排能力开发",
+          "goal": "接入大模型实现自然语言转工作流的智能生成能力",
+          "prep": "调研LLM function call生成结构化JSON的最佳实践",
+          "knowledge": [
+            "结构化输出Prompt工程",
+            "前端沙箱执行机制"
+          ],
+          "deliverables": "自然语言转Agent工作流模块",
+          "tickets": [
+            {
+              "id": "t3",
+              "title": "开发大模型自然语言转工作流逻辑",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "用户输入自然语言需求自动生成对应的节点和连线，自动补全参数",
+              "acceptance": [
+                "常规需求生成准确率不低于85%"
+              ],
+              "xp": 200
+            },
+            {
+              "id": "t4",
+              "title": "开发节点参数智能推荐能力",
+              "kind": "开发",
+              "priority": "P1",
+              "context": "用户选中节点时自动推荐最优参数配置",
+              "acceptance": [
+                "参数推荐准确率不低于80%"
+              ],
+              "xp": 100
+            }
+          ]
+        },
+        {
+          "id": "phase3",
+          "name": "工作流校验与一键发布能力开发",
+          "goal": "完成工作流合法性校验和云端一键发布功能",
+          "prep": "对接后端Agent运行时API",
+          "knowledge": [
+            "工作流DAG校验算法",
+            "前端CI/CD集成"
+          ],
+          "deliverables": "完整可上线的低代码Agent编排平台",
+          "tickets": [
+            {
+              "id": "t5",
+              "title": "开发DAG循环检测与参数合法性校验模块",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "实时检测编排中的循环依赖、参数缺失等错误，给出智能修复建议",
+              "acceptance": [
+                "所有非法工作流都能被正确识别"
+              ],
+              "xp": 110
+            },
+            {
+              "id": "t6",
+              "title": "团队代码评审与性能优化",
+              "kind": "review",
+              "priority": "P0",
+              "context": "完成全量代码评审，修复性能问题和潜在bug",
+              "acceptance": [
+                "代码评审通过率100%，平台无核心阻塞bug"
+              ],
+              "xp": 90
+            }
+          ]
+        }
+      ],
+      "fresh": true
+    },
     {
       "id": "p66",
       "title": "个人多模态知识库轻量RAG系统落地",
@@ -142,8 +555,7 @@
             }
           ]
         }
-      ],
-      "fresh": true
+      ]
     },
     {
       "id": "p67",
@@ -287,8 +699,7 @@
             }
           ]
         }
-      ],
-      "fresh": true
+      ]
     },
     {
       "id": "p68",
@@ -445,8 +856,7 @@
             }
           ]
         }
-      ],
-      "fresh": true
+      ]
     },
     {
       "id": "p63",
@@ -2098,6 +2508,65 @@
   ],
   "contests": [
     {
+      "id": "a43",
+      "name": "2026火山引擎轻量RAG效果优化挑战赛",
+      "host": "字节跳动火山引擎云原生AI团队",
+      "category": "AI应用落地竞赛",
+      "level": "入门级公开赛",
+      "difficulty": 2,
+      "skills": [
+        "python",
+        "llm",
+        "vector",
+        "algo"
+      ],
+      "regStart": "2026-06-16",
+      "regEnd": "2026-06-23",
+      "contestStart": "2026-06-24",
+      "contestEnd": "2026-06-30",
+      "tags": [
+        "RAG优化",
+        "向量检索",
+        "低代码AI应用"
+      ],
+      "summary": "给定10万份医疗科普文档数据集和固定开源大模型底座，参赛选手在7天内通过优化文档切分策略、检索策略、Prompt工程等方式提升问答准确率，最终评测指标包含回答准确率、响应耗时、资源占用三个维度，排名前20的选手可获得火山引擎云资源代金券和字节跳动面试绿色通道资格",
+      "registrationUrl": "https://www.volcengine.com/activity/rag-competition-2026",
+      "officialUrl": "https://www.volcengine.com/docs/6458/11638287",
+      "recurring": false,
+      "fresh": true
+    },
+    {
+      "id": "a44",
+      "name": "2026 CCF云原生多模态Agent部署性能挑战赛",
+      "host": "中国计算机学会云计算专委会",
+      "category": "AI Infra竞赛",
+      "level": "国家级预选赛",
+      "difficulty": 4,
+      "skills": [
+        "go",
+        "linux",
+        "docker",
+        "dist",
+        "deploy",
+        "llm"
+      ],
+      "regStart": "2026-06-16",
+      "regEnd": "2026-07-07",
+      "contestStart": "2026-07-08",
+      "contestEnd": "2026-07-22",
+      "tags": [
+        "云原生",
+        "Agent调度",
+        "性能优化",
+        "多模态推理"
+      ],
+      "summary": "参赛选手需要在给定的8卡GPU K8s集群资源下，部署包含10个多模态工具节点的复杂Agent工作流，通过优化调度策略、推理加速、资源复用等技术手段，将1000并发Agent请求的平均响应耗时压到最低，同时保证服务SLA可用性达到99.9%，排名前10的团队可晋级全国总决赛，获得CCF认证证书和头部云厂商校招offer直通资格",
+      "registrationUrl": "https://www.ccf.org.cn/Contest/CloudNative2026/reg",
+      "officialUrl": "https://www.ccf.org.cn/Contest/CloudNative2026/",
+      "recurring": false,
+      "fresh": true
+    },
+    {
       "id": "a41",
       "name": "2026 CCF 面向工业场景的轻量RAG优化挑战赛",
       "host": "中国计算机学会(CCF) 人工智能专委会",
@@ -2124,8 +2593,7 @@
       "summary": "面向高校学生和初级AI开发者，给定工业风电设备运维的10万份非结构化故障手册数据，要求选手在7天内搭建出响应延迟低于200ms、问答准确率高于92%的轻量RAG系统，无需额外微调大模型，最终按综合得分排名颁发证书和实习绿色通道。",
       "registrationUrl": "https://ccf-ai-challenge.cn/rag2026/reg",
       "officialUrl": "https://ccf-ai-challenge.cn/rag2026",
-      "recurring": false,
-      "fresh": true
+      "recurring": false
     },
     {
       "id": "a42",
@@ -2155,8 +2623,7 @@
       "summary": "要求选手在给定的10卡GPU集群+20核CPU资源池上，实现高并发Agent集群调度引擎，优化LLM推理资源复用，最终在10000并发Agent任务场景下最大化整体任务吞吐率、最小化推理长尾延迟，排名前10的选手可获得阿里云校招直通offer和百万级云资源奖励。",
       "registrationUrl": "https://tianchi.aliyun.com/competition/entrance/231987/registration",
       "officialUrl": "https://tianchi.aliyun.com/competition/entrance/231987",
-      "recurring": false,
-      "fresh": true
+      "recurring": false
     },
     {
       "id": "a39",
