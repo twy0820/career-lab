@@ -1,54 +1,52 @@
 {
-  "generatedAt": "2026-11-09T07:42:21.216257+00:00",
+  "generatedAt": "2026-11-10T08:03:18.468847+00:00",
   "projects": [
     {
-      "id": 1,
-      "title": "中小微企业内部知识库智能RAG问答系统实战",
-      "company": "智企云服SaaS服务商",
-      "role": "AI应用全栈开发实习生",
+      "id": "proj-2026-001",
+      "title": "面向高校就业场景的个性化求职知识库RAG系统全栈开发",
+      "company": "国内头部高校就业服务平台「校招通」",
+      "role": "全栈开发实习生（RAG方向）",
       "stack": [
-        "FastAPI",
-        "LangChain v0.3",
-        "Milvus 2.5",
-        "React 19",
-        "Ollama 本地大模型",
-        "PDF解析工具PyPDF2"
+        "React 19 + Vite 6 + Tailwind CSS 4",
+        "Node.js 22 + Express",
+        "Llama 3.2 7B 本地轻量化部署",
+        "Chroma 向量数据库",
+        "阿里云百炼大模型API"
       ],
-      "summary": "从需求调研到上线全流程落地支持多格式文档上传、自动分片向量化、检索结果溯源、权限分级的内部知识库问答系统，替代传统人工翻找制度文档的低效模式，项目最终可直接部署给100人规模企业使用",
-      "background": "2026年87%的中小微企业有内部知识库智能升级需求，但市面通用RAG方案部署成本高，本项目完全还原企业真实外包需求，避开冗余学术环节，聚焦可落地的工程优化点",
+      "summary": "模拟企业真实业务需求，从零搭建覆盖校招岗位、笔试面经、政策文件的求职知识库RAG问答系统，支持学生精准语义检索求职信息，自动生成简历优化、面试模拟答疑服务，替代原有准确率不足45%的关键词检索模块。",
+      "background": "校招通2026年注册用户突破2100万，原有求职信息检索体系基于关键词匹配，大量学生无法找到适配自身背景的定向岗位和专属面经，用户投诉率连续3个月上涨，技术团队急需用低门槛RAG方案重构核心问答能力。",
       "duration": "4周",
-      "difficulty": 2.4,
-      "category": "RAG+全栈融合方向",
+      "difficulty": 2.5,
+      "category": "RAG+全栈开发",
       "skills": [
-        "RAG-001",
-        "VEC-002",
-        "FS-003",
-        "PERM-004"
+        "skill-rag-001",
+        "skill-fullstack-012",
+        "skill-vector-db-003",
+        "skill-frontend-047"
       ]
     },
     {
-      "id": 2,
-      "title": "电商大促前端流量自动调度Agent平台",
-      "company": "星淘头部电商平台",
-      "role": "前端工程化+智能运维开发工程师",
+      "id": "proj-2026-002",
+      "title": "中小连锁零售门店智能运营Agent可视化调度平台开发",
+      "company": "国内社区连锁便利店数字化服务商「鲜邻科技」",
+      "role": "数据工程+前端工程化开发实习生",
       "stack": [
-        "TypeScript 5.7",
-        "Vite 7.0",
-        "Monorepo 工程方案",
-        "字节跳动豆包Agent SDK",
-        "Prometheus 监控",
-        "低代码页面降级引擎"
+        "Next.js 15 + Turbopack + Biome",
+        "Python 3.12 + Prefect 工作流引擎",
+        "DuckDB 轻量分析数据库",
+        "OpenAI o1-mini Agent SDK",
+        "字节跳动Arco Design Pro"
       ],
-      "summary": "搭建大促场景下自动监控前端报错、实时预判流量峰值、动态下发资源扩容规则、自动生成降级活动页的智能Agent平台，替代传统人工值守运维模式，把大促前端故障响应时间从15分钟压缩到10秒以内",
-      "background": "2026年电商大促峰值流量波动幅度超过300%，传统前端人工运维完全无法匹配响应速度要求，本项目覆盖前端工程化、可观测性、Agent工具调用三大核心企业刚需技能",
+      "summary": "模拟企业给1200+社区便利店搭建自动补货、客流预测的智能Agent调度后台，支持门店运营人员零代码配置Agent运行规则，自动同步进销存数据生成每日运营报表，替代原有手动统计的低效工作模式。",
+      "background": "鲜邻科技2026年全面推进门店数字化升级，原有运营团队手动处理进销存数据的错单率高达18%，单店日均盘点耗时超过2小时，急需开发低代码可视化的Agent运维后台和自动化数据处理流水线，大幅降低门店运营人力成本。",
       "duration": "5周",
-      "difficulty": 2.7,
-      "category": "前端工程化+智能Agent方向",
+      "difficulty": 3,
+      "category": "智能Agent+数据工程+前端工程化",
       "skills": [
-        "FE-ENG-007",
-        "AGENT-TOOL-012",
-        "OBS-009",
-        "MONO-005"
+        "skill-agent-007",
+        "skill-data-pipeline-021",
+        "skill-fe-engineering-039",
+        "skill-lowcode-014"
       ]
     }
   ]
