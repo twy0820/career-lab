@@ -1,52 +1,56 @@
 {
-  "generatedAt": "2026-11-10T08:03:18.468847+00:00",
+  "generatedAt": "2026-11-12T07:59:58.295958+00:00",
   "projects": [
     {
-      "id": "proj-2026-001",
-      "title": "面向高校就业场景的个性化求职知识库RAG系统全栈开发",
-      "company": "国内头部高校就业服务平台「校招通」",
-      "role": "全栈开发实习生（RAG方向）",
+      "id": 1,
+      "title": "轻量化高校学术文献RAG智能问答系统开发实战",
+      "company": "智学云教育科技（国内教育SaaS头部企业模拟）",
+      "role": "AI应用全栈开发实习生",
       "stack": [
-        "React 19 + Vite 6 + Tailwind CSS 4",
-        "Node.js 22 + Express",
-        "Llama 3.2 7B 本地轻量化部署",
-        "Chroma 向量数据库",
-        "阿里云百炼大模型API"
+        "React18",
+        "Vite",
+        "LangChain v0.2",
+        "Milvus Lite",
+        "Node.js Express",
+        "OpenAI Compatible 大模型接口"
       ],
-      "summary": "模拟企业真实业务需求，从零搭建覆盖校招岗位、笔试面经、政策文件的求职知识库RAG问答系统，支持学生精准语义检索求职信息，自动生成简历优化、面试模拟答疑服务，替代原有准确率不足45%的关键词检索模块。",
-      "background": "校招通2026年注册用户突破2100万，原有求职信息检索体系基于关键词匹配，大量学生无法找到适配自身背景的定向岗位和专属面经，用户投诉率连续3个月上涨，技术团队急需用低门槛RAG方案重构核心问答能力。",
-      "duration": "4周",
+      "summary": "带领学员从0搭建支持PDF/CAJ文献上传、语义分片检索、溯源式问答、文献笔记一键导出的轻量化RAG应用，完成可直接部署上线的MVP产品，解决高校毕设、课程作业场景下文献检索效率低的痛点",
+      "background": "企业面向千万级高校C端用户推出免费学术辅助工具，要求控制服务成本、降低使用门槛，无需复杂GPU资源即可运行，快速完成最小可用版本上线验证用户需求",
+      "duration": "4周，周投入8小时，总时长32小时",
       "difficulty": 2.5,
       "category": "RAG+全栈开发",
       "skills": [
-        "skill-rag-001",
-        "skill-fullstack-012",
-        "skill-vector-db-003",
-        "skill-frontend-047"
+        "S001",
+        "S003",
+        "S007",
+        "S012",
+        "S015"
       ]
     },
     {
-      "id": "proj-2026-002",
-      "title": "中小连锁零售门店智能运营Agent可视化调度平台开发",
-      "company": "国内社区连锁便利店数字化服务商「鲜邻科技」",
-      "role": "数据工程+前端工程化开发实习生",
+      "id": 2,
+      "title": "中小本地商家智能运营Agent数据调度平台实战",
+      "company": "闪享同城（本地生活服务平台模拟）",
+      "role": "AI Agent+数据处理开发实习生",
       "stack": [
-        "Next.js 15 + Turbopack + Biome",
-        "Python 3.12 + Prefect 工作流引擎",
-        "DuckDB 轻量分析数据库",
-        "OpenAI o1-mini Agent SDK",
-        "字节跳动Arco Design Pro"
+        "Python 3.11",
+        "CrewAI v0.30",
+        "Pandas",
+        "FastAPI",
+        "Vue3",
+        "ECharts"
       ],
-      "summary": "模拟企业给1200+社区便利店搭建自动补货、客流预测的智能Agent调度后台，支持门店运营人员零代码配置Agent运行规则，自动同步进销存数据生成每日运营报表，替代原有手动统计的低效工作模式。",
-      "background": "鲜邻科技2026年全面推进门店数字化升级，原有运营团队手动处理进销存数据的错单率高达18%，单店日均盘点耗时超过2小时，急需开发低代码可视化的Agent运维后台和自动化数据处理流水线，大幅降低门店运营人力成本。",
-      "duration": "5周",
+      "summary": "指导学员实现多角色Agent协作系统：自动完成商家营业数据清洗、周边竞品客流监控、智能生成营销活动方案、经营数据可视化看板全链路能力，输出可直接接入商家后台的SaaS模块",
+      "background": "平台入驻的10万+中小餐饮、零售商家普遍无专业数据运营人员，企业需要低成本SaaS化AI运营工具降低商家运营门槛，提升平台商家留存率",
+      "duration": "5周，周投入8小时，总时长40小时",
       "difficulty": 3,
-      "category": "智能Agent+数据工程+前端工程化",
+      "category": "AI Agent+数据工程",
       "skills": [
-        "skill-agent-007",
-        "skill-data-pipeline-021",
-        "skill-fe-engineering-039",
-        "skill-lowcode-014"
+        "S002",
+        "S005",
+        "S009",
+        "S017",
+        "S021"
       ]
     }
   ]
