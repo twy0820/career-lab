@@ -1,58 +1,57 @@
 {
-  "generatedAt": "2026-11-15T07:37:15.752361+00:00",
+  "generatedAt": "2026-11-16T07:43:07.403621+00:00",
   "projects": [
     {
-      "id": "P001",
-      "title": "中小制造企业售后知识库RAG智能问答系统开发",
-      "company": "锐科精密机电（珠三角专精特新模拟企业）",
-      "role": "AI全栈应用开发实习生",
+      "id": "PROJ-2026-001",
+      "title": "企业内部非结构化知识库智能问答RAG系统全栈搭建实战",
+      "company": "国内中型SaaS服务厂商「智云协作」",
+      "role": "AI应用开发实习生",
       "stack": [
-        "Python",
-        "LangChain",
-        "Qwen2.5-7B",
-        "Milvus 2.4",
+        "Vue3 + Vite + TypeScript",
         "FastAPI",
-        "Vue3",
-        "Docker"
+        "LangChain v0.3",
+        "Qwen2.5-7B 本地轻量化部署",
+        "Chroma向量数据库",
+        "Docker Compose"
       ],
-      "summary": "从零搭建对接企业售后手册、历史工单、故障排查文档的检索增强生成问答系统，实现客服输入故障现象直接返回标准化排查方案，将平均响应时长从18分钟压缩到2分钟以内",
-      "background": "锐科精密机电现有200+份非结构化售后资料，新入职客服培训周期长达3个月，人工查资料响应慢、出错率高，急需低成本智能问答工具降本提效",
-      "duration": "4周",
+      "summary": "模拟企业内部产品文档、运维手册、员工制度等多源非结构化数据的检索问答需求，完成从数据清洗分块、向量库构建、召回排序优化到前端交互界面的全流程落地，解决传统关键词检索准确率不足30%的业务痛点",
+      "background": "智云协作2026年员工规模突破1200人，内部文档散落在飞书、语雀、本地共享盘多个异构平台，新员工入职查询资料平均耗时超2小时/天，人力成本浪费严重，要求实习生在3周内交付最小可用版本，满足80%高频内部咨询场景的问答需求",
+      "duration": 21,
       "difficulty": 2.5,
-      "category": "RAG+全栈开发",
+      "category": "RAG + 全栈开发",
       "skills": [
-        "S001",
-        "S002",
-        "S003",
-        "S004",
-        "S005"
+        "SKILL-VUE3",
+        "SKILL-FASTAPI",
+        "SKILL-LANGCHAIN",
+        "SKILL-RAG-RETRIEVAL-OPTIMIZATION",
+        "SKILL-VECTOR-DB-OPERATION"
       ]
     },
     {
-      "id": "P002",
-      "title": "跨境电商多站点业务监控低代码Agent平台搭建",
-      "company": "星帆跨境（模拟跨境电商初创企业）",
-      "role": "前端工程化&智能数据应用开发实习生",
+      "id": "PROJ-2026-002",
+      "title": "生鲜电商智能客诉闭环处理Agent系统开发实战",
+      "company": "国内头部生鲜垂类电商平台「鲜淘生鲜」",
+      "role": "AI Agent应用开发校招预备岗",
       "stack": [
-        "React18",
-        "Vite6",
-        "阿里LowCodeEngine",
-        "ECharts 5.5",
-        "Node.js",
+        "React18 + Next.js 15",
+        "Python",
+        "AutoGPT v0.6",
         "ClickHouse",
-        "Dify Agent编排"
+        "Flink CDC",
+        "字节豆包4.0 API",
+        "百度AMIS低代码平台"
       ],
-      "summary": "开发可视化拖拽的低代码监控看板搭建平台，内置自动数据校验、异常阈值识别、企微告警推送的智能Agent，让无代码基础的运营人员10分钟即可完成新站点数据看板搭建",
-      "background": "星帆跨境现有12个海外独立站，运营团队每次新增监控需求都需排队3-7天等前端排期开发看板，业务响应效率极低，急需低代码工具释放前端人力",
-      "duration": "5周",
+      "summary": "模拟生鲜电商日均千条客诉的自动化处理场景，实现Agent自动完成客诉语义分类、跨库调取订单/物流/赔付规则数据、生成适配用户诉求的赔付方案、自动同步工单到运营系统的全流程无人化闭环，降低人工客诉处理成本70%以上",
+      "background": "鲜淘生鲜2026年月均客诉量突破12万条，传统人工处理平均响应时效超4小时，用户差评率常年高于8%，平台急需可快速迭代的智能客诉Agent系统，要求实现90%以上常规客诉场景的自动化处理",
+      "duration": 28,
       "difficulty": 3,
-      "category": "前端工程化+智能Agent",
+      "category": "AI Agent + 数据工程",
       "skills": [
-        "S006",
-        "S007",
-        "S008",
-        "S009",
-        "S010"
+        "SKILL-REACT18",
+        "SKILL-AI-AGENT-TOOL-CALLING",
+        "SKILL-CLICKHOUSE-DATA-ANALYSIS",
+        "SKILL-STREAM-DATA-SYNCHRONIZATION",
+        "SKILL-LLM-API-ENGINEERING"
       ]
     }
   ]
