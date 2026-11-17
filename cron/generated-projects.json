@@ -1,57 +1,43 @@
 {
-  "generatedAt": "2026-11-16T07:43:07.403621+00:00",
+  "generatedAt": "2026-11-17T08:52:25.386975+00:00",
   "projects": [
     {
       "id": "PROJ-2026-001",
-      "title": "企业内部非结构化知识库智能问答RAG系统全栈搭建实战",
-      "company": "国内中型SaaS服务厂商「智云协作」",
-      "role": "AI应用开发实习生",
-      "stack": [
-        "Vue3 + Vite + TypeScript",
-        "FastAPI",
-        "LangChain v0.3",
-        "Qwen2.5-7B 本地轻量化部署",
-        "Chroma向量数据库",
-        "Docker Compose"
-      ],
-      "summary": "模拟企业内部产品文档、运维手册、员工制度等多源非结构化数据的检索问答需求，完成从数据清洗分块、向量库构建、召回排序优化到前端交互界面的全流程落地，解决传统关键词检索准确率不足30%的业务痛点",
-      "background": "智云协作2026年员工规模突破1200人，内部文档散落在飞书、语雀、本地共享盘多个异构平台，新员工入职查询资料平均耗时超2小时/天，人力成本浪费严重，要求实习生在3周内交付最小可用版本，满足80%高频内部咨询场景的问答需求",
-      "duration": 21,
+      "title": "中小电商私域专属知识库RAG智能客服系统搭建",
+      "company": "微店云（国内新锐中小商家SaaS服务商）",
+      "role": "AI应用开发实战实习生",
+      "stack": "Python 3.12、LangChain v0.3、Qwen2.5-7B 开源大模型、Milvus 2.4 向量数据库、FastAPI 0.115、Vue3 + Vite6、微信小程序SDK",
+      "summary": "面向0基础到中级开发者，全程模拟企业真实SaaS业务流程，无需大模型训练即可实现商家一键上传商品手册、售后规则、活动文案自动生成专属智能客服，解决通用大模型私域场景答非所问的痛点，最终交付可直接上线的轻量化SaaS版本原型。",
+      "background": "2026年国内中小电商私域运营人力成本同比上涨62%，90%以上小微商家没有AI开发能力，通用大模型对商家专属规则问答准确率不足50%，市场急需低门槛零训练的专属智能客服工具。",
+      "duration": "4周，每周投入10小时",
       "difficulty": 2.5,
       "category": "RAG + 全栈开发",
       "skills": [
-        "SKILL-VUE3",
-        "SKILL-FASTAPI",
-        "SKILL-LANGCHAIN",
-        "SKILL-RAG-RETRIEVAL-OPTIMIZATION",
-        "SKILL-VECTOR-DB-OPERATION"
+        "SKILL-RAG-BASICS-001",
+        "SKILL-LANGCHAIN-PRACTICE-002",
+        "SKILL-VECTOR-DB-003",
+        "SKILL-FASTAPI-DEV-004",
+        "SKILL-VUE3-FRONTEND-005"
       ]
     },
     {
       "id": "PROJ-2026-002",
-      "title": "生鲜电商智能客诉闭环处理Agent系统开发实战",
-      "company": "国内头部生鲜垂类电商平台「鲜淘生鲜」",
-      "role": "AI Agent应用开发校招预备岗",
-      "stack": [
-        "React18 + Next.js 15",
-        "Python",
-        "AutoGPT v0.6",
-        "ClickHouse",
-        "Flink CDC",
-        "字节豆包4.0 API",
-        "百度AMIS低代码平台"
-      ],
-      "summary": "模拟生鲜电商日均千条客诉的自动化处理场景，实现Agent自动完成客诉语义分类、跨库调取订单/物流/赔付规则数据、生成适配用户诉求的赔付方案、自动同步工单到运营系统的全流程无人化闭环，降低人工客诉处理成本70%以上",
-      "background": "鲜淘生鲜2026年月均客诉量突破12万条，传统人工处理平均响应时效超4小时，用户差评率常年高于8%，平台急需可快速迭代的智能客诉Agent系统，要求实现90%以上常规客诉场景的自动化处理",
-      "duration": 28,
+      "title": "多Agent驱动的高校应届生就业数据智能分析平台",
+      "company": "校数通（国内教育大数据官方服务商）",
+      "role": "全栈数据应用开发工程师",
+      "stack": "Node.js 22、React 19、Ant Design 5.2、AutoGPT v0.6、D3.js v7、PostgreSQL 17、Prisma ORM、Vite6 前端工程化体系",
+      "summary": "模拟高校就业处真实业务需求，搭建多分工Agent集群自动完成全网招聘数据爬取、毕业生去向数据清洗、就业趋势归因分析、可视化报告自动生成全流程，替代传统2周的人工统计工作，最终交付可直接给高校决策层使用的交互式数据看板。",
+      "background": "2026年全国高校应届生规模突破1300万，各高校就业办需要每周更新就业数据报告，传统人工统计方式误差大、时效低，多Agent自动化流程可将数据处理周期从14天压缩到4小时，市场缺口极大。",
+      "duration": "5周，每周投入12小时",
       "difficulty": 3,
-      "category": "AI Agent + 数据工程",
+      "category": "多Agent + 数据可视化 + 前端工程化",
       "skills": [
-        "SKILL-REACT18",
-        "SKILL-AI-AGENT-TOOL-CALLING",
-        "SKILL-CLICKHOUSE-DATA-ANALYSIS",
-        "SKILL-STREAM-DATA-SYNCHRONIZATION",
-        "SKILL-LLM-API-ENGINEERING"
+        "SKILL-AGENT-DEVELOP-001",
+        "SKILL-REACT19-DEV-002",
+        "SKILL-D3-VISUAL-003",
+        "SKILL-FE-ENGINEERING-004",
+        "SKILL-BACKEND-ORM-005",
+        "SKILL-DATA-CLEAN-006"
       ]
     }
   ]
