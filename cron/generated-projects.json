@@ -1,43 +1,54 @@
 {
-  "generatedAt": "2026-11-17T08:52:25.386975+00:00",
+  "generatedAt": "2026-11-18T08:16:52.043916+00:00",
   "projects": [
     {
-      "id": "PROJ-2026-001",
-      "title": "中小电商私域专属知识库RAG智能客服系统搭建",
-      "company": "微店云（国内新锐中小商家SaaS服务商）",
-      "role": "AI应用开发实战实习生",
-      "stack": "Python 3.12、LangChain v0.3、Qwen2.5-7B 开源大模型、Milvus 2.4 向量数据库、FastAPI 0.115、Vue3 + Vite6、微信小程序SDK",
-      "summary": "面向0基础到中级开发者，全程模拟企业真实SaaS业务流程，无需大模型训练即可实现商家一键上传商品手册、售后规则、活动文案自动生成专属智能客服，解决通用大模型私域场景答非所问的痛点，最终交付可直接上线的轻量化SaaS版本原型。",
-      "background": "2026年国内中小电商私域运营人力成本同比上涨62%，90%以上小微商家没有AI开发能力，通用大模型对商家专属规则问答准确率不足50%，市场急需低门槛零训练的专属智能客服工具。",
-      "duration": "4周，每周投入10小时",
+      "id": "P2026001",
+      "title": "中小商家轻量化智能客服RAG全栈落地项目",
+      "company": "国内头部本地生活服务平台商家技术支持部",
+      "role": "AI应用全栈开发实习生",
+      "stack": [
+        "Vue3 + Vite",
+        "LangChain 0.3",
+        "Qwen2.5-7B",
+        "Milvus 2.4",
+        "FastAPI",
+        "微信小程序SDK"
+      ],
+      "summary": "模拟为线下餐饮连锁商家搭建零代码可配置的专属智能客服，自动同步商家菜单、优惠活动、到店规则等私有知识库，解决通用大模型回答幻觉高、商家人工客服人力成本高的痛点，最终输出可直接嵌入商家小程序的客服组件。",
+      "background": "2026年本地生活平台超80%中小商家无能力搭建专属AI客服，通用大模型对商家私有信息回答错误率超40%，亟需轻量化低成本的RAG落地方案降低商家运营成本。",
+      "duration": "2周",
       "difficulty": 2.5,
       "category": "RAG + 全栈开发",
       "skills": [
-        "SKILL-RAG-BASICS-001",
-        "SKILL-LANGCHAIN-PRACTICE-002",
-        "SKILL-VECTOR-DB-003",
-        "SKILL-FASTAPI-DEV-004",
-        "SKILL-VUE3-FRONTEND-005"
+        "S001",
+        "S002",
+        "S003",
+        "S004"
       ]
     },
     {
-      "id": "PROJ-2026-002",
-      "title": "多Agent驱动的高校应届生就业数据智能分析平台",
-      "company": "校数通（国内教育大数据官方服务商）",
-      "role": "全栈数据应用开发工程师",
-      "stack": "Node.js 22、React 19、Ant Design 5.2、AutoGPT v0.6、D3.js v7、PostgreSQL 17、Prisma ORM、Vite6 前端工程化体系",
-      "summary": "模拟高校就业处真实业务需求，搭建多分工Agent集群自动完成全网招聘数据爬取、毕业生去向数据清洗、就业趋势归因分析、可视化报告自动生成全流程，替代传统2周的人工统计工作，最终交付可直接给高校决策层使用的交互式数据看板。",
-      "background": "2026年全国高校应届生规模突破1300万，各高校就业办需要每周更新就业数据报告，传统人工统计方式误差大、时效低，多Agent自动化流程可将数据处理周期从14天压缩到4小时，市场缺口极大。",
-      "duration": "5周，每周投入12小时",
+      "id": "P2026002",
+      "title": "跨境电商自然语言取数自动化分析Agent项目",
+      "company": "头部跨境出海电商平台数据智能部",
+      "role": "数据开发+Agent应用开发实习生",
+      "stack": [
+        "Python3.12",
+        "LangGraph 0.2",
+        "Flink CDC 3.0",
+        "ClickHouse 24.3",
+        "ECharts 5.5",
+        "AIGC报告生成SDK"
+      ],
+      "summary": "模拟搭建面向非技术岗运营人员的数据分析Agent，用户输入自然语言需求即可自动完成实时用户行为数据拉取、SQL生成校验、异常指标归因、可视化报告输出全流程，解决运营人员不会写SQL、取数排期等待超3天的行业痛点。",
+      "background": "2026年跨境电商行业运营团队占比超60%，传统数据分析师团队人均承接取数需求日均超20个，业务响应效率严重制约大促运营决策速度，低代码数据分析Agent成为企业数据团队刚需。",
+      "duration": "3周",
       "difficulty": 3,
-      "category": "多Agent + 数据可视化 + 前端工程化",
+      "category": "Agent + 数据工程",
       "skills": [
-        "SKILL-AGENT-DEVELOP-001",
-        "SKILL-REACT19-DEV-002",
-        "SKILL-D3-VISUAL-003",
-        "SKILL-FE-ENGINEERING-004",
-        "SKILL-BACKEND-ORM-005",
-        "SKILL-DATA-CLEAN-006"
+        "S005",
+        "S006",
+        "S007",
+        "S008"
       ]
     }
   ]
