@@ -1,54 +1,56 @@
 {
-  "generatedAt": "2026-11-18T08:16:52.043916+00:00",
+  "generatedAt": "2026-11-19T08:28:48.462239+00:00",
   "projects": [
     {
-      "id": "P2026001",
-      "title": "中小商家轻量化智能客服RAG全栈落地项目",
-      "company": "国内头部本地生活服务平台商家技术支持部",
-      "role": "AI应用全栈开发实习生",
+      "id": "proj-2026-001",
+      "title": "高校就业指导智能RAG问答平台开发",
+      "company": "云校科技（国内头部校园SaaS服务厂商）",
+      "role": "全栈AI应用开发实习生",
       "stack": [
-        "Vue3 + Vite",
-        "LangChain 0.3",
-        "Qwen2.5-7B",
-        "Milvus 2.4",
-        "FastAPI",
-        "微信小程序SDK"
+        "Vue3 + Vite7",
+        "LangChain v0.3",
+        "Qwen3-7B 开源大模型",
+        "Milvus 2.5 向量数据库",
+        "FastAPI 0.120",
+        "微信小程序端适配"
       ],
-      "summary": "模拟为线下餐饮连锁商家搭建零代码可配置的专属智能客服，自动同步商家菜单、优惠活动、到店规则等私有知识库，解决通用大模型回答幻觉高、商家人工客服人力成本高的痛点，最终输出可直接嵌入商家小程序的客服组件。",
-      "background": "2026年本地生活平台超80%中小商家无能力搭建专属AI客服，通用大模型对商家私有信息回答错误率超40%，亟需轻量化低成本的RAG落地方案降低商家运营成本。",
-      "duration": "2周",
-      "difficulty": 2.5,
-      "category": "RAG + 全栈开发",
+      "summary": "完成面向高校学生的就业政策、校招岗位、学长求职经验三类私有知识库的RAG问答系统全栈实现，支持语义检索、答案溯源、多轮对话功能，同时配套管理员后台实现知识库动态更新，最终交付可直接部署的生产级最小可用版本。",
+      "background": "云校科技当前服务全国230余所高校的就业指导中心，原有人工咨询客服在秋招高峰期日均咨询量突破10万次，人力成本高且响应延迟超过2小时，急需上线AI驱动的智能问答系统分流80%以上的标准化咨询需求。",
+      "duration": "4周",
+      "difficulty": 2.4,
+      "category": "RAG+全栈开发",
       "skills": [
-        "S001",
-        "S002",
-        "S003",
-        "S004"
+        "skill-vue3-fullstack-dev-2026",
+        "skill-rag-pipeline-build-2026",
+        "skill-vector-database-practice-2026",
+        "skill-llm-application-optimize-2026",
+        "skill-backend-api-design-2026"
       ]
     },
     {
-      "id": "P2026002",
-      "title": "跨境电商自然语言取数自动化分析Agent项目",
-      "company": "头部跨境出海电商平台数据智能部",
-      "role": "数据开发+Agent应用开发实习生",
+      "id": "proj-2026-002",
+      "title": "电商大促实时运营数据Agent看板工程化落地",
+      "company": "抖趣电商（头部直播电商平台）",
+      "role": "前端工程化&数据应用开发实习生",
       "stack": [
-        "Python3.12",
-        "LangGraph 0.2",
-        "Flink CDC 3.0",
+        "React 19",
+        "Rsbuild 2.0",
+        "ECharts 5.6",
+        "字节跳动OpenAgent SDK",
         "ClickHouse 24.3",
-        "ECharts 5.5",
-        "AIGC报告生成SDK"
+        "Turbopack 增量构建"
       ],
-      "summary": "模拟搭建面向非技术岗运营人员的数据分析Agent，用户输入自然语言需求即可自动完成实时用户行为数据拉取、SQL生成校验、异常指标归因、可视化报告输出全流程，解决运营人员不会写SQL、取数排期等待超3天的行业痛点。",
-      "background": "2026年跨境电商行业运营团队占比超60%，传统数据分析师团队人均承接取数需求日均超20个，业务响应效率严重制约大促运营决策速度，低代码数据分析Agent成为企业数据团队刚需。",
-      "duration": "3周",
-      "difficulty": 3,
-      "category": "Agent + 数据工程",
+      "summary": "搭建支持自然语言交互的618大促实时运营数据看板，配套完成前端 monorepo 工程化体系搭建，实现构建速度提升70%、支持运营人员用自然语言自动生成自定义数据图表的能力，满足大促期间千人千面的数据分析需求。",
+      "background": "抖趣电商2026年618大促期间运营团队超过2000人，传统静态数据看板无法满足运营人员自定义临时查数需求，原有前端项目构建速度超过15分钟，迭代效率完全跟不上大促期间的看板调整节奏，急需工程化升级+Agent能力落地。",
+      "duration": "5周",
+      "difficulty": 2.7,
+      "category": "前端工程化+数据Agent",
       "skills": [
-        "S005",
-        "S006",
-        "S007",
-        "S008"
+        "skill-react19-new-feature-practice-2026",
+        "skill-frontend-engineering-system-2026",
+        "skill-data-visualization-dev-2026",
+        "skill-data-agent-integration-2026",
+        "skill-big-data-query-optimize-2026"
       ]
     }
   ]
