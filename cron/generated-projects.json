@@ -1,58 +1,42 @@
 {
-  "generatedAt": "2026-11-20T08:10:16.153778+00:00",
+  "generatedAt": "2026-11-21T08:03:28.081624+00:00",
   "projects": [
     {
-      "id": "proj-2026-001",
-      "title": "中小团队内部私有知识库RAG智能问答系统实战开发",
-      "company": "云知协作（国内企业SaaS服务商模拟）",
-      "role": "AI全栈应用开发实习生",
-      "stack": [
-        "Python 3.12",
-        "LangChain 0.3",
-        "Qwen2.5 开源大模型兼容层",
-        "React 19",
-        "Next.js 15",
-        "Chroma 轻量向量库",
-        "Docker Compose"
-      ],
-      "summary": "从0到1搭建支持多格式文档上传、语义分片检索、多轮上下文对话、权限分级管控的企业内部知识库系统，解决传统企业新人培训资料分散、信息检索效率低的痛点，最终交付可直接部署上线的最小可用版本。",
-      "background": "2026年90%以上的中小互联网团队都有低成本搭建内部知识库的需求，无需大模型微调即可实现私有数据的智能问答，是当前校招中RAG方向的高频实操考点。",
-      "duration": "4周，每周投入10小时",
+      "id": "PROJ-2026-001",
+      "title": "高校课程知识库智能答疑RAG系统实战开发",
+      "company": "头部教育科技企业AI应用部",
+      "role": "全栈AI应用开发实习生",
+      "stack": "Vue3 + Vite + TailwindCSS + FastAPI + LangChain + Chroma向量库 + 通义千问开源7B模型 + Unstructured文档解析工具",
+      "summary": "从0到1搭建面向高校师生的课程资料智能答疑系统，覆盖课件/试卷/笔记上传、文本智能分片、向量召回、流式答疑、引用溯源全链路功能，最终完成可直接部署的最小可用产品",
+      "background": "企业内部海量非结构化培训资料检索效率极低，传统关键词搜索无法精准定位答案，该项目完全复刻企业内部知识库RAG落地的完整工作流",
+      "duration": "2周",
       "difficulty": 2.5,
-      "category": "RAG+全栈融合方向",
+      "category": "RAG+全栈开发",
       "skills": [
-        "skill-rag-001",
-        "skill-vector-db-003",
-        "skill-fullstack-api-012",
-        "skill-frontend-render-047",
-        "skill-devops-docker-009"
+        "SK-RAG-001",
+        "SK-FE-003",
+        "SK-BE-007",
+        "SK-VEC-002",
+        "SK-LLM-005"
       ]
     },
     {
-      "id": "proj-2026-002",
-      "title": "电商商家自动运营低代码Agent平台前端工程化落地",
-      "company": "亿数通（国内垂类电商数据服务商模拟）",
-      "role": "AI前端工程化+数据应用开发实习生",
-      "stack": [
-        "Vue 3.5",
-        "Vite 6",
-        "Agent Protocol 2.0 编排协议",
-        "DuckDB 轻量分析库",
-        "Pinia 3",
-        "Monorepo 工程化架构",
-        "UniApp X 小程序适配"
-      ],
-      "summary": "实现支持拖拽式配置运营Agent工作流、自动同步电商平台经营数据、智能生成投放优化方案、一键导出运营报表的低代码平台，完成全链路前端工程化规范落地，兼容PC端与商家小程序端双端访问。",
-      "background": "2026年电商运营人力成本同比上涨40%，大量中小商家需要零代码配置的自动化运营Agent工具，该项目同时覆盖前端工程化规范、Agent工作流编排、轻量数据处理三大校招核心考点。",
-      "duration": "4周，每周投入11小时",
-      "difficulty": 2.7,
-      "category": "Agent+前端工程化+数据应用方向",
+      "id": "PROJ-2026-002",
+      "title": "本地生活商家自动运营Agent可观测看板系统",
+      "company": "头部本地生活平台商家产品部",
+      "role": "前端工程化+智能数据应用开发实习生",
+      "stack": "React18 + Next.js15 + AntV G2 + AutoGPT轻量执行框架 + ClickHouse + pnpm Monorepo工程化方案",
+      "summary": "搭建商家智能运营Agent的全链路可视化后台，实现经营数据自动抓取、Agent运营建议生成、任务执行状态追踪、异常告警等核心功能，落地企业级前端工程化规范",
+      "background": "平台百万中小商家依赖AI Agent自动完成上新、客诉回复、活动调价等运营动作，急需可观测的运维看板降低Agent故障排查成本，完全匹配企业真实生产需求",
+      "duration": "3周",
+      "difficulty": 3,
+      "category": "Agent+前端工程化+数据可视化",
       "skills": [
-        "skill-agent-orchestration-007",
-        "skill-fe-engineering-031",
-        "skill-data-etl-022",
-        "skill-monorepo-arch-018",
-        "skill-cross-end-adapt-042"
+        "SK-AGENT-004",
+        "SK-FE-ENG-009",
+        "SK-DATA-VIZ-006",
+        "SK-CK-003",
+        "SK-MONOREPO-001"
       ]
     }
   ]
