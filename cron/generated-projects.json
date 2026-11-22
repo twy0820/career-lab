@@ -1,42 +1,54 @@
 {
-  "generatedAt": "2026-11-21T08:03:28.081624+00:00",
+  "generatedAt": "2026-11-22T07:50:06.268252+00:00",
   "projects": [
     {
-      "id": "PROJ-2026-001",
-      "title": "高校课程知识库智能答疑RAG系统实战开发",
-      "company": "头部教育科技企业AI应用部",
-      "role": "全栈AI应用开发实习生",
-      "stack": "Vue3 + Vite + TailwindCSS + FastAPI + LangChain + Chroma向量库 + 通义千问开源7B模型 + Unstructured文档解析工具",
-      "summary": "从0到1搭建面向高校师生的课程资料智能答疑系统，覆盖课件/试卷/笔记上传、文本智能分片、向量召回、流式答疑、引用溯源全链路功能，最终完成可直接部署的最小可用产品",
-      "background": "企业内部海量非结构化培训资料检索效率极低，传统关键词搜索无法精准定位答案，该项目完全复刻企业内部知识库RAG落地的完整工作流",
-      "duration": "2周",
+      "id": "P2026001",
+      "title": "企业内部私有知识库智能问答系统落地项目",
+      "company": "云帆企服（国内中型SaaS服务商）",
+      "role": "AI应用开发实习生",
+      "stack": [
+        "Python 3.12",
+        "LangChain 0.3",
+        "ChromaDB",
+        "FastAPI",
+        "React 19",
+        "通义千问API"
+      ],
+      "summary": "从零搭建支持多格式文档上传、知识库权限管理、引用溯源精准问答的轻量RAG系统，替代原有低效的关键词检索方案，将内部资料查找效率提升70%以上",
+      "background": "云帆企服沉淀了近10年的产品手册、客户方案、售后工单共3000+份非结构化资料，原有检索方案召回率不足35%，员工单次查找资料平均耗时超20分钟，亟需低成本可快速上线的私有知识库解决方案",
+      "duration": "4周",
       "difficulty": 2.5,
       "category": "RAG+全栈开发",
       "skills": [
-        "SK-RAG-001",
-        "SK-FE-003",
-        "SK-BE-007",
-        "SK-VEC-002",
-        "SK-LLM-005"
+        "SK001(RAG检索增强核心实现)",
+        "SK002(向量数据库运维与调优)",
+        "SK003(FastAPI接口规范开发)",
+        "SK004(React中后台交互开发)"
       ]
     },
     {
-      "id": "PROJ-2026-002",
-      "title": "本地生活商家自动运营Agent可观测看板系统",
-      "company": "头部本地生活平台商家产品部",
-      "role": "前端工程化+智能数据应用开发实习生",
-      "stack": "React18 + Next.js15 + AntV G2 + AutoGPT轻量执行框架 + ClickHouse + pnpm Monorepo工程化方案",
-      "summary": "搭建商家智能运营Agent的全链路可视化后台，实现经营数据自动抓取、Agent运营建议生成、任务执行状态追踪、异常告警等核心功能，落地企业级前端工程化规范",
-      "background": "平台百万中小商家依赖AI Agent自动完成上新、客诉回复、活动调价等运营动作，急需可观测的运维看板降低Agent故障排查成本，完全匹配企业真实生产需求",
-      "duration": "3周",
-      "difficulty": 3,
-      "category": "Agent+前端工程化+数据可视化",
+      "id": "P2026002",
+      "title": "电商大促智能运营Agent实战项目",
+      "company": "星淘电商（国内头部多渠道品牌电商）",
+      "role": "AI数据运营开发工程师",
+      "stack": [
+        "Python 3.12",
+        "LangGraph",
+        "Pandas",
+        "ClickHouse",
+        "ECharts 5.5",
+        "飞书开放平台API"
+      ],
+      "summary": "开发可自主完成多平台经营数据拉取、异常指标告警、自动生成运营优化方案的轻量Agent，替代人工每日导出10+份报表的重复工作，大促期间运营响应速度提升3倍",
+      "background": "星淘电商618大促期间运营团队需同时监控10个公域平台200+店铺的实时经营数据，人工每日处理报表耗时超6小时，经常错过流量异常的黄金调整窗口，亟需自动化智能运营助手降低重复劳动占比",
+      "duration": "3.5周",
+      "difficulty": 2.2,
+      "category": "AI Agent+数据工程",
       "skills": [
-        "SK-AGENT-004",
-        "SK-FE-ENG-009",
-        "SK-DATA-VIZ-006",
-        "SK-CK-003",
-        "SK-MONOREPO-001"
+        "SK005(Agent工具调用编排)",
+        "SK006(ClickHouse实时数仓操作)",
+        "SK007(数据可视化看板开发)",
+        "SK008(第三方开放API集成)"
       ]
     }
   ]
