@@ -1,6 +1,471 @@
 {
-  "generatedAt": "2026-11-09T07:27:00.667176+00:00",
+  "generatedAt": "2026-11-23T08:26:23.000651+00:00",
   "projects": [
+    {
+      "id": "p72",
+      "title": "中小商家轻量RAG智能客服快速搭建项目",
+      "company": "微店电商SaaS事业部",
+      "role": "后端开发实习生",
+      "stack": [
+        "Python",
+        "FastAPI",
+        "Vue3",
+        "ChromaDB"
+      ],
+      "summary": "面向月GMV低于10万的小微电商商家，搭建无需额外算力投入、支持上传商品手册自动生成知识库问答的零配置RAG智能客服，可1分钟接入商家店铺后台，降低商家客服人力成本60%以上",
+      "background": "2026年小微商家大模型落地需求爆发，传统商用客服系统年费超过3000元门槛过高，轻量化低成本RAG方案成为行业刚需",
+      "duration": 7,
+      "difficulty": 2,
+      "category": "AI应用开发",
+      "skills": [
+        "python",
+        "fastapi",
+        "vector",
+        "llm",
+        "web",
+        "vue",
+        "git"
+      ],
+      "phases": [
+        {
+          "id": "p1",
+          "name": "环境搭建与需求拆解",
+          "goal": "完成开发环境初始化，对齐全部需求验收标准",
+          "prep": [
+            "提前安装Python3.11、Node18、Git环境"
+          ],
+          "knowledge": [
+            "RAG基础原理",
+            "FastAPI基础使用",
+            "Vue基础语法"
+          ],
+          "deliverables": [
+            "需求文档",
+            "环境配置脚本"
+          ],
+          "tickets": [
+            {
+              "id": "t1",
+              "title": "RAG项目环境初始化配置",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "配置向量数据库、大模型API代理服务",
+              "acceptance": [
+                "可正常调用通义千问开源API完成向量入库、检索测试"
+              ],
+              "xp": 50
+            }
+          ]
+        },
+        {
+          "id": "p2",
+          "name": "RAG核心链路实现",
+          "goal": "完成文档上传、切片、向量化、检索、问答全链路开发",
+          "prep": [
+            "调研主流文档切片策略"
+          ],
+          "knowledge": [
+            "文本分块算法",
+            "向量召回排序规则"
+          ],
+          "deliverables": [
+            "RAG核心服务接口"
+          ],
+          "tickets": [
+            {
+              "id": "t2",
+              "title": "PDF/Word文档解析与切片功能开发",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "支持10MB以内商品手册自动解析分块",
+              "acceptance": [
+                "解析准确率95%以上，分块大小适配大模型上下文窗口"
+              ],
+              "xp": 120
+            },
+            {
+              "id": "t3",
+              "title": "检索增强问答接口开发",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "接入大模型生成客服回复",
+              "acceptance": [
+                "问答准确率不低于90%，响应耗时低于2s"
+              ],
+              "xp": 150
+            }
+          ]
+        },
+        {
+          "id": "p3",
+          "name": "前端交互与上线部署",
+          "goal": "完成商家管理后台开发，打包上线交付可用系统",
+          "prep": [
+            "熟悉Vue组件库Element-Plus"
+          ],
+          "knowledge": [
+            "前后端联调规范",
+            "Docker基础部署"
+          ],
+          "deliverables": [
+            "完整可运行的智能客服系统",
+            "部署说明文档"
+          ],
+          "tickets": [
+            {
+              "id": "t4",
+              "title": "商家管理后台前端开发",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "提供文档上传、问答记录查看、知识库管理功能",
+              "acceptance": [
+                "所有接口联调通过，页面交互流畅"
+              ],
+              "xp": 80
+            },
+            {
+              "id": "t5",
+              "title": "系统容器化打包部署",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "编写Docker compose脚本一键部署",
+              "acceptance": [
+                "1核2G服务器可正常运行整套服务"
+              ],
+              "xp": 70
+            }
+          ]
+        }
+      ],
+      "fresh": true
+    },
+    {
+      "id": "p73",
+      "title": "云原生分布式多模态内容审核Agent平台",
+      "company": "抖音内容安全部",
+      "role": "后端开发工程师",
+      "stack": [
+        "Go",
+        "K8s",
+        "Milvus",
+        "LangChain"
+      ],
+      "summary": "构建支持图文音视频多模态内容自动审核的Agent集群，可自主识别违规内容、生成审核报告、异常案例自动流转人工审核，支持万级QPS水平扩缩容，替代30%传统人工审核工作量",
+      "background": "2026年抖音日活突破8亿，日均新增内容超过2亿条，传统规则引擎审核覆盖率不足70%，多模态智能Agent成为内容安全领域核心升级方向",
+      "duration": 14,
+      "difficulty": 3,
+      "category": "云原生+AI Infra",
+      "skills": [
+        "go",
+        "docker",
+        "dist",
+        "linux",
+        "vector",
+        "llm",
+        "deploy",
+        "git",
+        "redis",
+        "sql"
+      ],
+      "phases": [
+        {
+          "id": "p1",
+          "name": "架构设计与中间件部署",
+          "goal": "完成分布式平台整体架构设计，部署好依赖的所有中间件服务",
+          "prep": [
+            "调研多模态向量检索方案"
+          ],
+          "knowledge": [
+            "微服务架构设计",
+            "K8s基础调度原理"
+          ],
+          "deliverables": [
+            "架构设计文档",
+            "中间件集群部署脚本"
+          ],
+          "tickets": [
+            {
+              "id": "t1",
+              "title": "Redis、MySQL、多模态向量数据库集群部署",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "基于K8s有状态副本集部署高可用集群",
+              "acceptance": [
+                "集群可用性达到99.9%"
+              ],
+              "xp": 100
+            }
+          ]
+        },
+        {
+          "id": "p2",
+          "name": "多模态审核Agent核心逻辑开发",
+          "goal": "完成多模态特征提取、违规内容识别、审核结论自动生成的Agent核心逻辑",
+          "prep": [
+            "熟悉开源多模态大模型推理SDK"
+          ],
+          "knowledge": [
+            "多模态模型推理优化",
+            "Agent工具调用规则"
+          ],
+          "deliverables": [
+            "审核Agent核心服务"
+          ],
+          "tickets": [
+            {
+              "id": "t2",
+              "title": "多模态内容特征向量化模块开发",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "支持图片、音频、短视频特征提取向量化",
+              "acceptance": [
+                "单条10s短视频特征提取耗时低于100ms"
+              ],
+              "xp": 200
+            },
+            {
+              "id": "t3",
+              "title": "审核Agent决策链路开发",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "Agent自动调用审核规则库完成内容判定，生成审核报告",
+              "acceptance": [
+                "违规内容识别准确率不低于97%"
+              ],
+              "xp": 250
+            }
+          ]
+        },
+        {
+          "id": "p3",
+          "name": "分布式调度与弹性扩缩容开发",
+          "goal": "完成任务分发集群开发，实现基于流量的自动弹性扩缩容",
+          "prep": [
+            "熟悉K8s HPA扩缩容机制"
+          ],
+          "knowledge": [
+            "分布式任务队列原理",
+            "流量削峰方案"
+          ],
+          "deliverables": [
+            "任务调度服务",
+            "弹性扩缩容配置"
+          ],
+          "tickets": [
+            {
+              "id": "t4",
+              "title": "分布式审核任务队列开发",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "基于Redis实现任务分发与结果回调",
+              "acceptance": [
+                "支持10万级任务并行处理，无任务丢失"
+              ],
+              "xp": 180
+            }
+          ]
+        },
+        {
+          "id": "p4",
+          "name": "压力测试与上线交付",
+          "goal": "完成全链路压测，修复性能瓶颈交付生产可用平台",
+          "prep": [
+            "准备100万条测试样本集"
+          ],
+          "knowledge": [
+            "分布式系统性能调优方法"
+          ],
+          "deliverables": [
+            "压测报告",
+            "生产部署包"
+          ],
+          "tickets": [
+            {
+              "id": "t5",
+              "title": "全链路万级QPS压测与优化",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "排查性能瓶颈完成优化",
+              "acceptance": [
+                "万级QPS下服务响应成功率99.9%，耗时低于500ms"
+              ],
+              "xp": 150
+            }
+          ]
+        }
+      ],
+      "fresh": true
+    },
+    {
+      "id": "p74",
+      "title": "亿级用户行为实时数仓+智能归因分析系统",
+      "company": "阿里云数据智能事业部",
+      "role": "数据工程高级开发",
+      "stack": [
+        "Flink",
+        "StarRocks",
+        "React",
+        "LLM Agent"
+      ],
+      "summary": "搭建全链路实时用户行为数据采集、分层数仓，集成智能分析Agent，支持业务人员通过自然语言提问自动生成用户增长归因分析报告，数据延迟从传统T+1降低到秒级",
+      "background": "2026年互联网企业实时决策需求全面爆发，传统离线数仓无法支撑大促期间实时用户行为分析需求，结合LLM的智能数仓成为下一代数据平台核心方向",
+      "duration": 21,
+      "difficulty": 4,
+      "category": "数据工程+AI Agent",
+      "skills": [
+        "java",
+        "sql",
+        "redis",
+        "dist",
+        "ds",
+        "ml",
+        "llm",
+        "deploy",
+        "react",
+        "docker",
+        "linux",
+        "git"
+      ],
+      "phases": [
+        {
+          "id": "p1",
+          "name": "实时数据采集层架构搭建",
+          "goal": "完成亿级用户行为数据实时采集、上报、清洗链路开发",
+          "prep": [
+            "调研主流日志采集方案"
+          ],
+          "knowledge": [
+            "高并发日志采集架构",
+            "Flink实时计算原理"
+          ],
+          "deliverables": [
+            "数据采集链路",
+            "实时清洗任务"
+          ],
+          "tickets": [
+            {
+              "id": "t1",
+              "title": "亿级行为数据上报采集集群开发",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "基于Kafka实现高并发日志接入",
+              "acceptance": [
+                "支持10万条/s数据写入，无数据丢失"
+              ],
+              "xp": 200
+            }
+          ]
+        },
+        {
+          "id": "p2",
+          "name": "实时数仓分层建设",
+          "goal": "完成ODS/DWD/DWS三层实时数仓建模，接入StarRocks即席查询引擎",
+          "prep": [
+            "熟悉维度建模方法论"
+          ],
+          "knowledge": [
+            "数仓分层建模规范",
+            "OLAP引擎优化技巧"
+          ],
+          "deliverables": [
+            "三层数仓建模脚本",
+            "即席查询接口"
+          ],
+          "tickets": [
+            {
+              "id": "t2",
+              "title": "实时数仓分层ETL任务开发",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "基于Flink完成各层数据加工",
+              "acceptance": [
+                "数据加工延迟低于5s，数据准确率100%"
+              ],
+              "xp": 300
+            },
+            {
+              "id": "t3",
+              "title": "StarRocks查询性能优化",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "针对亿级行为表做索引、分区优化",
+              "acceptance": [
+                "多维度聚合查询耗时低于200ms"
+              ],
+              "xp": 220
+            }
+          ]
+        },
+        {
+          "id": "p3",
+          "name": "智能归因分析Agent开发",
+          "goal": "完成自然语言转SQL、自动生成分析报告的Agent核心逻辑开发",
+          "prep": [
+            "调研Text2SQL最新技术方案"
+          ],
+          "knowledge": [
+            "Text2SQL微调优化",
+            "数据分析报告生成逻辑"
+          ],
+          "deliverables": [
+            "智能分析Agent服务"
+          ],
+          "tickets": [
+            {
+              "id": "t4",
+              "title": "自然语言转SQL模块开发",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "基于大模型微调适配业务数仓表结构",
+              "acceptance": [
+                "SQL生成准确率不低于92%"
+              ],
+              "xp": 280
+            },
+            {
+              "id": "t5",
+              "title": "归因分析报告自动生成功能开发",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "Agent自动执行SQL、提取数据生成可视化分析报告",
+              "acceptance": [
+                "生成报告覆盖维度超过10个，结论准确率不低于90%"
+              ],
+              "xp": 250
+            }
+          ]
+        },
+        {
+          "id": "p4",
+          "name": "可视化BI后台开发与上线验收",
+          "goal": "完成前端分析后台开发，全链路验证交付生产系统",
+          "prep": [
+            "熟悉ECharts可视化组件"
+          ],
+          "knowledge": [
+            "数据可视化交互设计"
+          ],
+          "deliverables": [
+            "BI分析后台",
+            "项目验收报告"
+          ],
+          "tickets": [
+            {
+              "id": "t6",
+              "title": "智能分析BI前端页面开发",
+              "kind": "开发",
+              "priority": "P0",
+              "context": "支持自然语言提问、报告导出功能",
+              "acceptance": [
+                "前后端联调全流程跑通，交互流畅"
+              ],
+              "xp": 150
+            }
+          ]
+        }
+      ],
+      "fresh": true
+    },
     {
       "id": "p69",
       "title": "小微企业轻量门店运营知识库RAG助手搭建",
@@ -138,8 +603,7 @@
             }
           ]
         }
-      ],
-      "fresh": true
+      ]
     },
     {
       "id": "p70",
@@ -277,8 +741,7 @@
             }
           ]
         }
-      ],
-      "fresh": true
+      ]
     },
     {
       "id": "p71",
@@ -411,8 +874,7 @@
             }
           ]
         }
-      ],
-      "fresh": true
+      ]
     },
     {
       "id": "p66",
@@ -2508,6 +2970,68 @@
   ],
   "contests": [
     {
+      "id": "a45",
+      "name": "2026全国大学生轻量Agent编排创新挑战赛",
+      "host": "中国计算机学会CCF青年计算机工作委员会",
+      "category": "AI应用开发",
+      "level": "全国级竞赛",
+      "difficulty": 3,
+      "skills": [
+        "python",
+        "algo",
+        "llm",
+        "dl",
+        "git",
+        "fastapi"
+      ],
+      "regStart": "2026-06-18",
+      "regEnd": "2026-06-30",
+      "contestStart": "2026-07-08",
+      "contestEnd": "2026-07-10",
+      "tags": [
+        "Agent编排",
+        "RAG",
+        "教育场景落地"
+      ],
+      "summary": "参赛选手基于官方提供的开源低代码Agent框架，在12小时限时开发周期内完成面向K12教育场景的智能助教Agent，要求支持自动答疑、作业批改、学情画像生成、个性化习题推荐四大核心功能，最终从功能完整性、响应准确率、资源消耗三个维度综合评分，优胜队伍可获得一线互联网公司AI岗位直通面试资格",
+      "registrationUrl": "https://ccf-ai-contest.org/agent2026/register",
+      "officialUrl": "https://ccf-ai-contest.org/agent2026",
+      "recurring": false,
+      "fresh": true
+    },
+    {
+      "id": "a46",
+      "name": "2026云原生多模态数据工程实战挑战赛",
+      "host": "阿里云天池",
+      "category": "数据工程+云原生",
+      "level": "行业级竞赛",
+      "difficulty": 4,
+      "skills": [
+        "go",
+        "sql",
+        "docker",
+        "dist",
+        "ml",
+        "deploy",
+        "linux",
+        "vector"
+      ],
+      "regStart": "2026-06-18",
+      "regEnd": "2026-07-15",
+      "contestStart": "2026-07-22",
+      "contestEnd": "2026-07-25",
+      "tags": [
+        "云原生",
+        "多模态检索",
+        "数据工程"
+      ],
+      "summary": "参赛团队在官方分配的限定云资源下，完成1亿条图文短视频多模态数据的清洗、特征提取、向量入库、高并发检索全链路构建，最终综合评估系统的检索QPS、Top1召回准确率、资源总成本三个指标进行排名，Top10队伍可获得阿里云数据工程岗位offer以及10万元现金奖励",
+      "registrationUrl": "https://tianchi.aliyun.com/competition/entrance/108672/registration",
+      "officialUrl": "https://tianchi.aliyun.com/competition/entrance/108672",
+      "recurring": false,
+      "fresh": true
+    },
+    {
       "id": "a43",
       "name": "2026火山引擎轻量RAG效果优化挑战赛",
       "host": "字节跳动火山引擎云原生AI团队",
@@ -2532,8 +3056,7 @@
       "summary": "给定10万份医疗科普文档数据集和固定开源大模型底座，参赛选手在7天内通过优化文档切分策略、检索策略、Prompt工程等方式提升问答准确率，最终评测指标包含回答准确率、响应耗时、资源占用三个维度，排名前20的选手可获得火山引擎云资源代金券和字节跳动面试绿色通道资格",
       "registrationUrl": "https://www.volcengine.com/activity/rag-competition-2026",
       "officialUrl": "https://www.volcengine.com/docs/6458/11638287",
-      "recurring": false,
-      "fresh": true
+      "recurring": false
     },
     {
       "id": "a44",
@@ -2563,8 +3086,7 @@
       "summary": "参赛选手需要在给定的8卡GPU K8s集群资源下，部署包含10个多模态工具节点的复杂Agent工作流，通过优化调度策略、推理加速、资源复用等技术手段，将1000并发Agent请求的平均响应耗时压到最低，同时保证服务SLA可用性达到99.9%，排名前10的团队可晋级全国总决赛，获得CCF认证证书和头部云厂商校招offer直通资格",
       "registrationUrl": "https://www.ccf.org.cn/Contest/CloudNative2026/reg",
       "officialUrl": "https://www.ccf.org.cn/Contest/CloudNative2026/",
-      "recurring": false,
-      "fresh": true
+      "recurring": false
     },
     {
       "id": "a41",
