@@ -1,56 +1,40 @@
 {
-  "generatedAt": "2026-11-23T08:39:16.538744+00:00",
+  "generatedAt": "2026-11-25T09:38:04.398295+00:00",
   "projects": [
     {
-      "id": "P2026001",
-      "title": "中小微惠企政策智能匹配问答Agent系统开发",
-      "company": "某长三角区域中小企业公共服务平台运营服务商",
-      "role": "AI应用开发实习工程师",
-      "stack": [
-        "LangChain v0.3",
-        "Qwen3-7B 开源大模型",
-        "Chroma 向量数据库",
-        "FastAPI",
-        "Vue3 轻量后台",
-        "企业微信小程序SDK"
-      ],
-      "summary": "从零搭建轻量化RAG知识库+工具调用Agent，自动爬取区域各级政府发布的惠企政策，支持企业用户输入自身经营信息后精准匹配可申报政策、自动生成申报材料初稿，替代70%人工咨询工作量，单项目部署成本控制在千元级",
-      "background": "当前区域内12万中小微企业普遍存在政策信息差，传统人工咨询服务人力成本高、响应慢，平台需要一套无需高额大模型API调用成本的轻量化智能服务系统快速落地",
+      "id": "PROJ-2026-001",
+      "title": "高校科研文献智能RAG检索问答系统全栈开发",
+      "company": "云智校园（国内头部高校SaaS服务商）",
+      "role": "全栈开发实习工程师",
+      "stack": "React 19 + Tailwind CSS v4 + FastAPI + Llama 3.2 7B + LangChain v0.3 + Chroma 向量库 + 阿里云OSS",
+      "summary": "完成支持PDF文献分片上传、语义检索、问答溯源、引用自动标注的C端工具开发，交付满足3所双一流高校师生使用的最小可用版本，解决传统文献库关键词检索漏检、无法直接生成观点总结的痛点",
+      "background": "2026年国内高校科研产出年增速超30%，传统学术检索工具语义理解能力不足，云智校园拿下多所高校的科研辅助工具采购订单，要求团队在1个月内落地可演示的MVP版本",
       "duration": "4周",
       "difficulty": 2.5,
-      "category": "RAG/AI Agent实战",
+      "category": "RAG+全栈融合",
       "skills": [
-        "S001",
-        "S002",
-        "S003",
-        "S004"
+        "SKILL-RAG-001",
+        "SKILL-FULLSTACK-012",
+        "SKILL-LLM-007",
+        "SKILL-FE-023"
       ]
     },
     {
-      "id": "P2026002",
-      "title": "校园二手交易平台全栈工程化重构项目",
-      "company": "某垂直校园生活服务创业公司",
-      "role": "全栈开发实习工程师",
-      "stack": [
-        "Next.js 15",
-        "Turborepo Monorepo",
-        "Tailwind v4",
-        "Prisma ORM",
-        "PostgreSQL",
-        "ClickHouse",
-        "Vitest",
-        "GitHub Actions CI/CD"
-      ],
-      "summary": "对老旧迭代混乱的校园二手交易平台做工程化重构，基于Monorepo统一管理前台、商家后台、运营数据看板3个模块，实现首屏加载速度提升60%、自动化测试覆盖率达80%，新增交易用户行为数据可视化看板支撑运营决策",
-      "background": "原有平台代码耦合度高、迭代效率低、首屏加载超过3s，无统一数据运营能力，需要符合2026年前端工程化标准的重构方案支撑后续10个高校的业务扩张",
-      "duration": "5周",
-      "difficulty": 2.7,
-      "category": "全栈+前端工程化+数据实战",
+      "id": "PROJ-2026-002",
+      "title": "直播电商用户行为分析智能Agent自动化报表平台",
+      "company": "星瀚电商（头部抖音直播机构）",
+      "role": "数据开发+Agent应用开发实习工程师",
+      "stack": "Python 3.12 + DuckDB + OpenAI Swarm v0.1 + Apache Superset 二次开发 + Airflow 2.10",
+      "summary": "搭建自然语言驱动的多Agent报表生成系统，业务人员无需写SQL即可通过对话自动生成用户留存、转化漏斗、GMV归因等分析报表，替代传统手动取数流程，将数据响应效率提升80%",
+      "background": "2026年电商618大促期间业务侧临时取数需求暴涨7倍，数据团队人力缺口达60%，急需低门槛自动化工具释放分析师人力，承接非定制化的常规数据分析需求",
+      "duration": "3.5周",
+      "difficulty": 2.3,
+      "category": "Agent+数据工程",
       "skills": [
-        "S005",
-        "S006",
-        "S007",
-        "S008"
+        "SKILL-AGENT-004",
+        "SKILL-DATA-018",
+        "SKILL-DATA-027",
+        "SKILL-AGENT-011"
       ]
     }
   ]
