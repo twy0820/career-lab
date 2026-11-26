@@ -1,40 +1,55 @@
 {
-  "generatedAt": "2026-11-25T09:38:04.398295+00:00",
+  "generatedAt": "2026-11-26T09:14:19.655819+00:00",
   "projects": [
     {
-      "id": "PROJ-2026-001",
-      "title": "高校科研文献智能RAG检索问答系统全栈开发",
-      "company": "云智校园（国内头部高校SaaS服务商）",
-      "role": "全栈开发实习工程师",
-      "stack": "React 19 + Tailwind CSS v4 + FastAPI + Llama 3.2 7B + LangChain v0.3 + Chroma 向量库 + 阿里云OSS",
-      "summary": "完成支持PDF文献分片上传、语义检索、问答溯源、引用自动标注的C端工具开发，交付满足3所双一流高校师生使用的最小可用版本，解决传统文献库关键词检索漏检、无法直接生成观点总结的痛点",
-      "background": "2026年国内高校科研产出年增速超30%，传统学术检索工具语义理解能力不足，云智校园拿下多所高校的科研辅助工具采购订单，要求团队在1个月内落地可演示的MVP版本",
-      "duration": "4周",
+      "id": "proj-2026-001",
+      "title": "企业内部文档智能问答RAG系统落地实战",
+      "company": "云帆企服（中型SaaS服务商）",
+      "role": "AI应用开发实习生",
+      "stack": [
+        "Python 3.12",
+        "LangChain 0.3",
+        "Qwen3-7B 私有部署",
+        "Milvus 2.5",
+        "Next.js 15",
+        "Tailwind CSS 4.0"
+      ],
+      "summary": "完成从多格式文档解析、分片优化、向量库构建、召回排序调优到前端交互全流程的可落地私有RAG系统，解决企业内部10万+份产品、运维、制度文档查询效率低的痛点，最终问答准确率达到90%以上。",
+      "background": "云帆企服原有内部文档依赖传统关键词搜索，准确率不足38%，员工单次查询有效信息平均耗时26分钟，公有大模型存在数据泄露风险，急需低成本搭建完全本地化的智能问答系统。",
+      "duration": "4周，每周投入10小时",
       "difficulty": 2.5,
-      "category": "RAG+全栈融合",
+      "category": "RAG+全栈开发",
       "skills": [
-        "SKILL-RAG-001",
-        "SKILL-FULLSTACK-012",
-        "SKILL-LLM-007",
-        "SKILL-FE-023"
+        "skill-rag-001",
+        "skill-langchain-002",
+        "skill-vector-db-003",
+        "skill-nextjs-004",
+        "skill-private-llm-005"
       ]
     },
     {
-      "id": "PROJ-2026-002",
-      "title": "直播电商用户行为分析智能Agent自动化报表平台",
-      "company": "星瀚电商（头部抖音直播机构）",
-      "role": "数据开发+Agent应用开发实习工程师",
-      "stack": "Python 3.12 + DuckDB + OpenAI Swarm v0.1 + Apache Superset 二次开发 + Airflow 2.10",
-      "summary": "搭建自然语言驱动的多Agent报表生成系统，业务人员无需写SQL即可通过对话自动生成用户留存、转化漏斗、GMV归因等分析报表，替代传统手动取数流程，将数据响应效率提升80%",
-      "background": "2026年电商618大促期间业务侧临时取数需求暴涨7倍，数据团队人力缺口达60%，急需低门槛自动化工具释放分析师人力，承接非定制化的常规数据分析需求",
-      "duration": "3.5周",
-      "difficulty": 2.3,
-      "category": "Agent+数据工程",
+      "id": "proj-2026-002",
+      "title": "跨境电商用户行为自动化分析Agent平台搭建",
+      "company": "星贸跨境（新锐出海电商平台）",
+      "role": "数据智能开发助理工程师",
+      "stack": [
+        "Python 3.12",
+        "OpenAI Agent SDK 1.0",
+        "DuckDB 1.1",
+        "Apache Superset 3.0",
+        "FastAPI 0.115"
+      ],
+      "summary": "搭建具备日志自动清洗、自主取数、可视化报表生成、运营策略自动输出能力的分析Agent平台，替代传统人工取数、做报表的重复工作，将单次大促活动效果分析周期从3天压缩到10分钟以内。",
+      "background": "星贸跨境日均产生2200万条用户行为埋点日志，运营团队非技术人员无法自主完成复杂数据分析，数据团队70%的工作量集中在重复取数、制作常规报表上，人效提升需求迫切。",
+      "duration": "5周，每周投入10小时",
+      "difficulty": 2.8,
+      "category": "Agent+数据开发",
       "skills": [
-        "SKILL-AGENT-004",
-        "SKILL-DATA-018",
-        "SKILL-DATA-027",
-        "SKILL-AGENT-011"
+        "skill-agent-001",
+        "skill-data-process-002",
+        "skill-duckdb-003",
+        "skill-data-visualization-004",
+        "skill-fastapi-005"
       ]
     }
   ]
