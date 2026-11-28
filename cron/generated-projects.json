@@ -1,42 +1,42 @@
 {
-  "generatedAt": "2026-11-27T09:29:46.789990+00:00",
+  "generatedAt": "2026-11-28T08:43:00.039164+00:00",
   "projects": [
     {
-      "id": "proj-2026-001",
-      "title": "中小商家私域知识库智能RAG客服系统",
-      "company": "微店通科技（国内头部本地生活SaaS服务商）",
-      "role": "全栈AI应用开发实习生",
-      "stack": "React19 + Vite6 + Arco Design Pro 3.0 + LangChain 0.3 + Qwen3-7B 本地轻量化部署 + Milvus 3.0 向量数据库 + Node.js 22 + Express 5 + 微信小程序开放API",
-      "summary": "面向0基础到中级开发者，从0搭建支持商家自定义商品/售后知识库上传、用户多轮对话溯源、客服后台会话质检的低门槛RAG客服系统，相比传统关键词客服回复准确率提升62%，适配100人以下小微商家零算力成本部署需求",
-      "background": "2026年国内超2300万私域中小商家普遍无力承担定制化大模型客服开发成本，传统自动回复答非所问率超70%，客诉率居高不下，企业侧需要低成本可快速落地的标准化RAG客服产品",
+      "id": "P2026001",
+      "title": "中小电商售后知识库RAG智能问答全栈落地项目",
+      "company": "企智云服（国内垂直SaaS新锐企业）",
+      "role": "全栈开发实战实习生",
+      "stack": "Vue3+Vite5+ElementPlus、Python3.12+FastAPI、LangChain0.3、Qwen2.5-7B开源大模型本地部署、Chroma向量数据库、Docker Compose、阿里云OSS",
+      "summary": "从0到1搭建面向100人规模中小电商的售后知识库RAG系统，实现售后文档批量上传、语义分片检索、低幻觉精准问答、回答来源溯源展示全链路能力，交付可直接上线的最小可用版本，无需依赖付费大模型API",
+      "background": "企智云服2026年Q1承接了120家服饰类中小电商的售后SaaS升级需求，目标替代原有人工客服翻纸质手册回复用户的低效模式，要求单客部署成本控制在50元以内，团队人手不足需要实习生参与核心版本落地",
       "duration": "4周，每周投入10小时",
       "difficulty": 2.5,
       "category": "RAG+全栈开发",
       "skills": [
-        "skill-rag-base-001",
-        "skill-fullstack-integration-002",
-        "skill-frontend-component-007",
-        "skill-vector-db-003",
-        "skill-backend-api-design-012"
+        "SK001 Vue3组合式API业务开发",
+        "SK002 FastAPI高性能接口封装",
+        "SK003 向量数据库基础增删改查操作",
+        "SK004 RAG检索增强核心逻辑调优",
+        "SK005 轻量服务Docker容器化部署"
       ]
     },
     {
-      "id": "proj-2026-002",
-      "title": "电商大促自动运营决策Agent平台",
-      "company": "抖品优选（头部内容电商平台）",
-      "role": "数据智能开发实习生",
-      "stack": "Next.js 15 + Tailwind CSS 4.0 + Turborepo 2.0 + AutoGPT 2.0 + DuckDB 1.0 + Apache Flink 2.0 + ClickHouse 24 + 字节豆包4.0 API",
-      "summary": "面向0基础到中级开发者，搭建可自动采集大促实时流量/销量/用户评论数据、自主生成库存调整、投放策略、优惠券发放方案的决策Agent，配套可视化运营审核后台，将原本运营人员日均4小时的人工报表分析工作压缩到30秒自动输出可执行方案",
-      "background": "2026年电商大促期间单平台日均产生超2亿条行为数据，人工决策响应滞后平均超2小时，往年大促因库存错配、投放策略偏差造成的损失超1200万，企业急需可自主迭代的轻量决策Agent辅助运营提效",
+      "id": "P2026002",
+      "title": "短视频运营数据智能分析Agent平台前端工程化项目",
+      "company": "短视科技（国内头部中视频内容平台）",
+      "role": "前端工程化&AI应用开发实习生",
+      "stack": "React19+Next.js15+TailwindCSS4、Monorepo+Turborepo、字节豆包AgentKit、ECharts5.5、Vitest单元测试、Playwright自动化测试、GitHub Actions CI/CD",
+      "summary": "基于Monorepo架构搭建可复用的运营数据智能分析Agent平台，支持运营人员用自然语言直接生成多维度流量可视化报表、自动输出账号增长诊断报告，同步完成公共组件库封装、工程化规范落地、自动化流水线配置，支撑全公司2000+运营人员日常使用",
+      "background": "短视科技2026年运营团队原工作流程需要跨6个后台导出数据手动做报表，单份周度报告耗时超过2小时，业务侧强烈要求前端团队落地低代码+AI Agent的自助分析平台，要求代码复用率达到70%以上，迭代发布周期缩短到1天",
       "duration": "5周，每周投入12小时",
       "difficulty": 2.8,
-      "category": "AI Agent+数据工程+前端工程化",
+      "category": "AI Agent+前端工程化+数据可视化",
       "skills": [
-        "skill-agent-workflow-004",
-        "skill-real-time-data-009",
-        "skill-frontend-monorepo-015",
-        "skill-llm-tool-call-006",
-        "skill-data-visualization-011"
+        "SK006 React19并发特性业务开发",
+        "SK007 Monorepo大型前端架构搭建",
+        "SK008 AI Agent工具调用逻辑对接",
+        "SK009 ECharts自定义可视化组件封装",
+        "SK010 前端自动化测试&CI/CD流水线配置"
       ]
     }
   ]
